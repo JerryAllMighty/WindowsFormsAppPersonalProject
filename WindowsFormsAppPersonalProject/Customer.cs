@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace WindowsFormsAppPersonalProject
 {
     public partial class Customer : Form
-    {
+    {    
         public Customer()
         {
             InitializeComponent();
