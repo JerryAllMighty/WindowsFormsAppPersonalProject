@@ -33,16 +33,15 @@
             this.고객ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.계좌ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.예금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.지점ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.투자ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.대출ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.출금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.현재금액ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.출금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.대출ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.지점ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +54,6 @@
             this.예금ToolStripMenuItem,
             this.출금ToolStripMenuItem,
             this.대출ToolStripMenuItem,
-            this.투자ToolStripMenuItem,
             this.지점ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -73,8 +71,8 @@
             // 계좌ToolStripMenuItem
             // 
             this.계좌ToolStripMenuItem.Name = "계좌ToolStripMenuItem";
-            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.계좌ToolStripMenuItem.Text = "계좌";
+            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.계좌ToolStripMenuItem.Text = "계좌조회";
             this.계좌ToolStripMenuItem.Click += new System.EventHandler(this.계좌ToolStripMenuItem_Click);
             // 
             // 예금ToolStripMenuItem
@@ -83,29 +81,14 @@
             this.현재금액ToolStripMenuItem});
             this.예금ToolStripMenuItem.Name = "예금ToolStripMenuItem";
             this.예금ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.예금ToolStripMenuItem.Text = "예금";
+            this.예금ToolStripMenuItem.Text = "입금";
             this.예금ToolStripMenuItem.Click += new System.EventHandler(this.예금ToolStripMenuItem_Click);
             // 
-            // 지점ToolStripMenuItem
+            // 현재금액ToolStripMenuItem
             // 
-            this.지점ToolStripMenuItem.Name = "지점ToolStripMenuItem";
-            this.지점ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.지점ToolStripMenuItem.Text = "지점";
-            this.지점ToolStripMenuItem.Click += new System.EventHandler(this.지점ToolStripMenuItem_Click);
-            // 
-            // 투자ToolStripMenuItem
-            // 
-            this.투자ToolStripMenuItem.Name = "투자ToolStripMenuItem";
-            this.투자ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.투자ToolStripMenuItem.Text = "투자";
-            this.투자ToolStripMenuItem.Click += new System.EventHandler(this.투자ToolStripMenuItem_Click);
-            // 
-            // 대출ToolStripMenuItem
-            // 
-            this.대출ToolStripMenuItem.Name = "대출ToolStripMenuItem";
-            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.대출ToolStripMenuItem.Text = "대출";
-            this.대출ToolStripMenuItem.Click += new System.EventHandler(this.대출ToolStripMenuItem_Click);
+            this.현재금액ToolStripMenuItem.Name = "현재금액ToolStripMenuItem";
+            this.현재금액ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.현재금액ToolStripMenuItem.Text = "현재금액";
             // 
             // 출금ToolStripMenuItem
             // 
@@ -114,11 +97,19 @@
             this.출금ToolStripMenuItem.Text = "출금";
             this.출금ToolStripMenuItem.Click += new System.EventHandler(this.출금ToolStripMenuItem_Click);
             // 
-            // 현재금액ToolStripMenuItem
+            // 대출ToolStripMenuItem
             // 
-            this.현재금액ToolStripMenuItem.Name = "현재금액ToolStripMenuItem";
-            this.현재금액ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.현재금액ToolStripMenuItem.Text = "현재금액";
+            this.대출ToolStripMenuItem.Name = "대출ToolStripMenuItem";
+            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.대출ToolStripMenuItem.Text = "대출";
+            this.대출ToolStripMenuItem.Click += new System.EventHandler(this.대출ToolStripMenuItem_Click);
+            // 
+            // 지점ToolStripMenuItem
+            // 
+            this.지점ToolStripMenuItem.Name = "지점ToolStripMenuItem";
+            this.지점ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.지점ToolStripMenuItem.Text = "지점";
+            this.지점ToolStripMenuItem.Click += new System.EventHandler(this.지점ToolStripMenuItem_Click);
             // 
             // textBox2
             // 
@@ -141,15 +132,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "로그인을 시도해주십시오";
             // 
-            // textBox3
+            // label2
             // 
-            this.textBox3.Location = new System.Drawing.Point(202, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(277, 29);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "PASSWORD";
             // 
             // label1
             // 
@@ -160,14 +150,15 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "ID";
             // 
-            // label2
+            // textBox3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "PASSWORD";
+            this.textBox3.Location = new System.Drawing.Point(202, 79);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
+            this.textBox3.Size = new System.Drawing.Size(277, 29);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // Form1
             // 
@@ -201,7 +192,6 @@
         private System.Windows.Forms.ToolStripMenuItem 현재금액ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 출금ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 대출ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 투자ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 지점ToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;

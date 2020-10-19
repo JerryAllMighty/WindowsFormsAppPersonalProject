@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,12 +71,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Investment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Investment.Designer.cs">
-      <DependentUpon>Investment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Loan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +99,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Investment.resx">
-      <DependentUpon>Investment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loan.resx">
       <DependentUpon>Loan.cs</DependentUpon>

@@ -14,7 +14,6 @@ namespace WindowsFormsAppPersonalProject
     {
         Customer c1 = new Customer();
         Location l1 = new Location();
-        Investment i1 = new Investment();
         Loan loan = new Loan();
         Withdrawal w1 = new Withdrawal();
         Deposit d1 = new Deposit();
@@ -58,10 +57,6 @@ namespace WindowsFormsAppPersonalProject
             loan.Show();
         }
 
-        private void 투자ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            i1.Show();
-        }
 
         private void 지점ToolStripMenuItem_Click(object sender, EventArgs e)
         {

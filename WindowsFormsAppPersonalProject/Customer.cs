@@ -19,7 +19,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Cursor.Position = textBox1.Location;
+            
         }
     }
 }
