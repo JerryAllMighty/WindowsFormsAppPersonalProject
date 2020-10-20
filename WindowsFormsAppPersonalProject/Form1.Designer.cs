@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.고객ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.계좌ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.예금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.현재금액ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.출금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.대출ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.지점ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.이체ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +51,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.고객ToolStripMenuItem,
             this.계좌ToolStripMenuItem,
-            this.예금ToolStripMenuItem,
-            this.출금ToolStripMenuItem,
             this.대출ToolStripMenuItem,
-            this.지점ToolStripMenuItem});
+            this.이체ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -75,28 +73,6 @@
             this.계좌ToolStripMenuItem.Text = "계좌조회";
             this.계좌ToolStripMenuItem.Click += new System.EventHandler(this.계좌ToolStripMenuItem_Click);
             // 
-            // 예금ToolStripMenuItem
-            // 
-            this.예금ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.현재금액ToolStripMenuItem});
-            this.예금ToolStripMenuItem.Name = "예금ToolStripMenuItem";
-            this.예금ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.예금ToolStripMenuItem.Text = "입금";
-            this.예금ToolStripMenuItem.Click += new System.EventHandler(this.예금ToolStripMenuItem_Click);
-            // 
-            // 현재금액ToolStripMenuItem
-            // 
-            this.현재금액ToolStripMenuItem.Name = "현재금액ToolStripMenuItem";
-            this.현재금액ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.현재금액ToolStripMenuItem.Text = "현재금액";
-            // 
-            // 출금ToolStripMenuItem
-            // 
-            this.출금ToolStripMenuItem.Name = "출금ToolStripMenuItem";
-            this.출금ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.출금ToolStripMenuItem.Text = "출금";
-            this.출금ToolStripMenuItem.Click += new System.EventHandler(this.출금ToolStripMenuItem_Click);
-            // 
             // 대출ToolStripMenuItem
             // 
             this.대출ToolStripMenuItem.Name = "대출ToolStripMenuItem";
@@ -104,12 +80,12 @@
             this.대출ToolStripMenuItem.Text = "대출";
             this.대출ToolStripMenuItem.Click += new System.EventHandler(this.대출ToolStripMenuItem_Click);
             // 
-            // 지점ToolStripMenuItem
+            // 이체ToolStripMenuItem
             // 
-            this.지점ToolStripMenuItem.Name = "지점ToolStripMenuItem";
-            this.지점ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.지점ToolStripMenuItem.Text = "지점";
-            this.지점ToolStripMenuItem.Click += new System.EventHandler(this.지점ToolStripMenuItem_Click);
+            this.이체ToolStripMenuItem.Name = "이체ToolStripMenuItem";
+            this.이체ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.이체ToolStripMenuItem.Text = "이체";
+            this.이체ToolStripMenuItem.Click += new System.EventHandler(this.이체ToolStripMenuItem_Click);
             // 
             // textBox2
             // 
@@ -160,6 +136,17 @@
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(56, 362);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -167,6 +154,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -188,16 +176,15 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 고객ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 계좌ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 예금ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 현재금액ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 출금ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 대출ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 지점ToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ToolStripMenuItem 이체ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

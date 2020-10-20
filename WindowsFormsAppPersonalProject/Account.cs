@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class Account : Form
+    public partial class AccountView : Form
     {
-        public Account()
+        public AccountView()
         {
             InitializeComponent();
+        }
+
+        private void AccountView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

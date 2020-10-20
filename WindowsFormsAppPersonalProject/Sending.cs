@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class Customer : Form
-    {    
-        public Customer()
+    public partial class Sending : Form
+    {
+        public Sending()
         {
             InitializeComponent();
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            
-        }
-
-        private void Customer_Load(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
