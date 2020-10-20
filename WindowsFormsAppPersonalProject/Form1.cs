@@ -77,7 +77,7 @@ namespace WindowsFormsAppPersonalProject
                 {
                     groupBox1.Visible = false;
                     menuStrip1.Enabled = true;
-                    timer1.Enabled = true;
+                    // timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                     timer1.Interval = 1000;
                     progressBar1.Value = 50;
                    

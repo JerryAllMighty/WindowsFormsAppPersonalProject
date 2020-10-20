@@ -59,12 +59,6 @@
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deposit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deposit.Designer.cs">
-      <DependentUpon>Deposit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +77,6 @@
     <Compile Include="Loan.Designer.cs">
       <DependentUpon>Loan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Location.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Location.Designer.cs">
-      <DependentUpon>Location.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sending.cs">
@@ -97,20 +85,11 @@
     <Compile Include="Sending.Designer.cs">
       <DependentUpon>Sending.cs</DependentUpon>
     </Compile>
-    <Compile Include="Withdrawal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Withdrawal.Designer.cs">
-      <DependentUpon>Withdrawal.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Deposit.resx">
-      <DependentUpon>Deposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -120,9 +99,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Loan.resx">
       <DependentUpon>Loan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Location.resx">
-      <DependentUpon>Location.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,9 +111,6 @@
     </Compile>
     <EmbeddedResource Include="Sending.resx">
       <DependentUpon>Sending.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Withdrawal.resx">
-      <DependentUpon>Withdrawal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
