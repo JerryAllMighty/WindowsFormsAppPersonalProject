@@ -31,9 +31,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,14 +81,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "어떤 계좌를 조회하실 것인지 선택해주십시오";
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(0, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "예금";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(301, 82);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 50);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "일반";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -99,14 +99,14 @@
             this.button2.Text = "적금";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button1
             // 
-            this.button3.Location = new System.Drawing.Point(301, 82);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "일반";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(0, 82);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 50);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "예금";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // AccountView
             // 

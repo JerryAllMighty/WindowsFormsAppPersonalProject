@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("고객번호");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("고객명");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("고객주소");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("연락처");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
+            treeNode26,
+            treeNode27,
+            treeNode28,
+            treeNode29});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -61,7 +61,6 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -76,27 +75,27 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 233;
-            this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.TabIndex = 50;
             // 
             // treeView1
             // 
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeView1.Location = new System.Drawing.Point(0, -1);
             this.treeView1.Name = "treeView1";
-            treeNode21.Name = "노드5";
-            treeNode21.Text = "고객번호";
-            treeNode22.Name = "노드6";
-            treeNode22.Text = "고객명";
-            treeNode23.Name = "노드7";
-            treeNode23.Text = "고객주소";
-            treeNode24.Name = "노드8";
-            treeNode24.Text = "연락처";
-            treeNode25.Name = "노드4";
-            treeNode25.Text = "고객";
+            treeNode26.Name = "노드5";
+            treeNode26.Text = "고객번호";
+            treeNode27.Name = "노드6";
+            treeNode27.Text = "고객명";
+            treeNode28.Name = "노드7";
+            treeNode28.Text = "고객주소";
+            treeNode29.Name = "노드8";
+            treeNode29.Text = "연락처";
+            treeNode30.Name = "노드4";
+            treeNode30.Text = "고객";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode25});
+            treeNode30});
             this.treeView1.Size = new System.Drawing.Size(233, 109);
-            this.treeView1.TabIndex = 1;
+            this.treeView1.TabIndex = 20;
             // 
             // dataGridView1
             // 
@@ -107,7 +106,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(233, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 35;
             // 
             // groupBox2
             // 
@@ -119,7 +118,7 @@
             this.groupBox2.Location = new System.Drawing.Point(1, 139);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(491, 186);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
@@ -128,7 +127,7 @@
             this.button4.Location = new System.Drawing.Point(266, 126);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(174, 60);
-            this.button4.TabIndex = 6;
+            this.button4.TabIndex = 3;
             this.button4.Text = "연락처";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -137,7 +136,7 @@
             this.button3.Location = new System.Drawing.Point(1, 126);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(174, 60);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 2;
             this.button3.Text = "고객주소";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -146,7 +145,7 @@
             this.button2.Location = new System.Drawing.Point(266, 42);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 60);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 1;
             this.button2.Text = "고객명";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +154,7 @@
             this.button1.Location = new System.Drawing.Point(1, 42);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 60);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 0;
             this.button1.Text = "고객번호";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -176,7 +175,7 @@
             this.groupBox1.Location = new System.Drawing.Point(1, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(491, 105);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
@@ -196,7 +195,7 @@
             this.radioButton1.Location = new System.Drawing.Point(8, 78);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(43, 20);
-            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "예";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -208,7 +207,7 @@
             this.radioButton2.Location = new System.Drawing.Point(174, 78);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(77, 20);
-            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "아니오";
             this.radioButton2.UseVisualStyleBackColor = true;
