@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
+using MySql.Data.MySqlClient;
 namespace WindowsFormsAppPersonalProject
 {
     public partial class Customer : Form
@@ -24,6 +25,14 @@ namespace WindowsFormsAppPersonalProject
 
         private void Customer_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WhenCreate cr = new WhenCreate();
+            cr.Show();
+            cr.Activate();
 
         }
     }

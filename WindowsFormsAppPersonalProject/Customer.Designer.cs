@@ -28,35 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("고객번호");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("고객명");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("고객주소");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("연락처");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -72,7 +66,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 233;
             this.splitContainer1.TabIndex = 50;
@@ -82,18 +75,18 @@
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeView1.Location = new System.Drawing.Point(0, -1);
             this.treeView1.Name = "treeView1";
-            treeNode26.Name = "노드5";
-            treeNode26.Text = "고객번호";
-            treeNode27.Name = "노드6";
-            treeNode27.Text = "고객명";
-            treeNode28.Name = "노드7";
-            treeNode28.Text = "고객주소";
-            treeNode29.Name = "노드8";
-            treeNode29.Text = "연락처";
-            treeNode30.Name = "노드4";
-            treeNode30.Text = "고객";
+            treeNode21.Name = "노드5";
+            treeNode21.Text = "고객번호";
+            treeNode22.Name = "노드6";
+            treeNode22.Text = "고객명";
+            treeNode23.Name = "노드7";
+            treeNode23.Text = "고객주소";
+            treeNode24.Name = "노드8";
+            treeNode24.Text = "연락처";
+            treeNode25.Name = "노드4";
+            treeNode25.Text = "고객";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode30});
+            treeNode25});
             this.treeView1.Size = new System.Drawing.Size(233, 109);
             this.treeView1.TabIndex = 20;
             // 
@@ -110,120 +103,65 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(1, 139);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnInsert);
+            this.groupBox2.Controls.Add(this.btnSelect);
+            this.groupBox2.Controls.Add(this.btnUpdate);
+            this.groupBox2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(491, 186);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "어떤 작업을 수행하시겠습니까?";
             // 
-            // button4
+            // btnDelete
             // 
-            this.button4.Location = new System.Drawing.Point(266, 126);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(174, 60);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "연락처";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(266, 126);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(174, 60);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnInsert
             // 
-            this.button3.Location = new System.Drawing.Point(1, 126);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 60);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "고객주소";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(18, 42);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(174, 60);
+            this.btnInsert.TabIndex = 2;
+            this.btnInsert.Text = "등록";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(266, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 60);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "고객명";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(18, 126);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(174, 60);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "수정";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSelect
             // 
-            this.button1.Location = new System.Drawing.Point(1, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 60);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "고객번호";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(-3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 61);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "어떤 정보를 확인하시겠습니까?";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(1, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(491, 105);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 61);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "고객정보를 확인하시겠습니까?";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton1.Location = new System.Drawing.Point(8, 78);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(43, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "예";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton2.Location = new System.Drawing.Point(174, 78);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 20);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "아니오";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnSelect.Location = new System.Drawing.Point(266, 42);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(174, 60);
+            this.btnSelect.TabIndex = 0;
+            this.btnSelect.Text = "조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
             // 
             // Customer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Customer";
             this.Text = "Customer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Customer_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -231,8 +169,6 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,16 +176,11 @@
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

@@ -13,6 +13,7 @@ namespace WindowsFormsAppPersonalProject
     public partial class Form1 : Form
     {
         private Login login;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,12 +29,20 @@ namespace WindowsFormsAppPersonalProject
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "JerryBanking";
+            Login login = new Login();
+
+            if (login.Flag == 1)
+            {
+                menuStrip1.Visible = true;
+            }
+            else if(login.Flag == 2)
+                menuStrip3.Visible = true;
         }
        
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customer c1 = new Customer();
-            c1.MdiParent = this;
+            
             c1.Show();
             c1.Activate();
             
@@ -60,6 +69,18 @@ namespace WindowsFormsAppPersonalProject
             s1.MdiParent = this;
             s1.Show();
             s1.Activate();
+        }
+
+        private void 로그아웃ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

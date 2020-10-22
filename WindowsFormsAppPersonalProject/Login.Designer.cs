@@ -32,8 +32,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,8 +49,8 @@
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtPwd);
+            this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(151, 157);
             this.groupBox1.Name = "groupBox1";
@@ -77,22 +77,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "ID";
             // 
-            // textBox3
+            // txtPwd
             // 
-            this.textBox3.Location = new System.Drawing.Point(202, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(277, 29);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.txtPwd.Location = new System.Drawing.Point(202, 79);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PasswordChar = '*';
+            this.txtPwd.Size = new System.Drawing.Size(277, 29);
+            this.txtPwd.TabIndex = 4;
+            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
-            // textBox2
+            // txtID
             // 
-            this.textBox2.Location = new System.Drawing.Point(202, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(277, 29);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.txtID.Location = new System.Drawing.Point(202, 50);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(277, 29);
+            this.txtID.TabIndex = 3;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // progressBar1
             // 
@@ -120,6 +120,7 @@
             this.관리자용ToolStripMenuItem.Name = "관리자용ToolStripMenuItem";
             this.관리자용ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.관리자용ToolStripMenuItem.Text = "관리자용";
+            this.관리자용ToolStripMenuItem.Click += new System.EventHandler(this.관리자용ToolStripMenuItem_Click);
             // 
             // menuStrip2
             // 
@@ -136,6 +137,7 @@
             this.회원용ToolStripMenuItem.Name = "회원용ToolStripMenuItem";
             this.회원용ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.회원용ToolStripMenuItem.Text = "회원용";
+            this.회원용ToolStripMenuItem.Click += new System.EventHandler(this.회원용ToolStripMenuItem_Click);
             // 
             // Login
             // 
@@ -168,8 +170,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPwd;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
