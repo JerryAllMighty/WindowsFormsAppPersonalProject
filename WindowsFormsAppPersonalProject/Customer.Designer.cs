@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("고객번호");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("고객명");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("고객주소");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("연락처");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMember = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,14 +57,15 @@
             // 
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvMember);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.treeView1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 233;
@@ -73,33 +74,34 @@
             // treeView1
             // 
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.treeView1.Location = new System.Drawing.Point(0, -1);
+            this.treeView1.Location = new System.Drawing.Point(509, 45);
             this.treeView1.Name = "treeView1";
-            treeNode21.Name = "노드5";
-            treeNode21.Text = "고객번호";
-            treeNode22.Name = "노드6";
-            treeNode22.Text = "고객명";
-            treeNode23.Name = "노드7";
-            treeNode23.Text = "고객주소";
-            treeNode24.Name = "노드8";
-            treeNode24.Text = "연락처";
-            treeNode25.Name = "노드4";
-            treeNode25.Text = "고객";
+            treeNode1.Name = "노드5";
+            treeNode1.Text = "고객번호";
+            treeNode2.Name = "노드6";
+            treeNode2.Text = "고객명";
+            treeNode3.Name = "노드7";
+            treeNode3.Text = "고객주소";
+            treeNode4.Name = "노드8";
+            treeNode4.Text = "연락처";
+            treeNode5.Name = "노드4";
+            treeNode5.Text = "고객";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode25});
-            this.treeView1.Size = new System.Drawing.Size(233, 109);
+            treeNode5});
+            this.treeView1.Size = new System.Drawing.Size(279, 109);
             this.treeView1.TabIndex = 20;
             // 
-            // dataGridView1
+            // dgvMember
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(233, 450);
-            this.dataGridView1.TabIndex = 35;
+            this.dgvMember.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMember.Location = new System.Drawing.Point(0, 0);
+            this.dgvMember.Name = "dgvMember";
+            this.dgvMember.RowHeadersWidth = 51;
+            this.dgvMember.RowTemplate.Height = 23;
+            this.dgvMember.Size = new System.Drawing.Size(800, 233);
+            this.dgvMember.TabIndex = 35;
             // 
             // groupBox2
             // 
@@ -134,15 +136,6 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(18, 126);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(174, 60);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "수정";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(266, 42);
@@ -151,6 +144,16 @@
             this.btnSelect.TabIndex = 0;
             this.btnSelect.Text = "조회";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(18, 126);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(174, 60);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "수정";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // Customer
             // 
@@ -167,7 +170,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -175,7 +178,7 @@
 
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMember;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnDelete;
