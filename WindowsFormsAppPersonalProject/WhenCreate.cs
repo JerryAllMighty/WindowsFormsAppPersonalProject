@@ -15,49 +15,41 @@ namespace WindowsFormsAppPersonalProject
     {
         string strConn = ConfigurationManager.ConnectionStrings["JerryBank"].ConnectionString;
 
+        bool btnChoice;
+        bool haveChosen;
+        string kindOfAccount;
+
         public WhenCreate()
         {
             InitializeComponent();
-        }
-
-        private void DataRetrieve()
-        {
-            MySqlConnection conn = new MySqlConnection(strConn);
-            string sql = "select CustomerName, CustomerAddress, CustomerID, CustomerPw, CustomerPhone from customers;";
-            MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
-            DataSet ds = new DataSet();
-            conn.Open();
-            da.Fill(ds, "customer");
-            conn.Close();
-
-            dgvMember.DataSource = ds.Tables["customer"];
-
-            txtID.Text = txtName.Text = txtPwd.Text = "";
-            txtID.Enabled = true;
-
-
-
         }
 
         private void WhenCreate_Load(object sender, EventArgs e)
         {
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e)        //등록
         {
-            string id;
-            Login log = new Login();
-            if (log.Flag == 1)
+            if (!haveChosen)
             {
-                id = "SCustomerID";
-            }
-            else
-            {
-                id = "ACustomerID";
+                MessageBox.Show("계정의 종류를 반드시 선택해주세요.");
+                return;
             }
 
+            if (btnChoice == true)
+            {
+                kindOfAccount = "ACustomerID";
+            }
+            else if (btnChoice == false)
+            {
+                kindOfAccount = "sCustomerID";
+            }
+            
+               
+           
+
             MySqlConnection conn = new MySqlConnection(strConn);
-            string sql = $@"insert into customers (CustomerName, CustomerAddress, {id}, CustomerPw, CustomerPhone) 
+            string sql = $@"insert into customers (CustomerName, CustomerAddress, {kindOfAccount}, CustomerPw, CustomerPhone) 
                             values('{txtName.Text}', '{txtAddress.Text}', '{txtID.Text}', '{txtPwd.Text}', '{txtPhone.Text}') ";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             conn.Open();
@@ -66,6 +58,18 @@ namespace WindowsFormsAppPersonalProject
 
             MessageBox.Show("등록이 완료되었습니다.");
             this.Close();
+        }
+
+        private void rbtnA_CheckedChanged(object sender, EventArgs e)
+        {
+            btnChoice = true;
+            haveChosen = true;
+        }
+
+        private void rbtnS_CheckedChanged(object sender, EventArgs e)
+        {
+            btnChoice = false;
+            haveChosen = true;
         }
     }
 }

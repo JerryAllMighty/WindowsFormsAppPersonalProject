@@ -15,6 +15,9 @@ namespace WindowsFormsAppPersonalProject
             dgv.AllowUserToAddRows = false;
             dgv.AutoGenerateColumns = false;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+
         }
 
         public static void AddGridTextColumn(
@@ -23,7 +26,7 @@ namespace WindowsFormsAppPersonalProject
             string datapropertytype,
             int coldWidth = 100,
             bool visibility = true,
-            DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft
+            DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    //이거 밑에 구현해주자
 
             )
         {

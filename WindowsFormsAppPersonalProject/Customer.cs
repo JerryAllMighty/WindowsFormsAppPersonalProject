@@ -33,9 +33,9 @@ namespace WindowsFormsAppPersonalProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            WhenCreate cr = new WhenCreate();
-            cr.Show();
-            cr.Activate();
+            NewAccount na = new NewAccount();
+            na.Show();
+            na.Activate();
 
         }
 
@@ -59,6 +59,15 @@ namespace WindowsFormsAppPersonalProject
             dgvMember.DataSource = ds.Tables["customer"];
         }
 
-       
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("정말로 계정을 삭제하시겠습니까?", "계정 삭제", MessageBoxButtons.YesNo);
+            //마저 코딩하기
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("고객번호");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("고객명");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("고객주소");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("연락처");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.dgvMember = new System.Windows.Forms.DataGridView();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnDeleteAccount = new System.Windows.Forms.Button();
+            this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -71,26 +71,6 @@
             this.splitContainer1.SplitterDistance = 233;
             this.splitContainer1.TabIndex = 50;
             // 
-            // treeView1
-            // 
-            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.treeView1.Location = new System.Drawing.Point(509, 45);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "노드5";
-            treeNode1.Text = "고객번호";
-            treeNode2.Name = "노드6";
-            treeNode2.Text = "고객명";
-            treeNode3.Name = "노드7";
-            treeNode3.Text = "고객주소";
-            treeNode4.Name = "노드8";
-            treeNode4.Text = "연락처";
-            treeNode5.Name = "노드4";
-            treeNode5.Text = "고객";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            this.treeView1.Size = new System.Drawing.Size(279, 109);
-            this.treeView1.TabIndex = 20;
-            // 
             // dgvMember
             // 
             this.dgvMember.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -103,10 +83,30 @@
             this.dgvMember.Size = new System.Drawing.Size(800, 233);
             this.dgvMember.TabIndex = 35;
             // 
+            // treeView1
+            // 
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeView1.Location = new System.Drawing.Point(509, 45);
+            this.treeView1.Name = "treeView1";
+            treeNode11.Name = "노드5";
+            treeNode11.Text = "고객번호";
+            treeNode12.Name = "노드6";
+            treeNode12.Text = "고객명";
+            treeNode13.Name = "노드7";
+            treeNode13.Text = "고객주소";
+            treeNode14.Name = "노드8";
+            treeNode14.Text = "연락처";
+            treeNode15.Name = "노드4";
+            treeNode15.Text = "고객";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode15});
+            this.treeView1.Size = new System.Drawing.Size(279, 109);
+            this.treeView1.TabIndex = 20;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnDelete);
-            this.groupBox2.Controls.Add(this.btnInsert);
+            this.groupBox2.Controls.Add(this.btnDeleteAccount);
+            this.groupBox2.Controls.Add(this.btnCreateAccount);
             this.groupBox2.Controls.Add(this.btnSelect);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -117,24 +117,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "어떤 작업을 수행하시겠습니까?";
             // 
-            // btnDelete
+            // btnDeleteAccount
             // 
-            this.btnDelete.Location = new System.Drawing.Point(266, 126);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(174, 60);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Location = new System.Drawing.Point(266, 126);
+            this.btnDeleteAccount.Name = "btnDeleteAccount";
+            this.btnDeleteAccount.Size = new System.Drawing.Size(174, 60);
+            this.btnDeleteAccount.TabIndex = 3;
+            this.btnDeleteAccount.Text = "계정탈퇴";
+            this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
-            // btnInsert
+            // btnCreateAccount
             // 
-            this.btnInsert.Location = new System.Drawing.Point(18, 42);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(174, 60);
-            this.btnInsert.TabIndex = 2;
-            this.btnInsert.Text = "등록";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.button3_Click);
+            this.btnCreateAccount.Location = new System.Drawing.Point(18, 42);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(174, 60);
+            this.btnCreateAccount.TabIndex = 2;
+            this.btnCreateAccount.Text = "계좌생성";
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnSelect
             // 
@@ -154,6 +155,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "수정";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // Customer
             // 
@@ -181,8 +183,8 @@
         private System.Windows.Forms.DataGridView dgvMember;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnDeleteAccount;
+        private System.Windows.Forms.Button btnCreateAccount;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSelect;
     }

@@ -130,5 +130,12 @@ namespace WindowsFormsAppPersonalProject
             bFlag = false;
             haveChosen = true;
         }
+
+        private void btnMakingAccount_Click(object sender, EventArgs e)
+        {
+            WhenCreate c1 = new WhenCreate();
+            c1.Show();
+            c1.Activate();
+        }
     }
 }

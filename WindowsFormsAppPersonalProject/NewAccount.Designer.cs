@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class WhenCreate
+    partial class NewAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.gBoxKindOfAccount = new System.Windows.Forms.GroupBox();
+            this.rbtnDeposit = new System.Windows.Forms.RadioButton();
+            this.rbtRedemption = new System.Windows.Forms.RadioButton();
+            this.btnNewAccount = new System.Windows.Forms.Button();
             this.lbltxtID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lbltxtAddress = new System.Windows.Forms.Label();
@@ -40,25 +42,16 @@
             this.lbltxtPwd = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lbltxtName = new System.Windows.Forms.Label();
-            this.gBoxKindOfAccount = new System.Windows.Forms.GroupBox();
-            this.rbtnA = new System.Windows.Forms.RadioButton();
-            this.rbtnS = new System.Windows.Forms.RadioButton();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.rbtnNormal = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.gBoxKindOfAccount.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(197, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(254, 25);
-            this.txtName.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.gBoxKindOfAccount);
-            this.panel1.Controls.Add(this.btnInsert);
+            this.panel1.Controls.Add(this.btnNewAccount);
             this.panel1.Controls.Add(this.lbltxtID);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.lbltxtAddress);
@@ -69,22 +62,55 @@
             this.panel1.Controls.Add(this.txtPwd);
             this.panel1.Controls.Add(this.lbltxtName);
             this.panel1.Controls.Add(this.txtName);
-            this.panel1.Location = new System.Drawing.Point(12, 17);
+            this.panel1.Location = new System.Drawing.Point(12, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(503, 532);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(776, 518);
+            this.panel1.TabIndex = 1;
             // 
-            // btnInsert
+            // gBoxKindOfAccount
             // 
-            this.btnInsert.Location = new System.Drawing.Point(309, 449);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(143, 80);
-            this.btnInsert.TabIndex = 6;
-            this.btnInsert.Text = "등록";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.gBoxKindOfAccount.Controls.Add(this.rbtnNormal);
+            this.gBoxKindOfAccount.Controls.Add(this.rbtnDeposit);
+            this.gBoxKindOfAccount.Controls.Add(this.rbtRedemption);
+            this.gBoxKindOfAccount.Location = new System.Drawing.Point(518, 48);
+            this.gBoxKindOfAccount.Name = "gBoxKindOfAccount";
+            this.gBoxKindOfAccount.Size = new System.Drawing.Size(223, 108);
+            this.gBoxKindOfAccount.TabIndex = 10;
+            this.gBoxKindOfAccount.TabStop = false;
+            this.gBoxKindOfAccount.Text = "계좌의 종류";
+            // 
+            // rbtnDeposit
+            // 
+            this.rbtnDeposit.AutoSize = true;
+            this.rbtnDeposit.Location = new System.Drawing.Point(119, 40);
+            this.rbtnDeposit.Name = "rbtnDeposit";
+            this.rbtnDeposit.Size = new System.Drawing.Size(58, 19);
+            this.rbtnDeposit.TabIndex = 1;
+            this.rbtnDeposit.TabStop = true;
+            this.rbtnDeposit.Text = "예금";
+            this.rbtnDeposit.UseVisualStyleBackColor = true;
+            // 
+            // rbtRedemption
+            // 
+            this.rbtRedemption.AutoSize = true;
+            this.rbtRedemption.Location = new System.Drawing.Point(7, 42);
+            this.rbtRedemption.Name = "rbtRedemption";
+            this.rbtRedemption.Size = new System.Drawing.Size(58, 19);
+            this.rbtRedemption.TabIndex = 0;
+            this.rbtRedemption.TabStop = true;
+            this.rbtRedemption.Text = "적금";
+            this.rbtRedemption.UseVisualStyleBackColor = true;
+            // 
+            // btnNewAccount
+            // 
+            this.btnNewAccount.Location = new System.Drawing.Point(598, 335);
+            this.btnNewAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNewAccount.Name = "btnNewAccount";
+            this.btnNewAccount.Size = new System.Drawing.Size(143, 80);
+            this.btnNewAccount.TabIndex = 6;
+            this.btnNewAccount.Text = "계좌 생성";
+            this.btnNewAccount.UseVisualStyleBackColor = true;
             // 
             // lbltxtID
             // 
@@ -158,52 +184,34 @@
             this.lbltxtName.TabIndex = 1;
             this.lbltxtName.Text = "이름";
             // 
-            // gBoxKindOfAccount
+            // txtName
             // 
-            this.gBoxKindOfAccount.Controls.Add(this.rbtnS);
-            this.gBoxKindOfAccount.Controls.Add(this.rbtnA);
-            this.gBoxKindOfAccount.Location = new System.Drawing.Point(39, 440);
-            this.gBoxKindOfAccount.Name = "gBoxKindOfAccount";
-            this.gBoxKindOfAccount.Size = new System.Drawing.Size(223, 79);
-            this.gBoxKindOfAccount.TabIndex = 10;
-            this.gBoxKindOfAccount.TabStop = false;
-            this.gBoxKindOfAccount.Text = "계정의 종류";
+            this.txtName.Location = new System.Drawing.Point(197, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(254, 25);
+            this.txtName.TabIndex = 1;
             // 
-            // rbtnA
+            // rbtnNormal
             // 
-            this.rbtnA.AutoSize = true;
-            this.rbtnA.Location = new System.Drawing.Point(7, 42);
-            this.rbtnA.Name = "rbtnA";
-            this.rbtnA.Size = new System.Drawing.Size(88, 19);
-            this.rbtnA.TabIndex = 0;
-            this.rbtnA.TabStop = true;
-            this.rbtnA.Text = "관리자용";
-            this.rbtnA.UseVisualStyleBackColor = true;
-            this.rbtnA.CheckedChanged += new System.EventHandler(this.rbtnA_CheckedChanged);
+            this.rbtnNormal.AutoSize = true;
+            this.rbtnNormal.Location = new System.Drawing.Point(6, 83);
+            this.rbtnNormal.Name = "rbtnNormal";
+            this.rbtnNormal.Size = new System.Drawing.Size(58, 19);
+            this.rbtnNormal.TabIndex = 2;
+            this.rbtnNormal.TabStop = true;
+            this.rbtnNormal.Text = "일반";
+            this.rbtnNormal.UseVisualStyleBackColor = true;
             // 
-            // rbtnS
-            // 
-            this.rbtnS.AutoSize = true;
-            this.rbtnS.Location = new System.Drawing.Point(119, 40);
-            this.rbtnS.Name = "rbtnS";
-            this.rbtnS.Size = new System.Drawing.Size(73, 19);
-            this.rbtnS.TabIndex = 1;
-            this.rbtnS.TabStop = true;
-            this.rbtnS.Text = "회원용";
-            this.rbtnS.UseVisualStyleBackColor = true;
-            this.rbtnS.CheckedChanged += new System.EventHandler(this.rbtnS_CheckedChanged);
-            // 
-            // WhenCreate
+            // NewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 562);
+            this.ClientSize = new System.Drawing.Size(800, 534);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "WhenCreate";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "WhenCreate";
-            this.Load += new System.EventHandler(this.WhenCreate_Load);
+            this.Name = "NewAccount";
+            this.Text = "NewAccount";
+            this.Load += new System.EventHandler(this.NewAccount_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gBoxKindOfAccount.ResumeLayout(false);
@@ -214,9 +222,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbltxtName;
+        private System.Windows.Forms.GroupBox gBoxKindOfAccount;
+        private System.Windows.Forms.RadioButton rbtnDeposit;
+        private System.Windows.Forms.RadioButton rbtRedemption;
+        private System.Windows.Forms.Button btnNewAccount;
         private System.Windows.Forms.Label lbltxtID;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lbltxtAddress;
@@ -225,9 +235,8 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lbltxtPwd;
         private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.GroupBox gBoxKindOfAccount;
-        private System.Windows.Forms.RadioButton rbtnS;
-        private System.Windows.Forms.RadioButton rbtnA;
+        private System.Windows.Forms.Label lbltxtName;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.RadioButton rbtnNormal;
     }
 }
