@@ -55,13 +55,14 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonUtil.cs" />
+    <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\CustomerDB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

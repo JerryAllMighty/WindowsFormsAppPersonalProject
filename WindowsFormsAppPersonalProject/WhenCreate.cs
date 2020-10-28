@@ -9,52 +9,74 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using WindowsFormsAppPersonalProject.DB;
+
 namespace WindowsFormsAppPersonalProject
 {
     public partial class WhenCreate : Form
     {
         string strConn = ConfigurationManager.ConnectionStrings["JerryBank"].ConnectionString;
+        public static string kindOfAccount = null;
+        public static string radioButton = null;
 
-        bool btnChoice;
-        bool haveChosen;
-        string kindOfAccount;
+        //public Customer CustomerInfo
+        //{
+        //    get
+        //    {
+        //        return new Customer(txtName.Text, txtAddress.Text, txtID.Text, null, txtPwd.Text, txtPhone.Text);
+        //    }
+
+        //    set
+        //    {
+        //        txtName.Text = value.Name;
+                
+
+
+
+        //         }
+        //}
+
 
         public WhenCreate()
         {
             InitializeComponent();
         }
 
+        public string RadioButton {
+            get {return radioButton; }
+        }
+
+        public string KindofAccount {
+            get
+            {
+                if (radioButton == "Administrator")
+                {
+                    kindOfAccount = "ACustomerID";
+                }
+                else if (radioButton == "StandardMember")
+                {
+                    kindOfAccount = "sCustomerID";
+                }
+                return kindOfAccount; 
+            }
+        }
+
+       
         private void WhenCreate_Load(object sender, EventArgs e)
         {
         }
 
         private void btnInsert_Click(object sender, EventArgs e)        //등록
         {
-            if (!haveChosen)
+            if (radioButton == null)
             {
                 MessageBox.Show("계정의 종류를 반드시 선택해주세요.");
                 return;
             }
 
-            if (btnChoice == true)
-            {
-                kindOfAccount = "ACustomerID";
-            }
-            else if (btnChoice == false)
-            {
-                kindOfAccount = "sCustomerID";
-            }
-            
-               
-           
-
-            MySqlConnection conn = new MySqlConnection(strConn);
-            string sql = $@"insert into customers (CustomerName, CustomerAddress, {kindOfAccount}, CustomerPw, CustomerPhone) 
-                            values('{txtName.Text}', '{txtAddress.Text}', '{txtID.Text}', '{txtPwd.Text}', '{txtPhone.Text}') ";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            CustomerDB db = new CustomerDB();
+            //db.Insert(Customer cus);
+            db.Dispose();
 
             MessageBox.Show("등록이 완료되었습니다.");
             this.Close();
@@ -62,14 +84,21 @@ namespace WindowsFormsAppPersonalProject
 
         private void rbtnA_CheckedChanged(object sender, EventArgs e)
         {
-            btnChoice = true;
-            haveChosen = true;
+            radioButton = "Administrator";
         }
 
         private void rbtnS_CheckedChanged(object sender, EventArgs e)
         {
-            btnChoice = false;
-            haveChosen = true;
+            radioButton = "StandardMember";
+        }
+
+        private void txtCheckingPwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //유효성체크
+            if (txtPwd.Text != txtCheckingPwd.Text)
+            {
+                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");        //왜 안사라지냐
+            }
         }
     }
 }

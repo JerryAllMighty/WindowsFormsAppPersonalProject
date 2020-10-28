@@ -24,7 +24,7 @@ namespace WindowsFormsAppPersonalProject
             DataGridView dgv,
             string headerText,
             string datapropertytype,
-            int coldWidth = 100,
+            int colWidth = 100,
             bool visibility = true,
             DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    //이거 밑에 구현해주자
 
@@ -33,7 +33,7 @@ namespace WindowsFormsAppPersonalProject
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
             col.HeaderText = headerText;
             col.DataPropertyName = datapropertytype;
-            col.Width = coldWidth;
+            col.Width = colWidth;
             col.Visible = visibility;
             col.ReadOnly = true;
 

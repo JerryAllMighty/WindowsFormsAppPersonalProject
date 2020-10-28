@@ -9,31 +9,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using WindowsFormsAppPersonalProject.DB;
+
 namespace WindowsFormsAppPersonalProject
 {
     public partial class Login : Form
     {
         string str = ConfigurationManager.ConnectionStrings["JerryBank"].ConnectionString;
         Form1 main;
-        static bool bFlag;
-        bool haveChosen;
-        
-
+        public static string id = null;
+       
         public Login()
         {
             InitializeComponent();
         }
+        #region 프로퍼티
+        public string ID { get { return id; }}
+        public string TextID { get {return txtID.Text; } }
+        public string TextPwd { get{return txtPwd.Text; } }
+#endregion 프로퍼티
 
-        public int Flag {       //회원용으로 로그인시 1을, 관리자용일 때 2를 반환하는 프로퍼티
-            get 
-            {
-                return bFlag == true? 1:2; 
-            } 
-        }
+
         private void Login_Load(object sender, EventArgs e)
         {
             progressBar1.Visible = false;
-            bFlag = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -58,50 +57,58 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void 회원용ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!haveChosen)
-            {
-                  
-                MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
-                e.Handled = true;
-                return;
-            }
-
+            //menustrip1를 보이게 해야해
+            id = "SCustomerID";
         }
 
-
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        private void 관리자용ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!haveChosen)
+            //menustrip3를 보이게 해야해
+            id = "ACustomerID";
+        }
+
+        private void btnMakingAccount_Click(object sender, EventArgs e)     //회원가입 버튼
+        {
+            WhenCreate c1 = new WhenCreate();
+            c1.Show();
+            c1.Activate();
+        }
+
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //유효성 체크
+            if (id == null)
             {
-                
+
                 MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
                 e.Handled = true;
                 return;
             }
-            
-            string id;
-            if (bFlag)
+        }
+
+        private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //유효성 체크
+            if (id == null)
             {
-                id = "SCustomerID";
+                MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
+                e.Handled = true;
+                return;
             }
-            else { id = "ACustomerID"; }
-            
-            string sql = $"select {id}, CustomerPw from customers where {id} = '{txtID.Text}' and CustomerPw = '{txtPwd.Text}' ;";
-            MySqlConnection conn = new MySqlConnection(str);
-            MySqlCommand cmd = new MySqlCommand(sql,conn);
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            
+
+            CustomerDB db = new CustomerDB();
+            db.GetEveryData();
+
 
             if (e.KeyChar == 13)
             {
                 //정보 확인
-               
-                if (reader.HasRows)       //계정이 DB에 존재할 때 로그인 성공    
+
+                if (db.GetEveryData() != null)       //계정이 DB에 존재할 때 로그인 성공    
                 {
-                   //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
+                    //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                     timer1.Interval = 1000;
                     progressBar1.Value = 50;
                     main = new Form1(this);
@@ -114,28 +121,7 @@ namespace WindowsFormsAppPersonalProject
                 }
             }
 
-            conn.Close();
-        }
-
-        private void 회원용ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //menustrip1를 보이게 해야해
-           bFlag = true;
-            haveChosen = true;
-        }
-
-        private void 관리자용ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //menustrip3를 보이게 해야해
-            bFlag = false;
-            haveChosen = true;
-        }
-
-        private void btnMakingAccount_Click(object sender, EventArgs e)
-        {
-            WhenCreate c1 = new WhenCreate();
-            c1.Show();
-            c1.Activate();
+            db.Dispose();
         }
     }
 }

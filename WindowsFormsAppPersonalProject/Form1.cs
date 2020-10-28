@@ -31,18 +31,18 @@ namespace WindowsFormsAppPersonalProject
             this.Text = "JerryBanking";
             Login login = new Login();
 
-            if (login.Flag == 1)
+            if (login.ID == "SCustomerID")
             {
                 menuStrip1.Visible = true;
             }
-            else if(login.Flag == 2)
+            else if(login.ID == "ACustomerID")
                 menuStrip3.Visible = true;
         }
        
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customer c1 = new Customer();
-            
+            c1.MdiParent = this;
             c1.Show();
             c1.Activate();
             
