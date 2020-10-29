@@ -39,7 +39,7 @@ namespace WindowsFormsAppPersonalProject
             na.Activate();
 
         }
-
+          
         private void btnSelect_Click(object sender, EventArgs e)        //조회
         {
             CommonUtil.SetinitGridView(dgvMember);
