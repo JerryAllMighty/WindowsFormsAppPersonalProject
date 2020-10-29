@@ -54,10 +54,13 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(172, 38);
+            this.txtName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.txtName.Location = new System.Drawing.Point(197, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 21);
+            this.txtName.Size = new System.Drawing.Size(254, 25);
             this.txtName.TabIndex = 1;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel1
             // 
@@ -75,49 +78,53 @@
             this.panel1.Controls.Add(this.txtPwd);
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.txtName);
-            this.panel1.Location = new System.Drawing.Point(10, 14);
+            this.panel1.Location = new System.Drawing.Point(11, 18);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 502);
+            this.panel1.Size = new System.Drawing.Size(513, 628);
             this.panel1.TabIndex = 0;
+            this.panel1.TabStop = true;
             // 
             // lblCheckPw
             // 
-            this.lblCheckPw.Location = new System.Drawing.Point(28, 253);
+            this.lblCheckPw.Location = new System.Drawing.Point(32, 316);
             this.lblCheckPw.Name = "lblCheckPw";
-            this.lblCheckPw.Size = new System.Drawing.Size(100, 23);
+            this.lblCheckPw.Size = new System.Drawing.Size(114, 29);
             this.lblCheckPw.TabIndex = 11;
             this.lblCheckPw.Text = "비밀번호확인";
             // 
             // txtCheckingPwd
             // 
-            this.txtCheckingPwd.Location = new System.Drawing.Point(172, 250);
+            this.txtCheckingPwd.Location = new System.Drawing.Point(197, 312);
+            this.txtCheckingPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCheckingPwd.Name = "txtCheckingPwd";
             this.txtCheckingPwd.PasswordChar = '*';
-            this.txtCheckingPwd.Size = new System.Drawing.Size(223, 21);
-            this.txtCheckingPwd.TabIndex = 12;
-            this.txtCheckingPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheckingPwd_KeyPress);
+            this.txtCheckingPwd.Size = new System.Drawing.Size(254, 25);
+            this.txtCheckingPwd.TabIndex = 5;
+            this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCheckingPwd.TextChanged += new System.EventHandler(this.txtCheckingPwd_TextChanged);
             // 
             // gBoxKindOfAccount
             // 
             this.gBoxKindOfAccount.Controls.Add(this.rbtnS);
             this.gBoxKindOfAccount.Controls.Add(this.rbtnA);
-            this.gBoxKindOfAccount.Location = new System.Drawing.Point(30, 421);
+            this.gBoxKindOfAccount.Location = new System.Drawing.Point(34, 526);
             this.gBoxKindOfAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gBoxKindOfAccount.Name = "gBoxKindOfAccount";
             this.gBoxKindOfAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gBoxKindOfAccount.Size = new System.Drawing.Size(195, 63);
-            this.gBoxKindOfAccount.TabIndex = 10;
+            this.gBoxKindOfAccount.Size = new System.Drawing.Size(223, 79);
+            this.gBoxKindOfAccount.TabIndex = 7;
             this.gBoxKindOfAccount.TabStop = false;
             this.gBoxKindOfAccount.Text = "계정의 종류";
             // 
             // rbtnS
             // 
             this.rbtnS.AutoSize = true;
-            this.rbtnS.Location = new System.Drawing.Point(104, 32);
+            this.rbtnS.Location = new System.Drawing.Point(119, 40);
             this.rbtnS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnS.Name = "rbtnS";
-            this.rbtnS.Size = new System.Drawing.Size(59, 16);
-            this.rbtnS.TabIndex = 1;
+            this.rbtnS.Size = new System.Drawing.Size(73, 19);
+            this.rbtnS.TabIndex = 9;
             this.rbtnS.TabStop = true;
             this.rbtnS.Text = "회원용";
             this.rbtnS.UseVisualStyleBackColor = true;
@@ -126,11 +133,11 @@
             // rbtnA
             // 
             this.rbtnA.AutoSize = true;
-            this.rbtnA.Location = new System.Drawing.Point(6, 34);
+            this.rbtnA.Location = new System.Drawing.Point(7, 42);
             this.rbtnA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnA.Name = "rbtnA";
-            this.rbtnA.Size = new System.Drawing.Size(71, 16);
-            this.rbtnA.TabIndex = 0;
+            this.rbtnA.Size = new System.Drawing.Size(88, 19);
+            this.rbtnA.TabIndex = 8;
             this.rbtnA.TabStop = true;
             this.rbtnA.Text = "관리자용";
             this.rbtnA.UseVisualStyleBackColor = true;
@@ -138,80 +145,89 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(270, 420);
+            this.btnInsert.Location = new System.Drawing.Point(309, 525);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(125, 64);
-            this.btnInsert.TabIndex = 6;
+            this.btnInsert.Size = new System.Drawing.Size(143, 80);
+            this.btnInsert.TabIndex = 10;
             this.btnInsert.Text = "등록";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(28, 147);
+            this.lblID.Location = new System.Drawing.Point(32, 184);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(100, 23);
+            this.lblID.Size = new System.Drawing.Size(114, 29);
             this.lblID.TabIndex = 9;
             this.lblID.Text = "ID";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(172, 144);
+            this.txtID.Location = new System.Drawing.Point(197, 180);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(223, 21);
+            this.txtID.Size = new System.Drawing.Size(254, 25);
             this.txtID.TabIndex = 3;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAddress
             // 
-            this.lblAddress.Location = new System.Drawing.Point(28, 94);
+            this.lblAddress.Location = new System.Drawing.Point(32, 118);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(100, 23);
+            this.lblAddress.Size = new System.Drawing.Size(114, 29);
             this.lblAddress.TabIndex = 0;
             this.lblAddress.Text = "주소";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(172, 91);
+            this.txtAddress.Location = new System.Drawing.Point(197, 114);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(223, 21);
+            this.txtAddress.Size = new System.Drawing.Size(254, 25);
             this.txtAddress.TabIndex = 2;
+            this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPhone
             // 
-            this.lblPhone.Location = new System.Drawing.Point(28, 306);
+            this.lblPhone.Location = new System.Drawing.Point(32, 382);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(100, 23);
+            this.lblPhone.Size = new System.Drawing.Size(114, 29);
             this.lblPhone.TabIndex = 5;
             this.lblPhone.Text = "연락처";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(172, 303);
+            this.txtPhone.Location = new System.Drawing.Point(197, 379);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(223, 21);
-            this.txtPhone.TabIndex = 5;
+            this.txtPhone.Size = new System.Drawing.Size(254, 25);
+            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPwd
             // 
-            this.lblPwd.Location = new System.Drawing.Point(28, 200);
+            this.lblPwd.Location = new System.Drawing.Point(32, 250);
             this.lblPwd.Name = "lblPwd";
-            this.lblPwd.Size = new System.Drawing.Size(100, 23);
+            this.lblPwd.Size = new System.Drawing.Size(114, 29);
             this.lblPwd.TabIndex = 3;
             this.lblPwd.Text = "비밀번호";
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(172, 197);
+            this.txtPwd.Location = new System.Drawing.Point(197, 246);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
-            this.txtPwd.Size = new System.Drawing.Size(223, 21);
+            this.txtPwd.Size = new System.Drawing.Size(254, 25);
             this.txtPwd.TabIndex = 4;
+            this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(28, 41);
+            this.lblName.Location = new System.Drawing.Point(32, 51);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(100, 23);
+            this.lblName.Size = new System.Drawing.Size(114, 29);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "이름";
             // 
@@ -221,10 +237,11 @@
             // 
             // WhenCreate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 528);
+            this.ClientSize = new System.Drawing.Size(538, 660);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WhenCreate";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "WhenCreate";

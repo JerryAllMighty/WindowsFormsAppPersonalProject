@@ -53,8 +53,8 @@ namespace WindowsFormsAppPersonalProject.DB
             try {
                 DataTable dt = new DataTable();
                 Login login = new Login();
-                string sql = $@"select '{login.ID}', CustomerPw from customers 
-                                where '{login.ID}' = '{login.TextID}' and CustomerPw = '{login.TextPwd}'";
+                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, CustomerPhone from customers 
+                                where {login.ID} = '{login.TextID}' and CustomerPw = '{login.TextPwd}'";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
@@ -68,7 +68,7 @@ namespace WindowsFormsAppPersonalProject.DB
         }
 
 
-        public bool Insert(Customer cus)  //값이 아니라 컬럼이 변수일떄는??ㅠㅠ
+        public bool Insert(Customer cus)  //값이 아니라 컬럼이 변수일떄는 파라미터 쓰면 안되남??ㅠㅠ
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try 

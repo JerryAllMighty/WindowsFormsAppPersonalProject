@@ -15,26 +15,26 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class WhenCreate : Form
     {
-        string strConn = ConfigurationManager.ConnectionStrings["JerryBank"].ConnectionString;
         public static string kindOfAccount = null;
         public static string radioButton = null;
 
-        //public Customer CustomerInfo
-        //{
-        //    get
-        //    {
-        //        return new Customer(txtName.Text, txtAddress.Text, txtID.Text, null, txtPwd.Text, txtPhone.Text);
-        //    }
+        public Customer CustomerInfo
+        {
+            get
+            {
+                return new Customer(); 
+                    //new Customer(txtName.Text, txtAddress.Text, txtID.Text, null, txtPwd.Text, txtPhone.Text);
+            }
 
-        //    set
-        //    {
-        //        txtName.Text = value.Name;
+            set
+            {
+                
                 
 
 
 
-        //         }
-        //}
+            }
+        }
 
 
         public WhenCreate()
@@ -92,12 +92,16 @@ namespace WindowsFormsAppPersonalProject
             radioButton = "StandardMember";
         }
 
-        private void txtCheckingPwd_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCheckingPwd_TextChanged(object sender, EventArgs e)
         {
             //유효성체크
             if (txtPwd.Text != txtCheckingPwd.Text)
             {
-                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");        //왜 안사라지냐
+                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");       
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
         }
     }

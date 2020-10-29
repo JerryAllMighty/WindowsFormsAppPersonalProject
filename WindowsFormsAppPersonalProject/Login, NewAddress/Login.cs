@@ -15,7 +15,6 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class Login : Form
     {
-        string str = ConfigurationManager.ConnectionStrings["JerryBank"].ConnectionString;
         Form1 main;
         public static string id = null;
        
@@ -81,7 +80,6 @@ namespace WindowsFormsAppPersonalProject
             //유효성 체크
             if (id == null)
             {
-
                 MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
                 e.Handled = true;
                 return;

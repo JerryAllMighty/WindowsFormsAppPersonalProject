@@ -35,6 +35,7 @@ namespace WindowsFormsAppPersonalProject
             col.DataPropertyName = datapropertytype;
             col.Width = colWidth;
             col.Visible = visibility;
+            col.DefaultCellStyle.Alignment = textAlign;
             col.ReadOnly = true;
 
             dgv.Columns.Add(col);

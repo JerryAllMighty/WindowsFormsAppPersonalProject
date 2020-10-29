@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using WindowsFormsAppPersonalProject.DB;
 
 namespace WindowsFormsAppPersonalProject
 {
@@ -39,7 +40,7 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void btnSelect_Click(object sender, EventArgs e)        //조회
         {
             CommonUtil.SetinitGridView(dgvMember);
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
@@ -47,16 +48,20 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress");
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
 
-            MySqlConnection conn = new MySqlConnection(strConn);
-            string sql = "select CustomerNum, CustomerName, CustomerAddress, CustomerPhone from customers";
+            CustomerDB db = new CustomerDB();
 
-            MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
-            DataSet ds = new DataSet();
-            conn.Open();
-            da.Fill(ds, "customer");
-            conn.Close();
+            
+            if (db.GetEveryData() != null)
+            {
+                DataView dv1 = new DataView(db.GetEveryData());
+                dgvMember.DataSource = dv1;
+            }
+            else
+            {
+                MessageBox.Show("값을 불러오지 못했습니다.");
+            }
 
-            dgvMember.DataSource = ds.Tables["customer"];
+            
         }
 
         private void btnDeleteAccount_Click(object sender, EventArgs e)
