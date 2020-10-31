@@ -10,38 +10,56 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        private Login login;
+        public string CustomerNum;
+        public string CustomerName;
+        public string CustomerAddress;
+        public string CustomerID;
+        public string IsAdmin;
+        public string CustomerPw;
+        public string Phone;
 
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
         }
-
-        public Form1(Login login)
+        public frmMain(Customer cusinfo)
         {
             InitializeComponent();
-            this.login = login;
+            CustomerNum = cusinfo.CustomerNum;
+            CustomerName = cusinfo.CustomerName;
+            CustomerAddress= cusinfo.CustomerAddress;
+            CustomerID = cusinfo.CustomerID;
+            IsAdmin = cusinfo.IsAdmin;
+            CustomerPw = cusinfo.CustomerPw;
+            Phone = cusinfo.Phone;
 
+        }
+
+        public Customer customerInfo
+        {
+            get
+            {
+                return  new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "JerryBanking";
-            Login login = new Login();
-
-            if (login.ID == "SCustomerID")
+           
+            if (IsAdmin == "0")
             {
                 menuStrip1.Visible = true;
             }
-            else if(login.ID == "ACustomerID")
+            else if(IsAdmin == "1")
                 menuStrip3.Visible = true;
         }
        
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Customer c1 = new Customer();
+            frmCustomer c1 = new frmCustomer(customerInfo);
             c1.MdiParent = this;
             c1.Show();
             c1.Activate();
@@ -73,7 +91,8 @@ namespace WindowsFormsAppPersonalProject
 
         private void 로그아웃ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            this.Close();
+            frmLogin login = new frmLogin();
             login.Show();
 
         }

@@ -9,73 +9,57 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
-using WindowsFormsAppPersonalProject.DB;
+using WindowsFormsAppPersonalProject;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class WhenCreate : Form
+    public partial class frmWhenCreate : Form
     {
-        public static string kindOfAccount = null;
-        public static string radioButton = null;
+        public string CustomerNum;
+        public string CustomerName;
+        public string CustomerAddress;
+        public static string IsAdmin = null;
+        public string CustomerID;
+        public string CustomerPw;
+        public string Phone;
 
-        public Customer CustomerInfo
-        {
-            get
-            {
-                return new Customer(); 
-                    //new Customer(txtName.Text, txtAddress.Text, txtID.Text, null, txtPwd.Text, txtPhone.Text);
-            }
-
-            set
-            {
-                
-                
-
-
-
-            }
-        }
-
-
-        public WhenCreate()
+        public frmWhenCreate()
         {
             InitializeComponent();
         }
 
-        public string RadioButton {
-            get {return radioButton; }
-        }
-
-        public string KindofAccount {
+        public Customer customerInfo 
+        {
             get
             {
-                if (radioButton == "Administrator")
-                {
-                    kindOfAccount = "ACustomerID";
-                }
-                else if (radioButton == "StandardMember")
-                {
-                    kindOfAccount = "sCustomerID";
-                }
-                return kindOfAccount; 
+                return new Customer(CustomerNum,txtName.Text, txtAddress.Text, txtID.Text, IsAdmin, txtPwd.Text,txtPhone.Text);
+            }
+
+            set    
+            {
+                txtName.Text = value.CustomerName;
+                txtAddress.Text = value.CustomerAddress;
+                txtID.Text = value.IsAdmin;
+                IsAdmin = value.IsAdmin;
+                txtPwd.Text = value.CustomerPw;
+                txtPhone.Text = value.Phone;
             }
         }
 
-       
         private void WhenCreate_Load(object sender, EventArgs e)
         {
         }
 
         private void btnInsert_Click(object sender, EventArgs e)        //등록
         {
-            if (radioButton == null)
+            if (IsAdmin == null)
             {
                 MessageBox.Show("계정의 종류를 반드시 선택해주세요.");
                 return;
             }
 
             CustomerDB db = new CustomerDB();
-            //db.Insert(Customer cus);
+            db.Insert(customerInfo);
             db.Dispose();
 
             MessageBox.Show("등록이 완료되었습니다.");
@@ -84,12 +68,12 @@ namespace WindowsFormsAppPersonalProject
 
         private void rbtnA_CheckedChanged(object sender, EventArgs e)
         {
-            radioButton = "Administrator";
+            IsAdmin = "Y";
         }
 
         private void rbtnS_CheckedChanged(object sender, EventArgs e)
         {
-            radioButton = "StandardMember";
+            IsAdmin = "N";
         }
 
         private void txtCheckingPwd_TextChanged(object sender, EventArgs e)

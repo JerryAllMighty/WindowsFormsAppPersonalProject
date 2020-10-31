@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class NewAccount : Form
+    public partial class frmNewAccount : Form
     {
-        public NewAccount()
+        public frmNewAccount()
         {
             InitializeComponent();
         }

@@ -10,24 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsAppPersonalProject.DB
+namespace WindowsFormsAppPersonalProject
 {
-    public struct Customer
+    public class Customer
     {
+        public string CustomerNum;
         public string CustomerName;
         public string CustomerAddress;
-        public string SCustomerID;
-        public string ACustomerID;
+        public string CustomerID;
+        public string IsAdmin;
         public string CustomerPw;
         public string Phone;
 
-        
-        public Customer(string customername, string customeraddress, string scustomerid, string acustomerid, string customerpw, string phone)
-        {                        
+        public Customer(string customernum, string customername, string customeraddress, string customerid,string isadmin, string customerpw, string phone)
+        {
+            CustomerNum = customernum;
             CustomerName = customername;                      
             CustomerAddress = customeraddress;
-            SCustomerID = scustomerid;
-            ACustomerID = acustomerid;
+            CustomerID = customerid;
+            IsAdmin = isadmin;
             CustomerPw = customerpw;
             Phone = phone;
         }
@@ -48,15 +49,14 @@ namespace WindowsFormsAppPersonalProject.DB
             conn.Close();
         }
 
-        public DataTable GetEveryData()
+        public DataTable GetEveryData(string uid,string pwd)   //데이터 조회 //파라미터화 하기
         {
             try {
                 DataTable dt = new DataTable();
-                Login login = new Login();
-                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, CustomerPhone from customers 
-                                where {login.ID} = '{login.TextID}' and CustomerPw = '{login.TextPwd}'";
+                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, CustomerPhone from customers 
+                                where CustomerID = '{uid}' and CustomerPw = {pwd} ";
 
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
                 da.Fill(dt);
                 return dt;
             }
@@ -73,9 +73,8 @@ namespace WindowsFormsAppPersonalProject.DB
             MySqlTransaction trans = conn.BeginTransaction();
             try 
             {
-                WhenCreate c1 = new WhenCreate();
-                string sql = $@"insert into customers(CustomerName, CustomerAddress, @{c1.KindofAccount}, CustomerPw, CustomerPhone)        
-                                values(@CustomerName, @CustomerAddress, @SCustomerID, @CustomerPw, @CustomerPhone)";
+                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, CustomerPw, CustomerPhone)        
+                                values(@CustomerName, @CustomerAddress, @CustomerID, @CustomerPw, @CustomerPhone)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
@@ -87,17 +86,9 @@ namespace WindowsFormsAppPersonalProject.DB
                 cmd.Parameters.Add("@CustomerAddress", MySqlDbType.VarChar);
                 cmd.Parameters["@CustomerAddress"].Value = cus.CustomerAddress;
 
+                cmd.Parameters.Add("@CustomerID", MySqlDbType.VarChar);
+                cmd.Parameters["@CustomerID"].Value = cus.CustomerID;
                 
-                if (c1.KindofAccount == "SCustomerID")
-                {
-                    cmd.Parameters.Add("@SCustomerID", MySqlDbType.VarChar);
-                    cmd.Parameters["@SCustomerID"].Value = cus.SCustomerID;
-                }
-                else
-                    cmd.Parameters.Add("@ACustomerID", MySqlDbType.VarChar);
-                    cmd.Parameters["@ACustomerID"].Value = cus.ACustomerID;
-
-
                 cmd.Parameters.Add("@CustomerPw", MySqlDbType.VarChar);
                 cmd.Parameters["@CustomerPw"].Value = cus.CustomerPw;
 
@@ -112,6 +103,70 @@ namespace WindowsFormsAppPersonalProject.DB
             {
                 Debug.WriteLine(err.Message);
                 trans.Rollback();
+                return false;
+            }
+        }
+
+        public bool Update(Customer cus)
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {   //isadmin은 설정할 수 없게, 고객 일련번호는 자동생성이니 제외
+                string sql = @"update customers            
+                                        set CustomerName = @name, 
+                                        CustomerAddress = @address, 
+                                        CustomerID = @id, 
+                                        CustomerPw = @pw, 
+                                        CustomerPhone = @phone
+                                        where CustomerNum = @customernum" ;
+                MySqlCommand updateCmd = new MySqlCommand(sql, conn);
+                updateCmd.Transaction = trans;
+
+                updateCmd.Parameters.Add("@name", MySqlDbType.VarChar);
+                updateCmd.Parameters["@name"].Value = cus.CustomerName;
+
+                updateCmd.Parameters.Add("@address", MySqlDbType.VarChar);
+                updateCmd.Parameters["@address"].Value = cus.CustomerAddress;
+
+                updateCmd.Parameters.Add("@id", MySqlDbType.VarChar);
+                updateCmd.Parameters["@id"].Value = cus.CustomerID;
+
+                updateCmd.Parameters.Add("@pw", MySqlDbType.VarChar);
+                updateCmd.Parameters["@pw"].Value = cus.CustomerPw;
+
+                updateCmd.Parameters.Add("@phone", MySqlDbType.VarChar);
+                updateCmd.Parameters["@phone"].Value = cus.Phone;
+
+                updateCmd.Parameters.Add("@customernum", MySqlDbType.VarChar);
+                updateCmd.Parameters["@customernum"].Value = cus.CustomerNum;
+
+                updateCmd.ExecuteNonQuery();
+                trans.Commit();
+                return true;
+               
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                trans.Rollback();
+                return false;
+            }
+        }
+
+        public bool Delete(Customer cus)
+        {
+            try
+            {
+                string sql = @"delete from customers where CustomerNum = @customernum";
+                MySqlCommand delcmd = new MySqlCommand(sql, conn);
+                delcmd.Parameters.Add("@customernum", MySqlDbType.VarChar);
+                delcmd.Parameters["@customernum"].Value = cus.CustomerNum;
+
+                delcmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
                 return false;
             }
         }

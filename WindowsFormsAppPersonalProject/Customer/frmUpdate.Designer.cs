@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class WhenCreate
+    partial class frmUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblCheckPw = new System.Windows.Forms.Label();
             this.txtCheckingPwd = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gBoxKindOfAccount = new System.Windows.Forms.GroupBox();
             this.rbtnS = new System.Windows.Forms.RadioButton();
             this.rbtnA = new System.Windows.Forms.RadioButton();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -46,44 +46,15 @@
             this.lblPwd = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtName = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.gBoxKindOfAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtName
+            // errorProvider1
             // 
-            this.txtName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.txtName.Location = new System.Drawing.Point(197, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(254, 25);
-            this.txtName.TabIndex = 1;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblCheckPw);
-            this.panel1.Controls.Add(this.txtCheckingPwd);
-            this.panel1.Controls.Add(this.gBoxKindOfAccount);
-            this.panel1.Controls.Add(this.btnInsert);
-            this.panel1.Controls.Add(this.lblID);
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.lblAddress);
-            this.panel1.Controls.Add(this.txtAddress);
-            this.panel1.Controls.Add(this.lblPhone);
-            this.panel1.Controls.Add(this.txtPhone);
-            this.panel1.Controls.Add(this.lblPwd);
-            this.panel1.Controls.Add(this.txtPwd);
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.txtName);
-            this.panel1.Location = new System.Drawing.Point(11, 18);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 628);
-            this.panel1.TabIndex = 0;
-            this.panel1.TabStop = true;
+            this.errorProvider1.ContainerControl = this;
             // 
             // lblCheckPw
             // 
@@ -102,18 +73,60 @@
             this.txtCheckingPwd.Size = new System.Drawing.Size(254, 25);
             this.txtCheckingPwd.TabIndex = 5;
             this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCheckingPwd.TextChanged += new System.EventHandler(this.txtCheckingPwd_TextChanged);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(308, 444);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(143, 80);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "변경";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.Location = new System.Drawing.Point(32, 184);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(114, 29);
+            this.lblID.TabIndex = 9;
+            this.lblID.Text = "ID";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gBoxKindOfAccount);
+            this.panel1.Controls.Add(this.lblCheckPw);
+            this.panel1.Controls.Add(this.txtCheckingPwd);
+            this.panel1.Controls.Add(this.btnUpdate);
+            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.txtID);
+            this.panel1.Controls.Add(this.lblAddress);
+            this.panel1.Controls.Add(this.txtAddress);
+            this.panel1.Controls.Add(this.lblPhone);
+            this.panel1.Controls.Add(this.txtPhone);
+            this.panel1.Controls.Add(this.lblPwd);
+            this.panel1.Controls.Add(this.txtPwd);
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(473, 548);
+            this.panel1.TabIndex = 1;
+            this.panel1.TabStop = true;
             // 
             // gBoxKindOfAccount
             // 
             this.gBoxKindOfAccount.Controls.Add(this.rbtnS);
             this.gBoxKindOfAccount.Controls.Add(this.rbtnA);
-            this.gBoxKindOfAccount.Location = new System.Drawing.Point(34, 526);
+            this.gBoxKindOfAccount.Location = new System.Drawing.Point(35, 444);
             this.gBoxKindOfAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gBoxKindOfAccount.Name = "gBoxKindOfAccount";
             this.gBoxKindOfAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gBoxKindOfAccount.Size = new System.Drawing.Size(223, 79);
-            this.gBoxKindOfAccount.TabIndex = 7;
+            this.gBoxKindOfAccount.TabIndex = 12;
             this.gBoxKindOfAccount.TabStop = false;
             this.gBoxKindOfAccount.Text = "계정의 종류";
             // 
@@ -128,7 +141,6 @@
             this.rbtnS.TabStop = true;
             this.rbtnS.Text = "회원용";
             this.rbtnS.UseVisualStyleBackColor = true;
-            this.rbtnS.CheckedChanged += new System.EventHandler(this.rbtnS_CheckedChanged);
             // 
             // rbtnA
             // 
@@ -141,26 +153,6 @@
             this.rbtnA.TabStop = true;
             this.rbtnA.Text = "관리자용";
             this.rbtnA.UseVisualStyleBackColor = true;
-            this.rbtnA.CheckedChanged += new System.EventHandler(this.rbtnA_CheckedChanged);
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(309, 525);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(143, 80);
-            this.btnInsert.TabIndex = 10;
-            this.btnInsert.Text = "등록";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // lblID
-            // 
-            this.lblID.Location = new System.Drawing.Point(32, 184);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(114, 29);
-            this.lblID.TabIndex = 9;
-            this.lblID.Text = "ID";
             // 
             // txtID
             // 
@@ -170,6 +162,7 @@
             this.txtID.Size = new System.Drawing.Size(254, 25);
             this.txtID.TabIndex = 3;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
             // lblAddress
             // 
@@ -187,6 +180,7 @@
             this.txtAddress.Size = new System.Drawing.Size(254, 25);
             this.txtAddress.TabIndex = 2;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // lblPhone
             // 
@@ -204,6 +198,7 @@
             this.txtPhone.Size = new System.Drawing.Size(254, 25);
             this.txtPhone.TabIndex = 6;
             this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // lblPwd
             // 
@@ -222,6 +217,7 @@
             this.txtPwd.Size = new System.Drawing.Size(254, 25);
             this.txtPwd.TabIndex = 4;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPwd.Leave += new System.EventHandler(this.txtPwd_Leave);
             // 
             // lblName
             // 
@@ -231,35 +227,42 @@
             this.lblName.TabIndex = 1;
             this.lblName.Text = "이름";
             // 
-            // errorProvider1
+            // txtName
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.txtName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.txtName.Location = new System.Drawing.Point(197, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(254, 25);
+            this.txtName.TabIndex = 1;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
-            // WhenCreate
+            // frmUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 660);
+            this.ClientSize = new System.Drawing.Size(473, 548);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "WhenCreate";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "WhenCreate";
-            this.Load += new System.EventHandler(this.WhenCreate_Load);
+            this.Name = "frmUpdate";
+            this.Text = "고객 정보 수정";
+            this.Load += new System.EventHandler(this.frmUpdate_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gBoxKindOfAccount.ResumeLayout(false);
             this.gBoxKindOfAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblCheckPw;
+        private System.Windows.Forms.TextBox txtCheckingPwd;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblAddress;
@@ -268,12 +271,10 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblPwd;
         private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.GroupBox gBoxKindOfAccount;
         private System.Windows.Forms.RadioButton rbtnS;
         private System.Windows.Forms.RadioButton rbtnA;
-        private System.Windows.Forms.Label lblCheckPw;
-        private System.Windows.Forms.TextBox txtCheckingPwd;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

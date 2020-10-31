@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class NewAccount
+    partial class frmNewAccount
     {
         /// <summary>
         /// Required designer variable.

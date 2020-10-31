@@ -9,24 +9,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using WindowsFormsAppPersonalProject.DB;
+using WindowsFormsAppPersonalProject;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        Form1 main;
-        public static string id = null;
-       
-        public Login()
+        frmMain main;
+        public string CustomerNum;
+        public string CustomerName;
+        public string CustomerAddress;
+        public string CustomerID;
+        public static string IsAdmin = null;
+        public string CustomerPw;
+        public string Phone;
+
+        public frmLogin()
         {
             InitializeComponent();
         }
         #region 프로퍼티
-        public string ID { get { return id; }}
-        public string TextID { get {return txtID.Text; } }
-        public string TextPwd { get{return txtPwd.Text; } }
-#endregion 프로퍼티
+        
+        public Customer cusinfo 
+        { 
+            get 
+            {
+                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+            }
+        }
+        #endregion 프로퍼티
 
 
         private void Login_Load(object sender, EventArgs e)
@@ -59,18 +70,18 @@ namespace WindowsFormsAppPersonalProject
         private void 회원용ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //menustrip1를 보이게 해야해
-            id = "SCustomerID";
+            IsAdmin = "0"; 
         }
 
         private void 관리자용ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //menustrip3를 보이게 해야해
-            id = "ACustomerID";
+            IsAdmin = "1";
         }
 
         private void btnMakingAccount_Click(object sender, EventArgs e)     //회원가입 버튼
         {
-            WhenCreate c1 = new WhenCreate();
+            frmWhenCreate c1 = new frmWhenCreate();
             c1.Show();
             c1.Activate();
         }
@@ -78,7 +89,7 @@ namespace WindowsFormsAppPersonalProject
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
             //유효성 체크
-            if (id == null)
+            if (IsAdmin == null)
             {
                 MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
                 e.Handled = true;
@@ -89,7 +100,7 @@ namespace WindowsFormsAppPersonalProject
         private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
         {
             //유효성 체크
-            if (id == null)
+            if (IsAdmin == null)
             {
                 MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
                 e.Handled = true;
@@ -97,19 +108,18 @@ namespace WindowsFormsAppPersonalProject
             }
 
             CustomerDB db = new CustomerDB();
-            db.GetEveryData();
-
-
+            DataTable dt = db.GetEveryData(txtID.Text, txtPwd.Text);
             if (e.KeyChar == 13)
             {
                 //정보 확인
 
-                if (db.GetEveryData() != null)       //계정이 DB에 존재할 때 로그인 성공    
+                if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
                 {
+                    
                     //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                     timer1.Interval = 1000;
                     progressBar1.Value = 50;
-                    main = new Form1(this);
+                    main = new frmMain(cusinfo);
                     this.Hide();
                     main.Show();
                 }
@@ -120,6 +130,25 @@ namespace WindowsFormsAppPersonalProject
             }
 
             db.Dispose();
+        }
+
+        private bool FromDtToMember(DataTable dt)
+        {
+            try
+            {
+                CustomerNum = dt.Rows[0]["CustomerNum"].ToString();
+                CustomerName = dt.Rows[0]["CustomerName"].ToString();
+                CustomerAddress = dt.Rows[0]["CustomerAddress"].ToString();
+                CustomerID = dt.Rows[0]["CustomerID"].ToString();
+                IsAdmin = dt.Rows[0]["IsAdmin"].ToString();
+                CustomerPw = dt.Rows[0]["CustomerPw"].ToString();
+                Phone = dt.Rows[0]["CustomerPhone"].ToString();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
