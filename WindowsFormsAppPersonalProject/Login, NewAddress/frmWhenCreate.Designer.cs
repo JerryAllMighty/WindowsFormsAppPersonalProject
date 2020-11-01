@@ -128,7 +128,7 @@
             this.rbtnS.TabStop = true;
             this.rbtnS.Text = "회원용";
             this.rbtnS.UseVisualStyleBackColor = true;
-            this.rbtnS.CheckedChanged += new System.EventHandler(this.rbtnS_CheckedChanged);
+            this.rbtnS.Click += new System.EventHandler(this.rbtnS_Click);
             // 
             // rbtnA
             // 
@@ -141,7 +141,7 @@
             this.rbtnA.TabStop = true;
             this.rbtnA.Text = "관리자용";
             this.rbtnA.UseVisualStyleBackColor = true;
-            this.rbtnA.CheckedChanged += new System.EventHandler(this.rbtnA_CheckedChanged);
+            this.rbtnA.Click += new System.EventHandler(this.rbtnA_Clicked);
             // 
             // btnInsert
             // 

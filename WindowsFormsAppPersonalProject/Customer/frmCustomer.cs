@@ -19,7 +19,7 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerName;
         public string CustomerAddress;
         public string CustomerID;
-        public static string IsAdmin;
+        public string IsAdmin;
         public string CustomerPw;
         public string Phone;
 
@@ -59,7 +59,7 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.SetinitGridView(dgvMember);
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember, "고객명", "CustomerName");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress", 150);
             CommonUtil.AddGridTextColumn(dgvMember, "고객ID", "CustomerID");
             CommonUtil.AddGridTextColumn(dgvMember, "관리자여부", "IsAdmin");
             CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw");
@@ -68,7 +68,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void button3_Click(object sender, EventArgs e) //계좌생성 클릭
         {
-            frmNewAccount na = new frmNewAccount();
+            frmNewAccount na = new frmNewAccount(CustomerInfo);
             na.Show();
             na.Activate();
 
@@ -97,7 +97,8 @@ namespace WindowsFormsAppPersonalProject
                 CustomerDB db = new CustomerDB();
                 db.Delete(CustomerInfo);
                 db.Dispose();
-                this.Close();
+                this.Close();       //이 창 닫아주기
+                this.MdiParent.Close();     //메인 폼(부모 폼) 닫아주기
                 frmLogin login = new frmLogin();
                 login.Show();
             }

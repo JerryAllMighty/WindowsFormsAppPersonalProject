@@ -18,7 +18,7 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerNum;
         public string CustomerName;
         public string CustomerAddress;
-        public static string IsAdmin = null;
+        public string IsAdmin = null;
         public string CustomerID;
         public string CustomerPw;
         public string Phone;
@@ -33,16 +33,6 @@ namespace WindowsFormsAppPersonalProject
             get
             {
                 return new Customer(CustomerNum,txtName.Text, txtAddress.Text, txtID.Text, IsAdmin, txtPwd.Text,txtPhone.Text);
-            }
-
-            set    
-            {
-                txtName.Text = value.CustomerName;
-                txtAddress.Text = value.CustomerAddress;
-                txtID.Text = value.IsAdmin;
-                IsAdmin = value.IsAdmin;
-                txtPwd.Text = value.CustomerPw;
-                txtPhone.Text = value.Phone;
             }
         }
 
@@ -65,17 +55,6 @@ namespace WindowsFormsAppPersonalProject
             MessageBox.Show("등록이 완료되었습니다.");
             this.Close();
         }
-
-        private void rbtnA_CheckedChanged(object sender, EventArgs e)
-        {
-            IsAdmin = "Y";
-        }
-
-        private void rbtnS_CheckedChanged(object sender, EventArgs e)
-        {
-            IsAdmin = "N";
-        }
-
         private void txtCheckingPwd_TextChanged(object sender, EventArgs e)
         {
             //유효성체크
@@ -87,6 +66,16 @@ namespace WindowsFormsAppPersonalProject
             {
                 errorProvider1.Clear();
             }
+        }
+
+        private void rbtnS_Click(object sender, EventArgs e)
+        {
+            IsAdmin = "0";
+        }
+
+        private void rbtnA_Clicked(object sender, EventArgs e)
+        {
+            IsAdmin = "1";
         }
     }
 }

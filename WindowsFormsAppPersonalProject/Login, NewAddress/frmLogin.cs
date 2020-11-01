@@ -20,7 +20,7 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerName;
         public string CustomerAddress;
         public string CustomerID;
-        public static string IsAdmin = null;
+        public string IsAdmin = null;
         public string CustomerPw;
         public string Phone;
 
@@ -106,33 +106,54 @@ namespace WindowsFormsAppPersonalProject
                 e.Handled = true;
                 return;
             }
-
-            CustomerDB db = new CustomerDB();
-            DataTable dt = db.GetEveryData(txtID.Text, txtPwd.Text);
+           
             if (e.KeyChar == 13)
             {
-                //정보 확인
+                //로그인 버튼을 누른 것과 동일한 효과
+                btnLogin.PerformClick();
+            }
 
-                if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
-                {
-                    
-                    //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
-                    timer1.Interval = 1000;
-                    progressBar1.Value = 50;
-                    main = new frmMain(cusinfo);
-                    this.Hide();
-                    main.Show();
-                }
+            
+        }
+
+
+        private void btnLogin_Click(object sender, EventArgs e)     //로그인 버튼 클릭
+        {
+            CustomerDB db = new CustomerDB();
+            DataTable dt = db.GetEveryData(txtID.Text, txtPwd.Text);
+
+            if (IsAdmin != dt.Rows[0]["IsAdmin"].ToString())   //관리자용과 회원용이 맞지 않을 때, 유효성 체크
+            {
+                string loginaccount;
+                if (IsAdmin == "0")
+                    loginaccount = "회원용";
                 else
-                {
-                    MessageBox.Show("ID나 비밀번호를 다시 한 번 확인해주십시오.");
-                }
+                    loginaccount = "관리자용";
+
+                MessageBox.Show($"{loginaccount}아이디가 맞는지 확인해주세요.");
+                return;
+            }
+
+            if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
+            {
+
+                //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
+                timer1.Interval = 1000;
+                progressBar1.Value = 50;
+                main = new frmMain(cusinfo);        //아이디와 비밀번호로 db에서 가져온 고객정보를 생성자로 전달
+                this.Hide();
+                main.Show();
+            }
+            else
+            {
+                MessageBox.Show("ID나 비밀번호를 다시 한 번 확인해주십시오.");
             }
 
             db.Dispose();
         }
 
-        private bool FromDtToMember(DataTable dt)
+
+        private bool FromDtToMember(DataTable dt)       //데이터 테이블을 로그인 폼의 멤버변수로 전해주기
         {
             try
             {

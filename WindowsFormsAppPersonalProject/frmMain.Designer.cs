@@ -55,7 +55,8 @@
             this.로그아웃ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(914, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -63,35 +64,35 @@
             // 고객ToolStripMenuItem
             // 
             this.고객ToolStripMenuItem.Name = "고객ToolStripMenuItem";
-            this.고객ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.고객ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.고객ToolStripMenuItem.Text = "고객";
             this.고객ToolStripMenuItem.Click += new System.EventHandler(this.고객ToolStripMenuItem_Click);
             // 
             // 계좌ToolStripMenuItem
             // 
             this.계좌ToolStripMenuItem.Name = "계좌ToolStripMenuItem";
-            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
             this.계좌ToolStripMenuItem.Text = "계좌조회";
             this.계좌ToolStripMenuItem.Click += new System.EventHandler(this.계좌ToolStripMenuItem_Click);
             // 
             // 대출ToolStripMenuItem
             // 
             this.대출ToolStripMenuItem.Name = "대출ToolStripMenuItem";
-            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.대출ToolStripMenuItem.Text = "대출";
             this.대출ToolStripMenuItem.Click += new System.EventHandler(this.대출ToolStripMenuItem_Click);
             // 
             // 이체ToolStripMenuItem
             // 
             this.이체ToolStripMenuItem.Name = "이체ToolStripMenuItem";
-            this.이체ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.이체ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.이체ToolStripMenuItem.Text = "이체";
             this.이체ToolStripMenuItem.Click += new System.EventHandler(this.이체ToolStripMenuItem_Click);
             // 
             // 로그아웃ToolStripMenuItem
             // 
             this.로그아웃ToolStripMenuItem.Name = "로그아웃ToolStripMenuItem";
-            this.로그아웃ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.로그아웃ToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
             this.로그아웃ToolStripMenuItem.Text = "로그아웃";
             this.로그아웃ToolStripMenuItem.Click += new System.EventHandler(this.로그아웃ToolStripMenuItem_Click);
             // 
@@ -105,7 +106,8 @@
             this.toolStripMenuItem5});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip3.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip3.Size = new System.Drawing.Size(914, 30);
             this.menuStrip3.TabIndex = 3;
             this.menuStrip3.Text = "menuStrip3";
             this.menuStrip3.Visible = false;
@@ -113,41 +115,42 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 26);
             this.toolStripMenuItem1.Text = "고객관리";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(83, 26);
             this.toolStripMenuItem2.Text = "계좌관리";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(83, 26);
             this.toolStripMenuItem3.Text = "대출현황";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(83, 26);
             this.toolStripMenuItem5.Text = "로그아웃";
             // 
-            // Form1
+            // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 562);
             this.Controls.Add(this.menuStrip3);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "frmMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";

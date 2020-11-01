@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAccount));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbxNewAccount = new System.Windows.Forms.GroupBox();
             this.lblCheckNewPwd = new System.Windows.Forms.Label();
@@ -45,8 +47,10 @@
             this.lblOutPwd = new System.Windows.Forms.Label();
             this.txtOutPwd = new System.Windows.Forms.TextBox();
             this.lbltxtKindOfAccount = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.gbxNewAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,19 +67,21 @@
             this.panel1.Controls.Add(this.lblOutPwd);
             this.panel1.Controls.Add(this.txtOutPwd);
             this.panel1.Controls.Add(this.lbltxtKindOfAccount);
-            this.panel1.Location = new System.Drawing.Point(12, 13);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1095, 518);
+            this.panel1.Size = new System.Drawing.Size(1064, 534);
             this.panel1.TabIndex = 1;
             // 
             // gbxNewAccount
             // 
+            this.gbxNewAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbxNewAccount.Controls.Add(this.lblCheckNewPwd);
             this.gbxNewAccount.Controls.Add(this.txtCheckNewPwd);
             this.gbxNewAccount.Controls.Add(this.lblNewPwd);
             this.gbxNewAccount.Controls.Add(this.txtNewPwd);
-            this.gbxNewAccount.Location = new System.Drawing.Point(518, 215);
+            this.gbxNewAccount.Location = new System.Drawing.Point(514, 51);
             this.gbxNewAccount.Name = "gbxNewAccount";
             this.gbxNewAccount.Size = new System.Drawing.Size(538, 200);
             this.gbxNewAccount.TabIndex = 13;
@@ -84,6 +90,7 @@
             // 
             // lblCheckNewPwd
             // 
+            this.lblCheckNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCheckNewPwd.Location = new System.Drawing.Point(3, 174);
             this.lblCheckNewPwd.Name = "lblCheckNewPwd";
             this.lblCheckNewPwd.Size = new System.Drawing.Size(114, 29);
@@ -92,14 +99,17 @@
             // 
             // txtCheckNewPwd
             // 
+            this.txtCheckNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCheckNewPwd.Location = new System.Drawing.Point(168, 171);
             this.txtCheckNewPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCheckNewPwd.Name = "txtCheckNewPwd";
             this.txtCheckNewPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtCheckNewPwd.TabIndex = 8;
+            this.txtCheckNewPwd.TabIndex = 6;
+            this.txtCheckNewPwd.TextChanged += new System.EventHandler(this.txtCheckNewPwd_TextChanged);
             // 
             // lblNewPwd
             // 
+            this.lblNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNewPwd.Location = new System.Drawing.Point(3, 78);
             this.lblNewPwd.Name = "lblNewPwd";
             this.lblNewPwd.Size = new System.Drawing.Size(114, 29);
@@ -108,14 +118,16 @@
             // 
             // txtNewPwd
             // 
+            this.txtNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNewPwd.Location = new System.Drawing.Point(168, 75);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtNewPwd.TabIndex = 6;
+            this.txtNewPwd.TabIndex = 5;
             // 
             // cbxduration
             // 
+            this.cbxduration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxduration.FormattingEnabled = true;
             this.cbxduration.Items.AddRange(new object[] {
             "1개월",
@@ -126,10 +138,11 @@
             this.cbxduration.Location = new System.Drawing.Point(197, 135);
             this.cbxduration.Name = "cbxduration";
             this.cbxduration.Size = new System.Drawing.Size(254, 23);
-            this.cbxduration.TabIndex = 12;
+            this.cbxduration.TabIndex = 1;
             // 
             // cbxKindOfAccount
             // 
+            this.cbxKindOfAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxKindOfAccount.FormattingEnabled = true;
             this.cbxKindOfAccount.Items.AddRange(new object[] {
             "적금 계좌",
@@ -138,20 +151,24 @@
             this.cbxKindOfAccount.Location = new System.Drawing.Point(197, 51);
             this.cbxKindOfAccount.Name = "cbxKindOfAccount";
             this.cbxKindOfAccount.Size = new System.Drawing.Size(254, 23);
-            this.cbxKindOfAccount.TabIndex = 11;
+            this.cbxKindOfAccount.TabIndex = 0;
+            this.cbxKindOfAccount.MouseLeave += new System.EventHandler(this.cbxKindOfAccount_MouseLeave);
             // 
             // btnNewAccount
             // 
-            this.btnNewAccount.Location = new System.Drawing.Point(518, 51);
+            this.btnNewAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNewAccount.Location = new System.Drawing.Point(909, 328);
             this.btnNewAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewAccount.Name = "btnNewAccount";
             this.btnNewAccount.Size = new System.Drawing.Size(143, 80);
             this.btnNewAccount.TabIndex = 6;
             this.btnNewAccount.Text = "계좌 생성";
             this.btnNewAccount.UseVisualStyleBackColor = true;
+            this.btnNewAccount.Click += new System.EventHandler(this.btnNewAccount_Click);
             // 
             // lblpayPerMonth
             // 
+            this.lblpayPerMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblpayPerMonth.Location = new System.Drawing.Point(32, 219);
             this.lblpayPerMonth.Name = "lblpayPerMonth";
             this.lblpayPerMonth.Size = new System.Drawing.Size(114, 29);
@@ -161,14 +178,16 @@
             // 
             // txtpayPerMonth
             // 
+            this.txtpayPerMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpayPerMonth.Location = new System.Drawing.Point(197, 215);
             this.txtpayPerMonth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtpayPerMonth.Name = "txtpayPerMonth";
             this.txtpayPerMonth.Size = new System.Drawing.Size(254, 25);
-            this.txtpayPerMonth.TabIndex = 3;
+            this.txtpayPerMonth.TabIndex = 2;
             // 
             // lblduration
             // 
+            this.lblduration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblduration.Location = new System.Drawing.Point(32, 135);
             this.lblduration.Name = "lblduration";
             this.lblduration.Size = new System.Drawing.Size(114, 29);
@@ -178,6 +197,7 @@
             // 
             // lblOutAccount
             // 
+            this.lblOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutAccount.Location = new System.Drawing.Point(32, 293);
             this.lblOutAccount.Name = "lblOutAccount";
             this.lblOutAccount.Size = new System.Drawing.Size(114, 29);
@@ -187,23 +207,26 @@
             // 
             // txtOutAccount
             // 
+            this.txtOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOutAccount.Location = new System.Drawing.Point(197, 289);
             this.txtOutAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutAccount.Name = "txtOutAccount";
             this.txtOutAccount.Size = new System.Drawing.Size(254, 25);
-            this.txtOutAccount.TabIndex = 5;
+            this.txtOutAccount.TabIndex = 3;
             // 
             // lblOutPwd
             // 
+            this.lblOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutPwd.Location = new System.Drawing.Point(32, 386);
             this.lblOutPwd.Name = "lblOutPwd";
-            this.lblOutPwd.Size = new System.Drawing.Size(114, 29);
+            this.lblOutPwd.Size = new System.Drawing.Size(159, 29);
             this.lblOutPwd.TabIndex = 3;
             this.lblOutPwd.Text = "출금 계좌 비밀번호";
             this.lblOutPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtOutPwd
             // 
+            this.txtOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOutPwd.Location = new System.Drawing.Point(197, 383);
             this.txtOutPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutPwd.Name = "txtOutPwd";
@@ -212,6 +235,7 @@
             // 
             // lbltxtKindOfAccount
             // 
+            this.lbltxtKindOfAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbltxtKindOfAccount.Location = new System.Drawing.Point(32, 51);
             this.lbltxtKindOfAccount.Name = "lbltxtKindOfAccount";
             this.lbltxtKindOfAccount.Size = new System.Drawing.Size(114, 29);
@@ -219,20 +243,26 @@
             this.lbltxtKindOfAccount.Text = "계좌종류";
             this.lbltxtKindOfAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // NewAccount
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // frmNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 534);
+            this.ClientSize = new System.Drawing.Size(1064, 534);
             this.Controls.Add(this.panel1);
-            this.Name = "NewAccount";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmNewAccount";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "NewAccount";
+            this.Text = "새 계좌 생성";
             this.Load += new System.EventHandler(this.NewAccount_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbxNewAccount.ResumeLayout(false);
             this.gbxNewAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +286,6 @@
         private System.Windows.Forms.TextBox txtCheckNewPwd;
         private System.Windows.Forms.Label lblNewPwd;
         private System.Windows.Forms.TextBox txtNewPwd;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -54,7 +54,7 @@ namespace WindowsFormsAppPersonalProject
             try {
                 DataTable dt = new DataTable();
                 string sql = $@"select CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, CustomerPhone from customers 
-                                where CustomerID = '{uid}' and CustomerPw = {pwd} ";
+                                where CustomerID = '{uid}' and CustomerPw = '{pwd}' ";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
                 da.Fill(dt);
@@ -73,8 +73,8 @@ namespace WindowsFormsAppPersonalProject
             MySqlTransaction trans = conn.BeginTransaction();
             try 
             {
-                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, CustomerPw, CustomerPhone)        
-                                values(@CustomerName, @CustomerAddress, @CustomerID, @CustomerPw, @CustomerPhone)";
+                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, CustomerPhone)        
+                                values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin, @CustomerPw, @CustomerPhone)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
@@ -88,7 +88,10 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.Parameters.Add("@CustomerID", MySqlDbType.VarChar);
                 cmd.Parameters["@CustomerID"].Value = cus.CustomerID;
-                
+
+                cmd.Parameters.Add("@IsAdmin", MySqlDbType.VarChar);
+                cmd.Parameters["@IsAdmin"].Value = cus.IsAdmin;
+
                 cmd.Parameters.Add("@CustomerPw", MySqlDbType.VarChar);
                 cmd.Parameters["@CustomerPw"].Value = cus.CustomerPw;
 

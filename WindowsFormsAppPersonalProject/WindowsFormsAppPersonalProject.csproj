@@ -61,6 +61,7 @@
     <Compile Include="Customer\frmUpdate.Designer.cs">
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\NormalAccountDB.cs" />
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Customer\frmCustomer.cs">
       <SubType>Form</SubType>

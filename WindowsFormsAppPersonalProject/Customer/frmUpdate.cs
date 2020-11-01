@@ -16,7 +16,7 @@ namespace WindowsFormsAppPersonalProject
         public string ChangedName;
         public string ChangedAddress;
         public string ChangedID;
-        public static string IsAdmin;
+        public string IsAdmin;
         public string ChangedPw;
         public string ChangedPhone;
 
@@ -78,6 +78,7 @@ namespace WindowsFormsAppPersonalProject
                 db.Update(CustomerInfo);
                 db.Dispose();
                 MessageBox.Show("변경이 완료되었습니다.");
+                this.Close();
             }
             catch(Exception)
             {
