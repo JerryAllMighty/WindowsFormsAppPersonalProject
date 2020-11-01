@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace WindowsFormsAppPersonalProject
 {
     public class NormalAccount
@@ -25,7 +27,7 @@ namespace WindowsFormsAppPersonalProject
         }
     }
 
-    class NormalAccountDB
+    class NormalAccountDB : IDisposable
     {
         MySqlConnection conn;
 
@@ -59,12 +61,19 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.ExecuteNonQuery();
 
+                trans.Commit();
                 return true;
             }
             catch (Exception)
             {
+                trans.Rollback();
                 return false;
             }
+        }
+
+        public void Dispose()
+        {
+            conn.Close();
         }
     }
 }

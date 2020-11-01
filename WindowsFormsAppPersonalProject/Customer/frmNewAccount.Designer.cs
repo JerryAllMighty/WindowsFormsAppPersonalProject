@@ -48,6 +48,8 @@
             this.txtOutPwd = new System.Windows.Forms.TextBox();
             this.lbltxtKindOfAccount = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblAmountOfDeposit = new System.Windows.Forms.Label();
+            this.txtAmountOfDeposit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.gbxNewAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -55,6 +57,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblAmountOfDeposit);
+            this.panel1.Controls.Add(this.txtAmountOfDeposit);
             this.panel1.Controls.Add(this.gbxNewAccount);
             this.panel1.Controls.Add(this.cbxduration);
             this.panel1.Controls.Add(this.cbxKindOfAccount);
@@ -152,7 +156,7 @@
             this.cbxKindOfAccount.Name = "cbxKindOfAccount";
             this.cbxKindOfAccount.Size = new System.Drawing.Size(254, 23);
             this.cbxKindOfAccount.TabIndex = 0;
-            this.cbxKindOfAccount.MouseLeave += new System.EventHandler(this.cbxKindOfAccount_MouseLeave);
+            this.cbxKindOfAccount.SelectedValueChanged += new System.EventHandler(this.cbxKindOfAccount_SelectedValueChanged);
             // 
             // btnNewAccount
             // 
@@ -173,7 +177,7 @@
             this.lblpayPerMonth.Name = "lblpayPerMonth";
             this.lblpayPerMonth.Size = new System.Drawing.Size(114, 29);
             this.lblpayPerMonth.TabIndex = 9;
-            this.lblpayPerMonth.Text = "매회 납입 금액";
+            this.lblpayPerMonth.Text = "매회 납입 금액 ";
             this.lblpayPerMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtpayPerMonth
@@ -247,6 +251,25 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lblAmountOfDeposit
+            // 
+            this.lblAmountOfDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAmountOfDeposit.Location = new System.Drawing.Point(517, 293);
+            this.lblAmountOfDeposit.Name = "lblAmountOfDeposit";
+            this.lblAmountOfDeposit.Size = new System.Drawing.Size(114, 29);
+            this.lblAmountOfDeposit.TabIndex = 15;
+            this.lblAmountOfDeposit.Text = "예치금";
+            this.lblAmountOfDeposit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtAmountOfDeposit
+            // 
+            this.txtAmountOfDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAmountOfDeposit.Location = new System.Drawing.Point(682, 289);
+            this.txtAmountOfDeposit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAmountOfDeposit.Name = "txtAmountOfDeposit";
+            this.txtAmountOfDeposit.Size = new System.Drawing.Size(254, 25);
+            this.txtAmountOfDeposit.TabIndex = 14;
+            // 
             // frmNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -287,5 +310,7 @@
         private System.Windows.Forms.Label lblNewPwd;
         private System.Windows.Forms.TextBox txtNewPwd;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblAmountOfDeposit;
+        private System.Windows.Forms.TextBox txtAmountOfDeposit;
     }
 }
