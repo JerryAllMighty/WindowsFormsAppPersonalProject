@@ -40,7 +40,7 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return new NormalAccount(CustomerNum, cbxKindOfAccount.SelectedItem.ToString(), txtNewPwd.Text);     //
+                return new NormalAccount(CustomerNum, CustomerName,cbxKindOfAccount.SelectedItem.ToString(), txtNewPwd.Text);     //
             }
 
         }
@@ -49,37 +49,66 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return new Savings(CustomerNum, cbxKindOfAccount.SelectedItem.ToString(),
+                return new Savings(CustomerNum, CustomerName, cbxKindOfAccount.SelectedItem.ToString(),
                                     cbxduration.SelectedItem.ToString(), txtpayPerMonth.Text, txtOutAccount.Text,
                                     txtOutPwd.Text, txtNewPwd.Text);
             }
         }
 
+        public DepositAccount depositInfo
+        {
+            get
+            {
+                return new DepositAccount(CustomerNum,CustomerName, cbxKindOfAccount.SelectedItem.ToString(),
+                               txtAmountOfDeposit.Text, txtOutAccount.Text, txtOutPwd.Text, txtNewPwd.Text);
+            }
+        }
+
         private void NewAccount_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnNewAccount_Click(object sender, EventArgs e)        //계좌 생성 버튼 클릭
         {
-            
+
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
             {
                 //일반 계좌에 연결
                 NormalAccountDB db = new NormalAccountDB();
-                db.Insert(accountinfo);      
+                
+                if (!db.Insert(accountinfo))
+                {
+                    MessageBox.Show("실행 도중 오류가 발생하였습니다.");
+                    return;
+                }
                 db.Dispose();
             }
             else if (cbxKindOfAccount.SelectedItem.ToString() == "예금 계좌")
             {
+                if (!CheckOutAccount())      //출금 계좌와 비번이 맞는지 확인하는 함수 호출
+                    return;
                 //예금 계좌에 연결
-
+                DepositAccountDB db = new DepositAccountDB();
+                if (!db.Insert(depositInfo))
+                {
+                    MessageBox.Show("실행 도중 오류가 발생하였습니다.");
+                    return;
+                }
+                db.Dispose();
             }
             else if (cbxKindOfAccount.SelectedItem.ToString() == "적금 계좌")
             {
+                if (!CheckOutAccount())      //출금 계좌와 비번이 맞는지 확인하는 함수 호출
+                    return;
                 //적금 계좌에 연결
                 SavingDB db = new SavingDB();
-                db.Insert(savingInfo);
+                
+                if (!db.Insert(savingInfo))
+                {
+                    MessageBox.Show("실행 도중 오류가 발생하였습니다.");
+                    return;
+                }
                 db.Dispose();
             }
             else
@@ -87,7 +116,7 @@ namespace WindowsFormsAppPersonalProject
                 MessageBox.Show("반드시 계좌 종류를 선택하셔야합니다.");
                 return;
             }
-            //출금계좌가 DB NorMalAccount의 id,pw와 일치하는지 꼭! 연동시켜서 확인시켜주기
+           
             MessageBox.Show("계좌 생성이 완료되었습니다.");
             this.Close();
         }
@@ -107,24 +136,90 @@ namespace WindowsFormsAppPersonalProject
 
         private void cbxKindOfAccount_SelectedValueChanged(object sender, EventArgs e)      //선택값이 바뀔때마다
         {
-            if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
+            //값이 바뀔 때마다 기존에 입력되어있던 값들, 계좌 종류에 따라 사용 불가했던 컨트롤들이 모두 초기화되게 하기
+            txtpayPerMonth.Text = cbxduration.Text = txtOutAccount.Text = txtOutPwd.Text =
+                cbxduration.Text = txtNewPwd.Text = txtCheckNewPwd.Text = txtAmountOfDeposit.Text = string.Empty;
+
+            lbltxtKindOfAccount.Enabled = lblduration.Enabled = lblpayPerMonth.Enabled = lblOutAccount.Enabled =
+               lblOutPwd.Enabled = lblNewPwd.Enabled = lblCheckNewPwd.Enabled = lblAmountOfDeposit.Enabled = true;  //라벨들 초기화
+
+            txtpayPerMonth.Enabled = cbxduration.Enabled = txtOutAccount.Enabled = txtOutPwd.Enabled =
+                cbxduration.Enabled = txtNewPwd.Enabled = txtCheckNewPwd.Enabled = txtAmountOfDeposit.Enabled = true;       //텍스트박스들 초기화
+
+
+            if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")        //다른 계좌 컨트롤들 못 쓰게 해주기
             {
-                txtpayPerMonth.Enabled = false;
+                lblduration.Enabled = false;
                 cbxduration.Enabled = false;
+
+                lblpayPerMonth.Enabled = false;
+                txtpayPerMonth.Enabled = false;
+
+                lblOutAccount.Enabled = false;
                 txtOutAccount.Enabled = false;
+
+                lblOutPwd.Enabled = false;
                 txtOutPwd.Enabled = false;
+
+                lblAmountOfDeposit.Enabled = false;
+                txtAmountOfDeposit.Enabled = false;
+
             }
-            else if (cbxKindOfAccount.SelectedItem.ToString() == "적금 계좌")
+            else if (cbxKindOfAccount.SelectedItem.ToString() == "적금 계좌")       //다른 계좌 컨트롤들 못 쓰게 해주기
             {
                 lblAmountOfDeposit.Enabled = false;
                 txtAmountOfDeposit.Enabled = false;
             }
-            else
+            else      //다른 계좌 컨트롤들 못 쓰게 해주기
             {
                 //예금 계좌 선택 시
                 lblpayPerMonth.Enabled = false;
                 txtpayPerMonth.Enabled = false;
             }
+        }
+
+        public bool CheckOutAccount()     //출금은 무조건 일반 계좌에서만 되기에 일반 계좌 db를 갔다온다
+        {
+            NormalAccountDB db = new NormalAccountDB();
+            DataTable dt =  db.GetEveryData(accountinfo);
+            try
+            {
+                if(dt != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    if (txtOutAccount.Text.Trim().Equals(dt.Rows[0]["NAccountNum"].ToString()))        //일반계정의 계좌번호가 입력한 것과 같을 때
+                    {
+                       // txtOutAccount.BackColor = Color.Green;
+                    }
+                    else 
+                    {
+                        sb.Append("귀하의 일반 계좌에 존재하지 않는 계좌번호입니다. \n");
+                        MessageBox.Show(sb.ToString());
+                        return false;
+                    }
+                    if (txtOutPwd.Text.Trim().Equals(dt.Rows[0]["Pwd"].ToString()))            //일반계정의 계좌 비밀번호가 입력한 것과 같을 때
+                    {
+                     //   txtOutPwd.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        sb.Append("일치하지 않는 계좌 비밀번호입니다.");
+                        MessageBox.Show(sb.ToString());
+                        return false;
+                    }
+
+                    
+                    db.Dispose();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+            
         }
     }
 }

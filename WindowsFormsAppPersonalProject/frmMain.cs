@@ -68,7 +68,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void 계좌ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountView a1 = new AccountView();
+            AccountView a1 = new AccountView(customerInfo);
             a1.MdiParent = this;
             a1.Show();
             a1.Activate();

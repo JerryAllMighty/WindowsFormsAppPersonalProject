@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("고객 아이디");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("관리자여부");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("비밀번호");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("고객번호");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("고객명");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("고객주소");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("연락처");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("고객 아이디");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("관리자여부");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("비밀번호");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -98,24 +98,24 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView1.Location = new System.Drawing.Point(491, 0);
             this.treeView1.Name = "treeView1";
-            treeNode9.Name = "노드5";
-            treeNode9.Text = "고객번호";
-            treeNode10.Name = "노드6";
-            treeNode10.Text = "고객명";
-            treeNode11.Name = "노드7";
-            treeNode11.Text = "고객주소";
-            treeNode12.Name = "노드8";
-            treeNode12.Text = "연락처";
-            treeNode13.Name = "노드0";
-            treeNode13.Text = "고객 아이디";
-            treeNode14.Name = "노드1";
-            treeNode14.Text = "관리자여부";
-            treeNode15.Name = "노드2";
-            treeNode15.Text = "비밀번호";
-            treeNode16.Name = "노드4";
-            treeNode16.Text = "고객";
+            treeNode1.Name = "노드5";
+            treeNode1.Text = "고객번호";
+            treeNode2.Name = "노드6";
+            treeNode2.Text = "고객명";
+            treeNode3.Name = "노드7";
+            treeNode3.Text = "고객주소";
+            treeNode4.Name = "노드8";
+            treeNode4.Text = "연락처";
+            treeNode5.Name = "노드0";
+            treeNode5.Text = "고객 아이디";
+            treeNode6.Name = "노드1";
+            treeNode6.Text = "관리자여부";
+            treeNode7.Name = "노드2";
+            treeNode7.Text = "비밀번호";
+            treeNode8.Name = "노드4";
+            treeNode8.Text = "고객";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16});
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(279, 228);
             this.treeView1.TabIndex = 20;
             // 
@@ -193,6 +193,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "고객";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Customer_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

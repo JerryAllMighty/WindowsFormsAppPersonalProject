@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
+    <Compile Include="AccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Account.Designer.cs">
-      <DependentUpon>Account.cs</DependentUpon>
+    <Compile Include="AccountView.Designer.cs">
+      <DependentUpon>AccountView.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\frmUpdate.cs">
       <SubType>Form</SubType>
@@ -110,8 +110,8 @@
     <Compile Include="Login, NewAddress\frmWhenCreate.Designer.cs">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Account.resx">
-      <DependentUpon>Account.cs</DependentUpon>
+    <EmbeddedResource Include="AccountView.resx">
+      <DependentUpon>AccountView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
