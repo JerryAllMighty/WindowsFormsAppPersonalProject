@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class Sending
+    partial class frmSending
     {
         /// <summary>
         /// Required designer variable.

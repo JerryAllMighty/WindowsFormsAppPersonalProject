@@ -83,7 +83,7 @@ namespace WindowsFormsAppPersonalProject
         }
         private void 이체ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sending s1 = new Sending();
+            frmSending s1 = new frmSending();
             s1.MdiParent = this;
             s1.Show();
             s1.Activate();

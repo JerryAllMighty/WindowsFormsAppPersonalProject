@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class Sending : Form
+    public partial class frmSending : Form
     {
         StringBuilder sb = new StringBuilder();
 
-        public Sending()
+        public frmSending()
         {
             InitializeComponent();
         }

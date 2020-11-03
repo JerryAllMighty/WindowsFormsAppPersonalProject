@@ -31,8 +31,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayBack = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnInfo = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -45,6 +47,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -54,8 +57,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 319;
+            this.splitContainer1.Size = new System.Drawing.Size(914, 562);
+            this.splitContainer1.SplitterDistance = 364;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
@@ -64,58 +68,89 @@
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMember.Location = new System.Drawing.Point(0, 0);
+            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(319, 450);
+            this.dgvMember.Size = new System.Drawing.Size(364, 562);
             this.dgvMember.TabIndex = 0;
             this.dgvMember.TabStop = false;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSelect);
+            this.groupBox1.Controls.Add(this.btnPayBack);
+            this.groupBox1.Controls.Add(this.btnInsert);
+            this.groupBox1.Controls.Add(this.btnInfo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(477, 450);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(545, 562);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "대출";
             // 
-            // button2
+            // btnPayBack
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(216, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "대출 신청";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPayBack.Location = new System.Drawing.Point(18, 121);
+            this.btnPayBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPayBack.Name = "btnPayBack";
+            this.btnPayBack.Size = new System.Drawing.Size(173, 64);
+            this.btnPayBack.TabIndex = 2;
+            this.btnPayBack.Text = "대출 상환";
+            this.btnPayBack.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnInsert
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(0, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "대출 관련 정보";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInsert.Location = new System.Drawing.Point(18, 31);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(173, 64);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "대출 신청";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInfo.Location = new System.Drawing.Point(234, 121);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(173, 64);
+            this.btnInfo.TabIndex = 0;
+            this.btnInfo.Text = "대출 관련 정보";
+            this.btnInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSelect.Location = new System.Drawing.Point(234, 31);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(173, 64);
+            this.btnSelect.TabIndex = 3;
+            this.btnSelect.Text = "대출 조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
             // 
             // Loan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 562);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
             this.Name = "Loan";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Loan";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Loan_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -131,7 +166,9 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvMember;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btnPayBack;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

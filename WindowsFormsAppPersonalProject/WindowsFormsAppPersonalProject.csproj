@@ -64,6 +64,36 @@
     <Compile Include="DB\DepositAccountDB.cs" />
     <Compile Include="DB\NormalAccountDB.cs" />
     <Compile Include="DB\SavingDB.cs" />
+    <Compile Include="Loan\frmApplyingForLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loan\frmApplyingForLoan.Designer.cs">
+      <DependentUpon>frmApplyingForLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loan\frmApplyingForLoan2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loan\frmApplyingForLoan2.Designer.cs">
+      <DependentUpon>frmApplyingForLoan2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loan\frmLoanPayBack2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loan\frmLoanPayBack2.Designer.cs">
+      <DependentUpon>frmLoanPayBack2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loan\frmLoanPayBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loan\frmLoanPayBack.Designer.cs">
+      <DependentUpon>frmLoanPayBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlOutAcc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlOutAcc.Designer.cs">
+      <DependentUpon>UserControlOutAcc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Customer\frmCustomer.cs">
       <SubType>Form</SubType>
@@ -84,11 +114,11 @@
     <Compile Include="Login, NewAddress\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan.cs">
+    <Compile Include="Loan\frmLoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan.Designer.cs">
-      <DependentUpon>Loan.cs</DependentUpon>
+    <Compile Include="Loan\frmLoan.Designer.cs">
+      <DependentUpon>frmLoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\frmNewAccount.cs">
       <SubType>Form</SubType>
@@ -98,11 +128,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sending.cs">
+    <Compile Include="frmSending.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sending.Designer.cs">
-      <DependentUpon>Sending.cs</DependentUpon>
+    <Compile Include="frmSending.Designer.cs">
+      <DependentUpon>frmSending.cs</DependentUpon>
     </Compile>
     <Compile Include="Login, NewAddress\frmWhenCreate.cs">
       <SubType>Form</SubType>
@@ -116,6 +146,18 @@
     <EmbeddedResource Include="Customer\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Loan\frmApplyingForLoan.resx">
+      <DependentUpon>frmApplyingForLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loan\frmApplyingForLoan2.resx">
+      <DependentUpon>frmApplyingForLoan2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loan\frmLoanPayBack2.resx">
+      <DependentUpon>frmLoanPayBack2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loan\frmLoanPayBack.resx">
+      <DependentUpon>frmLoanPayBack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,8 +167,8 @@
     <EmbeddedResource Include="Login, NewAddress\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan.resx">
-      <DependentUpon>Loan.cs</DependentUpon>
+    <EmbeddedResource Include="Loan\frmLoan.resx">
+      <DependentUpon>frmLoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmNewAccount.resx">
       <DependentUpon>frmNewAccount.cs</DependentUpon>
@@ -140,11 +182,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sending.resx">
-      <DependentUpon>Sending.cs</DependentUpon>
+    <EmbeddedResource Include="frmSending.resx">
+      <DependentUpon>frmSending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login, NewAddress\frmWhenCreate.resx">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlOutAcc.resx">
+      <DependentUpon>UserControlOutAcc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

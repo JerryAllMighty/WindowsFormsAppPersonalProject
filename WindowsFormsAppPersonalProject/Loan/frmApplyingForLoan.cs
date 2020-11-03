@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsAppPersonalProject
+namespace WindowsFormsAppPersonalProject.Loan
 {
-    public partial class Loan : Form
+    public partial class frmApplyingForLoan : Form
     {
-        public Loan()
+        public frmApplyingForLoan()
         {
             InitializeComponent();
         }
