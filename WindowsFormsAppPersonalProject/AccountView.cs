@@ -44,66 +44,29 @@ namespace WindowsFormsAppPersonalProject
             {
                 return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
             }
-            }
+        }
+
+        
         private void AccountView_Load(object sender, EventArgs e)
         {
             CommonUtil.SetinitGridView(dgvMember);
+            CommonUtil.SetinitGridView(dgvMember2);
             CommonUtil.AddGridTextColumn(dgvMember, "고객 번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember, "고객 이름", "CustomerName");
             CommonUtil.AddGridTextColumn(dgvMember, "고객  주소", "CustomerAddress", 130);
-            CommonUtil.AddGridTextColumn(dgvMember, "일반계좌 보유", "NAsoFar",120);
-            CommonUtil.AddGridTextColumn(dgvMember, "적금계좌 보유", "SAsoFar",120);
-            CommonUtil.AddGridTextColumn(dgvMember, "예금계좌 보유", "DAsoFar",120);
+            CommonUtil.AddGridTextColumn(dgvMember, "일반계좌 보유", "NAccountSoFar", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "적금계좌 보유", "SAccountSoFar", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "예금계좌 보유", "DAccountSoFar", 120);
 
             try
             {
                 CustomerDB db = new CustomerDB();
-                DataTable dt = db.GetEveryData(CustomerID, CustomerPw);
-                //db.Dispose();
+                DataTable dt = db.countAccountSoFar(CustomerNum);
+                
                 if (dt != null)
                 {
                     dgvMember.DataSource = dt;
                 }
-                string customernum = dgvMember.Rows[0].Cells[0].Value.ToString();
-                string customername = dgvMember.Rows[0].Cells[1].Value.ToString();
-                string customeraddress = dgvMember.Rows[0].Cells[2].Value.ToString();
-                customernum = dt.Rows[0]["CustomerNum"].ToString();
-                customername = dt.Rows[0]["CustomerName"].ToString();
-                customeraddress = dt.Rows[0]["CustomerAddress"].ToString();
-
-                string naccountsofar = dgvMember.Rows[0].Cells[3].Value.ToString();
-                NormalAccountDB n1 = new NormalAccountDB();
-               DataTable dt2 = n1.countAccountSoFar(customerinfo);
-                db.Dispose();
-                if (dt2 != null)
-                {
-                    naccountsofar = dt2.Rows[0]["count(*)"].ToString();
-                }
-
-                string Daccountsofar = dgvMember.Rows[0].Cells[4].Value.ToString();
-                DepositAccountDB d1 = new DepositAccountDB();
-                DataTable dt3 = d1.countAccountSoFar(customerinfo);
-                db.Dispose();
-                if (dt3 != null)
-                {
-                    Daccountsofar = dt3.Rows[0]["count(*)"].ToString();
-                }
-
-                string Saccountsofar = dgvMember.Rows[0].Cells[5].Value.ToString();
-                SavingDB s1 = new SavingDB();
-                DataTable dt4 = s1.countAccountSoFar(customerinfo);
-                db.Dispose();
-                if (dt4 != null)
-                {
-                    Saccountsofar = dt4.Rows[0]["count(*)"].ToString();
-                }
-
-
-
-
-
-
-
                 db.Dispose();
             }
             catch (Exception)
@@ -111,6 +74,99 @@ namespace WindowsFormsAppPersonalProject
             
             }
 
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)       //예금 계좌 조회
+        {
+            dgvMember2.Columns.Clear();
+
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "DAccountNum", 80);
+            CommonUtil.AddGridTextColumn(dgvMember2, "생성 날짜", "DateCreated", 120);
+            CommonUtil.AddGridTextColumn(dgvMember2, "고객 번호", "CustomerNum");
+            CommonUtil.AddGridTextColumn(dgvMember2, "고객 이름", "CustomerName");
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 종류", "KindOfAcc");
+            CommonUtil.AddGridTextColumn(dgvMember2, "예금액", "AmountOfDeposit");
+            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌", "OutAccount");
+            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌 비밀번호", "OutAccountPwd");
+            CommonUtil.AddGridTextColumn(dgvMember2, "비밀번호", "NewPwd");
+            CommonUtil.AddGridTextColumn(dgvMember2, "현재 잔액", "CurrentMoney");
+
+            try
+            {
+                DepositAccountDB db = new DepositAccountDB();
+                DataTable dt = db.GetEveryData(CustomerNum);
+                if (dt != null)
+                {
+                    dgvMember2.DataSource = dt;
+                }
+                db.Dispose();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("계좌 조회에 실패했습니다.");
+            }
+        }
+
+        private void btnSavings_Click(object sender, EventArgs e)       //적금 계좌 조회
+        {
+            dgvMember2.Columns.Clear();
+
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "SAccountNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember2, "생성 날짜", "DateCreated", 120);
+            CommonUtil.AddGridTextColumn(dgvMember2, "고객 번호", "CustomerNum");
+            CommonUtil.AddGridTextColumn(dgvMember2, "고객 이름", "CustomerName");
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 종류", "KindOfAcc");
+            CommonUtil.AddGridTextColumn(dgvMember2, "가입 기간", "Duration");
+            CommonUtil.AddGridTextColumn(dgvMember2, "매회 납입 금액", "PayPerMonth",120);
+            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌", "OutAccount");
+            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌 비밀번호", "OutAccountPwd",150);
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 비밀번호", "NewPwd", 120);
+            CommonUtil.AddGridTextColumn(dgvMember2, "현재 잔액", "CurrentMoney");
+
+            try
+            {
+                SavingDB db = new SavingDB();
+                DataTable dt = db.GetEveryData(CustomerNum);
+                if (dt != null)
+                {
+                    dgvMember2.DataSource = dt;
+                }
+                db.Dispose();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("계좌 조회에 실패했습니다.");
+            }
+        }
+private void btnNormal_Click(object sender, EventArgs e)        //일반 계좌 조회
+        {
+            dgvMember2.Columns.Clear();
+
+            CommonUtil.AddGridTextColumn(dgvMember2,"계좌 번호", "NAccountNum", 80 );
+            CommonUtil.AddGridTextColumn(dgvMember2,"생성 날짜", "DateCreated", 120);
+            CommonUtil.AddGridTextColumn(dgvMember2,"고객 번호","CustomerNum");
+            CommonUtil.AddGridTextColumn(dgvMember2,"고객 이름", "CustomerName");
+            CommonUtil.AddGridTextColumn(dgvMember2,"계좌 종류", "KindOfAcc");
+            CommonUtil.AddGridTextColumn(dgvMember2,"비밀번호", "Pwd");
+            CommonUtil.AddGridTextColumn(dgvMember2,"현재 잔액", "CurrentMoney");
+
+            try
+            {
+                NormalAccountDB db = new NormalAccountDB();
+                DataTable dt = db.GetEveryData(CustomerNum);
+                if (dt != null)
+                {
+                    dgvMember2.DataSource = dt;
+                }
+                db.Dispose();
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("계좌 조회에 실패했습니다.");
+            }
         }
     }
 }

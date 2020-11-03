@@ -45,7 +45,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -55,64 +54,63 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(914, 562);
-            this.splitContainer1.SplitterDistance = 365;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.SplitterDistance = 319;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // dgvMember
             // 
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMember.Location = new System.Drawing.Point(3, 4);
-            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMember.Location = new System.Drawing.Point(0, 0);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(359, 559);
+            this.dgvMember.Size = new System.Drawing.Size(319, 450);
             this.dgvMember.TabIndex = 0;
+            this.dgvMember.TabStop = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(537, 390);
+            this.groupBox1.Size = new System.Drawing.Size(477, 450);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "대출";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(247, 74);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(216, 59);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 64);
+            this.button2.Size = new System.Drawing.Size(151, 51);
             this.button2.TabIndex = 1;
             this.button2.Text = "대출 신청";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(0, 74);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(0, 59);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 64);
+            this.button1.Size = new System.Drawing.Size(151, 51);
             this.button1.TabIndex = 0;
             this.button1.Text = "대출 관련 정보";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // Loan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
             this.Name = "Loan";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

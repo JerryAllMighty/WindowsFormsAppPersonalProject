@@ -40,33 +40,14 @@ namespace WindowsFormsAppPersonalProject
             conn.Open();
         }
 
-        public DataTable countAccountSoFar(Customer cus)     //고객 번호(PK)로 검색하는 것이니까 커스터머 타입을 인자로 넘겨받습니다. 
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                string sql = $"select count(*) from normalaccount where customernum = '{cus.CustomerNum}' ";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                da.Fill(dt);
-
-                return dt;
-               
-                
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public DataTable GetEveryData(NormalAccount naccountinfo)
+        public DataTable GetEveryData(string customernum)
         {
             try
             {
                 DataTable dt = new DataTable();
                 string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd
                                         from normalaccount                              
-                                        where CustomerNum = {naccountinfo.CustomerNum}";
+                                        where CustomerNum = '{customernum}'";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);

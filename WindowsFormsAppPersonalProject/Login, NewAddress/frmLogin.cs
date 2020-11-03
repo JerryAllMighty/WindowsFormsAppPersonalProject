@@ -95,6 +95,12 @@ namespace WindowsFormsAppPersonalProject
                 e.Handled = true;
                 return;
             }
+
+            if (e.KeyChar == 13)
+            {
+                //로그인 버튼을 누른 것과 동일한 효과
+                btnLogin.PerformClick();
+            }
         }
 
         private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)

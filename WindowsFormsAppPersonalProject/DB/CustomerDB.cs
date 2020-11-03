@@ -49,6 +49,27 @@ namespace WindowsFormsAppPersonalProject
             conn.Close();
         }
 
+        public DataTable countAccountSoFar(string customernum)
+        {
+            try 
+            {
+                DataTable dt = new DataTable();
+                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, 
+                                    (select count(*) from normalaccount where CustomerNum = '{customernum}') as NAccountSoFar,
+                                    (select count(*) from  savings where CustomerNum = '{customernum}') as SAccountSoFar,
+                                    (select count(*) from depositaccount where CustomerNum = '{customernum}') as DAccountSoFar
+                                    from customers where CustomerNum = '{customernum}'";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public DataTable GetEveryData(string uid,string pwd)   //데이터 조회 //파라미터화 하기
         {
             try {

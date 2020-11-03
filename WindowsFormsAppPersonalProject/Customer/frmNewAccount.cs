@@ -55,7 +55,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public DepositAccount depositInfo
+        public DepositAccount depositInfo       //예금 계좌에 넘겨줄 때 사용
         {
             get
             {
@@ -181,7 +181,7 @@ namespace WindowsFormsAppPersonalProject
         public bool CheckOutAccount()     //출금은 무조건 일반 계좌에서만 되기에 일반 계좌 db를 갔다온다
         {
             NormalAccountDB db = new NormalAccountDB();
-            DataTable dt =  db.GetEveryData(accountinfo);
+            DataTable dt =  db.GetEveryData(CustomerNum);
             try
             {
                 if(dt != null)

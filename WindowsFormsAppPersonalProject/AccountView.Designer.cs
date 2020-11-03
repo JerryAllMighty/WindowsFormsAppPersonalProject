@@ -53,8 +53,8 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
@@ -63,21 +63,20 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(914, 562);
-            this.splitContainer1.SplitterDistance = 386;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // dgvMember
             // 
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMember.Location = new System.Drawing.Point(0, 0);
-            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(386, 562);
+            this.dgvMember.Size = new System.Drawing.Size(800, 128);
             this.dgvMember.TabIndex = 0;
             this.dgvMember.TabStop = false;
             // 
@@ -85,6 +84,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -95,9 +95,11 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvMember2);
-            this.splitContainer2.Size = new System.Drawing.Size(523, 562);
-            this.splitContainer2.SplitterDistance = 174;
+            this.splitContainer2.Size = new System.Drawing.Size(800, 318);
+            this.splitContainer2.SplitterDistance = 161;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 1;
+            this.splitContainer2.TabStop = false;
             // 
             // groupBox1
             // 
@@ -107,10 +109,8 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(523, 174);
+            this.groupBox1.Size = new System.Drawing.Size(800, 161);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "어떤 계좌를 조회하실 것인지 선택해주십시오";
@@ -118,55 +118,56 @@
             // btnNormal
             // 
             this.btnNormal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNormal.Location = new System.Drawing.Point(351, 112);
-            this.btnNormal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNormal.Location = new System.Drawing.Point(478, 101);
             this.btnNormal.Name = "btnNormal";
-            this.btnNormal.Size = new System.Drawing.Size(131, 62);
+            this.btnNormal.Size = new System.Drawing.Size(115, 50);
             this.btnNormal.TabIndex = 2;
             this.btnNormal.Text = "일반";
             this.btnNormal.UseVisualStyleBackColor = true;
+            this.btnNormal.Click += new System.EventHandler(this.btnNormal_Click);
             // 
             // btnSavings
             // 
             this.btnSavings.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSavings.Location = new System.Drawing.Point(181, 112);
-            this.btnSavings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSavings.Location = new System.Drawing.Point(329, 101);
             this.btnSavings.Name = "btnSavings";
-            this.btnSavings.Size = new System.Drawing.Size(131, 62);
+            this.btnSavings.Size = new System.Drawing.Size(115, 50);
             this.btnSavings.TabIndex = 1;
             this.btnSavings.Text = "적금";
             this.btnSavings.UseVisualStyleBackColor = true;
+            this.btnSavings.Click += new System.EventHandler(this.btnSavings_Click);
             // 
             // btnDeposit
             // 
             this.btnDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeposit.Location = new System.Drawing.Point(7, 112);
-            this.btnDeposit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeposit.Location = new System.Drawing.Point(177, 101);
             this.btnDeposit.Name = "btnDeposit";
-            this.btnDeposit.Size = new System.Drawing.Size(131, 62);
+            this.btnDeposit.Size = new System.Drawing.Size(115, 50);
             this.btnDeposit.TabIndex = 0;
             this.btnDeposit.Text = "예금";
             this.btnDeposit.UseVisualStyleBackColor = true;
+            this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
             // 
             // dgvMember2
             // 
             this.dgvMember2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMember2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMember2.Location = new System.Drawing.Point(0, 0);
+            this.dgvMember2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMember2.Name = "dgvMember2";
             this.dgvMember2.RowHeadersWidth = 51;
             this.dgvMember2.RowTemplate.Height = 27;
-            this.dgvMember2.Size = new System.Drawing.Size(523, 384);
+            this.dgvMember2.Size = new System.Drawing.Size(800, 154);
             this.dgvMember2.TabIndex = 0;
+            this.dgvMember2.TabStop = false;
             // 
             // AccountView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
             this.Name = "AccountView";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

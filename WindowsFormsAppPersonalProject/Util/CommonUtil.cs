@@ -26,7 +26,29 @@ namespace WindowsFormsAppPersonalProject
             string datapropertytype,
             int colWidth = 100,
             bool visibility = true,
-            DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    //이거 밑에 구현해주자
+            DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    
+
+            )
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.HeaderText = headerText;
+            col.DataPropertyName = datapropertytype;
+            col.Width = colWidth;
+            col.Visible = visibility;
+            col.DefaultCellStyle.Alignment = textAlign;
+            col.ReadOnly = true;
+
+            dgv.Columns.Add(col);
+
+        }
+
+        public void AddGridTextColumn2(             //컬럼에 텍스트 적어주고 사라지게하고 싶을 때
+            DataGridView dgv,
+            string headerText,
+            string datapropertytype,
+            int colWidth = 100,
+            bool visibility = true,
+            DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    
 
             )
         {

@@ -48,36 +48,16 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public DataTable countAccountSoFar(Customer cus)     //고객 번호(PK)로 검색하는 것이니까 커스터머 타입을 인자로 넘겨받습니다. 
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                string sql = $"select count(*) from depositaccount where customernum = '{cus.CustomerNum}' ";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                da.Fill(dt);
 
-                return dt;
-
-
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-
-
-        public DataTable GetEveryData(DepositAccount depositinfo)
+        public DataTable GetEveryData(string customernum)
         {
             try
             {
                 DataTable dt = new DataTable();
                 string sql = $@"select DAccountNum, DateCreated, CustomerNum, CustomerName, KindofAcc,
-                                        AmountOfDeposit, OutAccount, OutAccountPw, NewPwd
+                                        AmountOfDeposit, OutAccount, OutAccountPwd, NewPwd, CurrentMoney
                                         from depositaccount
-                                        where CustomerNum = {depositinfo.CustomerNum}";
+                                        where CustomerNum = '{customernum}'";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);

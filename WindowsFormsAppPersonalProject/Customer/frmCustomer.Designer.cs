@@ -77,6 +77,7 @@
             this.splitContainer1.Size = new System.Drawing.Size(770, 480);
             this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.TabIndex = 50;
+            this.splitContainer1.TabStop = false;
             // 
             // dgvMember
             // 
@@ -118,6 +119,7 @@
             treeNode8});
             this.treeView1.Size = new System.Drawing.Size(279, 228);
             this.treeView1.TabIndex = 20;
+            this.treeView1.TabStop = false;
             // 
             // groupBox2
             // 

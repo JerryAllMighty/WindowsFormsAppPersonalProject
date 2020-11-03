@@ -47,29 +47,22 @@ namespace WindowsFormsAppPersonalProject
             conn = new MySqlConnection(strConn);
             conn.Open();
         }
-
-
-        public DataTable countAccountSoFar(Customer cus)     //고객 번호(PK)로 검색하는 것이니까 커스터머 타입을 인자로 넘겨받습니다. 
+        public DataTable GetEveryData(string customernum)
         {
-            try
+            try 
             {
                 DataTable dt = new DataTable();
-                string sql = $"select count(*) from savings where customernum = '{cus.CustomerNum}' ";
+                string sql = $@"select *  from savings  where CustomerNum = '{customernum}';";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
 
                 return dt;
-
-
             }
             catch (Exception)
             {
                 return null;
             }
         }
-
-
-
         public bool Insert(Savings savinginfo)
         {
             MySqlTransaction trans = conn.BeginTransaction();
