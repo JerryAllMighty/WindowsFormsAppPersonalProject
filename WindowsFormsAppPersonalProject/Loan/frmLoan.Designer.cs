@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class Loan
+    partial class frmLoan
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.btnPayBack = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +93,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "대출";
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSelect.Location = new System.Drawing.Point(234, 31);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(173, 64);
+            this.btnSelect.TabIndex = 3;
+            this.btnSelect.Text = "대출 조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // btnPayBack
             // 
             this.btnPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -103,6 +115,7 @@
             this.btnPayBack.TabIndex = 2;
             this.btnPayBack.Text = "대출 상환";
             this.btnPayBack.UseVisualStyleBackColor = true;
+            this.btnPayBack.Click += new System.EventHandler(this.btnPayBack_Click);
             // 
             // btnInsert
             // 
@@ -114,6 +127,7 @@
             this.btnInsert.TabIndex = 1;
             this.btnInsert.Text = "대출 신청";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnInfo
             // 
@@ -125,19 +139,9 @@
             this.btnInfo.TabIndex = 0;
             this.btnInfo.Text = "대출 관련 정보";
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // btnSelect
-            // 
-            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSelect.Location = new System.Drawing.Point(234, 31);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(173, 64);
-            this.btnSelect.TabIndex = 3;
-            this.btnSelect.Text = "대출 조회";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            // 
-            // Loan
+            // frmLoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,7 +150,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
-            this.Name = "Loan";
+            this.Name = "frmLoan";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Loan";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

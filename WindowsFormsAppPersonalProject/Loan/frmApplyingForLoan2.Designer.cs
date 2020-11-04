@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsAppPersonalProject.Loan
+﻿namespace WindowsFormsAppPersonalProject
 {
     partial class frmApplyingForLoan2
     {
@@ -29,54 +29,206 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblRegularWhen = new System.Windows.Forms.Label();
+            this.lblInterest2 = new System.Windows.Forms.Label();
+            this.lblInterest = new System.Windows.Forms.Label();
+            this.lblPayBackMethod2 = new System.Windows.Forms.Label();
+            this.lblPayBackMethod = new System.Windows.Forms.Label();
+            this.lblAmountOfLoan2 = new System.Windows.Forms.Label();
+            this.lblAmountOfLoan = new System.Windows.Forms.Label();
+            this.lblLoanPeriod2 = new System.Windows.Forms.Label();
+            this.lblLoanPeriod = new System.Windows.Forms.Label();
+            this.lblKindOfLoan2 = new System.Windows.Forms.Label();
+            this.lblKindOfLoan = new System.Windows.Forms.Label();
+            this.lblName2 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblLastCheck = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.lblRegularWhen2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.label12, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblRegularWhen, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblInterest2, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblInterest, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblPayBackMethod2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblPayBackMethod, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblAmountOfLoan2, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblAmountOfLoan, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblLoanPeriod2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblLoanPeriod, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblKindOfLoan2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblKindOfLoan, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblName2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblRegularWhen2, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(772, 185);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // lblRegularWhen
+            // 
+            this.lblRegularWhen.AutoSize = true;
+            this.lblRegularWhen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblRegularWhen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRegularWhen.Location = new System.Drawing.Point(3, 138);
+            this.lblRegularWhen.Name = "lblRegularWhen";
+            this.lblRegularWhen.Size = new System.Drawing.Size(187, 47);
+            this.lblRegularWhen.TabIndex = 15;
+            this.lblRegularWhen.Text = "상환 날짜";
+            this.lblRegularWhen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblInterest2
+            // 
+            this.lblInterest2.AutoSize = true;
+            this.lblInterest2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblInterest2.Location = new System.Drawing.Point(582, 92);
+            this.lblInterest2.Name = "lblInterest2";
+            this.lblInterest2.Size = new System.Drawing.Size(187, 46);
+            this.lblInterest2.TabIndex = 14;
+            this.lblInterest2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblInterest
+            // 
+            this.lblInterest.AutoSize = true;
+            this.lblInterest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblInterest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblInterest.Location = new System.Drawing.Point(389, 92);
+            this.lblInterest.Name = "lblInterest";
+            this.lblInterest.Size = new System.Drawing.Size(187, 46);
+            this.lblInterest.TabIndex = 13;
+            this.lblInterest.Text = "대출이율";
+            this.lblInterest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPayBackMethod2
+            // 
+            this.lblPayBackMethod2.AutoSize = true;
+            this.lblPayBackMethod2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPayBackMethod2.Location = new System.Drawing.Point(196, 92);
+            this.lblPayBackMethod2.Name = "lblPayBackMethod2";
+            this.lblPayBackMethod2.Size = new System.Drawing.Size(187, 46);
+            this.lblPayBackMethod2.TabIndex = 12;
+            this.lblPayBackMethod2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblPayBackMethod
+            // 
+            this.lblPayBackMethod.AutoSize = true;
+            this.lblPayBackMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblPayBackMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPayBackMethod.Location = new System.Drawing.Point(3, 92);
+            this.lblPayBackMethod.Name = "lblPayBackMethod";
+            this.lblPayBackMethod.Size = new System.Drawing.Size(187, 46);
+            this.lblPayBackMethod.TabIndex = 11;
+            this.lblPayBackMethod.Text = "대출금상환방법";
+            this.lblPayBackMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAmountOfLoan2
+            // 
+            this.lblAmountOfLoan2.AutoSize = true;
+            this.lblAmountOfLoan2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAmountOfLoan2.Location = new System.Drawing.Point(582, 46);
+            this.lblAmountOfLoan2.Name = "lblAmountOfLoan2";
+            this.lblAmountOfLoan2.Size = new System.Drawing.Size(187, 46);
+            this.lblAmountOfLoan2.TabIndex = 10;
+            this.lblAmountOfLoan2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblAmountOfLoan
+            // 
+            this.lblAmountOfLoan.AutoSize = true;
+            this.lblAmountOfLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblAmountOfLoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAmountOfLoan.Location = new System.Drawing.Point(389, 46);
+            this.lblAmountOfLoan.Name = "lblAmountOfLoan";
+            this.lblAmountOfLoan.Size = new System.Drawing.Size(187, 46);
+            this.lblAmountOfLoan.TabIndex = 9;
+            this.lblAmountOfLoan.Text = "대출금액";
+            this.lblAmountOfLoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLoanPeriod2
+            // 
+            this.lblLoanPeriod2.AutoSize = true;
+            this.lblLoanPeriod2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLoanPeriod2.Location = new System.Drawing.Point(196, 46);
+            this.lblLoanPeriod2.Name = "lblLoanPeriod2";
+            this.lblLoanPeriod2.Size = new System.Drawing.Size(187, 46);
+            this.lblLoanPeriod2.TabIndex = 8;
+            this.lblLoanPeriod2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLoanPeriod
+            // 
+            this.lblLoanPeriod.AutoSize = true;
+            this.lblLoanPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblLoanPeriod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLoanPeriod.Location = new System.Drawing.Point(3, 46);
+            this.lblLoanPeriod.Name = "lblLoanPeriod";
+            this.lblLoanPeriod.Size = new System.Drawing.Size(187, 46);
+            this.lblLoanPeriod.TabIndex = 7;
+            this.lblLoanPeriod.Text = "대출기간만료일";
+            this.lblLoanPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblKindOfLoan2
+            // 
+            this.lblKindOfLoan2.AutoSize = true;
+            this.lblKindOfLoan2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblKindOfLoan2.Location = new System.Drawing.Point(582, 0);
+            this.lblKindOfLoan2.Name = "lblKindOfLoan2";
+            this.lblKindOfLoan2.Size = new System.Drawing.Size(187, 46);
+            this.lblKindOfLoan2.TabIndex = 6;
+            this.lblKindOfLoan2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblKindOfLoan
+            // 
+            this.lblKindOfLoan.AutoSize = true;
+            this.lblKindOfLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblKindOfLoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblKindOfLoan.Location = new System.Drawing.Point(389, 0);
+            this.lblKindOfLoan.Name = "lblKindOfLoan";
+            this.lblKindOfLoan.Size = new System.Drawing.Size(187, 46);
+            this.lblKindOfLoan.TabIndex = 5;
+            this.lblKindOfLoan.Text = "대출구분";
+            this.lblKindOfLoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName2.Location = new System.Drawing.Point(196, 0);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(187, 46);
+            this.lblName2.TabIndex = 4;
+            this.lblName2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName.Location = new System.Drawing.Point(3, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(187, 46);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "성명";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // splitContainer1
             // 
@@ -85,159 +237,58 @@
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblLastCheck);
+            // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
+            this.splitContainer1.Panel2.Controls.Add(this.btnInsert);
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 96;
             this.splitContainer1.TabIndex = 1;
             // 
-            // button1
+            // lblLastCheck
             // 
-            this.button1.Location = new System.Drawing.Point(213, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 45);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "확인";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblLastCheck.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblLastCheck.Location = new System.Drawing.Point(9, 9);
+            this.lblLastCheck.Name = "lblLastCheck";
+            this.lblLastCheck.Size = new System.Drawing.Size(342, 49);
+            this.lblLastCheck.TabIndex = 0;
+            this.lblLastCheck.Text = "최종 대출 신청 정보 확인";
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(448, 269);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 45);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(638, 269);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(143, 45);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnInsert
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 61);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "성명";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInsert.Location = new System.Drawing.Point(404, 269);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(143, 45);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "최종 대출 신청";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // label2
+            // lblRegularWhen2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(196, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 61);
-            this.label2.TabIndex = 4;
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(389, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 61);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "대출구분";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(582, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 61);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "예금(신탁)담보대출";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 61);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "대출기간만료일";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(196, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 61);
-            this.label6.TabIndex = 8;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(389, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 61);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "대출금액";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(582, 61);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(187, 61);
-            this.label8.TabIndex = 10;
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(3, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 63);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "대출금상환방법";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(196, 122);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 63);
-            this.label10.TabIndex = 12;
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(389, 122);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(187, 63);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "대출이율";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(582, 122);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(187, 63);
-            this.label12.TabIndex = 14;
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRegularWhen2.AutoSize = true;
+            this.lblRegularWhen2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRegularWhen2.Location = new System.Drawing.Point(196, 138);
+            this.lblRegularWhen2.Name = "lblRegularWhen2";
+            this.lblRegularWhen2.Size = new System.Drawing.Size(187, 47);
+            this.lblRegularWhen2.TabIndex = 16;
             // 
             // frmApplyingForLoan2
             // 
@@ -246,9 +297,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmApplyingForLoan2";
-            this.Text = "frmApplyingForLoan2";
+            this.Text = "대출 신청";
+            this.Load += new System.EventHandler(this.frmApplyingForLoan2_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -260,19 +313,22 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblInterest2;
+        private System.Windows.Forms.Label lblInterest;
+        private System.Windows.Forms.Label lblPayBackMethod2;
+        private System.Windows.Forms.Label lblPayBackMethod;
+        private System.Windows.Forms.Label lblAmountOfLoan2;
+        private System.Windows.Forms.Label lblAmountOfLoan;
+        private System.Windows.Forms.Label lblLoanPeriod2;
+        private System.Windows.Forms.Label lblLoanPeriod;
+        private System.Windows.Forms.Label lblKindOfLoan2;
+        private System.Windows.Forms.Label lblKindOfLoan;
+        private System.Windows.Forms.Label lblName2;
+        private System.Windows.Forms.Label lblRegularWhen;
+        private System.Windows.Forms.Label lblLastCheck;
+        private System.Windows.Forms.Label lblRegularWhen2;
     }
 }

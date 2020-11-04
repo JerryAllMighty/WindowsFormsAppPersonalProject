@@ -76,7 +76,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void 대출ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Loan l1 = new Loan();
+            frmLoan l1 = new frmLoan(customerInfo);
             l1.MdiParent = this;
             l1.Show();
             l1.Activate();

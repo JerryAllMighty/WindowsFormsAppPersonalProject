@@ -62,6 +62,7 @@
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\DepositAccountDB.cs" />
+    <Compile Include="DB\LoanDB.cs" />
     <Compile Include="DB\NormalAccountDB.cs" />
     <Compile Include="DB\SavingDB.cs" />
     <Compile Include="Loan\frmApplyingForLoan.cs">

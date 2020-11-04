@@ -21,5 +21,12 @@ namespace WindowsFormsAppPersonalProject
         {
 
         }
+
+        private void btnNext_Click(object sender, EventArgs e)  //다음 버튼 클릭
+        {
+            frmLoanPayBack2 frm = new frmLoanPayBack2();
+            frm.Show();
+            frm.Activate();
+        }
     }
 }

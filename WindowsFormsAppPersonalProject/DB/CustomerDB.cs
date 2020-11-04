@@ -49,6 +49,30 @@ namespace WindowsFormsAppPersonalProject
             conn.Close();
         }
 
+        public DataTable WhenYouApplyForLoan(int customernum)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select D.DAccountNum, N.NAccountNum,  D. CustomerName 
+                                from depositaccount D inner join normalaccount N on D.CustomerNum = N.CustomerNum
+                                where N.CustomerNum = @customernum";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = customernum;
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    return dt;
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public DataTable countAccountSoFar(string customernum)
         {
             try 
