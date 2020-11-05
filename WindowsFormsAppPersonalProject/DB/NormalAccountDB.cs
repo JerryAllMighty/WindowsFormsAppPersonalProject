@@ -40,6 +40,31 @@ namespace WindowsFormsAppPersonalProject
             conn.Open();
         }
 
+
+        public DataTable WhenYouSend(string customernum)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select CurrentMoney, NAccountNum from normalaccount where customernum = @customernum";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                da.Fill(dt);
+
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+
         public DataTable GetEveryData(string customernum)
         {
             try

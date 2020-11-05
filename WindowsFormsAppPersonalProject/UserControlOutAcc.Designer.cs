@@ -38,11 +38,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(159, 53);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(354, 25);
             this.textBox1.TabIndex = 10;
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(159, 3);
             this.comboBox1.Name = "comboBox1";

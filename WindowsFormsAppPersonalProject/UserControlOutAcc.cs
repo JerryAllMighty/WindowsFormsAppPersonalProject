@@ -12,6 +12,8 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class UserControlOutAcc : UserControl
     {
+        public int MyProperty { get; set; }
+
         public UserControlOutAcc()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace WindowsFormsAppPersonalProject
         private void UserControlOutAcc_Load(object sender, EventArgs e)
         {
 
+           // comboBox1.Text
         }
     }
 }

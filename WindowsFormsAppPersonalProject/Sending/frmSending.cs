@@ -15,11 +15,31 @@ namespace WindowsFormsAppPersonalProject
     {
         StringBuilder sb = new StringBuilder();
 
+        public string CustomerNum;
+        public string CustomerName;
+        public string CustomerAddress;
+        public string CustomerID;
+        public string IsAdmin;
+        public string CustomerPw;
+        public string Phone;
+
+        DataTable dt;
+
         public frmSending()
         {
             InitializeComponent();
         }
-
+        public frmSending(Customer cusinfo)
+        {
+            InitializeComponent();
+            CustomerNum = cusinfo.CustomerNum;
+            CustomerName = cusinfo.CustomerName;
+            CustomerAddress = cusinfo.CustomerAddress;
+            CustomerID = cusinfo.CustomerID;
+            IsAdmin = cusinfo.IsAdmin;
+            CustomerPw = cusinfo.CustomerPw;
+            Phone = cusinfo.Phone;
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -73,25 +93,12 @@ namespace WindowsFormsAppPersonalProject
 
             
 
-            label4.Text = $"{sb.ToString()}원";
+            lblCurrentOver.Text = $"{sb.ToString()}원";
 
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void replace(string str)
-        {
-            switch (str)
-            {
-                case "1":
-                    str.Replace("1", "일");
-                    break;
-            }
-        }
+        
 
         private void IsNumeric(object sender, KeyPressEventArgs e)
         {
@@ -103,5 +110,39 @@ namespace WindowsFormsAppPersonalProject
                 e.Handled = true;
             }
         }
+
+        private void frmSending_Load(object sender, EventArgs e)
+        {
+            NormalAccountDB db = new NormalAccountDB();
+            dt =  db.WhenYouSend(CustomerNum);
+            db.Dispose();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"]);
+            }
+        }
+
+        private void cbxOutAcc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //고른 일반계좌 번호의 금액
+            
+            txtCurrentLeftOver.Text = dt.Rows[cbxOutAcc.SelectedIndex]["CurrentMoney"].ToString();
+        }
+
+        private void comboBox3_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("입력하신 정보가 맞습니까?", "최종 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            { 
+            
+            }
+        }
+
+        
     }
 }
