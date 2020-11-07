@@ -55,6 +55,12 @@
     <Compile Include="AccountView.Designer.cs">
       <DependentUpon>AccountView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerManagement\frmCustomerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerManagement\frmCustomerManagement.Designer.cs">
+      <DependentUpon>frmCustomerManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\frmUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <EmbeddedResource Include="AccountView.resx">
       <DependentUpon>AccountView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerManagement\frmCustomerManagement.resx">
+      <DependentUpon>frmCustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login, NewAddress\frmWhenCreate.resx">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sending\frmSending2.resx">
+      <DependentUpon>frmSending2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlOutAcc.resx">
       <DependentUpon>UserControlOutAcc.cs</DependentUpon>

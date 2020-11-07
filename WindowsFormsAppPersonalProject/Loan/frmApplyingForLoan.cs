@@ -22,6 +22,10 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
+
+
 
         public string daccountnum;
         public string interestrate = "10";
@@ -41,13 +45,16 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
         }
 
         public Customer customerInfo
         {
             get
             {
-                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                        CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
 

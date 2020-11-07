@@ -19,6 +19,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public frmNewAccount()
         {
@@ -34,6 +36,8 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
         }
 
         public NormalAccount accountinfo        //일반계좌에 정보 넘겨줄 떄 사용
@@ -140,11 +144,13 @@ namespace WindowsFormsAppPersonalProject
             txtpayPerMonth.Text = cbxduration.Text = txtOutAccount.Text = txtOutPwd.Text =
                 cbxduration.Text = txtNewPwd.Text = txtCheckNewPwd.Text = txtAmountOfDeposit.Text = string.Empty;
 
+            //라벨들 초기화
             lbltxtKindOfAccount.Enabled = lblduration.Enabled = lblpayPerMonth.Enabled = lblOutAccount.Enabled =
-               lblOutPwd.Enabled = lblNewPwd.Enabled = lblCheckNewPwd.Enabled = lblAmountOfDeposit.Enabled = true;  //라벨들 초기화
+               lblOutPwd.Enabled = lblNewPwd.Enabled = lblCheckNewPwd.Enabled = lblAmountOfDeposit.Enabled = true;
 
+            //텍스트박스들 초기화
             txtpayPerMonth.Enabled = cbxduration.Enabled = txtOutAccount.Enabled = txtOutPwd.Enabled =
-                cbxduration.Enabled = txtNewPwd.Enabled = txtCheckNewPwd.Enabled = txtAmountOfDeposit.Enabled = true;       //텍스트박스들 초기화
+                cbxduration.Enabled = txtNewPwd.Enabled = txtCheckNewPwd.Enabled = txtAmountOfDeposit.Enabled = true;       
 
 
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")        //다른 계좌 컨트롤들 못 쓰게 해주기

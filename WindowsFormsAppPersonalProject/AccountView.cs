@@ -19,7 +19,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
-        
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public AccountView()
         {
@@ -36,13 +37,16 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = customerInfo.IsAdmin;
             CustomerPw = customerInfo.CustomerPw;
             Phone = customerInfo.Phone;
+            CustomerEmail = customerInfo.CustomerEmail;
+            CustomerImage = customerInfo.CustomerImage;
         }
 
         public Customer customerinfo 
         {
             get 
             {
-                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
 

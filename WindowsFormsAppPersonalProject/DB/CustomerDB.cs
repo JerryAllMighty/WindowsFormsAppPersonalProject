@@ -21,8 +21,12 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
-        public Customer(string customernum, string customername, string customeraddress, string customerid,string isadmin, string customerpw, string phone)
+        public Customer(string customernum, string customername, string customeraddress, 
+                            string customerid,string isadmin, string customerpw, string phone,
+                            string customeremail, string customerimage)
         {
             CustomerNum = customernum;
             CustomerName = customername;                      
@@ -31,6 +35,8 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = isadmin;
             CustomerPw = customerpw;
             Phone = phone;
+            CustomerEmail = customeremail;
+            CustomerImage = customerimage;
         }
     }
 
@@ -94,14 +100,47 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public DataTable GetEveryData(string uid,string pwd)   //데이터 조회 //파라미터화 하기
+        public Customer DataSelected(string selectedCustomerNum)
         {
-            try {
+            try
+            {
                 DataTable dt = new DataTable();
-                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, CustomerPhone from customers 
-                                where CustomerID = '{uid}' and CustomerPw = '{pwd}' ";
+                string sql = @"select CustomerNum, CustomerName, CustomerAddress,
+                                CustomerID, IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage
+                                from customers 
+                                where CustomerNum = @customernum";
 
-                MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(selectedCustomerNum);
+
+
+                da.Fill(dt);
+                Customer cus = new Customer
+                    (dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(),
+                        dt.Rows[0][4].ToString(), dt.Rows[0][5].ToString(), dt.Rows[0][6].ToString(),
+                        dt.Rows[0][7].ToString(), dt.Rows[0][8].ToString());
+                
+                return cus;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }       //선택한 데이터의 정보만 조회
+
+
+        public DataTable GetEveryData()   //인자 없이 데이터 조회 
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "select CustomerNum, CustomerName, CustomerAddress," +
+                                        "CustomerID, IsAdmin, CustomerPw, CustomerPhone" +
+                                        "CustomerEmail, CustomerImage from customers";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
                 return dt;
             }
@@ -113,12 +152,41 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public bool Insert(Customer cus)  //값이 아니라 컬럼이 변수일떄는 파라미터 쓰면 안되남??ㅠㅠ
+        public DataTable GetEveryData(string uid,string pwd)   //로그인시 데이터 조회 
+        {
+            try {
+                DataTable dt = new DataTable();
+                string sql = $@"select CustomerNum, CustomerName, CustomerAddress,
+                                    CustomerID, IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage
+                                        from customers 
+                                        where CustomerID = @uid and CustomerPw = @pwd ";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
+                da.SelectCommand.Parameters.Add("@uid", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@uid"].Value = Convert.ToInt32(uid);
+
+                da.SelectCommand.Parameters.Add("@pwd", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@pwd"].Value = pwd;
+
+
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }
+
+
+        public bool Insert(Customer cus)  
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try 
             {
-                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, CustomerPhone)        
+                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, 
+                                                        IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage)        
                                 values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin, @CustomerPw, @CustomerPhone)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -154,6 +222,40 @@ namespace WindowsFormsAppPersonalProject
                 return false;
             }
         }
+
+
+        public bool UpdateIsAdmin(string isadmin, string customernum)
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update customers            
+                                        set IsAdmin = @isadmin
+                                        where CustomerNum = @customernum";
+
+                MySqlCommand updateCmd = new MySqlCommand(sql, conn);
+                updateCmd.Transaction = trans;
+
+
+                updateCmd.Parameters.Add("@isadmin", MySqlDbType.VarChar);
+                updateCmd.Parameters["@isadmin"].Value = isadmin;
+
+                updateCmd.Parameters.Add("@customernum", MySqlDbType.Int32);
+                updateCmd.Parameters["@customernum"].Value = Convert.ToString(customernum);
+
+                updateCmd.ExecuteNonQuery();
+                trans.Commit();
+                return true;
+
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                trans.Rollback();
+                return false;
+            }
+        }
+
 
         public bool Update(Customer cus)
         {

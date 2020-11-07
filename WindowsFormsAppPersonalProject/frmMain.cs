@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsAppPersonalProject.CustomerManagement;
 
 namespace WindowsFormsAppPersonalProject
 {
@@ -19,6 +20,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public frmMain()
         {
@@ -34,6 +37,8 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
 
         }
 
@@ -41,7 +46,8 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return  new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return  new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                            CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
 
@@ -49,11 +55,11 @@ namespace WindowsFormsAppPersonalProject
         {
             this.Text = "JerryBanking";
            
-            if (IsAdmin == "0")
+            if (IsAdmin == "N")
             {
                 menuStrip1.Visible = true;
             }
-            else if(IsAdmin == "1")
+            else if(IsAdmin == "Y")
                 menuStrip3.Visible = true;
         }
        
@@ -65,7 +71,7 @@ namespace WindowsFormsAppPersonalProject
             c1.Activate();
             
         }
-
+#region 회원용메뉴
         private void 계좌ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AccountView a1 = new AccountView(customerInfo);
@@ -96,10 +102,33 @@ namespace WindowsFormsAppPersonalProject
             login.Show();
 
         }
+        #endregion
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        #region 관리자용메뉴
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)       //고객관리
+        {
+            frmCustomerManagement m1 = new frmCustomerManagement(customerInfo);
+            m1.Show();
+            m1.Activate();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)       //계좌관리
         {
 
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)       //대출 현황
+        {
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)       //로그아웃
+        {
+            this.Close();
+            frmLogin login = new frmLogin();
+            login.Show();
+            login.Activate();
+        }
+        #endregion
     }
 }

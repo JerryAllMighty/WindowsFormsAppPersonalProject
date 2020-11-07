@@ -20,6 +20,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public frmLoan()
         {
@@ -35,13 +37,16 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
         }
 
         public Customer customerInfo
         {
             get
             {
-                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
 

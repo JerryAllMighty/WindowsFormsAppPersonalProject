@@ -19,6 +19,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string ChangedPw;
         public string ChangedPhone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public frmUpdate()
         {
@@ -35,26 +37,23 @@ namespace WindowsFormsAppPersonalProject
             txtCheckingPwd.Text = cus.CustomerPw;
             ChangedPhone = txtPhone.Text = cus.Phone;
             IsAdmin = cus.IsAdmin;
+            CustomerEmail = txtEmail.Text = cus.CustomerEmail;
+                CustomerImage = cus.CustomerImage;
+
+
         }
 
         public Customer CustomerInfo        //변경을 하면 그 값을 생성 파라미터로 넘겨준다
         {
             get
             {
-                return new Customer(CustomerNum, ChangedName, ChangedAddress, ChangedID, IsAdmin, ChangedPw, ChangedPhone);
+                return new Customer(CustomerNum, ChangedName, ChangedAddress,
+                                    ChangedID, IsAdmin, ChangedPw, ChangedPhone, CustomerEmail, CustomerImage);
             }
         }
         private void frmUpdate_Load(object sender, EventArgs e)
         {
-            if (IsAdmin == "0")
-            {
-                rbtnA.Enabled = false;
-                rbtnS.PerformClick();
-            }
-            else {
-                rbtnS.Enabled = false;
-                rbtnA.PerformClick();
-            }
+            
         }
 
         private void txtCheckingPwd_TextChanged(object sender, EventArgs e)

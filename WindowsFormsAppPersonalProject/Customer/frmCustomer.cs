@@ -22,6 +22,11 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
+
+        frmMain main; 
+
 
         public frmCustomer()
         {
@@ -37,14 +42,16 @@ namespace WindowsFormsAppPersonalProject
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
-
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
         }
-
+         
         public Customer CustomerInfo 
         {
             get
             {
-                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                        CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
 
         }
@@ -56,6 +63,8 @@ namespace WindowsFormsAppPersonalProject
 
         private void Customer_Load(object sender, EventArgs e)
         {
+            main = (frmMain)this.MdiParent;
+
             CommonUtil.SetinitGridView(dgvMember);
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember, "고객명", "CustomerName");
@@ -64,6 +73,8 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember, "관리자여부", "IsAdmin");
             CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw");
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage");
         }
 
         private void button3_Click(object sender, EventArgs e) //계좌생성 클릭
@@ -97,9 +108,9 @@ namespace WindowsFormsAppPersonalProject
                 CustomerDB db = new CustomerDB();
                 db.Delete(CustomerInfo);
                 db.Dispose();
-                this.Close();       //이 창 닫아주기
-                this.MdiParent.Close();     //메인 폼(부모 폼) 닫아주기
-                frmLogin login = new frmLogin();
+                this.Close();
+                main.Close();
+                frmLogin login = new frmLogin();        //새로운 계정으로 로그인하게 만들기
                 login.Show();
             }
            

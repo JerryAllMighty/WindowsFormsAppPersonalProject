@@ -35,16 +35,11 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.관리자용ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.회원용ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMakingAccount = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblTryLogin = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,49 +96,11 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.관리자용ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 28);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(846, 28);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 관리자용ToolStripMenuItem
-            // 
-            this.관리자용ToolStripMenuItem.Name = "관리자용ToolStripMenuItem";
-            this.관리자용ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.관리자용ToolStripMenuItem.Text = "관리자용";
-            this.관리자용ToolStripMenuItem.Click += new System.EventHandler(this.관리자용ToolStripMenuItem_Click);
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.회원용ToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(846, 28);
-            this.menuStrip2.TabIndex = 0;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // 회원용ToolStripMenuItem
-            // 
-            this.회원용ToolStripMenuItem.Name = "회원용ToolStripMenuItem";
-            this.회원용ToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.회원용ToolStripMenuItem.Text = "회원용";
-            this.회원용ToolStripMenuItem.Click += new System.EventHandler(this.회원용ToolStripMenuItem_Click);
-            // 
             // btnMakingAccount
             // 
             this.btnMakingAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMakingAccount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMakingAccount.Location = new System.Drawing.Point(481, 361);
+            this.btnMakingAccount.Location = new System.Drawing.Point(263, 361);
             this.btnMakingAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMakingAccount.Name = "btnMakingAccount";
             this.btnMakingAccount.Size = new System.Drawing.Size(149, 61);
@@ -170,6 +127,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.lblTryLogin);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnMakingAccount);
@@ -181,6 +139,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(822, 491);
             this.panel1.TabIndex = 9;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSearch.Location = new System.Drawing.Point(40, 361);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(149, 61);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "ID, 비밀번호 찾기";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // lblTryLogin
             // 
@@ -200,23 +170,15 @@
             this.ClientSize = new System.Drawing.Size(846, 562);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmLogin";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "로그인";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -227,13 +189,10 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 관리자용ToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem 회원용ToolStripMenuItem;
         private System.Windows.Forms.Button btnMakingAccount;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTryLogin;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

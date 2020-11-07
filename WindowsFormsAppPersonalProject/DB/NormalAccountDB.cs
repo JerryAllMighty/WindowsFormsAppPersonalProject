@@ -41,16 +41,18 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public DataTable WhenYouSend(string customernum)
+        public DataTable WhenYouSend()
         {
             try
             {
                 DataTable dt = new DataTable();
-                string sql = @"select CurrentMoney, NAccountNum from normalaccount where customernum = @customernum";
+                string sql = @"SELECT N.NAccountNum, N.CurrentMoney, S.RecentlySentTo FROM normalaccount N 
+                                        join sending S on N.CustomerNum = S.CustomerNum
+                                        where N.NAccountNum = S.NAccountNum";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
-                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+                //da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                //da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
 
                 da.Fill(dt);
 

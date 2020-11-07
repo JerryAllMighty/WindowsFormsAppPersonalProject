@@ -22,6 +22,8 @@ namespace WindowsFormsAppPersonalProject
         public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         DataTable dt;
 
@@ -40,6 +42,17 @@ namespace WindowsFormsAppPersonalProject
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
         }
+
+        public Customer CustomerInfo
+        {
+            get
+            {
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                        CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
+            }
+
+        }
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -114,12 +127,13 @@ namespace WindowsFormsAppPersonalProject
         private void frmSending_Load(object sender, EventArgs e)
         {
             NormalAccountDB db = new NormalAccountDB();
-            dt =  db.WhenYouSend(CustomerNum);
+            dt =  db.WhenYouSend();
             db.Dispose();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"]);
+                cbxRecently.Items.Add(dt.Rows[i]["RecentlySentTo"].ToString());
             }
         }
 
@@ -137,12 +151,16 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("입력하신 정보가 맞습니까?", "최종 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             { 
-            
+            //db들어가서 입금계좌 정보에 해당하는 고객정보가져오라
             }
         }
 
-        
+        private void cbxRecently_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,9 +20,11 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerName;
         public string CustomerAddress;
         public string CustomerID;
-        public string IsAdmin = null;
+        public string IsAdmin;
         public string CustomerPw;
         public string Phone;
+        public string CustomerEmail;
+        public string CustomerImage;
 
         public frmLogin()
         {
@@ -34,7 +36,8 @@ namespace WindowsFormsAppPersonalProject
         { 
             get 
             {
-                return new Customer(CustomerNum, CustomerName, CustomerAddress, CustomerID, IsAdmin, CustomerPw, Phone);
+                return new Customer(CustomerNum, CustomerName, CustomerAddress, 
+                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
         #endregion 프로퍼티
@@ -67,17 +70,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        private void 회원용ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //menustrip1를 보이게 해야해
-            IsAdmin = "0"; 
-        }
-
-        private void 관리자용ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //menustrip3를 보이게 해야해
-            IsAdmin = "1";
-        }
+       
 
         private void btnMakingAccount_Click(object sender, EventArgs e)     //회원가입 버튼
         {
@@ -88,17 +81,9 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //유효성 체크
-            if (IsAdmin == null)
-            {
-                MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
-                e.Handled = true;
-                return;
-            }
-
             if (e.KeyChar == 13)
             {
-                //로그인 버튼을 누른 것과 동일한 효과
+                //엔터를 누르면 로그인 버튼을 누른 것과 동일한 효과
                 btnLogin.PerformClick();
             }
         }
@@ -106,16 +91,10 @@ namespace WindowsFormsAppPersonalProject
         private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
         {
             //유효성 체크
-            if (IsAdmin == null)
-            {
-                MessageBox.Show("회원용과 관리자용 중 하나를 선택해주세요.");
-                e.Handled = true;
-                return;
-            }
-           
+            
             if (e.KeyChar == 13)
             {
-                //로그인 버튼을 누른 것과 동일한 효과
+                //엔터를 누르면  로그인 버튼을 누른 것과 동일한 효과
                 btnLogin.PerformClick();
             }
 
@@ -128,17 +107,7 @@ namespace WindowsFormsAppPersonalProject
             CustomerDB db = new CustomerDB();
             DataTable dt = db.GetEveryData(txtID.Text, txtPwd.Text);
 
-            if (IsAdmin != dt.Rows[0]["IsAdmin"].ToString())   //관리자용과 회원용이 맞지 않을 때, 유효성 체크
-            {
-                string loginaccount;
-                if (IsAdmin == "0")
-                    loginaccount = "회원용";
-                else
-                    loginaccount = "관리자용";
-
-                MessageBox.Show($"{loginaccount}아이디가 맞는지 확인해주세요.");
-                return;
-            }
+           
 
             if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
             {
@@ -170,6 +139,8 @@ namespace WindowsFormsAppPersonalProject
                 IsAdmin = dt.Rows[0]["IsAdmin"].ToString();
                 CustomerPw = dt.Rows[0]["CustomerPw"].ToString();
                 Phone = dt.Rows[0]["CustomerPhone"].ToString();
+                CustomerEmail = dt.Rows[0]["CustomerEmail"].ToString();
+                CustomerImage = dt.Rows[0]["CustomerImage"].ToString();
                 return true;
             }
             catch (Exception)

@@ -267,6 +267,7 @@
             this.cbxRecently.Name = "cbxRecently";
             this.cbxRecently.Size = new System.Drawing.Size(178, 23);
             this.cbxRecently.TabIndex = 3;
+            this.cbxRecently.SelectedValueChanged += new System.EventHandler(this.cbxRecently_SelectedValueChanged);
             // 
             // txtAmountOfSending
             // 
