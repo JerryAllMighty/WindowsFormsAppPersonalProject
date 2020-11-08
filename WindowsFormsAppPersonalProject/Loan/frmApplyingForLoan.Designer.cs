@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApplyingForLoan));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxOutAccount = new System.Windows.Forms.ComboBox();
             this.lblDay = new System.Windows.Forms.Label();
@@ -388,6 +389,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 450);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApplyingForLoan";
             this.Text = "대출 신청";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

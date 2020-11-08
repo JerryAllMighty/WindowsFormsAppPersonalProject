@@ -29,12 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdate));
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblCheckPw = new System.Windows.Forms.Label();
             this.txtCheckingPwd = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -44,9 +48,6 @@
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnCheck = new System.Windows.Forms.Button();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +118,33 @@
             this.panel1.Size = new System.Drawing.Size(702, 548);
             this.panel1.TabIndex = 1;
             this.panel1.TabStop = true;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.Location = new System.Drawing.Point(32, 435);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(114, 29);
+            this.lblEmail.TabIndex = 16;
+            this.lblEmail.Text = "이메일";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(197, 432);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(254, 25);
+            this.txtEmail.TabIndex = 17;
+            this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(547, 48);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(152, 25);
+            this.btnCheck.TabIndex = 13;
+            this.btnCheck.Text = "ID 중복확인";
+            this.btnCheck.UseVisualStyleBackColor = true;
             // 
             // txtID
             // 
@@ -202,38 +230,13 @@
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
-            // btnCheck
-            // 
-            this.btnCheck.Location = new System.Drawing.Point(547, 48);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(152, 25);
-            this.btnCheck.TabIndex = 13;
-            this.btnCheck.Text = "ID 중복확인";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.Location = new System.Drawing.Point(32, 435);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(114, 29);
-            this.lblEmail.TabIndex = 16;
-            this.lblEmail.Text = "이메일";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(197, 432);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(254, 25);
-            this.txtEmail.TabIndex = 17;
-            this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // frmUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 548);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUpdate";
             this.Text = "고객 정보 수정";
             this.Load += new System.EventHandler(this.frmUpdate_Load);

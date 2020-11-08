@@ -29,8 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWhenCreate));
             this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCheckEmail = new System.Windows.Forms.Label();
+            this.cbxSeacrchPw = new System.Windows.Forms.ComboBox();
+            this.txtSearchPwAns = new System.Windows.Forms.TextBox();
+            this.lblSearchPwQA = new System.Windows.Forms.Label();
+            this.cbxEmail = new System.Windows.Forms.ComboBox();
+            this.btnAddPic = new System.Windows.Forms.Button();
+            this.btnAddSearch = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -47,17 +56,9 @@
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddSearch = new System.Windows.Forms.Button();
-            this.btnAddPic = new System.Windows.Forms.Button();
-            this.cbxEmail = new System.Windows.Forms.ComboBox();
-            this.lblSearchPwQA = new System.Windows.Forms.Label();
-            this.txtSearchPwAns = new System.Windows.Forms.TextBox();
-            this.cbxSeacrchPw = new System.Windows.Forms.ComboBox();
-            this.lblCheckEmail = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -100,6 +101,77 @@
             this.panel1.Size = new System.Drawing.Size(922, 544);
             this.panel1.TabIndex = 0;
             this.panel1.TabStop = true;
+            // 
+            // lblCheckEmail
+            // 
+            this.lblCheckEmail.Location = new System.Drawing.Point(324, 186);
+            this.lblCheckEmail.Name = "lblCheckEmail";
+            this.lblCheckEmail.Size = new System.Drawing.Size(257, 21);
+            this.lblCheckEmail.TabIndex = 24;
+            this.lblCheckEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCheckEmail.Visible = false;
+            // 
+            // cbxSeacrchPw
+            // 
+            this.cbxSeacrchPw.FormattingEnabled = true;
+            this.cbxSeacrchPw.Location = new System.Drawing.Point(327, 465);
+            this.cbxSeacrchPw.Name = "cbxSeacrchPw";
+            this.cbxSeacrchPw.Size = new System.Drawing.Size(254, 21);
+            this.cbxSeacrchPw.TabIndex = 23;
+            // 
+            // txtSearchPwAns
+            // 
+            this.txtSearchPwAns.Location = new System.Drawing.Point(327, 506);
+            this.txtSearchPwAns.Name = "txtSearchPwAns";
+            this.txtSearchPwAns.PasswordChar = '*';
+            this.txtSearchPwAns.Size = new System.Drawing.Size(254, 22);
+            this.txtSearchPwAns.TabIndex = 22;
+            this.txtSearchPwAns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblSearchPwQA
+            // 
+            this.lblSearchPwQA.Location = new System.Drawing.Point(177, 465);
+            this.lblSearchPwQA.Name = "lblSearchPwQA";
+            this.lblSearchPwQA.Size = new System.Drawing.Size(100, 38);
+            this.lblSearchPwQA.TabIndex = 21;
+            this.lblSearchPwQA.Text = "비밀번호 찾기 질문/답변";
+            this.lblSearchPwQA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbxEmail
+            // 
+            this.cbxEmail.FormattingEnabled = true;
+            this.cbxEmail.Location = new System.Drawing.Point(627, 162);
+            this.cbxEmail.Name = "cbxEmail";
+            this.cbxEmail.Size = new System.Drawing.Size(254, 21);
+            this.cbxEmail.TabIndex = 19;
+            // 
+            // btnAddPic
+            // 
+            this.btnAddPic.Location = new System.Drawing.Point(28, 221);
+            this.btnAddPic.Name = "btnAddPic";
+            this.btnAddPic.Size = new System.Drawing.Size(152, 22);
+            this.btnAddPic.TabIndex = 18;
+            this.btnAddPic.Text = "사진 추가";
+            this.btnAddPic.UseVisualStyleBackColor = true;
+            this.btnAddPic.Click += new System.EventHandler(this.btnAddPic_Click);
+            // 
+            // btnAddSearch
+            // 
+            this.btnAddSearch.Location = new System.Drawing.Point(729, 221);
+            this.btnAddSearch.Name = "btnAddSearch";
+            this.btnAddSearch.Size = new System.Drawing.Size(152, 22);
+            this.btnAddSearch.TabIndex = 17;
+            this.btnAddSearch.Text = "주소 찾기";
+            this.btnAddSearch.UseVisualStyleBackColor = true;
+            this.btnAddSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(14, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 166);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // lblEmail
             // 
@@ -240,77 +312,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 166);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnAddSearch
-            // 
-            this.btnAddSearch.Location = new System.Drawing.Point(729, 221);
-            this.btnAddSearch.Name = "btnAddSearch";
-            this.btnAddSearch.Size = new System.Drawing.Size(152, 22);
-            this.btnAddSearch.TabIndex = 17;
-            this.btnAddSearch.Text = "주소 찾기";
-            this.btnAddSearch.UseVisualStyleBackColor = true;
-            this.btnAddSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
-            // 
-            // btnAddPic
-            // 
-            this.btnAddPic.Location = new System.Drawing.Point(28, 221);
-            this.btnAddPic.Name = "btnAddPic";
-            this.btnAddPic.Size = new System.Drawing.Size(152, 22);
-            this.btnAddPic.TabIndex = 18;
-            this.btnAddPic.Text = "사진 추가";
-            this.btnAddPic.UseVisualStyleBackColor = true;
-            this.btnAddPic.Click += new System.EventHandler(this.btnAddPic_Click);
-            // 
-            // cbxEmail
-            // 
-            this.cbxEmail.FormattingEnabled = true;
-            this.cbxEmail.Location = new System.Drawing.Point(627, 162);
-            this.cbxEmail.Name = "cbxEmail";
-            this.cbxEmail.Size = new System.Drawing.Size(254, 21);
-            this.cbxEmail.TabIndex = 19;
-            // 
-            // lblSearchPwQA
-            // 
-            this.lblSearchPwQA.Location = new System.Drawing.Point(177, 465);
-            this.lblSearchPwQA.Name = "lblSearchPwQA";
-            this.lblSearchPwQA.Size = new System.Drawing.Size(100, 38);
-            this.lblSearchPwQA.TabIndex = 21;
-            this.lblSearchPwQA.Text = "비밀번호 찾기 질문/답변";
-            this.lblSearchPwQA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSearchPwAns
-            // 
-            this.txtSearchPwAns.Location = new System.Drawing.Point(327, 506);
-            this.txtSearchPwAns.Name = "txtSearchPwAns";
-            this.txtSearchPwAns.PasswordChar = '*';
-            this.txtSearchPwAns.Size = new System.Drawing.Size(254, 22);
-            this.txtSearchPwAns.TabIndex = 22;
-            this.txtSearchPwAns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cbxSeacrchPw
-            // 
-            this.cbxSeacrchPw.FormattingEnabled = true;
-            this.cbxSeacrchPw.Location = new System.Drawing.Point(327, 465);
-            this.cbxSeacrchPw.Name = "cbxSeacrchPw";
-            this.cbxSeacrchPw.Size = new System.Drawing.Size(254, 21);
-            this.cbxSeacrchPw.TabIndex = 23;
-            // 
-            // lblCheckEmail
-            // 
-            this.lblCheckEmail.Location = new System.Drawing.Point(324, 186);
-            this.lblCheckEmail.Name = "lblCheckEmail";
-            this.lblCheckEmail.Size = new System.Drawing.Size(257, 21);
-            this.lblCheckEmail.TabIndex = 24;
-            this.lblCheckEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCheckEmail.Visible = false;
-            // 
             // frmWhenCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
@@ -318,14 +319,15 @@
             this.ClientSize = new System.Drawing.Size(945, 572);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("굴림", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmWhenCreate";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "회원가입";
             this.Load += new System.EventHandler(this.WhenCreate_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }

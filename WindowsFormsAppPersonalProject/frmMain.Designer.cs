@@ -40,6 +40,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.메세지박스ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -52,11 +53,12 @@
             this.계좌ToolStripMenuItem,
             this.대출ToolStripMenuItem,
             this.이체ToolStripMenuItem,
-            this.로그아웃ToolStripMenuItem});
+            this.로그아웃ToolStripMenuItem,
+            this.메세지박스ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(914, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(914, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -64,35 +66,35 @@
             // 고객ToolStripMenuItem
             // 
             this.고객ToolStripMenuItem.Name = "고객ToolStripMenuItem";
-            this.고객ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
+            this.고객ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.고객ToolStripMenuItem.Text = "고객";
             this.고객ToolStripMenuItem.Click += new System.EventHandler(this.고객ToolStripMenuItem_Click);
             // 
             // 계좌ToolStripMenuItem
             // 
             this.계좌ToolStripMenuItem.Name = "계좌ToolStripMenuItem";
-            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.계좌ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.계좌ToolStripMenuItem.Text = "계좌조회";
             this.계좌ToolStripMenuItem.Click += new System.EventHandler(this.계좌ToolStripMenuItem_Click);
             // 
             // 대출ToolStripMenuItem
             // 
             this.대출ToolStripMenuItem.Name = "대출ToolStripMenuItem";
-            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
+            this.대출ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.대출ToolStripMenuItem.Text = "대출";
             this.대출ToolStripMenuItem.Click += new System.EventHandler(this.대출ToolStripMenuItem_Click);
             // 
             // 이체ToolStripMenuItem
             // 
             this.이체ToolStripMenuItem.Name = "이체ToolStripMenuItem";
-            this.이체ToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
+            this.이체ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.이체ToolStripMenuItem.Text = "이체";
             this.이체ToolStripMenuItem.Click += new System.EventHandler(this.이체ToolStripMenuItem_Click);
             // 
             // 로그아웃ToolStripMenuItem
             // 
             this.로그아웃ToolStripMenuItem.Name = "로그아웃ToolStripMenuItem";
-            this.로그아웃ToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.로그아웃ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.로그아웃ToolStripMenuItem.Text = "로그아웃";
             this.로그아웃ToolStripMenuItem.Click += new System.EventHandler(this.로그아웃ToolStripMenuItem_Click);
             // 
@@ -140,6 +142,13 @@
             this.toolStripMenuItem5.Text = "로그아웃";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
+            // 메세지박스ToolStripMenuItem
+            // 
+            this.메세지박스ToolStripMenuItem.Name = "메세지박스ToolStripMenuItem";
+            this.메세지박스ToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.메세지박스ToolStripMenuItem.Text = "메세지박스";
+            this.메세지박스ToolStripMenuItem.Click += new System.EventHandler(this.메세지박스ToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -147,8 +156,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(914, 562);
-            this.Controls.Add(this.menuStrip3);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -180,6 +189,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem 메세지박스ToolStripMenuItem;
     }
 }
 

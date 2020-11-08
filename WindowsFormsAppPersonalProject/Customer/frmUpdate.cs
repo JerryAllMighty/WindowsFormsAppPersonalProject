@@ -21,6 +21,7 @@ namespace WindowsFormsAppPersonalProject
         public string ChangedPhone;
         public string CustomerEmail;
         public string CustomerImage;
+        public string ChangedEmail;
 
         public frmUpdate()
         {
@@ -37,8 +38,8 @@ namespace WindowsFormsAppPersonalProject
             txtCheckingPwd.Text = cus.CustomerPw;
             ChangedPhone = txtPhone.Text = cus.Phone;
             IsAdmin = cus.IsAdmin;
-            CustomerEmail = txtEmail.Text = cus.CustomerEmail;
-                CustomerImage = cus.CustomerImage;
+            ChangedEmail = txtEmail.Text = cus.CustomerEmail;
+            CustomerImage = cus.CustomerImage;
 
 
         }
@@ -48,7 +49,7 @@ namespace WindowsFormsAppPersonalProject
             get
             {
                 return new Customer(CustomerNum, ChangedName, ChangedAddress,
-                                    ChangedID, IsAdmin, ChangedPw, ChangedPhone, CustomerEmail, CustomerImage);
+                                    ChangedID, IsAdmin, ChangedPw, ChangedPhone, ChangedEmail, CustomerImage);
             }
         }
         private void frmUpdate_Load(object sender, EventArgs e)
@@ -108,6 +109,11 @@ namespace WindowsFormsAppPersonalProject
         private void txtPhone_Leave(object sender, EventArgs e)
         {
             ChangedPhone = txtPhone.Text;
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            ChangedEmail = txtEmail.Text;
         }
     }
 }

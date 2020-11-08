@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApplyingForLoan2));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblRegularWhen = new System.Windows.Forms.Label();
             this.lblInterest2 = new System.Windows.Forms.Label();
@@ -42,11 +43,11 @@
             this.lblKindOfLoan = new System.Windows.Forms.Label();
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblRegularWhen2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblLastCheck = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.lblRegularWhen2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -230,6 +231,15 @@
             this.lblName.Text = "성명";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblRegularWhen2
+            // 
+            this.lblRegularWhen2.AutoSize = true;
+            this.lblRegularWhen2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRegularWhen2.Location = new System.Drawing.Point(196, 138);
+            this.lblRegularWhen2.Name = "lblRegularWhen2";
+            this.lblRegularWhen2.Size = new System.Drawing.Size(187, 47);
+            this.lblRegularWhen2.TabIndex = 16;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -281,21 +291,13 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // lblRegularWhen2
-            // 
-            this.lblRegularWhen2.AutoSize = true;
-            this.lblRegularWhen2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRegularWhen2.Location = new System.Drawing.Point(196, 138);
-            this.lblRegularWhen2.Name = "lblRegularWhen2";
-            this.lblRegularWhen2.Size = new System.Drawing.Size(187, 47);
-            this.lblRegularWhen2.TabIndex = 16;
-            // 
             // frmApplyingForLoan2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApplyingForLoan2";
             this.Text = "대출 신청";
             this.Load += new System.EventHandler(this.frmApplyingForLoan2_Load);

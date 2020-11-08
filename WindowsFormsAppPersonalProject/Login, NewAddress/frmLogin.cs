@@ -104,6 +104,13 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnLogin_Click(object sender, EventArgs e)     //로그인 버튼 클릭
         {
+            this.UseWaitCursor = true;
+            if (string.IsNullOrEmpty(txtID.Text.Trim().Replace(" ", "")) || txtPwd.Text.Trim().Replace(" ", "").Length == 0)
+            {
+                MessageBox.Show("ID나 비밀번호는 입력해주십시오.");
+                return;
+            }
+
             CustomerDB db = new CustomerDB();
             DataTable dt = db.GetEveryData(txtID.Text, txtPwd.Text);
 
@@ -147,6 +154,12 @@ namespace WindowsFormsAppPersonalProject
             {
                 return false;
             }
+        }
+
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            this.UseWaitCursor = true;
         }
     }
 }

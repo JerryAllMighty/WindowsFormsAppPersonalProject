@@ -54,8 +54,8 @@ namespace WindowsFormsAppPersonalProject
         {
             conn.Close();
         }
-
-        public DataTable WhenYouApplyForLoan(int customernum)
+        
+        public DataTable WhenYouApplyForLoan(int customernum)       //대출 신청시
         {
             try
             {
@@ -79,7 +79,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public DataTable countAccountSoFar(string customernum)
+        public DataTable countAccountSoFar(string customernum)      //현재까지의 계좌 개수
         {
             try 
             {
@@ -100,7 +100,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public Customer DataSelected(string selectedCustomerNum)
+        public Customer DataSelected(string selectedCustomerNum)        //선택된 정보를 검색
         {
             try
             {
@@ -136,9 +136,9 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select CustomerNum, CustomerName, CustomerAddress," +
-                                        "CustomerID, IsAdmin, CustomerPw, CustomerPhone" +
-                                        "CustomerEmail, CustomerImage from customers";
+                string sql = @"select CustomerNum, CustomerName, CustomerAddress,
+                                        CustomerID, IsAdmin, CustomerPw, CustomerPhone,
+                                        CustomerEmail, CustomerImage from customers";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
@@ -180,7 +180,7 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public bool Insert(Customer cus)  
+        public bool Insert(Customer cus)  //회원가입시 정보 생성
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try 
@@ -224,7 +224,7 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public bool UpdateIsAdmin(string isadmin, string customernum)
+        public bool UpdateIsAdmin(string isadmin, string customernum)       //관리자나 일반회원으로 변경
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try
@@ -257,7 +257,7 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public bool Update(Customer cus)
+        public bool Update(Customer cus)        //수정
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try
@@ -267,7 +267,8 @@ namespace WindowsFormsAppPersonalProject
                                         CustomerAddress = @address, 
                                         CustomerID = @id, 
                                         CustomerPw = @pw, 
-                                        CustomerPhone = @phone
+                                        CustomerPhone = @phone,
+                                        CustomerEmail = @customeremail
                                         where CustomerNum = @customernum" ;
                 MySqlCommand updateCmd = new MySqlCommand(sql, conn);
                 updateCmd.Transaction = trans;
@@ -287,8 +288,11 @@ namespace WindowsFormsAppPersonalProject
                 updateCmd.Parameters.Add("@phone", MySqlDbType.VarChar);
                 updateCmd.Parameters["@phone"].Value = cus.Phone;
 
-                updateCmd.Parameters.Add("@customernum", MySqlDbType.VarChar);
-                updateCmd.Parameters["@customernum"].Value = cus.CustomerNum;
+                updateCmd.Parameters.Add("@customernum", MySqlDbType.Int32);
+                updateCmd.Parameters["@customernum"].Value = Convert.ToInt32(cus.CustomerNum);
+
+                updateCmd.Parameters.Add("@customeremail", MySqlDbType.VarChar);
+                updateCmd.Parameters["@customeremail"].Value = cus.CustomerEmail;
 
                 updateCmd.ExecuteNonQuery();
                 trans.Commit();
@@ -303,7 +307,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public bool Delete(Customer cus)
+        public bool Delete(Customer cus)        //삭제
         {
             try
             {

@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,6 +72,18 @@
     <Compile Include="DB\LoanDB.cs" />
     <Compile Include="DB\NormalAccountDB.cs" />
     <Compile Include="DB\SavingDB.cs" />
+    <Compile Include="CustomerManagement\frmSendingMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerManagement\frmSendingMessage.Designer.cs">
+      <DependentUpon>frmSendingMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmJerryTalk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJerryTalk.Designer.cs">
+      <DependentUpon>frmJerryTalk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loan\frmApplyingForLoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +108,7 @@
     <Compile Include="Loan\frmLoanPayBack.Designer.cs">
       <DependentUpon>frmLoanPayBack.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\MessageDB.cs" />
     <Compile Include="Sending\frmSending2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerManagement\frmSendingMessage.resx">
+      <DependentUpon>frmSendingMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJerryTalk.resx">
+      <DependentUpon>frmJerryTalk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loan\frmApplyingForLoan.resx">
       <DependentUpon>frmApplyingForLoan.cs</DependentUpon>

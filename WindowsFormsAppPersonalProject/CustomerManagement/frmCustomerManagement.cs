@@ -39,6 +39,8 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
             Phone = cusinfo.Phone;
+            CustomerEmail = cusinfo.CustomerEmail;
+            CustomerImage = cusinfo.CustomerImage;
         }
 
         public Customer customerInfo
@@ -50,7 +52,8 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             }
         }
 
-
+        public Message MsgInfo { get {return new Message(CustomerNum, dgvMember.CurrentRow.Cells[1].Value.ToString(), 
+                                                    CustomerName, dgvMember.CurrentRow.Cells[2].Value.ToString(),"",""); } }
         private void frmCustomerManagement_Load(object sender, EventArgs e)
         {
             DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
@@ -178,7 +181,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
                     frm.Activate();
                 }
                 //수정이 끝나고 나서 수정 창이 닫히면 고객관리 폼에 자동으로 갱신된 데이터가 떴으면 좋겠어
-                dgvMember.DataSource = dt;
+                dgvMember.DataSource = db.GetEveryData();
             }
         }
 
@@ -189,7 +192,9 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
 
         private void 메세지보내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmSendingMessage frm = new frmSendingMessage(MsgInfo);
+            frm.Show();
+            frm.Activate();
         }
 
         private void 관리자로임명ToolStripMenuItem_Click(object sender, EventArgs e)

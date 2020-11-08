@@ -61,6 +61,8 @@ namespace WindowsFormsAppPersonalProject
             }
             else if(IsAdmin == "Y")
                 menuStrip3.Visible = true;
+
+
         }
        
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,5 +132,12 @@ namespace WindowsFormsAppPersonalProject
             login.Activate();
         }
         #endregion
+
+        private void 메세지박스ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmJerryTalk frm = new frmJerryTalk(customerInfo);
+            frm.Show();
+            frm.Activate();
+        }
     }
 }

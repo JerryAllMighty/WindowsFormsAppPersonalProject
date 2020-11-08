@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSending2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblInputAcc = new System.Windows.Forms.Label();
-            this.lblAmountOfSending = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblAmountOfSending = new System.Windows.Forms.Label();
+            this.lblInputAcc = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "이체 정보 최종 확인";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(606, 359);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 61);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "최종 이체";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -72,15 +82,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(644, 177);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblInputAcc
+            // label1
             // 
-            this.lblInputAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblInputAcc.Location = new System.Drawing.Point(43, 113);
-            this.lblInputAcc.Name = "lblInputAcc";
-            this.lblInputAcc.Size = new System.Drawing.Size(74, 39);
-            this.lblInputAcc.TabIndex = 21;
-            this.lblInputAcc.Text = "입금 계좌";
-            this.lblInputAcc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Location = new System.Drawing.Point(365, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 39);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "출금 계좌";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblAmountOfSending
             // 
@@ -92,15 +102,15 @@
             this.lblAmountOfSending.Text = "이체 금액";
             this.lblAmountOfSending.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label1
+            // lblInputAcc
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Location = new System.Drawing.Point(365, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 39);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "출금 계좌";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblInputAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblInputAcc.Location = new System.Drawing.Point(43, 113);
+            this.lblInputAcc.Name = "lblInputAcc";
+            this.lblInputAcc.Size = new System.Drawing.Size(74, 39);
+            this.lblInputAcc.TabIndex = 21;
+            this.lblInputAcc.Text = "입금 계좌";
+            this.lblInputAcc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -112,21 +122,13 @@
             this.label2.Text = "입금주";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(606, 359);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "최종 이체";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmSending2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSending2";
             this.Text = "frmSending2";
             this.groupBox1.ResumeLayout(false);
