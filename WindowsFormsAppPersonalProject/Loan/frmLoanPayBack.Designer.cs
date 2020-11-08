@@ -289,6 +289,7 @@
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(197, 56);
             this.trackBar1.TabIndex = 14;
+            this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 3;
             // 
             // frmLoanPayBack

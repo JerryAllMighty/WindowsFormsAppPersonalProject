@@ -61,7 +61,7 @@
             this.btnSend.Location = new System.Drawing.Point(632, 357);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(138, 63);
-            this.btnSend.TabIndex = 6;
+            this.btnSend.TabIndex = 1;
             this.btnSend.Text = "전송";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -90,7 +90,7 @@
             this.txtMsg.Multiline = true;
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.Size = new System.Drawing.Size(658, 169);
-            this.txtMsg.TabIndex = 3;
+            this.txtMsg.TabIndex = 0;
             this.txtMsg.TextChanged += new System.EventHandler(this.txtMsg_TextChanged);
             // 
             // lblMsg

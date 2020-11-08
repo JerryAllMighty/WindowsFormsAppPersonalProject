@@ -48,7 +48,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 224);
+            this.label2.Location = new System.Drawing.Point(39, 248);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 15);
             this.label2.TabIndex = 6;
@@ -58,7 +58,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 187);
+            this.label1.Location = new System.Drawing.Point(39, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 15);
             this.label1.TabIndex = 5;
@@ -67,7 +67,7 @@
             // txtPwd
             // 
             this.txtPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPwd.Location = new System.Drawing.Point(263, 219);
+            this.txtPwd.Location = new System.Drawing.Point(263, 243);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
@@ -78,7 +78,7 @@
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Location = new System.Drawing.Point(263, 182);
+            this.txtID.Location = new System.Drawing.Point(263, 206);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(316, 25);
@@ -101,11 +101,11 @@
             // 
             this.btnMakingAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMakingAccount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMakingAccount.Location = new System.Drawing.Point(263, 361);
+            this.btnMakingAccount.Location = new System.Drawing.Point(263, 408);
             this.btnMakingAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMakingAccount.Name = "btnMakingAccount";
             this.btnMakingAccount.Size = new System.Drawing.Size(149, 61);
-            this.btnMakingAccount.TabIndex = 5;
+            this.btnMakingAccount.TabIndex = 6;
             this.btnMakingAccount.Text = "회원가입";
             this.btnMakingAccount.UseVisualStyleBackColor = true;
             this.btnMakingAccount.Click += new System.EventHandler(this.btnMakingAccount_Click);
@@ -113,10 +113,10 @@
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.Location = new System.Drawing.Point(636, 361);
+            this.btnLogin.Location = new System.Drawing.Point(636, 408);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(184, 61);
-            this.btnLogin.TabIndex = 8;
+            this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "로그인";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -137,20 +137,20 @@
             this.panel1.Controls.Add(this.txtPwd);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.txtID);
-            this.panel1.Location = new System.Drawing.Point(12, 59);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(822, 491);
+            this.panel1.Size = new System.Drawing.Size(822, 538);
             this.panel1.TabIndex = 9;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSearch.Location = new System.Drawing.Point(40, 361);
+            this.btnSearch.Location = new System.Drawing.Point(40, 408);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(149, 61);
-            this.btnSearch.TabIndex = 11;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "ID, 비밀번호 찾기";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -158,7 +158,7 @@
             // 
             this.lblTryLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTryLogin.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTryLogin.Location = new System.Drawing.Point(36, 83);
+            this.lblTryLogin.Location = new System.Drawing.Point(36, 107);
             this.lblTryLogin.Name = "lblTryLogin";
             this.lblTryLogin.Size = new System.Drawing.Size(291, 62);
             this.lblTryLogin.TabIndex = 10;

@@ -75,7 +75,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(914, 562);
-            this.splitContainer1.SplitterDistance = 89;
+            this.splitContainer1.SplitterDistance = 145;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
@@ -85,7 +85,7 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 89);
+            this.splitter1.Size = new System.Drawing.Size(3, 145);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -98,7 +98,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(914, 89);
+            this.dataGridView1.Size = new System.Drawing.Size(914, 145);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
             // 
@@ -108,7 +108,6 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtCurrentLeftOver);
             this.groupBox1.Controls.Add(this.lblCurrentOver);
-            this.groupBox1.Controls.Add(this.btnSend);
             this.groupBox1.Controls.Add(this.cbxRecently);
             this.groupBox1.Controls.Add(this.txtAmountOfSending);
             this.groupBox1.Controls.Add(this.lblInputAcc);
@@ -119,7 +118,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(914, 468);
+            this.groupBox1.Size = new System.Drawing.Size(914, 412);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "이체";
@@ -127,11 +126,11 @@
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(125, 155);
+            this.textBox1.Location = new System.Drawing.Point(125, 171);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(178, 25);
-            this.textBox1.TabIndex = 18;
+            this.textBox1.TabIndex = 2;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox2
@@ -141,7 +140,8 @@
             this.groupBox2.Controls.Add(this.cbxOutAcc);
             this.groupBox2.Controls.Add(this.cbxOutPwd);
             this.groupBox2.Controls.Add(this.lblOutPwd);
-            this.groupBox2.Location = new System.Drawing.Point(12, 297);
+            this.groupBox2.Controls.Add(this.btnSend);
+            this.groupBox2.Location = new System.Drawing.Point(15, 241);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(622, 159);
             this.groupBox2.TabIndex = 15;
@@ -166,7 +166,7 @@
             this.cbxOutAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxOutAcc.Name = "cbxOutAcc";
             this.cbxOutAcc.Size = new System.Drawing.Size(178, 23);
-            this.cbxOutAcc.TabIndex = 14;
+            this.cbxOutAcc.TabIndex = 4;
             this.cbxOutAcc.SelectedValueChanged += new System.EventHandler(this.cbxOutAcc_SelectedValueChanged);
             // 
             // cbxOutPwd
@@ -176,14 +176,14 @@
             this.cbxOutPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxOutPwd.Name = "cbxOutPwd";
             this.cbxOutPwd.Size = new System.Drawing.Size(178, 25);
-            this.cbxOutPwd.TabIndex = 4;
+            this.cbxOutPwd.TabIndex = 5;
             // 
             // lblOutPwd
             // 
             this.lblOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutPwd.Location = new System.Drawing.Point(12, 76);
             this.lblOutPwd.Name = "lblOutPwd";
-            this.lblOutPwd.Size = new System.Drawing.Size(74, 39);
+            this.lblOutPwd.Size = new System.Drawing.Size(74, 43);
             this.lblOutPwd.TabIndex = 12;
             this.lblOutPwd.Text = "출금 계좌 비밀 번호";
             this.lblOutPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,18 +191,18 @@
             // txtCurrentLeftOver
             // 
             this.txtCurrentLeftOver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCurrentLeftOver.Location = new System.Drawing.Point(125, 36);
+            this.txtCurrentLeftOver.Location = new System.Drawing.Point(125, 52);
             this.txtCurrentLeftOver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCurrentLeftOver.Name = "txtCurrentLeftOver";
             this.txtCurrentLeftOver.ReadOnly = true;
             this.txtCurrentLeftOver.Size = new System.Drawing.Size(178, 25);
-            this.txtCurrentLeftOver.TabIndex = 10;
+            this.txtCurrentLeftOver.TabIndex = 0;
             this.txtCurrentLeftOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblCurrentOver
             // 
             this.lblCurrentOver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCurrentOver.Location = new System.Drawing.Point(12, 36);
+            this.lblCurrentOver.Location = new System.Drawing.Point(12, 52);
             this.lblCurrentOver.Name = "lblCurrentOver";
             this.lblCurrentOver.Size = new System.Drawing.Size(74, 39);
             this.lblCurrentOver.TabIndex = 11;
@@ -212,10 +212,10 @@
             // btnSend
             // 
             this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSend.Location = new System.Drawing.Point(754, 387);
+            this.btnSend.Location = new System.Drawing.Point(468, 84);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(148, 69);
-            this.btnSend.TabIndex = 9;
+            this.btnSend.TabIndex = 6;
             this.btnSend.Text = "계좌 이체";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -262,7 +262,7 @@
             "BNI",
             "스태이트 뱅크 오브 인디아",
             "ING은행"});
-            this.cbxRecently.Location = new System.Drawing.Point(456, 162);
+            this.cbxRecently.Location = new System.Drawing.Point(456, 178);
             this.cbxRecently.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxRecently.Name = "cbxRecently";
             this.cbxRecently.Size = new System.Drawing.Size(178, 23);
@@ -272,18 +272,18 @@
             // txtAmountOfSending
             // 
             this.txtAmountOfSending.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAmountOfSending.Location = new System.Drawing.Point(125, 99);
+            this.txtAmountOfSending.Location = new System.Drawing.Point(125, 115);
             this.txtAmountOfSending.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmountOfSending.Name = "txtAmountOfSending";
             this.txtAmountOfSending.Size = new System.Drawing.Size(178, 25);
-            this.txtAmountOfSending.TabIndex = 0;
+            this.txtAmountOfSending.TabIndex = 1;
             this.txtAmountOfSending.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAmountOfSending.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericCheck);
             // 
             // lblInputAcc
             // 
             this.lblInputAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblInputAcc.Location = new System.Drawing.Point(12, 155);
+            this.lblInputAcc.Location = new System.Drawing.Point(12, 171);
             this.lblInputAcc.Name = "lblInputAcc";
             this.lblInputAcc.Size = new System.Drawing.Size(74, 39);
             this.lblInputAcc.TabIndex = 2;
@@ -294,7 +294,7 @@
             // lblRecently
             // 
             this.lblRecently.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRecently.Location = new System.Drawing.Point(343, 162);
+            this.lblRecently.Location = new System.Drawing.Point(343, 178);
             this.lblRecently.Name = "lblRecently";
             this.lblRecently.Size = new System.Drawing.Size(74, 39);
             this.lblRecently.TabIndex = 1;
@@ -304,7 +304,7 @@
             // lblAmountOfSending
             // 
             this.lblAmountOfSending.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAmountOfSending.Location = new System.Drawing.Point(12, 99);
+            this.lblAmountOfSending.Location = new System.Drawing.Point(12, 115);
             this.lblAmountOfSending.Name = "lblAmountOfSending";
             this.lblAmountOfSending.Size = new System.Drawing.Size(74, 39);
             this.lblAmountOfSending.TabIndex = 0;
@@ -327,7 +327,6 @@
             this.Name = "frmSending";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Sending";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmSending_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

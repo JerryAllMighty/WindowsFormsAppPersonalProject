@@ -54,7 +54,26 @@ namespace WindowsFormsAppPersonalProject
         {
             conn.Close();
         }
+
+        public bool IdIterated(string newID)        //ID 중복체크, 중복이면 true반환
+        {
+            try {
+                DataTable dt = new DataTable();
+                string sql = @"select CustomerID from customers where CustomerID = @newID;";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@newID", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@newID"].Value = newID;
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                { return true; }
+                else { return false; }
+                
+            }
+            catch (Exception) { return false; }
         
+        }
+
         public DataTable WhenYouApplyForLoan(int customernum)       //대출 신청시
         {
             try
@@ -100,7 +119,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public Customer DataSelected(string selectedCustomerNum)        //선택된 정보를 검색
+        public Customer DataSelected(string selectedCustomerNum)        //그리드 뷰에서 선택된 정보를 검색
         {
             try
             {
@@ -187,7 +206,8 @@ namespace WindowsFormsAppPersonalProject
             {
                 string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, 
                                                         IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage)        
-                                values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin, @CustomerPw, @CustomerPhone)";
+                                values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin,
+                                                        @CustomerPw, @CustomerPhone, @customeremail, @customerimage)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
@@ -210,6 +230,12 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.Parameters.Add("@CustomerPhone", MySqlDbType.VarChar);
                 cmd.Parameters["@CustomerPhone"].Value = cus.Phone;
+
+                cmd.Parameters.Add("@customeremail", MySqlDbType.VarChar);
+                cmd.Parameters["@customeremail"].Value = cus.CustomerEmail;
+
+                cmd.Parameters.Add("@customerimage", MySqlDbType.VarChar);
+                cmd.Parameters["@customerimage"].Value = cus.CustomerImage;
 
                 cmd.ExecuteNonQuery();
                 trans.Commit();

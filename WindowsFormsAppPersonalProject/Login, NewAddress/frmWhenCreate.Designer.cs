@@ -63,15 +63,20 @@
             // 
             // txtName
             // 
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtName.BackColor = System.Drawing.SystemColors.Info;
             this.txtName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtName.Location = new System.Drawing.Point(327, 53);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(254, 22);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblCheckEmail);
             this.panel1.Controls.Add(this.cbxSeacrchPw);
             this.panel1.Controls.Add(this.txtSearchPwAns);
@@ -104,6 +109,7 @@
             // 
             // lblCheckEmail
             // 
+            this.lblCheckEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCheckEmail.Location = new System.Drawing.Point(324, 186);
             this.lblCheckEmail.Name = "lblCheckEmail";
             this.lblCheckEmail.Size = new System.Drawing.Size(257, 21);
@@ -113,11 +119,12 @@
             // 
             // cbxSeacrchPw
             // 
+            this.cbxSeacrchPw.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxSeacrchPw.FormattingEnabled = true;
             this.cbxSeacrchPw.Location = new System.Drawing.Point(327, 465);
             this.cbxSeacrchPw.Name = "cbxSeacrchPw";
             this.cbxSeacrchPw.Size = new System.Drawing.Size(254, 21);
-            this.cbxSeacrchPw.TabIndex = 23;
+            this.cbxSeacrchPw.TabIndex = 10;
             // 
             // txtSearchPwAns
             // 
@@ -125,11 +132,12 @@
             this.txtSearchPwAns.Name = "txtSearchPwAns";
             this.txtSearchPwAns.PasswordChar = '*';
             this.txtSearchPwAns.Size = new System.Drawing.Size(254, 22);
-            this.txtSearchPwAns.TabIndex = 22;
+            this.txtSearchPwAns.TabIndex = 11;
             this.txtSearchPwAns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblSearchPwQA
             // 
+            this.lblSearchPwQA.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSearchPwQA.Location = new System.Drawing.Point(177, 465);
             this.lblSearchPwQA.Name = "lblSearchPwQA";
             this.lblSearchPwQA.Size = new System.Drawing.Size(100, 38);
@@ -139,34 +147,39 @@
             // 
             // cbxEmail
             // 
+            this.cbxEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxEmail.FormattingEnabled = true;
             this.cbxEmail.Location = new System.Drawing.Point(627, 162);
             this.cbxEmail.Name = "cbxEmail";
             this.cbxEmail.Size = new System.Drawing.Size(254, 21);
-            this.cbxEmail.TabIndex = 19;
+            this.cbxEmail.TabIndex = 3;
             // 
             // btnAddPic
             // 
+            this.btnAddPic.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddPic.Location = new System.Drawing.Point(28, 221);
             this.btnAddPic.Name = "btnAddPic";
             this.btnAddPic.Size = new System.Drawing.Size(152, 22);
             this.btnAddPic.TabIndex = 18;
+            this.btnAddPic.TabStop = false;
             this.btnAddPic.Text = "사진 추가";
             this.btnAddPic.UseVisualStyleBackColor = true;
             this.btnAddPic.Click += new System.EventHandler(this.btnAddPic_Click);
             // 
             // btnAddSearch
             // 
+            this.btnAddSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddSearch.Location = new System.Drawing.Point(729, 221);
             this.btnAddSearch.Name = "btnAddSearch";
             this.btnAddSearch.Size = new System.Drawing.Size(152, 22);
-            this.btnAddSearch.TabIndex = 17;
+            this.btnAddSearch.TabIndex = 5;
             this.btnAddSearch.Text = "주소 찾기";
             this.btnAddSearch.UseVisualStyleBackColor = true;
             this.btnAddSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Location = new System.Drawing.Point(14, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(166, 166);
@@ -175,6 +188,7 @@
             // 
             // lblEmail
             // 
+            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.Location = new System.Drawing.Point(227, 161);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(50, 21);
@@ -184,25 +198,28 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(327, 161);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(254, 22);
-            this.txtEmail.TabIndex = 15;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // btnCheck
             // 
+            this.btnCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCheck.Location = new System.Drawing.Point(729, 281);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(152, 22);
-            this.btnCheck.TabIndex = 12;
+            this.btnCheck.TabIndex = 7;
             this.btnCheck.Text = "ID 중복확인";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // lblCheckPw
             // 
+            this.lblCheckPw.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCheckPw.Location = new System.Drawing.Point(183, 401);
             this.lblCheckPw.Name = "lblCheckPw";
             this.lblCheckPw.Size = new System.Drawing.Size(94, 21);
@@ -212,26 +229,30 @@
             // 
             // txtCheckingPwd
             // 
+            this.txtCheckingPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCheckingPwd.BackColor = System.Drawing.SystemColors.Info;
             this.txtCheckingPwd.Location = new System.Drawing.Point(327, 401);
             this.txtCheckingPwd.Name = "txtCheckingPwd";
             this.txtCheckingPwd.PasswordChar = '*';
             this.txtCheckingPwd.Size = new System.Drawing.Size(254, 22);
-            this.txtCheckingPwd.TabIndex = 5;
+            this.txtCheckingPwd.TabIndex = 9;
             this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckingPwd.TextChanged += new System.EventHandler(this.txtCheckingPwd_TextChanged);
             // 
             // btnInsert
             // 
+            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInsert.Location = new System.Drawing.Point(776, 471);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(143, 69);
-            this.btnInsert.TabIndex = 10;
+            this.btnInsert.TabIndex = 12;
             this.btnInsert.Text = "등록";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // lblID
             // 
+            this.lblID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblID.Location = new System.Drawing.Point(230, 281);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(47, 21);
@@ -241,14 +262,17 @@
             // 
             // txtID
             // 
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtID.BackColor = System.Drawing.SystemColors.Info;
             this.txtID.Location = new System.Drawing.Point(327, 281);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(254, 22);
-            this.txtID.TabIndex = 3;
+            this.txtID.TabIndex = 6;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAddress
             // 
+            this.lblAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAddress.Location = new System.Drawing.Point(227, 221);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(50, 21);
@@ -258,14 +282,17 @@
             // 
             // txtAddress
             // 
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAddress.BackColor = System.Drawing.SystemColors.Info;
             this.txtAddress.Location = new System.Drawing.Point(327, 221);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(254, 22);
-            this.txtAddress.TabIndex = 2;
+            this.txtAddress.TabIndex = 4;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPhone
             // 
+            this.lblPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPhone.Location = new System.Drawing.Point(224, 103);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(53, 21);
@@ -275,14 +302,17 @@
             // 
             // txtPhone
             // 
+            this.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPhone.BackColor = System.Drawing.SystemColors.Info;
             this.txtPhone.Location = new System.Drawing.Point(327, 103);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(254, 22);
-            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TabIndex = 1;
             this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPwd
             // 
+            this.lblPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPwd.Location = new System.Drawing.Point(214, 341);
             this.lblPwd.Name = "lblPwd";
             this.lblPwd.Size = new System.Drawing.Size(63, 21);
@@ -292,15 +322,18 @@
             // 
             // txtPwd
             // 
+            this.txtPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPwd.BackColor = System.Drawing.SystemColors.Info;
             this.txtPwd.Location = new System.Drawing.Point(327, 341);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(254, 22);
-            this.txtPwd.TabIndex = 4;
+            this.txtPwd.TabIndex = 8;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblName
             // 
+            this.lblName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblName.Location = new System.Drawing.Point(227, 53);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(49, 21);

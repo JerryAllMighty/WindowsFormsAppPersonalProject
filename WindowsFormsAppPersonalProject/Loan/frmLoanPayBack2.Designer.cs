@@ -89,7 +89,7 @@
             this.btnCancel.Location = new System.Drawing.Point(601, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(139, 57);
-            this.btnCancel.TabIndex = 39;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -99,7 +99,7 @@
             this.btnOK.Location = new System.Drawing.Point(434, 430);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(139, 57);
-            this.btnOK.TabIndex = 38;
+            this.btnOK.TabIndex = 5;
             this.btnOK.Text = "확인";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -109,7 +109,7 @@
             this.textBox5.Location = new System.Drawing.Point(239, 448);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(152, 30);
-            this.textBox5.TabIndex = 37;
+            this.textBox5.TabIndex = 4;
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox4
@@ -118,7 +118,7 @@
             this.textBox4.Location = new System.Drawing.Point(586, 275);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(154, 30);
-            this.textBox4.TabIndex = 36;
+            this.textBox4.TabIndex = 3;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox3
@@ -127,7 +127,7 @@
             this.textBox3.Location = new System.Drawing.Point(239, 275);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(152, 30);
-            this.textBox3.TabIndex = 35;
+            this.textBox3.TabIndex = 2;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
@@ -136,7 +136,7 @@
             this.textBox2.Location = new System.Drawing.Point(586, 122);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(154, 30);
-            this.textBox2.TabIndex = 34;
+            this.textBox2.TabIndex = 1;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox1
@@ -145,7 +145,7 @@
             this.textBox1.Location = new System.Drawing.Point(239, 122);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(152, 30);
-            this.textBox1.TabIndex = 33;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
@@ -209,6 +209,7 @@
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(197, 56);
             this.trackBar1.TabIndex = 27;
+            this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 3;
             // 
             // frmLoanPayBack2

@@ -26,17 +26,18 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerEmail;
         public string CustomerImage;
 
+        bool IDChecked = false;
         public frmWhenCreate()
         {
             InitializeComponent();
         }
 
-        public Customer customerInfo 
+        public Customer customerInfo
         {
             get
             {
-                return new Customer(CustomerNum,txtName.Text, txtAddress.Text, txtID.Text,
-                                        IsAdmin, txtPwd.Text,txtPhone.Text, CustomerEmail, CustomerImage);
+                return new Customer(CustomerNum, txtName.Text, txtAddress.Text, txtID.Text,
+                                        IsAdmin, txtPwd.Text, txtPhone.Text, txtEmail.Text + cbxEmail.Text, CustomerImage);
             }
         }
 
@@ -46,20 +47,30 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnInsert_Click(object sender, EventArgs e)        //등록
         {
-            
+            if (!IDChecked)
+            {
+                MessageBox.Show("ID 중복 체크를 반드시 실시하여 주세요.");
+                return;
+            }
+
+
             CustomerDB db = new CustomerDB();
-            db.Insert(customerInfo);
+            if (db.Insert(customerInfo))
+            {
+                MessageBox.Show("등록이 완료되었습니다.");
+                this.Close();
+            }
+            else { MessageBox.Show("등록이 비정상적으로 종료되었습니다. 다시 시도하여 주세요."); }
             db.Dispose();
 
-            MessageBox.Show("등록이 완료되었습니다.");
-            this.Close();
+
         }
         private void txtCheckingPwd_TextChanged(object sender, EventArgs e)
         {
             //유효성체크
             if (txtPwd.Text != txtCheckingPwd.Text)
             {
-                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");       
+                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");
             }
             else
             {
@@ -72,33 +83,9 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)       //이메일 
-        {
-            //콤보박스에 이메일 주소들 넣어주기
-
-            //유효성체크
-            if (cbxEmail.SelectedItem.ToString() == "직접 작성")
-            {
-                if (!txtEmail.Text.Contains('@'))
-                {
-                    lblCheckEmail.Visible = true;
-                    lblCheckEmail.Text = "직접 작성은 반드시 이메일 형식으로 표기하셔야 합니다.";
-                    CustomerEmail=  txtEmail.Text;
-                }
-            }
-            else 
-            {
-                if (true)  //영문이나 숫자 아닐시
-                {
-                    lblCheckEmail.Text = ("영문이나 숫자만 입력가능합니다.");
-                    CustomerEmail = txtEmail.Text + cbxEmail.SelectedItem.ToString();
-                }
-            }
-        }
-
         private void btnAddPic_Click(object sender, EventArgs e)
         {
-            
+
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Image Files(*.jpeg;*.jpg;*.png;*.gif;*.bmp|*.jpeg;*.jpg;*.png;*.gif;*.bmp)";
 
@@ -109,7 +96,7 @@ namespace WindowsFormsAppPersonalProject
                 pictureBox1.Tag = dlg.FileName;
             }
 
-            try 
+            try
             {
                 string sPath = $"ProfileImage/{CustomerID}";
                 string localFile = pictureBox1.Tag.ToString();
@@ -124,7 +111,7 @@ namespace WindowsFormsAppPersonalProject
                 }
 
                 File.Copy(localFile, destFileName, true);
-
+                CustomerImage = destFileName;
 
             }
             catch (Exception)
@@ -139,7 +126,27 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnCheck_Click(object sender, EventArgs e)     //ID 중복체크
         {
+            CustomerDB db = new CustomerDB();
+            if (db.IdIterated(txtID.Text))
+            {
+                MessageBox.Show("이미 존재하는 아이디입니다. 다시 입력해주세요.");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("사용하실 수 있는 아이디입니다.");
+                IDChecked = true;
+            }
+        }
 
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //콤보박스에 이메일 주소들 넣어주기
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != '\b')
+            {
+                MessageBox.Show("영문자나 숫자만 입력해주세요.");
+                txtEmail.Text = "";
+            }
         }
     }
 }

@@ -35,12 +35,12 @@
             this.대출ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.이체ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.로그아웃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.메세지박스ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.메세지박스ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,7 @@
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(914, 28);
             this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.TabStop = true;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
             // 
@@ -98,6 +99,13 @@
             this.로그아웃ToolStripMenuItem.Text = "로그아웃";
             this.로그아웃ToolStripMenuItem.Click += new System.EventHandler(this.로그아웃ToolStripMenuItem_Click);
             // 
+            // 메세지박스ToolStripMenuItem
+            // 
+            this.메세지박스ToolStripMenuItem.Name = "메세지박스ToolStripMenuItem";
+            this.메세지박스ToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.메세지박스ToolStripMenuItem.Text = "메세지박스";
+            this.메세지박스ToolStripMenuItem.Click += new System.EventHandler(this.메세지박스ToolStripMenuItem_Click);
+            // 
             // menuStrip3
             // 
             this.menuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -110,7 +118,8 @@
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip3.Size = new System.Drawing.Size(914, 28);
-            this.menuStrip3.TabIndex = 3;
+            this.menuStrip3.TabIndex = 1;
+            this.menuStrip3.TabStop = true;
             this.menuStrip3.Text = "menuStrip3";
             this.menuStrip3.Visible = false;
             // 
@@ -141,13 +150,6 @@
             this.toolStripMenuItem5.Size = new System.Drawing.Size(83, 24);
             this.toolStripMenuItem5.Text = "로그아웃";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // 메세지박스ToolStripMenuItem
-            // 
-            this.메세지박스ToolStripMenuItem.Name = "메세지박스ToolStripMenuItem";
-            this.메세지박스ToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.메세지박스ToolStripMenuItem.Text = "메세지박스";
-            this.메세지박스ToolStripMenuItem.Click += new System.EventHandler(this.메세지박스ToolStripMenuItem_Click);
             // 
             // frmMain
             // 

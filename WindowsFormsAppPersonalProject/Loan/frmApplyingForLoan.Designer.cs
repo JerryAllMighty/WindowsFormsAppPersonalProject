@@ -110,7 +110,7 @@
             this.cbxOutAccount.Location = new System.Drawing.Point(680, 105);
             this.cbxOutAccount.Name = "cbxOutAccount";
             this.cbxOutAccount.Size = new System.Drawing.Size(200, 23);
-            this.cbxOutAccount.TabIndex = 27;
+            this.cbxOutAccount.TabIndex = 6;
             // 
             // lblDay
             // 
@@ -141,7 +141,7 @@
             this.txtRegularWhen.Location = new System.Drawing.Point(770, 264);
             this.txtRegularWhen.Name = "txtRegularWhen";
             this.txtRegularWhen.Size = new System.Drawing.Size(88, 25);
-            this.txtRegularWhen.TabIndex = 23;
+            this.txtRegularWhen.TabIndex = 8;
             this.txtRegularWhen.Visible = false;
             // 
             // lblRegularWhen
@@ -202,7 +202,7 @@
             this.btnCancel.Location = new System.Drawing.Point(730, 342);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 53);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +212,7 @@
             this.btnNext.Location = new System.Drawing.Point(476, 342);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(154, 53);
-            this.btnNext.TabIndex = 8;
+            this.btnNext.TabIndex = 9;
             this.btnNext.Text = "다음";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);

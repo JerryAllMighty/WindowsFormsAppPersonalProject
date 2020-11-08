@@ -276,7 +276,7 @@
             this.btnCancel.Location = new System.Drawing.Point(638, 269);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(143, 45);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -286,7 +286,7 @@
             this.btnInsert.Location = new System.Drawing.Point(404, 269);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(143, 45);
-            this.btnInsert.TabIndex = 1;
+            this.btnInsert.TabIndex = 0;
             this.btnInsert.Text = "최종 대출 신청";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);

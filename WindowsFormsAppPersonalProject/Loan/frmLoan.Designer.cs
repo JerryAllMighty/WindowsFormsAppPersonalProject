@@ -49,6 +49,7 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
@@ -58,7 +59,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(914, 562);
-            this.splitContainer1.SplitterDistance = 364;
+            this.splitContainer1.SplitterDistance = 285;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
@@ -72,7 +73,7 @@
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(364, 562);
+            this.dgvMember.Size = new System.Drawing.Size(914, 285);
             this.dgvMember.TabIndex = 0;
             this.dgvMember.TabStop = false;
             // 
@@ -88,7 +89,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(545, 562);
+            this.groupBox1.Size = new System.Drawing.Size(914, 272);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "대출";
@@ -96,11 +97,11 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSelect.Location = new System.Drawing.Point(234, 31);
+            this.btnSelect.Location = new System.Drawing.Point(466, 59);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(173, 64);
-            this.btnSelect.TabIndex = 3;
+            this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "대출 조회";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
@@ -108,11 +109,11 @@
             // btnPayBack
             // 
             this.btnPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPayBack.Location = new System.Drawing.Point(18, 121);
+            this.btnPayBack.Location = new System.Drawing.Point(250, 149);
             this.btnPayBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPayBack.Name = "btnPayBack";
             this.btnPayBack.Size = new System.Drawing.Size(173, 64);
-            this.btnPayBack.TabIndex = 2;
+            this.btnPayBack.TabIndex = 3;
             this.btnPayBack.Text = "대출 상환";
             this.btnPayBack.UseVisualStyleBackColor = true;
             this.btnPayBack.Click += new System.EventHandler(this.btnPayBack_Click);
@@ -120,7 +121,7 @@
             // btnInsert
             // 
             this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInsert.Location = new System.Drawing.Point(18, 31);
+            this.btnInsert.Location = new System.Drawing.Point(250, 59);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(173, 64);
@@ -132,11 +133,11 @@
             // btnInfo
             // 
             this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInfo.Location = new System.Drawing.Point(234, 121);
+            this.btnInfo.Location = new System.Drawing.Point(466, 149);
             this.btnInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(173, 64);
-            this.btnInfo.TabIndex = 0;
+            this.btnInfo.TabIndex = 4;
             this.btnInfo.Text = "대출 관련 정보";
             this.btnInfo.UseVisualStyleBackColor = true;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);

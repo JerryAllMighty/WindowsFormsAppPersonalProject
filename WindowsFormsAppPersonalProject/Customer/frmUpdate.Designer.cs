@@ -36,6 +36,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddPic = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -50,6 +52,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -58,7 +61,7 @@
             // 
             // lblCheckPw
             // 
-            this.lblCheckPw.Location = new System.Drawing.Point(32, 307);
+            this.lblCheckPw.Location = new System.Drawing.Point(32, 471);
             this.lblCheckPw.Name = "lblCheckPw";
             this.lblCheckPw.Size = new System.Drawing.Size(114, 29);
             this.lblCheckPw.TabIndex = 11;
@@ -66,28 +69,28 @@
             // 
             // txtCheckingPwd
             // 
-            this.txtCheckingPwd.Location = new System.Drawing.Point(197, 304);
+            this.txtCheckingPwd.Location = new System.Drawing.Point(197, 468);
             this.txtCheckingPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCheckingPwd.Name = "txtCheckingPwd";
             this.txtCheckingPwd.PasswordChar = '*';
             this.txtCheckingPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtCheckingPwd.TabIndex = 5;
+            this.txtCheckingPwd.TabIndex = 6;
             this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(547, 455);
+            this.btnUpdate.Location = new System.Drawing.Point(524, 455);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 80);
-            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Size = new System.Drawing.Size(166, 80);
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "변경";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(32, 179);
+            this.lblID.Location = new System.Drawing.Point(32, 331);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(114, 29);
             this.lblID.TabIndex = 9;
@@ -95,6 +98,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAddPic);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.btnCheck);
@@ -119,9 +124,30 @@
             this.panel1.TabIndex = 1;
             this.panel1.TabStop = true;
             // 
+            // btnAddPic
+            // 
+            this.btnAddPic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddPic.Location = new System.Drawing.Point(524, 255);
+            this.btnAddPic.Name = "btnAddPic";
+            this.btnAddPic.Size = new System.Drawing.Size(166, 22);
+            this.btnAddPic.TabIndex = 7;
+            this.btnAddPic.TabStop = false;
+            this.btnAddPic.Text = "사진 추가";
+            this.btnAddPic.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(524, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 166);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblEmail
             // 
-            this.lblEmail.Location = new System.Drawing.Point(32, 435);
+            this.lblEmail.Location = new System.Drawing.Point(32, 261);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(114, 29);
             this.lblEmail.TabIndex = 16;
@@ -129,36 +155,36 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(197, 432);
+            this.txtEmail.Location = new System.Drawing.Point(197, 258);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(254, 25);
-            this.txtEmail.TabIndex = 17;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(547, 48);
+            this.btnCheck.Location = new System.Drawing.Point(524, 326);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(152, 25);
-            this.btnCheck.TabIndex = 13;
+            this.btnCheck.Size = new System.Drawing.Size(166, 25);
+            this.btnCheck.TabIndex = 8;
             this.btnCheck.Text = "ID 중복확인";
             this.btnCheck.UseVisualStyleBackColor = true;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(197, 176);
+            this.txtID.Location = new System.Drawing.Point(197, 328);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(254, 25);
-            this.txtID.TabIndex = 3;
+            this.txtID.TabIndex = 4;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
             // lblAddress
             // 
-            this.lblAddress.Location = new System.Drawing.Point(32, 115);
+            this.lblAddress.Location = new System.Drawing.Point(32, 121);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(114, 29);
             this.lblAddress.TabIndex = 0;
@@ -166,17 +192,17 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(197, 112);
+            this.txtAddress.Location = new System.Drawing.Point(197, 118);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(254, 25);
-            this.txtAddress.TabIndex = 2;
+            this.txtAddress.TabIndex = 1;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // lblPhone
             // 
-            this.lblPhone.Location = new System.Drawing.Point(32, 371);
+            this.lblPhone.Location = new System.Drawing.Point(32, 191);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(114, 29);
             this.lblPhone.TabIndex = 5;
@@ -184,17 +210,17 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(197, 368);
+            this.txtPhone.Location = new System.Drawing.Point(197, 188);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(254, 25);
-            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TabIndex = 2;
             this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // lblPwd
             // 
-            this.lblPwd.Location = new System.Drawing.Point(32, 243);
+            this.lblPwd.Location = new System.Drawing.Point(32, 401);
             this.lblPwd.Name = "lblPwd";
             this.lblPwd.Size = new System.Drawing.Size(114, 29);
             this.lblPwd.TabIndex = 3;
@@ -202,12 +228,12 @@
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(197, 240);
+            this.txtPwd.Location = new System.Drawing.Point(197, 398);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtPwd.TabIndex = 4;
+            this.txtPwd.TabIndex = 5;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPwd.Leave += new System.EventHandler(this.txtPwd_Leave);
             // 
@@ -226,7 +252,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(254, 25);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
@@ -243,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +294,7 @@
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnAddPic;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

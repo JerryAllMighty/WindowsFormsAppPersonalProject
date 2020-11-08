@@ -91,8 +91,8 @@ namespace WindowsFormsAppPersonalProject
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            splitContainer2.Panel1.Controls.Clear();
-
+            splitContainer2.Panel1.Controls.Clear();        //새로운 대화창이 열리면 기존의 대화창은 비워주기
+            
             //더블클릭을 한 사람의 고유번호를 이용해서 검색
             MessageDB db = new MessageDB();
             string selected = listBox1.SelectedItem.ToString();
