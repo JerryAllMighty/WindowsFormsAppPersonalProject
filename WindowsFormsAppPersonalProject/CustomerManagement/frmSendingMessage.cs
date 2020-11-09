@@ -12,12 +12,14 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmSendingMessage : Form
     {
-        public string SenderName;
-        public string ReceiverName;
-        public string MsgText;
-        public string SenderNum;
-        public string ReceiverNum;
-        public string Timesent;
+        string SenderName;
+        string ReceiverName;
+        string MsgText;
+        string SenderNum;
+        string ReceiverNum;
+        string Timesent;
+
+
         public frmSendingMessage()
         {
             InitializeComponent();

@@ -16,15 +16,15 @@ namespace WindowsFormsAppPersonalProject
     public partial class frmLogin : Form
     {
         frmMain main;
-        public string CustomerNum;
-        public string CustomerName;
-        public string CustomerAddress;
-        public string CustomerID;
-        public string IsAdmin;
-        public string CustomerPw;
-        public string Phone;
-        public string CustomerEmail;
-        public string CustomerImage;
+        string CustomerNum;
+        string CustomerName;
+        string CustomerAddress;
+        string CustomerID;
+        string IsAdmin;
+        string CustomerPw;
+        string Phone;
+        string CustomerEmail;
+        string CustomerImage;
 
         public frmLogin()
         {
@@ -118,7 +118,7 @@ namespace WindowsFormsAppPersonalProject
 
             if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
             {
-
+                this.UseWaitCursor = false; ;
                 //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                 timer1.Interval = 1000;
                 progressBar1.Value = 50;
@@ -157,9 +157,15 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)        //비밀번호 찾기
         {
-            this.UseWaitCursor = true;
+            frmSeacrchPw frm = new frmSeacrchPw();
+            frm.Show();
+            frm.Activate();
+
+            
         }
+
+       
     }
 }

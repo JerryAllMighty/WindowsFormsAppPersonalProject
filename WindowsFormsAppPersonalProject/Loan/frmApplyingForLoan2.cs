@@ -12,29 +12,29 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmApplyingForLoan2 : Form
     {
-        public string CustomerNum;
-        public string CustomerName;
-        public string CustomerAddress;
-        public string CustomerID;
-        public string IsAdmin;
-        public string CustomerPw;
-        public string Phone;
-        public string CustomerEmail;
-        public string CustomerImage;
+        string CustomerNum;
+        string CustomerName;
+        string CustomerAddress;
+        string CustomerID;
+        string IsAdmin;
+        string CustomerPw;
+        string Phone;
+        string CustomerEmail;
+        string CustomerImage;
 
 
-        public string LoanNum;
-        public string DAccountNum;
-        public string AmountOfLoan;
-        public string ReturnWhenExpired;
-        public string PayBackMethod;
-        public string Purpose;
-        public string LoanPeriod;
-        public string NAccountNum;
-        public string Pwd;
-        public string LoanDate;
-        public string InterestRate;
-        public string RegularPayBack;
+        string LoanNum;
+        string DAccountNum;
+        string AmountOfLoan;
+        string ReturnWhenExpired;
+        string PayBackMethod;
+        string Purpose;
+        string LoanPeriod;
+        string NAccountNum;
+        string Pwd;
+        string LoanDate;
+        string InterestRate;
+        string RegularPayBack;
        
 
 

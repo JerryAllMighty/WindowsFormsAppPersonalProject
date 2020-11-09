@@ -120,7 +120,6 @@
             this.btnLogin.Text = "로그인";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            this.btnLogin.MouseLeave += new System.EventHandler(this.btnLogin_MouseLeave);
             // 
             // panel1
             // 
@@ -153,6 +152,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "ID, 비밀번호 찾기";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblTryLogin
             // 

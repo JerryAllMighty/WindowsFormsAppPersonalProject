@@ -13,15 +13,15 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmMain : Form
     {
-        public string CustomerNum;
-        public string CustomerName;
-        public string CustomerAddress;
-        public string CustomerID;
-        public string IsAdmin;
-        public string CustomerPw;
-        public string Phone;
-        public string CustomerEmail;
-        public string CustomerImage;
+       string CustomerNum;
+       string CustomerName;
+       string CustomerAddress;
+       string CustomerID;
+       string IsAdmin;
+       string CustomerPw;
+       string Phone;
+       string CustomerEmail;
+       string CustomerImage;
 
 
         private bool bActivateFlag = false;
@@ -161,7 +161,7 @@ namespace WindowsFormsAppPersonalProject
                 {
                     list.Add(str.Substring(0, 1));
                 }
-                if (!list.Contains("Y"))
+                if (!list.Contains("Y") && list.Count > 0)
                 {
                     MessageBox.Show("새로 온 메세지가 있습니다. 확인하시겠습니까?");
                 }

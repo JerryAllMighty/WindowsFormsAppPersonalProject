@@ -16,15 +16,15 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmWhenCreate : Form
     {
-        public string CustomerNum;
-        public string CustomerName;
-        public string CustomerAddress;
-        public string IsAdmin = "N";
-        public string CustomerID;
-        public string CustomerPw;
-        public string Phone;
-        public string CustomerEmail;
-        public string CustomerImage;
+        string CustomerNum;
+        string CustomerName;
+        string CustomerAddress;
+        string IsAdmin = "N";
+        string CustomerID;
+        string CustomerPw;
+        string Phone;
+        string CustomerEmail;
+        string CustomerImage;
 
         bool IDChecked = false;
         public frmWhenCreate()

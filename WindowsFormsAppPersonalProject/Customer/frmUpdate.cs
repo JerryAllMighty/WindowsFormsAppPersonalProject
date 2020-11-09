@@ -12,16 +12,16 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmUpdate : Form
     {
-        public string CustomerNum;
-        public string ChangedName;
-        public string ChangedAddress;
-        public string ChangedID;
-        public string IsAdmin;
-        public string ChangedPw;
-        public string ChangedPhone;
-        public string CustomerEmail;
-        public string CustomerImage;
-        public string ChangedEmail;
+       string CustomerNum;
+       string ChangedName;
+       string ChangedAddress;
+       string ChangedID;
+       string IsAdmin;
+       string ChangedPw;
+       string ChangedPhone;
+       string CustomerEmail;
+       string CustomerImage;
+       string ChangedEmail;
 
         public frmUpdate()
         {

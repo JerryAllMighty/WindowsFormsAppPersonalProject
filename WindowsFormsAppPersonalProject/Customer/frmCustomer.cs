@@ -15,15 +15,15 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmCustomer : Form
     {
-        public string CustomerNum;
-        public string CustomerName;
-        public string CustomerAddress;
-        public string CustomerID;
-        public string IsAdmin;
-        public string CustomerPw;
-        public string Phone;
-        public string CustomerEmail;
-        public string CustomerImage;
+        string CustomerNum;
+        string CustomerName;
+        string CustomerAddress;
+        string CustomerID;
+        string IsAdmin;
+        string CustomerPw;
+        string Phone;
+        string CustomerEmail;
+        string CustomerImage;
 
         frmMain main; 
 

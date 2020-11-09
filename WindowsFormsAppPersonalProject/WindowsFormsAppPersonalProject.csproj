@@ -109,6 +109,12 @@
       <DependentUpon>frmLoanPayBack.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\MessageDB.cs" />
+    <Compile Include="Login, NewAddress\frmSeacrchPw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login, NewAddress\frmSeacrchPw.Designer.cs">
+      <DependentUpon>frmSeacrchPw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sending\frmSending2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Login, NewAddress\frmSeacrchPw.resx">
+      <DependentUpon>frmSeacrchPw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sending\frmSending.resx">
       <DependentUpon>frmSending.cs</DependentUpon>
     </EmbeddedResource>

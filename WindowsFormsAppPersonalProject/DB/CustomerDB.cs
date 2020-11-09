@@ -181,8 +181,8 @@ namespace WindowsFormsAppPersonalProject
                                         where CustomerID = @uid and CustomerPw = @pwd ";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
-                da.SelectCommand.Parameters.Add("@uid", MySqlDbType.Int32);
-                da.SelectCommand.Parameters["@uid"].Value = Convert.ToInt32(uid);
+                da.SelectCommand.Parameters.Add("@uid", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@uid"].Value = uid;
 
                 da.SelectCommand.Parameters.Add("@pwd", MySqlDbType.VarChar);
                 da.SelectCommand.Parameters["@pwd"].Value = pwd;
@@ -240,6 +240,39 @@ namespace WindowsFormsAppPersonalProject
                 cmd.ExecuteNonQuery();
                 trans.Commit();
                 return true; 
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                trans.Rollback();
+                return false;
+            }
+        }
+
+
+        public bool UpdateNewPw(string newPwd, string customerid)       //비밀번호 찾기 할 때 임의로 8자리 생성하는 메서드
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update customers            
+                                        set CustomerPw = @customerpw
+                                        where CustomerID = @customerid";
+
+                MySqlCommand updateCmd = new MySqlCommand(sql, conn);
+                updateCmd.Transaction = trans;
+
+
+                updateCmd.Parameters.Add("@customerpw", MySqlDbType.VarChar);
+                updateCmd.Parameters["@customerpw"].Value = newPwd;
+
+                updateCmd.Parameters.Add("@customerid", MySqlDbType.VarChar);
+                updateCmd.Parameters["@customerid"].Value = customerid;
+
+                updateCmd.ExecuteNonQuery();
+                trans.Commit();
+                return true;
+
             }
             catch (Exception err)
             {
