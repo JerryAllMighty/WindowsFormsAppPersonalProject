@@ -23,6 +23,9 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerEmail;
         public string CustomerImage;
 
+
+        private bool bActivateFlag = false;
+
         public frmMain()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace WindowsFormsAppPersonalProject
             InitializeComponent();
             CustomerNum = cusinfo.CustomerNum;
             CustomerName = cusinfo.CustomerName;
-            CustomerAddress= cusinfo.CustomerAddress;
+            CustomerAddress = cusinfo.CustomerAddress;
             CustomerID = cusinfo.CustomerID;
             IsAdmin = cusinfo.IsAdmin;
             CustomerPw = cusinfo.CustomerPw;
@@ -46,7 +49,7 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return  new Customer(CustomerNum, CustomerName, CustomerAddress,
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
                                             CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
@@ -54,26 +57,27 @@ namespace WindowsFormsAppPersonalProject
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "JerryBanking";
-           
+            
+
             if (IsAdmin == "N")
             {
                 menuStrip1.Visible = true;
             }
-            else if(IsAdmin == "Y")
+            else if (IsAdmin == "Y")
                 menuStrip3.Visible = true;
 
 
         }
-       
+
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCustomer c1 = new frmCustomer(customerInfo);
             c1.MdiParent = this;
             c1.Show();
             c1.Activate();
-            
+
         }
-#region 회원용메뉴
+        #region 회원용메뉴
         private void 계좌ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AccountView a1 = new AccountView(customerInfo);
@@ -138,6 +142,32 @@ namespace WindowsFormsAppPersonalProject
             frmJerryTalk frm = new frmJerryTalk(customerInfo);
             frm.Show();
             frm.Activate();
+        }
+
+        private void 메세지박스ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmJerryTalk frm = new frmJerryTalk(customerInfo);
+            frm.Show();
+            frm.Activate();
+        }
+
+        private void frmMain_Activated(object sender, EventArgs e)
+        {
+            if (!bActivateFlag)
+            {
+                //새로온 메세지가 있다면 팝업 띄우기
+                List<string> list = new List<string>();
+                foreach (string str in frmJerryTalk.HasReadOrNot)
+                {
+                    list.Add(str.Substring(0, 1));
+                }
+                if (!list.Contains("Y"))
+                {
+                    MessageBox.Show("새로 온 메세지가 있습니다. 확인하시겠습니까?");
+                }
+
+                bActivateFlag = true;
+            }
         }
     }
 }

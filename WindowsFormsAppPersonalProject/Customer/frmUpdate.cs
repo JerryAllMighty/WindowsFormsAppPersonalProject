@@ -57,18 +57,7 @@ namespace WindowsFormsAppPersonalProject
             
         }
 
-        private void txtCheckingPwd_TextChanged(object sender, EventArgs e)
-        {
-            //유효성체크
-            if (txtPwd.Text != txtCheckingPwd.Text)
-            {
-                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-        }
+      
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -114,6 +103,19 @@ namespace WindowsFormsAppPersonalProject
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             ChangedEmail = txtEmail.Text;
+        }
+
+        private void txtCheckingPwd_TextChanged_1(object sender, EventArgs e)
+        {
+            //유효성체크
+            if (txtPwd.Text != txtCheckingPwd.Text)
+            {
+                errorProvider1.SetError(txtCheckingPwd, "비밀번호가 일치하지 않습니다.");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
         }
     }
 }

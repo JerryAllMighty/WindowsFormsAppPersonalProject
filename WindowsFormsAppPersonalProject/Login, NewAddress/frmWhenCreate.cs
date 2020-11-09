@@ -52,7 +52,14 @@ namespace WindowsFormsAppPersonalProject
                 MessageBox.Show("ID 중복 체크를 반드시 실시하여 주세요.");
                 return;
             }
-
+            //name. phone addr, Id, pwd, chkpwd
+            if (txtName.Text.Trim().Replace(" ", "").Length < 1 || txtPhone.Text.Trim().Replace(" ", "").Length < 1 ||
+                txtAddress.Text.Trim().Replace(" ", "").Length < 1 || txtPwd.Text.Trim().Replace(" ", "").Length < 1 ||
+                txtID.Text.Trim().Replace(" ", "").Length < 1 || txtCheckingPwd.Text.Trim().Replace(" ", "").Length < 1 ) //필수 입력인 항목들 입력 안 할 시 꼭 하게 만들기
+            {
+                MessageBox.Show("노란색 배경의 입력 항목들은 필수 입력입니다. 꼭 작성해주세요.");
+                return;
+            }
 
             CustomerDB db = new CustomerDB();
             if (db.Insert(customerInfo))
@@ -65,7 +72,7 @@ namespace WindowsFormsAppPersonalProject
 
 
         }
-        private void txtCheckingPwd_TextChanged(object sender, EventArgs e)
+        private void txtCheckingPwd_TextChanged(object sender, EventArgs e)     //비밀번호확인 체크
         {
             //유효성체크
             if (txtPwd.Text != txtCheckingPwd.Text)
@@ -83,7 +90,7 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        private void btnAddPic_Click(object sender, EventArgs e)
+        private void btnAddPic_Click(object sender, EventArgs e)        //사진 추가
         {
 
             OpenFileDialog dlg = new OpenFileDialog();

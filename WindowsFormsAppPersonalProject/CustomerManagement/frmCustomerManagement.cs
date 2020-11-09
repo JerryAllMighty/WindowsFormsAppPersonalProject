@@ -65,7 +65,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             Point headercelllocation = dgvMember.GetCellDisplayRectangle(-1, -1, true).Location;
 
             headercheckbox.Location = new Point(headercelllocation.X + 8, headercelllocation.Y + 1);
-            headercheckbox.BackColor = Color.AliceBlue;
+            headercheckbox.BackColor = Color.White;
             headercheckbox.Size = new Size(18, 18);
             headercheckbox.Click += Headercheckbox_Click;
             dgvMember.Controls.Add(headercheckbox);
@@ -89,15 +89,16 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             //dgvMember.Columns.Add(cbo);
 
             CommonUtil.SetinitGridView(dgvMember);
+
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember, "고객명", "CustomerName");
             CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress", 150);
             CommonUtil.AddGridTextColumn(dgvMember, "고객ID", "CustomerID");
             CommonUtil.AddGridTextColumn(dgvMember, "관리자여부", "IsAdmin");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw", 120);
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage", 120);
 
             CustomerDB db = new CustomerDB();
             dt = db.GetEveryData();
@@ -105,6 +106,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             if (dt != null)
             {
                 dgvMember.DataSource = dt;
+                dgvMember.ClearSelection();
             }
 
 
@@ -127,10 +129,12 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             //전체 0번째 checkBox가 체크해제된 것이 하나라도 있다면, 헤더체크박스를 false로
             if (e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
+                dgvMember.EndEdit();
+
                 bool ischecked = true;
                 foreach (DataGridViewRow row in dgvMember.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells["chk"].Value) == false)
+                    if (Convert.ToBoolean(row.Cells["chk"].EditedFormattedValue) == false)
                     {
                         ischecked = false;
                         break;

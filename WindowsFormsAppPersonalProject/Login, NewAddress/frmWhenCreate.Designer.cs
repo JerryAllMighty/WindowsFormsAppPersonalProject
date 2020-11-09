@@ -68,7 +68,7 @@
             this.txtName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtName.Location = new System.Drawing.Point(327, 53);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(254, 22);
+            this.txtName.Size = new System.Drawing.Size(254, 19);
             this.txtName.TabIndex = 0;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -123,7 +123,7 @@
             this.cbxSeacrchPw.FormattingEnabled = true;
             this.cbxSeacrchPw.Location = new System.Drawing.Point(327, 465);
             this.cbxSeacrchPw.Name = "cbxSeacrchPw";
-            this.cbxSeacrchPw.Size = new System.Drawing.Size(254, 21);
+            this.cbxSeacrchPw.Size = new System.Drawing.Size(254, 18);
             this.cbxSeacrchPw.TabIndex = 10;
             // 
             // txtSearchPwAns
@@ -131,16 +131,16 @@
             this.txtSearchPwAns.Location = new System.Drawing.Point(327, 506);
             this.txtSearchPwAns.Name = "txtSearchPwAns";
             this.txtSearchPwAns.PasswordChar = '*';
-            this.txtSearchPwAns.Size = new System.Drawing.Size(254, 22);
+            this.txtSearchPwAns.Size = new System.Drawing.Size(254, 19);
             this.txtSearchPwAns.TabIndex = 11;
             this.txtSearchPwAns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblSearchPwQA
             // 
             this.lblSearchPwQA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSearchPwQA.Location = new System.Drawing.Point(177, 465);
+            this.lblSearchPwQA.Location = new System.Drawing.Point(145, 465);
             this.lblSearchPwQA.Name = "lblSearchPwQA";
-            this.lblSearchPwQA.Size = new System.Drawing.Size(100, 38);
+            this.lblSearchPwQA.Size = new System.Drawing.Size(132, 38);
             this.lblSearchPwQA.TabIndex = 21;
             this.lblSearchPwQA.Text = "비밀번호 찾기 질문/답변";
             this.lblSearchPwQA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,9 +149,25 @@
             // 
             this.cbxEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxEmail.FormattingEnabled = true;
+            this.cbxEmail.Items.AddRange(new object[] {
+            "@naver.com",
+            "@gmail.com",
+            "@live.com",
+            "@hotmail.com",
+            "@yahoo.com",
+            "@yahoo.co.kr",
+            "@hanmail.net",
+            "@daum.net",
+            "@aol.com",
+            "@paran.com",
+            "@hanmir.com",
+            "@hitel.com",
+            "@dreamwiz.com",
+            "@nate.com",
+            "@empal.com"});
             this.cbxEmail.Location = new System.Drawing.Point(627, 162);
             this.cbxEmail.Name = "cbxEmail";
-            this.cbxEmail.Size = new System.Drawing.Size(254, 21);
+            this.cbxEmail.Size = new System.Drawing.Size(254, 18);
             this.cbxEmail.TabIndex = 3;
             // 
             // btnAddPic
@@ -201,7 +217,7 @@
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(327, 161);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(254, 22);
+            this.txtEmail.Size = new System.Drawing.Size(254, 19);
             this.txtEmail.TabIndex = 2;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
@@ -234,7 +250,7 @@
             this.txtCheckingPwd.Location = new System.Drawing.Point(327, 401);
             this.txtCheckingPwd.Name = "txtCheckingPwd";
             this.txtCheckingPwd.PasswordChar = '*';
-            this.txtCheckingPwd.Size = new System.Drawing.Size(254, 22);
+            this.txtCheckingPwd.Size = new System.Drawing.Size(254, 19);
             this.txtCheckingPwd.TabIndex = 9;
             this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckingPwd.TextChanged += new System.EventHandler(this.txtCheckingPwd_TextChanged);
@@ -266,7 +282,7 @@
             this.txtID.BackColor = System.Drawing.SystemColors.Info;
             this.txtID.Location = new System.Drawing.Point(327, 281);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(254, 22);
+            this.txtID.Size = new System.Drawing.Size(254, 19);
             this.txtID.TabIndex = 6;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -286,7 +302,7 @@
             this.txtAddress.BackColor = System.Drawing.SystemColors.Info;
             this.txtAddress.Location = new System.Drawing.Point(327, 221);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(254, 22);
+            this.txtAddress.Size = new System.Drawing.Size(254, 19);
             this.txtAddress.TabIndex = 4;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -306,7 +322,7 @@
             this.txtPhone.BackColor = System.Drawing.SystemColors.Info;
             this.txtPhone.Location = new System.Drawing.Point(327, 103);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(254, 22);
+            this.txtPhone.Size = new System.Drawing.Size(254, 19);
             this.txtPhone.TabIndex = 1;
             this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -327,7 +343,7 @@
             this.txtPwd.Location = new System.Drawing.Point(327, 341);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
-            this.txtPwd.Size = new System.Drawing.Size(254, 22);
+            this.txtPwd.Size = new System.Drawing.Size(254, 19);
             this.txtPwd.TabIndex = 8;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -347,7 +363,7 @@
             // 
             // frmWhenCreate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 10F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 572);
             this.Controls.Add(this.panel1);

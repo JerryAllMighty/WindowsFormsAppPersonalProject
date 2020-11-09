@@ -75,6 +75,8 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage");
+
+            //트리뷰 바인딩할 때 데이터 소스 주고 나서 트리뷰1.익스팬드하즈아
         }
 
         private void button3_Click(object sender, EventArgs e) //계좌생성 클릭

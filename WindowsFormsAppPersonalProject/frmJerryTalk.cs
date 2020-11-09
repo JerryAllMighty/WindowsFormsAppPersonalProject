@@ -22,6 +22,9 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerEmail;
         public string CustomerImage;
 
+        public static List<string> HasReadOrNot = new List<string>();
+
+
         DataTable dt;
         
         public frmJerryTalk()
@@ -51,6 +54,8 @@ namespace WindowsFormsAppPersonalProject
                                             CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
+
+        public List<string> hasreadornot { get { return HasReadOrNot; }}
 
         private void frmMessageBox_Load(object sender, EventArgs e)
         {
@@ -96,15 +101,15 @@ namespace WindowsFormsAppPersonalProject
             //더블클릭을 한 사람의 고유번호를 이용해서 검색
             MessageDB db = new MessageDB();
             string selected = listBox1.SelectedItem.ToString();
-
+            HasReadOrNot.Insert(0, "Y" + selected);       
             DataTable dt3 = db.GetMessage3(selected.Substring(0, selected.IndexOf('.')), CustomerNum);
 
             for(int i = 0; i < dt3.Rows.Count; i++)
             {
                 Label lbl = new Label();
-                lbl.Text = $"{dt3.Rows[0][0].ToString()} \n{dt3.Rows[i][2].ToString()} \n{dt3.Rows[i][3].ToString()} ";
+                lbl.Text = $"{dt3.Rows[i][0].ToString()} \n{dt3.Rows[i][2].ToString()} \n{dt3.Rows[i][3].ToString()} ";
                 lbl.Location = new Point(22,12 + (80*i));
-                lbl.Size = new Size(100, 1000);
+                lbl.Size = new Size(100, 100);
 
                 splitContainer2.Panel1.Controls.Add(lbl);
                 //lblSenderName.Text = dt3.Rows[i][0].ToString();
