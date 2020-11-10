@@ -105,12 +105,14 @@
             // cbxOutAccount
             // 
             this.cbxOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxOutAccount.BackColor = System.Drawing.Color.White;
             this.cbxOutAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxOutAccount.FormattingEnabled = true;
             this.cbxOutAccount.Location = new System.Drawing.Point(680, 105);
             this.cbxOutAccount.Name = "cbxOutAccount";
             this.cbxOutAccount.Size = new System.Drawing.Size(200, 23);
             this.cbxOutAccount.TabIndex = 6;
+            this.cbxOutAccount.SelectedIndexChanged += new System.EventHandler(this.cbxOutAccount_SelectedIndexChanged);
             // 
             // lblDay
             // 
@@ -170,6 +172,7 @@
             // txtOutPwd
             // 
             this.txtOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtOutPwd.BackColor = System.Drawing.Color.White;
             this.txtOutPwd.Location = new System.Drawing.Point(680, 157);
             this.txtOutPwd.Name = "txtOutPwd";
             this.txtOutPwd.Size = new System.Drawing.Size(200, 25);
@@ -181,9 +184,9 @@
             this.lblOutAccountPwd.AutoSize = true;
             this.lblOutAccountPwd.Location = new System.Drawing.Point(476, 157);
             this.lblOutAccountPwd.Name = "lblOutAccountPwd";
-            this.lblOutAccountPwd.Size = new System.Drawing.Size(132, 15);
+            this.lblOutAccountPwd.Size = new System.Drawing.Size(139, 15);
             this.lblOutAccountPwd.TabIndex = 20;
-            this.lblOutAccountPwd.Text = "출금계좌 비밀번호";
+            this.lblOutAccountPwd.Text = "*출금계좌 비밀번호";
             // 
             // lblOutAccount
             // 
@@ -191,9 +194,9 @@
             this.lblOutAccount.AutoSize = true;
             this.lblOutAccount.Location = new System.Drawing.Point(476, 108);
             this.lblOutAccount.Name = "lblOutAccount";
-            this.lblOutAccount.Size = new System.Drawing.Size(72, 15);
+            this.lblOutAccount.Size = new System.Drawing.Size(79, 15);
             this.lblOutAccount.TabIndex = 18;
-            this.lblOutAccount.Text = "출금 계좌";
+            this.lblOutAccount.Text = "*출금 계좌";
             // 
             // btnCancel
             // 
@@ -220,12 +223,14 @@
             // cbxDepositNum
             // 
             this.cbxDepositNum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxDepositNum.BackColor = System.Drawing.Color.White;
             this.cbxDepositNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepositNum.FormattingEnabled = true;
             this.cbxDepositNum.Location = new System.Drawing.Point(250, 108);
             this.cbxDepositNum.Name = "cbxDepositNum";
             this.cbxDepositNum.Size = new System.Drawing.Size(146, 23);
             this.cbxDepositNum.TabIndex = 0;
+            this.cbxDepositNum.SelectedIndexChanged += new System.EventHandler(this.cbxDepositNum_SelectedIndexChanged);
             this.cbxDepositNum.SelectedValueChanged += new System.EventHandler(this.cbxDepositNum_SelectedValueChanged);
             // 
             // lblDAccountNum
@@ -262,14 +267,17 @@
             // txtWhenExpire
             // 
             this.txtWhenExpire.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtWhenExpire.BackColor = System.Drawing.Color.White;
             this.txtWhenExpire.Location = new System.Drawing.Point(250, 236);
             this.txtWhenExpire.Name = "txtWhenExpire";
             this.txtWhenExpire.Size = new System.Drawing.Size(146, 25);
             this.txtWhenExpire.TabIndex = 2;
+            this.txtWhenExpire.TextChanged += new System.EventHandler(this.txtWhenExpire_TextChanged);
             // 
             // cbxPayBackMethod
             // 
             this.cbxPayBackMethod.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxPayBackMethod.BackColor = System.Drawing.Color.White;
             this.cbxPayBackMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPayBackMethod.FormattingEnabled = true;
             this.cbxPayBackMethod.Items.AddRange(new object[] {
@@ -279,6 +287,7 @@
             this.cbxPayBackMethod.Name = "cbxPayBackMethod";
             this.cbxPayBackMethod.Size = new System.Drawing.Size(146, 23);
             this.cbxPayBackMethod.TabIndex = 3;
+            this.cbxPayBackMethod.SelectedIndexChanged += new System.EventHandler(this.cbxPayBackMethod_SelectedIndexChanged);
             this.cbxPayBackMethod.SelectedValueChanged += new System.EventHandler(this.cbxPayBackMethod_SelectedValueChanged);
             // 
             // lblPayBackMethod
@@ -287,9 +296,9 @@
             this.lblPayBackMethod.AutoSize = true;
             this.lblPayBackMethod.Location = new System.Drawing.Point(50, 305);
             this.lblPayBackMethod.Name = "lblPayBackMethod";
-            this.lblPayBackMethod.Size = new System.Drawing.Size(112, 15);
+            this.lblPayBackMethod.Size = new System.Drawing.Size(119, 15);
             this.lblPayBackMethod.TabIndex = 9;
-            this.lblPayBackMethod.Text = "대출금상환방법";
+            this.lblPayBackMethod.Text = "*대출금상환방법";
             // 
             // lblMonth
             // 
@@ -315,28 +324,34 @@
             // txtPeriod
             // 
             this.txtPeriod.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPeriod.BackColor = System.Drawing.Color.White;
             this.txtPeriod.Location = new System.Drawing.Point(680, 51);
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(157, 25);
             this.txtPeriod.TabIndex = 5;
+            this.txtPeriod.TextChanged += new System.EventHandler(this.txtPeriod_TextChanged);
             // 
             // txtAmountOfLoan
             // 
             this.txtAmountOfLoan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAmountOfLoan.BackColor = System.Drawing.Color.White;
             this.txtAmountOfLoan.Location = new System.Drawing.Point(250, 157);
             this.txtAmountOfLoan.Name = "txtAmountOfLoan";
             this.txtAmountOfLoan.Size = new System.Drawing.Size(126, 25);
             this.txtAmountOfLoan.TabIndex = 1;
+            this.txtAmountOfLoan.TextChanged += new System.EventHandler(this.txtAmountOfLoan_TextChanged);
             // 
             // cbxPurpose
             // 
             this.cbxPurpose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxPurpose.BackColor = System.Drawing.Color.White;
             this.cbxPurpose.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPurpose.FormattingEnabled = true;
             this.cbxPurpose.Location = new System.Drawing.Point(250, 372);
             this.cbxPurpose.Name = "cbxPurpose";
             this.cbxPurpose.Size = new System.Drawing.Size(146, 23);
             this.cbxPurpose.TabIndex = 4;
+            this.cbxPurpose.SelectedIndexChanged += new System.EventHandler(this.cbxPurpose_SelectedIndexChanged);
             // 
             // lblPurpose
             // 
@@ -375,9 +390,9 @@
             this.lblAmountOfLoan.AutoSize = true;
             this.lblAmountOfLoan.Location = new System.Drawing.Point(50, 157);
             this.lblAmountOfLoan.Name = "lblAmountOfLoan";
-            this.lblAmountOfLoan.Size = new System.Drawing.Size(67, 15);
+            this.lblAmountOfLoan.Size = new System.Drawing.Size(74, 15);
             this.lblAmountOfLoan.TabIndex = 0;
-            this.lblAmountOfLoan.Text = "신청금액";
+            this.lblAmountOfLoan.Text = "*신청금액";
             // 
             // errorProvider1
             // 

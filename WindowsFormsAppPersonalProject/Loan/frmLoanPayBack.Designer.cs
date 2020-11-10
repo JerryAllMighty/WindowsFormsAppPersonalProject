@@ -91,6 +91,7 @@
             this.dgvMember.RowTemplate.Height = 27;
             this.dgvMember.Size = new System.Drawing.Size(1015, 139);
             this.dgvMember.TabIndex = 0;
+            this.dgvMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellClick);
             // 
             // groupBox1
             // 
@@ -148,6 +149,7 @@
             this.btnRestart.TabIndex = 9;
             this.btnRestart.Text = "+재등록";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btn1000
             // 
@@ -158,6 +160,7 @@
             this.btn1000.TabIndex = 8;
             this.btn1000.Text = "+1천";
             this.btn1000.UseVisualStyleBackColor = true;
+            this.btn1000.Click += new System.EventHandler(this.btn1000_Click);
             // 
             // btn1
             // 
@@ -168,6 +171,7 @@
             this.btn1.TabIndex = 7;
             this.btn1.Text = "+1만";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn10
             // 
@@ -178,6 +182,7 @@
             this.btn10.TabIndex = 6;
             this.btn10.Text = "+10만";
             this.btn10.UseVisualStyleBackColor = true;
+            this.btn10.Click += new System.EventHandler(this.btn10_Click);
             // 
             // btn50
             // 
@@ -188,6 +193,7 @@
             this.btn50.TabIndex = 5;
             this.btn50.Text = "+50만";
             this.btn50.UseVisualStyleBackColor = true;
+            this.btn50.Click += new System.EventHandler(this.btn50_Click);
             // 
             // btn100
             // 
@@ -198,6 +204,7 @@
             this.btn100.TabIndex = 4;
             this.btn100.Text = "+100만";
             this.btn100.UseVisualStyleBackColor = true;
+            this.btn100.Click += new System.EventHandler(this.btn100_Click);
             // 
             // btn500
             // 
@@ -208,6 +215,7 @@
             this.btn500.TabIndex = 3;
             this.btn500.Text = "+500만";
             this.btn500.UseVisualStyleBackColor = true;
+            this.btn500.Click += new System.EventHandler(this.btn500_Click);
             // 
             // txtPayBack
             // 
@@ -233,6 +241,7 @@
             this.cbxOutAccount.Name = "cbxOutAccount";
             this.cbxOutAccount.Size = new System.Drawing.Size(354, 23);
             this.cbxOutAccount.TabIndex = 0;
+            this.cbxOutAccount.Enter += new System.EventHandler(this.cbxOutAccount_Enter);
             // 
             // lblPayBack
             // 

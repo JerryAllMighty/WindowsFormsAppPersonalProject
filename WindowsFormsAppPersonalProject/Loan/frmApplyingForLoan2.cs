@@ -35,7 +35,7 @@ namespace WindowsFormsAppPersonalProject
         string LoanDate;
         string InterestRate;
         string RegularPayBack;
-       
+        string LoanLeftover;
 
 
 
@@ -55,6 +55,7 @@ namespace WindowsFormsAppPersonalProject
             Phone = cusinfo.Phone;
             CustomerEmail = cusinfo.CustomerEmail;
             CustomerImage = cusinfo.CustomerImage;
+
         }
 
         public frmApplyingForLoan2(Loan loanInfo)
@@ -72,6 +73,7 @@ namespace WindowsFormsAppPersonalProject
             RegularPayBack = loanInfo.RegularPayBack;
             CustomerNum = loanInfo.CustomerNum;
             CustomerName = loanInfo.CustomerName;
+            LoanLeftover = loanInfo.LoanLeftover;
         }
 
         public Customer customerInfo
@@ -90,7 +92,7 @@ namespace WindowsFormsAppPersonalProject
 
                 return new Loan(DAccountNum, AmountOfLoan, ReturnWhenExpired, PayBackMethod, Purpose,
                                 LoanPeriod, NAccountNum, Pwd, InterestRate,
-                                RegularPayBack, CustomerNum, CustomerName);
+                                RegularPayBack, CustomerNum, CustomerName, LoanLeftover);
             }
         }
 

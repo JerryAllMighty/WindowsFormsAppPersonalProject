@@ -67,6 +67,7 @@
             // txtPwd
             // 
             this.txtPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPwd.BackColor = System.Drawing.SystemColors.Info;
             this.txtPwd.Location = new System.Drawing.Point(263, 243);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPwd.Name = "txtPwd";
@@ -78,6 +79,7 @@
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtID.BackColor = System.Drawing.SystemColors.Info;
             this.txtID.Location = new System.Drawing.Point(263, 206);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";

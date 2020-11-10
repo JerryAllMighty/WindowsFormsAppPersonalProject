@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +12,7 @@ namespace WindowsFormsAppPersonalProject
 {
     public class Loan
     {
-        public string LoanNum;
+        public string LoanNum;      //멤버변수 14개
         public string DAccountNum;
         public string AmountOfLoan;
         public string ReturnWhenExpired;
@@ -24,11 +26,14 @@ namespace WindowsFormsAppPersonalProject
         public string RegularPayBack;
         public string CustomerNum;
         public string CustomerName;
+        public string LoanLeftover;
 
         public Loan(string daccountnum, string amountofloan, string returnwhenexpired,
                                     string paybackmethod, string purpose, string loanperiod, string naccountnum,
-                                    string pwd, string interestrate, string regularpayback, string customernum, string customername)
+                                    string pwd, string interestrate, string regularpayback, string customernum, 
+                                    string customername, string loanleftover)
         {
+            
             DAccountNum = daccountnum;
             AmountOfLoan = amountofloan;
             ReturnWhenExpired = returnwhenexpired;
@@ -41,6 +46,7 @@ namespace WindowsFormsAppPersonalProject
             RegularPayBack = regularpayback;
             CustomerNum = customernum;
             CustomerName = customername;
+            LoanLeftover = loanleftover;
         }
     }
     class LoanDB : IDisposable
@@ -53,6 +59,31 @@ namespace WindowsFormsAppPersonalProject
             conn.Open();
         }
 
+        public DataTable GetEveryData(string customernum)
+        {
+            try {
+                DataTable dt = new DataTable();
+                string sql = @"select LoanNum, DAccountNum, AmountOfLoan,
+                                        ReturnWhenExpired, PayBackMethod, Purpose, LoanExpire,
+                                        NAccountNum, Pwd, LoanStarted, InterestRate, RegularPayBackDate,
+                                        CustomerNum, CustomerName, LoanLeftOver
+                                 from loan where CustomerNum = @customernum";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                { return dt; }
+                else { return null; }
+            }
+            catch(Exception)
+                {
+                return null;
+            }
+        }
+
         public bool Insert(Loan loaninfo)
         {
             MySqlTransaction trans = conn.BeginTransaction();
@@ -60,21 +91,21 @@ namespace WindowsFormsAppPersonalProject
             {
                 string sql = @"insert into loan(DAccountNum, AmountOfLoan, ReturnWhenExpired, 
                                             PayBackMethod, Purpose, LoanExpire, NAccountNum, Pwd, 
-                                            LoanStarted, InterestRate, RegularPayBackDate, CustomerNum, CustomerName)
+                                            LoanStarted, InterestRate, RegularPayBackDate, CustomerNum, CustomerName, LoanLeftOver)
                                       values(@DAccountNum, @AmountOfLoan, @ReturnWhenExpired, @PayBackMethod, 
                                             @Purpose, date_add(now(), interval @LoanExpire month), @NAccountNum, @Pwd, now(), @InterestRate,
-                                            @RegularPayBackDate, @CustomerNum, @CustomerName);";
+                                            @RegularPayBackDate, @CustomerNum, @CustomerName, @AmountOfLoan);";
                 MySqlCommand cmd = new MySqlCommand(sql ,conn);
                 cmd.Transaction =  trans;
 
                 cmd.Parameters.Add("@DAccountNum", MySqlDbType.Int32);
                 cmd.Parameters["@DAccountNum"].Value = Convert.ToInt32(loaninfo.DAccountNum);
 
-                cmd.Parameters.Add("@AmountOfLoan", MySqlDbType.Int32);
-                cmd.Parameters["@AmountOfLoan"].Value = Convert.ToInt32(loaninfo.AmountOfLoan);
+                cmd.Parameters.Add("@AmountOfLoan", MySqlDbType.VarChar);
+                cmd.Parameters["@AmountOfLoan"].Value = loaninfo.AmountOfLoan;
 
-                cmd.Parameters.Add("@ReturnWhenExpired", MySqlDbType.Int32);
-                cmd.Parameters["@ReturnWhenExpired"].Value = Convert.ToInt32(loaninfo.ReturnWhenExpired);
+                cmd.Parameters.Add("@ReturnWhenExpired", MySqlDbType.VarChar);
+                cmd.Parameters["@ReturnWhenExpired"].Value = loaninfo.ReturnWhenExpired;
 
                 cmd.Parameters.Add("@PayBackMethod", MySqlDbType.VarChar);
                 cmd.Parameters["@PayBackMethod"].Value = loaninfo.PayBackMethod;
@@ -112,6 +143,42 @@ namespace WindowsFormsAppPersonalProject
                     trans.Rollback();
                     return false;
                 
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+                return false;
+            }
+        }
+
+        public bool Update(string willbeleftover, string loannum)       //대출을 상환할 때마다 수정해주려고
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update loan
+                                set LoanLeftOver =   @willbeleftover
+                                where LoanNum = @loannum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Transaction = trans;
+
+                cmd.Parameters.Add("@willbeleftover", MySqlDbType.VarChar);
+                cmd.Parameters["@willbeleftover"].Value = willbeleftover;
+
+                cmd.Parameters.Add("@loannum", MySqlDbType.Int32);
+                cmd.Parameters["@loannum"].Value = Convert.ToInt32(loannum);
+
+                
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    trans.Commit();
+                    return true;
+                }
+                else
+                    trans.Rollback();
+                return false;
+
             }
             catch (Exception)
             {

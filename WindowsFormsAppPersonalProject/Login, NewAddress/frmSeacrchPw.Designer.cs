@@ -49,6 +49,7 @@
             // 
             // txtName
             // 
+            this.txtName.BackColor = System.Drawing.SystemColors.Info;
             this.txtName.Location = new System.Drawing.Point(200, 142);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
@@ -57,6 +58,7 @@
             // 
             // txtID
             // 
+            this.txtID.BackColor = System.Drawing.SystemColors.Info;
             this.txtID.Location = new System.Drawing.Point(200, 41);
             this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
@@ -74,6 +76,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Info;
             this.txtEmail.Location = new System.Drawing.Point(200, 243);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";

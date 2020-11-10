@@ -72,14 +72,16 @@ namespace WindowsFormsAppPersonalProject
 
 
 
-        public bool Insert(DepositAccount deposInfo)
+        public bool Insert(DepositAccount deposInfo)        //처음에 예금계좌를 생성할 때만 사용 
+                                    //첫 생성의 계좌 금액은 예치금액과 일치 이후에는 업데이트를 활용하여 기존의 돈에 계속 더해줄 것
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try
             {
                 string sql = @"insert into depositaccount (DateCreated, CustomerNum, CustomerName, KindofAcc, 
-                                               AmountOfDeposit, OutAccount, OutAccountPw, NewPwd)
-                                    values (now(), @customernum, @customername, @kindofacc, @amountofdeposit, @outaccount, @outaccountpw, @newpwd)";
+                                               AmountOfDeposit, OutAccount, OutAccountPwd, NewPwd, CurrentMoney)
+                                    values (now(), @customernum, @customername, @kindofacc,
+                                                @amountofdeposit, @outaccount, @outaccountpw, @newpwd, @amountofdeposit)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
 

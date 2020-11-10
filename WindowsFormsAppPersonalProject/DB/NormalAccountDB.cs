@@ -66,8 +66,38 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
+        public DataTable GetEveryData(string accountid, string accountpw)       //출금계좌와 비번이 맞는지 체크하는 함수
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd
+                                        from normalaccount                              
+                                        where NAccountNum = @accountid and Pwd = @accountpw";
 
-        public DataTable GetEveryData(string customernum)
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+                da.SelectCommand.Parameters.Add("@accountid", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@accountid"].Value = Convert.ToInt32(accountid);
+
+                da.SelectCommand.Parameters.Add("@accountpw", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@accountpw"].Value = accountpw;
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                { return dt; }
+                else
+                    return null;
+                
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+        public DataTable GetEveryData(string customernum)       // 고객번호로 일반계좌 정보 가지고 오기
         {
             try
             {

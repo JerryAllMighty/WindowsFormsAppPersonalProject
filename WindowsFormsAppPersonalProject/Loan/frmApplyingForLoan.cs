@@ -27,8 +27,8 @@ namespace WindowsFormsAppPersonalProject
 
 
 
-        public string daccountnum;
-        public string interestrate = "10";
+        string daccountnum;
+        string interestrate = "10";     //담보가 있으면 10, 없으면 20퍼센트
 
         public frmApplyingForLoan()
         {
@@ -65,7 +65,7 @@ namespace WindowsFormsAppPersonalProject
                 
                 return new Loan(daccountnum, txtAmountOfLoan.Text, txtWhenExpire.Text, cbxPayBackMethod.SelectedItem.ToString(), cbxPurpose.Text,
                                 txtPeriod.Text, cbxOutAccount.SelectedItem.ToString(), txtOutPwd.Text, interestrate, 
-                                txtRegularWhen.Text, CustomerNum, CustomerName);
+                                txtRegularWhen.Text, CustomerNum, CustomerName, (   Convert.ToInt32(txtAmountOfLoan.Text)   *1.1 ).ToString() );
             }
             set
             {
@@ -111,13 +111,32 @@ namespace WindowsFormsAppPersonalProject
                 }
 
             }
-            cbxDepositNum.Items.Add("선택안함");        //dt가 null이어도 선택안함은 있어야함
+            //cbxDepositNum.Items.Add("선택안함");        //dt가 null이어도 선택안함은 있어야함
 
            
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+
+            //유효성 체크하자
+
+            //필수 입력칸들은 반드시 입력할 수 있게 체크
+            if (txtAmountOfLoan.Text.Trim().Replace(" ", "").Length < 1 || cbxPayBackMethod.SelectedItem.ToString().Length < 1 ||
+                txtPeriod.Text.Trim().Replace(" ", "").Length < 1 || txtOutPwd.Text.Trim().Replace(" ", "").Length < 1)
+            {
+                MessageBox.Show("*표시는 필수 입력항목입니다. 반드시 입력해주세요.");
+                return;
+            }
+            //출금계좌와 비밀번호가 일치하는지 확인하기
+            CustomerDB db = new CustomerDB();
+            if (db.GetEveryData(cbxOutAccount.SelectedItem.ToString(), txtOutPwd.Text) == null)
+            {
+                MessageBox.Show("출금 계좌와 비밀번호를 다시 한 번 확인해주세요.");
+                return;
+            }
+
+            //한 번 더 정보가 맞는지 물어보기
             if (MessageBox.Show("대출 정보를 확실하게 확인하신 것이 맞습니까?", "대출 정보 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 frmApplyingForLoan2 frm = new frmApplyingForLoan2(LoanInfo);
@@ -172,10 +191,10 @@ namespace WindowsFormsAppPersonalProject
 
         private void cbxDepositNum_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxDepositNum.SelectedItem.ToString() == "선택안함")
+            if (cbxDepositNum.SelectedItem.ToString().Trim().Replace(" ", "").Length < 1)
             {
                 interestrate = "20";
-                LoanInfo.DAccountNum = "선택안함";
+                daccountnum = "";
                 errorProvider1.SetError(cbxDepositNum, "담보가 없을 시 대출 이율이 소폭 상승됩니다.\n 반드시 상담원과 대출 이율을 확인해주세요.");
             }
             else 
@@ -183,6 +202,41 @@ namespace WindowsFormsAppPersonalProject
                 daccountnum = dt.Rows[cbxDepositNum.SelectedIndex]["DAccountNum"].ToString();
                 errorProvider1.Clear();
             }
+        }
+
+        private void cbxDepositNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAmountOfLoan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtWhenExpire_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxPayBackMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxPurpose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPeriod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxOutAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
