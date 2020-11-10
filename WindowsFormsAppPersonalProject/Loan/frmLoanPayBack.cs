@@ -69,7 +69,6 @@ namespace WindowsFormsAppPersonalProject
                     dgvMember.CurrentRow.Cells[12].Value.ToString(),
                     dgvMember.CurrentRow.Cells[13].Value.ToString(),
                     dgvMember.CurrentRow.Cells[14].Value.ToString()
-                    //txtPayBack.Text     //상환하는 금액
                     );
             }
         

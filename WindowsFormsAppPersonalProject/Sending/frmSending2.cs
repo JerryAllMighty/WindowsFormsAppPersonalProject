@@ -16,5 +16,10 @@ namespace WindowsFormsAppPersonalProject.Sending
         {
             InitializeComponent();
         }
+
+        private void btnSend_Click(object sender, EventArgs e)      //이체버튼 클릭
+        {
+
+        }
     }
 }

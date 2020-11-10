@@ -111,29 +111,18 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        
-
-        private void IsNumeric(object sender, KeyPressEventArgs e)
-        {
-            bool bChange = char.IsNumber(e.KeyChar) || e.KeyChar == '-' || e.KeyChar == '\b';
-            TextBox temp = (TextBox)sender;
-            if (!bChange)
-            {
-                errorProvider1.SetError(temp, "숫자만 입력하시기 바랍니다.");
-                e.Handled = true;
-            }
-        }
+       
 
         private void frmSending_Load(object sender, EventArgs e)
         {
             NormalAccountDB db = new NormalAccountDB();
-            dt =  db.WhenYouSend();
+            dt =  db.WhenYouSend(CustomerNum);
             db.Dispose();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"]);
-                cbxRecently.Items.Add(dt.Rows[i]["RecentlySentTo"].ToString());
+                cbxRecently.Items.Insert(0, dt.Rows[i]["RecentlySentTo"].ToString());
             }
         }
 
