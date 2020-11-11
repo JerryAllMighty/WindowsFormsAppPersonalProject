@@ -101,14 +101,14 @@ namespace WindowsFormsAppPersonalProject
             lblName2.Text = CustomerName;
             lblLoanPeriod2.Text =  DateTime.Now.AddMonths(int.Parse(LoanPeriod)).ToString();
             lblPayBackMethod2.Text = PayBackMethod;
-            if (DAccountNum == "선택안함")
+            if (DAccountNum == null)
             {
-                lblKindOfLoan2.Text = "예금 담보가 아닌 일반 대출";
+                lblKindOfLoan2.Text = "담보 없는 일반 대출";
             }
             else { lblKindOfLoan2.Text = "예금(신탁) 담보 대출"; }
             lblAmountOfLoan2.Text = AmountOfLoan;
-            lblInterest2.Text = "연 \t" + InterestRate + "%";
-            if (RegularPayBack.Length > 0)
+            lblInterest2.Text = "연 \t" + ((Convert.ToDouble(InterestRate)-1)*100).ToString("N0") + "%";
+            if (RegularPayBack != null)
                 lblRegularWhen2.Text = "매 월" + RegularPayBack + "일";
             else { lblRegularWhen2.Text = "정해지지 않음"; }
         }

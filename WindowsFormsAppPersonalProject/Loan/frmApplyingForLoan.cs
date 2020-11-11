@@ -26,7 +26,7 @@ namespace WindowsFormsAppPersonalProject
        string CustomerImage;
 
         string LoanNum;
-        string DAccountNum;
+        string DAccountNum ;
         string AmountOfLoan;
         string ReturnWhenExpired;
         string PayBackMethod;
@@ -35,12 +35,12 @@ namespace WindowsFormsAppPersonalProject
         string NAccountNum;
         string Pwd;
         string LoanDate;
-        string InterestRate;
+        string InterestRate = "1.1"; //담보가 있으면 1.1, 없으면 1.2퍼센트
         string RegularPayBack;
         string LoanLeftover;
         string AmountOfPayBack;
 
-        string interestrate = "10";     //담보가 있으면 10, 없으면 20퍼센트
+        
 
         public frmApplyingForLoan()
         {
@@ -77,15 +77,8 @@ namespace WindowsFormsAppPersonalProject
                 
                 return new Loan(DAccountNum, AmountOfLoan, ReturnWhenExpired, PayBackMethod, Purpose,
                                LoanPeriod, NAccountNum, Pwd , InterestRate, 
-                                RegularPayBack, CustomerNum, CustomerName, (   Convert.ToInt32(txtAmountOfLoan.Text)   *(Convert.ToInt32(interestrate)/100) +1 ).ToString() );
+                                RegularPayBack, CustomerNum, CustomerName, LoanLeftover );
             }
-            //set
-            //{
-            //    if (value.DAccountNum == "선택안함")
-            //        daccountnum = "";
-            //    else
-            //        daccountnum = dt.Rows[cbxDepositNum.SelectedIndex]["DAccountNum"].ToString();
-            //}
         }
         private void txtAmountOfLoan_TextChanged(object sender, EventArgs e)
         {
@@ -152,7 +145,7 @@ namespace WindowsFormsAppPersonalProject
                     }
                     if (bFlag)
                     {
-                        cbxDepositNum.Items.Add($"{dt.Rows[i]["DAccountNum"].ToString()}" + $"          {dt.Rows[i]["CustomerName"].ToString()}");
+                        cbxDepositNum.Items.Add($"{dt.Rows[i]["DAccountNum"].ToString()}");
                     }
                 }
 
@@ -168,13 +161,8 @@ namespace WindowsFormsAppPersonalProject
            
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)      //다음 버튼 클릭
         {
-            //예금 담보를 선택했는지 안 했는지에 따라서 이자율을 차등해서 주기
-            if (cbxDepositNum.SelectedItem.ToString().Length > 0)
-                InterestRate = "10";
-            else
-                InterestRate = "20";
             //필수 입력칸들은 반드시 입력할 수 있게 체크
             if (txtAmountOfLoan.Text.Trim().Replace(" ", "").Length < 1 || cbxPayBackMethod.SelectedItem.ToString().Length < 1 ||
                 txtPeriod.Text.Trim().Replace(" ", "").Length < 1 || txtOutPwd.Text.Trim().Replace(" ", "").Length < 1 ||
@@ -191,6 +179,9 @@ namespace WindowsFormsAppPersonalProject
                 return;
             }
 
+            LoanLeftover = Multiply(txtAmountOfLoan.Text, InterestRate).ToString("N0");
+                //(Convert.ToInt32(txtAmountOfLoan.Text) * Convert.ToInt32(InterestRate)).ToString();
+
             //한 번 더 정보가 맞는지 물어보기
             if (MessageBox.Show("대출 정보를 확실하게 확인하신 것이 맞습니까?", "대출 정보 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -199,7 +190,12 @@ namespace WindowsFormsAppPersonalProject
                 frm.Activate();
             }
         }
-
+        private double Multiply(string a, string b)
+        {
+            int A = Convert.ToInt32(a);
+            double B = Convert.ToDouble(b);
+            return A * B;
+        }
 
         private void label3_MouseEnter(object sender, EventArgs e)
         {
@@ -244,15 +240,17 @@ namespace WindowsFormsAppPersonalProject
             toolTip2.AutoPopDelay = 20000;
         }
 
-        private void cbxDepositNum_SelectedValueChanged(object sender, EventArgs e)
+        private void cbxDepositNum_SelectedValueChanged(object sender, EventArgs e)     //예금담보 선택에 따라서 이자율이 변한다
         {
+            //예금 담보를 선택했는지 안 했는지에 따라서 이자율을 차등해서 주기
             if (cbxDepositNum.SelectedItem.ToString().Trim().Replace(" ", "").Length < 1)
             {
-                DAccountNum = "";
+                InterestRate = "1.2";
                 errorProvider1.SetError(cbxDepositNum, "담보가 없을 시 대출 이율이 소폭 상승됩니다.\n 반드시 상담원과 대출 이율을 확인해주세요.");
             }
             else 
             {
+                InterestRate = "1.1";
                 DAccountNum =cbxDepositNum.SelectedItem.ToString();
                 errorProvider1.Clear();
             }
