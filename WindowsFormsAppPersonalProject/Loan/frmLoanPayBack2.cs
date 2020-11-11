@@ -102,7 +102,17 @@ namespace WindowsFormsAppPersonalProject
         private void btnOK_Click(object sender, EventArgs e)
         {
             LoanDB db = new LoanDB();
-            db.Update(txtLoanWillBeLeftOver.Text, LoanNum);
+            if (db.Update(txtLoanWillBeLeftOver.Text, LoanNum))
+            {
+                MessageBox.Show("성공적으로 대출이 상환되었습니다.");
+            }
+            else { MessageBox.Show("과정에 오류가 있습니다. 다시 시도해주세요."); }
+            db.Dispose();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

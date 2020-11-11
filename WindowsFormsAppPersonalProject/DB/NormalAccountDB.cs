@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,6 +68,33 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
+        public DataTable GetNormalAccountData(string naccountnum)       // 계좌 이체시 입금 계좌 정보가 존재하는지 확인하는 함수
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select NAccountNum, CustomerName
+                                        from normalaccount                              
+                                        where NAccountNum = @naccountnum";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@naccountnum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@naccountnum"].Value = naccountnum;
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public DataTable GetEveryData(string accountid, string accountpw)       //출금계좌와 비번이 맞는지 체크하는 함수
         {
             try
@@ -89,7 +117,7 @@ namespace WindowsFormsAppPersonalProject
                 { return dt; }
                 else
                     return null;
-                
+
             }
             catch (Exception)
             {
@@ -103,7 +131,7 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd
+                string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd, CurrentMoney
                                         from normalaccount                              
                                         where CustomerNum = '{customernum}'";
 
@@ -150,6 +178,61 @@ namespace WindowsFormsAppPersonalProject
             catch (Exception)
             {
                 trans.Rollback();
+                return false;
+            }
+        }
+
+        public bool UpdateReceiver(string amountofsending, string recentlysentto)      //받는 사람 통장에 잔고 더해주는 함수
+        {
+            try 
+            {
+
+                string sql = @"update normalaccount set CurrentMoney = CurrentMoney + @amountofsending
+                                        where NAccountNum = @recentlysentto";
+                MySqlCommand cmd = new MySqlCommand(sql,conn);
+                cmd.Parameters.Add("@amountofsending", MySqlDbType.Int32);
+                cmd.Parameters["@amountofsending"].Value = Convert.ToInt32(amountofsending);
+
+
+                cmd.Parameters.Add("@recentlysentto", MySqlDbType.VarChar);
+                cmd.Parameters["@recentlysentto"].Value = recentlysentto;
+
+
+                if (cmd.ExecuteNonQuery() > 0)
+                { return true; }
+                else { return false; }
+                
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false; 
+            }
+        }
+
+        public bool UpdateSender(string amountofsending, string naccountnum)      //보낸 사람 통장에 잔고 빼주는 함수
+        {
+            try
+            {
+
+                string sql = @"update normalaccount set CurrentMoney = CurrentMoney - @amountofsending
+                                        where NAccountNum = @naccountnum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.Add("@amountofsending", MySqlDbType.Int32);
+                cmd.Parameters["@amountofsending"].Value = Convert.ToInt32(amountofsending);
+
+
+                cmd.Parameters.Add("@naccountnum", MySqlDbType.Int32);
+                cmd.Parameters["@naccountnum"].Value = Convert.ToInt32(naccountnum);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                { return true; }
+                else { return false; }
+
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
                 return false;
             }
         }

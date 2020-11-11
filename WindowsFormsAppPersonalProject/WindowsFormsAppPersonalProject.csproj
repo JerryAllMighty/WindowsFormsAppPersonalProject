@@ -115,6 +115,7 @@
     <Compile Include="Login, NewAddress\frmSeacrchPw.Designer.cs">
       <DependentUpon>frmSeacrchPw.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendingDB.cs" />
     <Compile Include="Sending\frmSending2.cs">
       <SubType>Form</SubType>
     </Compile>

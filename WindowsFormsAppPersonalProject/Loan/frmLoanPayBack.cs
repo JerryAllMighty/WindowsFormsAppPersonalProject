@@ -103,7 +103,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnNext_Click(object sender, EventArgs e)  //다음 버튼 클릭
         {
-
+            //필수 항목 입력 체크
             if (cbxOutAccount.Text.Trim().Replace(" ", "").Length < 1 || txtOutAccPwd.Text.Trim().Replace(" ", "").Length < 1 ||
                 txtPayBack.Text.Trim().Replace(" ", "").Length < 1)
             {
@@ -111,7 +111,7 @@ namespace WindowsFormsAppPersonalProject
                 return;
             }
             else 
-            {
+            {//출금계좌비번체크
                 NormalAccountDB db = new NormalAccountDB();
                 if (db.GetEveryData(cbxOutAccount.Text, txtOutAccPwd.Text) == null)
                 {
@@ -177,6 +177,11 @@ namespace WindowsFormsAppPersonalProject
             
              dgvMember.CurrentRow.Selected = true;
              cbxOutAccount.Text =   dgvMember.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

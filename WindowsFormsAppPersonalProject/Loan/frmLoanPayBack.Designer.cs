@@ -66,6 +66,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -76,8 +77,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1015, 393);
-            this.splitContainer1.SplitterDistance = 139;
+            this.splitContainer1.Size = new System.Drawing.Size(888, 315);
+            this.splitContainer1.SplitterDistance = 111;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
@@ -86,10 +88,11 @@
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMember.Location = new System.Drawing.Point(0, 0);
+            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 27;
-            this.dgvMember.Size = new System.Drawing.Size(1015, 139);
+            this.dgvMember.Size = new System.Drawing.Size(888, 111);
             this.dgvMember.TabIndex = 0;
             this.dgvMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellClick);
             // 
@@ -112,8 +115,10 @@
             this.groupBox1.Controls.Add(this.lblOutAccount);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 250);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(888, 201);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "대출 상환 정보 입력";
@@ -122,19 +127,22 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(876, 181);
+            this.btnCancel.Location = new System.Drawing.Point(766, 145);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(139, 57);
+            this.btnCancel.Size = new System.Drawing.Size(122, 46);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNext.Location = new System.Drawing.Point(731, 181);
+            this.btnNext.Location = new System.Drawing.Point(640, 145);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(139, 57);
+            this.btnNext.Size = new System.Drawing.Size(122, 46);
             this.btnNext.TabIndex = 10;
             this.btnNext.Text = "다음";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -143,9 +151,10 @@
             // btnRestart
             // 
             this.btnRestart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRestart.Location = new System.Drawing.Point(630, 182);
+            this.btnRestart.Location = new System.Drawing.Point(551, 146);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart.Size = new System.Drawing.Size(66, 18);
             this.btnRestart.TabIndex = 9;
             this.btnRestart.Text = "+재등록";
             this.btnRestart.UseVisualStyleBackColor = true;
@@ -154,9 +163,10 @@
             // btn1000
             // 
             this.btn1000.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn1000.Location = new System.Drawing.Point(549, 181);
+            this.btn1000.Location = new System.Drawing.Point(480, 145);
+            this.btn1000.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn1000.Name = "btn1000";
-            this.btn1000.Size = new System.Drawing.Size(75, 23);
+            this.btn1000.Size = new System.Drawing.Size(66, 18);
             this.btn1000.TabIndex = 8;
             this.btn1000.Text = "+1천";
             this.btn1000.UseVisualStyleBackColor = true;
@@ -165,9 +175,10 @@
             // btn1
             // 
             this.btn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn1.Location = new System.Drawing.Point(468, 182);
+            this.btn1.Location = new System.Drawing.Point(410, 146);
+            this.btn1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(75, 23);
+            this.btn1.Size = new System.Drawing.Size(66, 18);
             this.btn1.TabIndex = 7;
             this.btn1.Text = "+1만";
             this.btn1.UseVisualStyleBackColor = true;
@@ -176,9 +187,10 @@
             // btn10
             // 
             this.btn10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn10.Location = new System.Drawing.Point(387, 181);
+            this.btn10.Location = new System.Drawing.Point(339, 145);
+            this.btn10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(75, 23);
+            this.btn10.Size = new System.Drawing.Size(66, 18);
             this.btn10.TabIndex = 6;
             this.btn10.Text = "+10만";
             this.btn10.UseVisualStyleBackColor = true;
@@ -187,9 +199,10 @@
             // btn50
             // 
             this.btn50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn50.Location = new System.Drawing.Point(306, 182);
+            this.btn50.Location = new System.Drawing.Point(268, 146);
+            this.btn50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn50.Name = "btn50";
-            this.btn50.Size = new System.Drawing.Size(75, 23);
+            this.btn50.Size = new System.Drawing.Size(66, 18);
             this.btn50.TabIndex = 5;
             this.btn50.Text = "+50만";
             this.btn50.UseVisualStyleBackColor = true;
@@ -198,9 +211,10 @@
             // btn100
             // 
             this.btn100.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn100.Location = new System.Drawing.Point(225, 182);
+            this.btn100.Location = new System.Drawing.Point(197, 146);
+            this.btn100.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn100.Name = "btn100";
-            this.btn100.Size = new System.Drawing.Size(75, 23);
+            this.btn100.Size = new System.Drawing.Size(66, 18);
             this.btn100.TabIndex = 4;
             this.btn100.Text = "+100만";
             this.btn100.UseVisualStyleBackColor = true;
@@ -209,9 +223,10 @@
             // btn500
             // 
             this.btn500.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn500.Location = new System.Drawing.Point(144, 181);
+            this.btn500.Location = new System.Drawing.Point(126, 145);
+            this.btn500.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn500.Name = "btn500";
-            this.btn500.Size = new System.Drawing.Size(75, 23);
+            this.btn500.Size = new System.Drawing.Size(66, 18);
             this.btn500.TabIndex = 3;
             this.btn500.Text = "+500만";
             this.btn500.UseVisualStyleBackColor = true;
@@ -220,26 +235,29 @@
             // txtPayBack
             // 
             this.txtPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPayBack.Location = new System.Drawing.Point(297, 130);
+            this.txtPayBack.Location = new System.Drawing.Point(260, 104);
+            this.txtPayBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPayBack.Name = "txtPayBack";
-            this.txtPayBack.Size = new System.Drawing.Size(354, 25);
+            this.txtPayBack.Size = new System.Drawing.Size(310, 21);
             this.txtPayBack.TabIndex = 2;
             // 
             // txtOutAccPwd
             // 
             this.txtOutAccPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOutAccPwd.Location = new System.Drawing.Point(297, 78);
+            this.txtOutAccPwd.Location = new System.Drawing.Point(260, 62);
+            this.txtOutAccPwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutAccPwd.Name = "txtOutAccPwd";
-            this.txtOutAccPwd.Size = new System.Drawing.Size(354, 25);
+            this.txtOutAccPwd.Size = new System.Drawing.Size(310, 21);
             this.txtOutAccPwd.TabIndex = 1;
             // 
             // cbxOutAccount
             // 
             this.cbxOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxOutAccount.FormattingEnabled = true;
-            this.cbxOutAccount.Location = new System.Drawing.Point(297, 28);
+            this.cbxOutAccount.Location = new System.Drawing.Point(260, 22);
+            this.cbxOutAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxOutAccount.Name = "cbxOutAccount";
-            this.cbxOutAccount.Size = new System.Drawing.Size(354, 23);
+            this.cbxOutAccount.Size = new System.Drawing.Size(310, 20);
             this.cbxOutAccount.TabIndex = 0;
             this.cbxOutAccount.Enter += new System.EventHandler(this.cbxOutAccount_Enter);
             // 
@@ -247,9 +265,9 @@
             // 
             this.lblPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPayBack.AutoSize = true;
-            this.lblPayBack.Location = new System.Drawing.Point(141, 135);
+            this.lblPayBack.Location = new System.Drawing.Point(123, 108);
             this.lblPayBack.Name = "lblPayBack";
-            this.lblPayBack.Size = new System.Drawing.Size(67, 15);
+            this.lblPayBack.Size = new System.Drawing.Size(53, 12);
             this.lblPayBack.TabIndex = 2;
             this.lblPayBack.Text = "상환금액";
             // 
@@ -257,9 +275,9 @@
             // 
             this.lblOutAccPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutAccPwd.AutoSize = true;
-            this.lblOutAccPwd.Location = new System.Drawing.Point(141, 83);
+            this.lblOutAccPwd.Location = new System.Drawing.Point(123, 66);
             this.lblOutAccPwd.Name = "lblOutAccPwd";
-            this.lblOutAccPwd.Size = new System.Drawing.Size(132, 15);
+            this.lblOutAccPwd.Size = new System.Drawing.Size(105, 12);
             this.lblOutAccPwd.TabIndex = 1;
             this.lblOutAccPwd.Text = "출금계좌 비밀번호";
             // 
@@ -267,9 +285,9 @@
             // 
             this.lblOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutAccount.AutoSize = true;
-            this.lblOutAccount.Location = new System.Drawing.Point(141, 32);
+            this.lblOutAccount.Location = new System.Drawing.Point(123, 26);
             this.lblOutAccount.Name = "lblOutAccount";
-            this.lblOutAccount.Size = new System.Drawing.Size(97, 15);
+            this.lblOutAccount.Size = new System.Drawing.Size(77, 12);
             this.lblOutAccount.TabIndex = 0;
             this.lblOutAccount.Text = "출금계좌번호";
             // 
@@ -277,6 +295,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -287,27 +306,30 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(1015, 505);
-            this.splitContainer2.SplitterDistance = 108;
+            this.splitContainer2.Size = new System.Drawing.Size(888, 404);
+            this.splitContainer2.SplitterDistance = 86;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 1;
             this.splitContainer2.TabStop = false;
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 12);
+            this.trackBar1.Location = new System.Drawing.Point(10, 10);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(197, 56);
+            this.trackBar1.Size = new System.Drawing.Size(172, 45);
             this.trackBar1.TabIndex = 14;
             this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 3;
             // 
             // frmLoanPayBack
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 505);
+            this.ClientSize = new System.Drawing.Size(888, 404);
             this.Controls.Add(this.splitContainer2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLoanPayBack";
             this.Text = "대출상환";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

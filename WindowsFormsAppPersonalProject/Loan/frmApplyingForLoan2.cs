@@ -113,7 +113,7 @@ namespace WindowsFormsAppPersonalProject
             else { lblRegularWhen2.Text = "정해지지 않음"; }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)        
+        private void btnInsert_Click(object sender, EventArgs e)      //최종 대출 신청 버튼 클릭  
         {
             if (MessageBox.Show("정말로 대출을 신청하시겠습니까?", "최종 대출 신청 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -135,6 +135,11 @@ namespace WindowsFormsAppPersonalProject
             {
                 this.Close();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

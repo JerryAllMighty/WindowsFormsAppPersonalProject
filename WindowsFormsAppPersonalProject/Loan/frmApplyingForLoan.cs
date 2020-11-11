@@ -25,9 +25,21 @@ namespace WindowsFormsAppPersonalProject
        string CustomerEmail;
        string CustomerImage;
 
+        string LoanNum;
+        string DAccountNum;
+        string AmountOfLoan;
+        string ReturnWhenExpired;
+        string PayBackMethod;
+        string Purpose;
+        string LoanPeriod;
+        string NAccountNum;
+        string Pwd;
+        string LoanDate;
+        string InterestRate;
+        string RegularPayBack;
+        string LoanLeftover;
+        string AmountOfPayBack;
 
-
-        string daccountnum;
         string interestrate = "10";     //담보가 있으면 10, 없으면 20퍼센트
 
         public frmApplyingForLoan()
@@ -63,32 +75,72 @@ namespace WindowsFormsAppPersonalProject
             get 
             {
                 
-                return new Loan(daccountnum, txtAmountOfLoan.Text, txtWhenExpire.Text, cbxPayBackMethod.SelectedItem.ToString(), cbxPurpose.Text,
-                                txtPeriod.Text, cbxOutAccount.SelectedItem.ToString(), txtOutPwd.Text, interestrate, 
-                                txtRegularWhen.Text, CustomerNum, CustomerName, (   Convert.ToInt32(txtAmountOfLoan.Text)   *1.1 ).ToString() );
+                return new Loan(DAccountNum, AmountOfLoan, ReturnWhenExpired, PayBackMethod, Purpose,
+                               LoanPeriod, NAccountNum, Pwd , InterestRate, 
+                                RegularPayBack, CustomerNum, CustomerName, (   Convert.ToInt32(txtAmountOfLoan.Text)   *(Convert.ToInt32(interestrate)/100) +1 ).ToString() );
             }
-            set
-            {
-                if (value.DAccountNum == "선택안함")
-                    daccountnum = "";
-                else
-                    daccountnum = dt.Rows[cbxDepositNum.SelectedIndex]["DAccountNum"].ToString();
-            }
+            //set
+            //{
+            //    if (value.DAccountNum == "선택안함")
+            //        daccountnum = "";
+            //    else
+            //        daccountnum = dt.Rows[cbxDepositNum.SelectedIndex]["DAccountNum"].ToString();
+            //}
+        }
+        private void txtAmountOfLoan_TextChanged(object sender, EventArgs e)
+        {
+            AmountOfLoan = txtAmountOfLoan.Text;
         }
 
+        private void txtWhenExpire_TextChanged(object sender, EventArgs e)
+        {
+            ReturnWhenExpired = txtWhenExpire.Text;
+        }
+
+        private void cbxPayBackMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          PayBackMethod = cbxPayBackMethod.SelectedItem.ToString();
+        }
+
+        private void cbxPurpose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           Purpose = cbxPurpose.Text;
+        }
+
+        private void txtPeriod_TextChanged(object sender, EventArgs e)
+        {
+             LoanPeriod = txtPeriod.Text;
+        }
+
+        private void cbxOutAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NAccountNum = cbxOutAccount.SelectedItem.ToString();
+        }
+
+        private void txtOutPwd_TextChanged(object sender, EventArgs e)
+        {
+            //비밀번호는 4자리로 입력받기
+            if (txtOutPwd.Text.Length > 4)
+            {
+                MessageBox.Show("비밀번호는 반드시 4자리여야합니다.");
+                txtOutPwd.Text = "";
+            }
+            else
+                Pwd = txtOutPwd.Text;
+        }
 
         private void frmApplyingForLoan_Load(object sender, EventArgs e)
         {
             //담보 제공 예금 계좌번호 콤보 박스 컨트롤 설정해주기
             CustomerDB db = new CustomerDB();
             dt = db.WhenYouApplyForLoan(int.Parse(CustomerNum));
-            bool bFlag = true;
+            bool bFlag;
 
             if (dt != null)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)             //쿼리문의 결과중 예금 계좌 1개 당 여러개의 
-                {                                                    //일반계좌가 나올 수 있으니 2번 예금계좌를 추가해주는 것을 방지하기 위해서 반복문 돌기
-               
+                {                                                    //일반계좌가 나올 수 있으니 같은 예금계좌를 2번 추가해주는 것을 방지하기 위해서 반복문 돌기
+
                     bFlag = true;
                     for (int j = 0; j < i; j++)
                     {
@@ -118,18 +170,21 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-
-            //유효성 체크하자
-
+            //예금 담보를 선택했는지 안 했는지에 따라서 이자율을 차등해서 주기
+            if (cbxDepositNum.SelectedItem.ToString().Length > 0)
+                InterestRate = "10";
+            else
+                InterestRate = "20";
             //필수 입력칸들은 반드시 입력할 수 있게 체크
             if (txtAmountOfLoan.Text.Trim().Replace(" ", "").Length < 1 || cbxPayBackMethod.SelectedItem.ToString().Length < 1 ||
-                txtPeriod.Text.Trim().Replace(" ", "").Length < 1 || txtOutPwd.Text.Trim().Replace(" ", "").Length < 1)
+                txtPeriod.Text.Trim().Replace(" ", "").Length < 1 || txtOutPwd.Text.Trim().Replace(" ", "").Length < 1 ||
+                cbxOutAccount.SelectedItem.ToString().Trim().Replace(" ", "").Length < 1)
             {
                 MessageBox.Show("*표시는 필수 입력항목입니다. 반드시 입력해주세요.");
                 return;
             }
             //출금계좌와 비밀번호가 일치하는지 확인하기
-            CustomerDB db = new CustomerDB();
+            NormalAccountDB db = new NormalAccountDB();       
             if (db.GetEveryData(cbxOutAccount.SelectedItem.ToString(), txtOutPwd.Text) == null)
             {
                 MessageBox.Show("출금 계좌와 비밀번호를 다시 한 번 확인해주세요.");
@@ -193,50 +248,24 @@ namespace WindowsFormsAppPersonalProject
         {
             if (cbxDepositNum.SelectedItem.ToString().Trim().Replace(" ", "").Length < 1)
             {
-                interestrate = "20";
-                daccountnum = "";
+                DAccountNum = "";
                 errorProvider1.SetError(cbxDepositNum, "담보가 없을 시 대출 이율이 소폭 상승됩니다.\n 반드시 상담원과 대출 이율을 확인해주세요.");
             }
             else 
             {
-                daccountnum = dt.Rows[cbxDepositNum.SelectedIndex]["DAccountNum"].ToString();
+                DAccountNum =cbxDepositNum.SelectedItem.ToString();
                 errorProvider1.Clear();
             }
         }
 
-        private void cbxDepositNum_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void txtAmountOfLoan_TextChanged(object sender, EventArgs e)
+        private void txtRegularWhen_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtWhenExpire_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxPayBackMethod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxPurpose_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPeriod_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxOutAccount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+           RegularPayBack = txtRegularWhen.Text;
         }
     }
 }
