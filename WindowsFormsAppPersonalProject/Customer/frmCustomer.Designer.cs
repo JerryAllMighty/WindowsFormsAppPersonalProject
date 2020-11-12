@@ -28,25 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("고객번호");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("고객명");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("고객주소");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("고객 아이디");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("관리자여부");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("비밀번호");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("연락처");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("이메일");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("고객", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -103,28 +84,6 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView1.Location = new System.Drawing.Point(491, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "노드5";
-            treeNode1.Text = "고객번호";
-            treeNode2.Name = "노드6";
-            treeNode2.Text = "고객명";
-            treeNode3.Name = "노드7";
-            treeNode3.Text = "고객주소";
-            treeNode4.Name = "노드8";
-            treeNode4.Text = "연락처";
-            treeNode5.Name = "노드0";
-            treeNode5.Text = "고객 아이디";
-            treeNode6.Name = "노드1";
-            treeNode6.Text = "관리자여부";
-            treeNode7.Name = "노드2";
-            treeNode7.Text = "비밀번호";
-            treeNode8.Name = "노드0";
-            treeNode8.Text = "연락처";
-            treeNode9.Name = "노드1";
-            treeNode9.Text = "이메일";
-            treeNode10.Name = "노드4";
-            treeNode10.Text = "고객";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(279, 228);
             this.treeView1.TabIndex = 20;
             this.treeView1.TabStop = false;
@@ -151,7 +110,7 @@
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(174, 60);
             this.btnDeleteAccount.TabIndex = 3;
-            this.btnDeleteAccount.Text = "계정탈퇴";
+            this.btnDeleteAccount.Text = "휴면 계좌 전환";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 

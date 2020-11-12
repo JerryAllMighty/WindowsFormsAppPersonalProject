@@ -108,8 +108,8 @@ namespace WindowsFormsAppPersonalProject
             {
                 Label lbl = new Label();
                 lbl.Text = $"{dt3.Rows[i][0].ToString()} \n{dt3.Rows[i][2].ToString()} \n{dt3.Rows[i][3].ToString()} ";
-                lbl.Location = new Point(22,12 + (80*i));
-                lbl.Size = new Size(100, 100);
+                lbl.Location = new Point(22,12 + (100*i));
+                lbl.Size = new Size(300, 100);
 
                 splitContainer2.Panel1.Controls.Add(lbl);
                 //lblSenderName.Text = dt3.Rows[i][0].ToString();

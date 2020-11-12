@@ -58,8 +58,10 @@ namespace WindowsFormsAppPersonalProject
 
                 da.Fill(dt);
 
-
-                return dt;
+                if (dt.Rows.Count > 0)
+                    return dt;
+                else
+                    return null;
             }
             catch (Exception)
             {

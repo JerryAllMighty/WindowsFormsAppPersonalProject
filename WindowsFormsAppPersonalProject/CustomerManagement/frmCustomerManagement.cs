@@ -21,6 +21,8 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
         string Phone;
         string CustomerEmail;
         string CustomerImage;
+        string IsResting;
+
 
         CheckBox headercheckbox = new CheckBox();
         DataTable dt;
@@ -41,6 +43,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             Phone = cusinfo.Phone;
             CustomerEmail = cusinfo.CustomerEmail;
             CustomerImage = cusinfo.CustomerImage;
+            IsResting = cusinfo.IsResting;
         }
 
         public Customer customerInfo
@@ -49,6 +52,15 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             {
                 return new Customer(CustomerNum, CustomerName, CustomerAddress,
                                     CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
+            }
+        }
+
+        public Customer IscustomerResting
+        {
+            get
+            {
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage, IsResting);
             }
         }
 
@@ -70,24 +82,6 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             headercheckbox.Click += Headercheckbox_Click;
             dgvMember.Controls.Add(headercheckbox);
 
-
-            //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            //btn.HeaderText = "관리";
-            //btn.Name = "Edit";
-            //btn.Text = "수정";
-            //btn.Width = 50;
-            //btn.DefaultCellStyle.Padding = new Padding(5, 40, 5, 40);
-            //btn.UseColumnTextForButtonValue = true;
-            //dgvMember.Columns.Add(btn);
-
-
-            //DataGridViewComboBoxColumn cbo = new DataGridViewComboBoxColumn();
-            //cbo.HeaderText = "권한";
-            //cbo.Items.Add("일반회원");
-            //cbo.Items.Add("관리자");
-            //cbo.DefaultCellStyle.Padding = new Padding(0,40,0,40);
-            //dgvMember.Columns.Add(cbo);
-
             CommonUtil.SetinitGridView(dgvMember);
 
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
@@ -99,6 +93,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail", 120);
             CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "휴면계좌여부", "IsResting", 70);
 
             CustomerDB db = new CustomerDB();
             dt = db.GetEveryData();
@@ -189,10 +184,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             }
         }
 
-        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void 메세지보내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -239,6 +231,40 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             }
             catch (Exception)
             { }
+        }
+
+        private void 휴면계좌로전환ToolStripMenuItem_Click(object sender, EventArgs e)     //우클릭해서 펼친 컨텍스트메뉴스트립의 고객 번호를 넘겨주어 정보를 수정한다
+        {
+            CustomerDB db = new CustomerDB();
+            if (db.SetRest(dgvMember.CurrentRow.Cells[1].Value.ToString()))
+            {
+                db.Dispose();
+                MessageBox.Show("휴면 계좌로 전환에 성공하였습니다.");
+                return;
+            }
+            else
+            {
+                db.Dispose();
+                MessageBox.Show("휴면 계좌로 전환에 실패하였습니다. 다시 시도하여주십시오.");
+            }
+           
+
+        }
+
+        private void 휴면계좌해제ToolStripMenuItem_Click(object sender, EventArgs e)  //우클릭해서 펼친 컨텍스트메뉴스트립의 고객 번호를 넘겨주어 정보를 수정한다
+        {
+            CustomerDB db = new CustomerDB();
+            if (db.UnSetRest(dgvMember.CurrentRow.Cells[1].Value.ToString()))
+            {
+                db.Dispose();
+                MessageBox.Show("휴면 계정이 해제되었습니다.");
+                return;
+            }
+            else
+            {
+                db.Dispose();
+                MessageBox.Show("휴면 계좌 해제에 실패하였습니다. 다시 시도하여주십시오.");
+            }
         }
     }
 }

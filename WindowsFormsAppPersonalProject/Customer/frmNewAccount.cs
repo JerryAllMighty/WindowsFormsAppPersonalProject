@@ -70,7 +70,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void NewAccount_Load(object sender, EventArgs e)
         {
-            
+         
         }
 
         private void btnNewAccount_Click(object sender, EventArgs e)        //계좌 생성 버튼 클릭
@@ -224,6 +224,16 @@ namespace WindowsFormsAppPersonalProject
             {
                 return false;
 
+            }
+            
+        }
+
+        private void txtNewPwd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNewPwd.Text.Length > 4)
+            {
+                MessageBox.Show("비밀번호는 반드시 4자리입니다.");
+                txtNewPwd.Text = "";
             }
             
         }

@@ -79,32 +79,45 @@ namespace WindowsFormsAppPersonalProject
             dt =  db.WhenYouSend(CustomerNum);
             db.Dispose();
             bool bFlag, cFlag;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
             {
-                bFlag = true;
-                cFlag = true;
-                for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    if (dt.Rows[i]["NAccountNum"].ToString() == dt.Rows[j]["NAccountNum"].ToString())
+                    bFlag = true;
+                    cFlag = true;
+                    for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
                     {
-                        bFlag = false;
-                        
+                        if (dt.Rows[i]["NAccountNum"].ToString() == dt.Rows[j]["NAccountNum"].ToString())
+                        {
+                            bFlag = false;
+
+                        }
+                        if (dt.Rows[i]["RecentlySentTo"].ToString() == dt.Rows[j]["RecentlySentTo"].ToString())
+                        {
+                            cFlag = false;
+                        }
                     }
-                    if (dt.Rows[i]["RecentlySentTo"].ToString() == dt.Rows[j]["RecentlySentTo"].ToString())
+                    if (bFlag)
                     {
-                        cFlag = false;
+                        cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"].ToString());
+
                     }
-                }
-                if (bFlag)
-                {
-                    cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"].ToString());
-                    
-                }
-                if (cFlag)
-                {
-                    cbxRecently.Items.Insert(0, dt.Rows[i]["RecentlySentTo"].ToString());
+                    if (cFlag)
+                    {
+                        cbxRecently.Items.Insert(0, dt.Rows[i]["RecentlySentTo"].ToString());
+                    }
                 }
             }
+            else 
+            {
+                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
+                    frm.Show();
+                    frm.Activate();
+                }
+            }
+            
         }
 
         private void cbxOutAcc_SelectedValueChanged(object sender, EventArgs e)     //출금계좌가 선택이 될 때 현재 금액에 금액 바인딩해주기
@@ -127,7 +140,11 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnSend_Click(object sender, EventArgs e)      //계좌이체 버튼 클릭
         {
-
+            if (txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1)
+            {
+                MessageBox.Show("필수 입력 항목들은 꼭 입력해주셔야합니다.");
+                return;
+            }
             if (MessageBox.Show("입력하신 정보가 맞습니까?", "최종 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //db들어가서 입금계좌 정보에 해당하는 고객정보가져오라

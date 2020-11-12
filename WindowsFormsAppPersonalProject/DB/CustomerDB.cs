@@ -23,6 +23,7 @@ namespace WindowsFormsAppPersonalProject
         public string Phone;
         public string CustomerEmail;
         public string CustomerImage;
+        public string IsResting;
 
         public Customer(string customernum, string customername, string customeraddress, 
                             string customerid,string isadmin, string customerpw, string phone,
@@ -37,6 +38,23 @@ namespace WindowsFormsAppPersonalProject
             Phone = phone;
             CustomerEmail = customeremail;
             CustomerImage = customerimage;
+        }
+
+        //관리자가 고객을 관리하기 위해서 휴면 계정 여부도 정보가 필요하고, 이 때 쓰기 위한 생성자를 따로 만들었다. 기존 생성자에 휴면 계정 여부만 추가되었다.
+        public Customer(string customernum, string customername, string customeraddress,
+                           string customerid, string isadmin, string customerpw, string phone,
+                           string customeremail, string customerimage, string isresting)
+        {
+            CustomerNum = customernum;
+            CustomerName = customername;
+            CustomerAddress = customeraddress;
+            CustomerID = customerid;
+            IsAdmin = isadmin;
+            CustomerPw = customerpw;
+            Phone = phone;
+            CustomerEmail = customeremail;
+            CustomerImage = customerimage;
+            IsResting = isresting;
         }
     }
 
@@ -98,7 +116,28 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public DataTable countAccountSoFar(string customernum)      //현재까지의 계좌 개수
+        public DataTable countAccountSoFar()      //현재까지의 모든 고객의 계좌 개수(관리용)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = $@"select
+                                    (select sum(if(NAccountNum > 0, 1, 0)) from normalaccount ) as TotalNAccount,
+                                    (select sum(if(SAccountNum > 0, 1, 0)) from  savings ) as TotalSAccount,
+                                    (select sum(if(DAccountNum > 0, 1, 0))from depositaccount ) as TotalDAccount
+                                    from customers group by TotalNAccount ";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public DataTable countAccountSoFar(string customernum)      //현재까지의 계좌 개수(접속한 고객 전용)
         {
             try 
             {
@@ -157,7 +196,7 @@ namespace WindowsFormsAppPersonalProject
                 DataTable dt = new DataTable();
                 string sql = @"select CustomerNum, CustomerName, CustomerAddress,
                                         CustomerID, IsAdmin, CustomerPw, CustomerPhone,
-                                        CustomerEmail, CustomerImage from customers";
+                                        CustomerEmail, CustomerImage, IsResting from customers";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
@@ -176,9 +215,9 @@ namespace WindowsFormsAppPersonalProject
             try {
                 DataTable dt = new DataTable();
                 string sql = $@"select CustomerNum, CustomerName, CustomerAddress,
-                                    CustomerID, IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage
+                                    CustomerID, IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage, IsResting
                                         from customers 
-                                        where CustomerID = @uid and CustomerPw = @pwd ";
+                                        where CustomerID = @uid and CustomerPw = @pwd";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql,conn);
                 da.SelectCommand.Parameters.Add("@uid", MySqlDbType.VarChar);
@@ -366,17 +405,45 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public bool Delete(Customer cus)        //삭제
+        public bool SetRest(string customernum)        //휴면계좌로 전환
         {
             try
             {
-                string sql = @"delete from customers where CustomerNum = @customernum";
+                string sql = @"update customers
+                                            set IsResting = 1
+                                            where customernum = @customernum";
                 MySqlCommand delcmd = new MySqlCommand(sql, conn);
-                delcmd.Parameters.Add("@customernum", MySqlDbType.VarChar);
-                delcmd.Parameters["@customernum"].Value = cus.CustomerNum;
+                delcmd.Parameters.Add("@customernum", MySqlDbType.Int32);
+                delcmd.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
 
-                delcmd.ExecuteNonQuery();
-                return true;
+                if (delcmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UnSetRest(string customernum)        //휴면계좌 해제
+        {
+            try
+            {
+                string sql = @"update customers
+                                            set IsResting = 0
+                                            where customernum = @customernum";
+                MySqlCommand delcmd = new MySqlCommand(sql, conn);
+
+                delcmd.Parameters.Add("@customernum", MySqlDbType.Int32);
+                delcmd.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                if (delcmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return false;
+
             }
             catch (Exception)
             {

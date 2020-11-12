@@ -31,6 +31,7 @@ namespace WindowsFormsAppPersonalProject
             )
         {
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.Name = datapropertytype;
             col.HeaderText = headerText;
             col.DataPropertyName = datapropertytype;
             col.Width = colWidth;

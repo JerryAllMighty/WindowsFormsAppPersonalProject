@@ -77,6 +77,26 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage");
 
             //트리뷰 바인딩할 때 데이터 소스 주고 나서 트리뷰1.익스팬드하즈아
+            CustomerDB db = new CustomerDB();
+             DataTable dt = db.GetEveryData(CustomerInfo.CustomerID, CustomerInfo.CustomerPw);
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                TreeNode node = new TreeNode();
+
+                node.Name =dt.Columns[i].ToString() ;
+                node.Text = dt.Columns[i].ToString();
+                node.Tag = dt.Columns[i].ToString();
+                treeView1.Nodes.Add(node);
+               
+                TreeNode node2 = new TreeNode();
+                node2.Name = dt.Rows[0][i].ToString();
+                node2.Text = dt.Rows[0][i].ToString();
+                node2.Tag = dt.Rows[0][i].ToString();
+                node.Nodes.Add(node2);
+                
+            }
+            treeView1.ExpandAll();
+            
         }
 
         private void button3_Click(object sender, EventArgs e) //계좌생성 클릭
@@ -103,12 +123,12 @@ namespace WindowsFormsAppPersonalProject
             
         }
 
-        private void btnDeleteAccount_Click(object sender, EventArgs e)     //계정 삭제
+        private void btnDeleteAccount_Click(object sender, EventArgs e)     //계정 휴면 전환
         {
-            if (MessageBox.Show("정말로 계정을 삭제하시겠습니까?", "계정 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("정말로 계정을 휴면 계좌로 전환하시겠습니까?", "계정 전환", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 CustomerDB db = new CustomerDB();
-                db.Delete(CustomerInfo);
+                db.SetRest(CustomerNum);
                 db.Dispose();
                 this.Close();
                 main.Close();

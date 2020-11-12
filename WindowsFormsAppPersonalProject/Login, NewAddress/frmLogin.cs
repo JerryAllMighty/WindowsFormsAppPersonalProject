@@ -25,6 +25,7 @@ namespace WindowsFormsAppPersonalProject
         string Phone;
         string CustomerEmail;
         string CustomerImage;
+        string IsResting;
 
         public frmLogin()
         {
@@ -37,7 +38,7 @@ namespace WindowsFormsAppPersonalProject
             get 
             {
                 return new Customer(CustomerNum, CustomerName, CustomerAddress, 
-                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
+                                    CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage, IsResting);
             }
         }
         #endregion 프로퍼티
@@ -118,6 +119,11 @@ namespace WindowsFormsAppPersonalProject
 
             if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
             {
+                if (IsResting == "1")       //휴면계좌일시 로그인 차단
+                {
+                    MessageBox.Show("해당 계정은 휴면계좌입니다. 고객팀에 문의해주세요.");
+                    return;
+                }
                 this.UseWaitCursor = false; ;
                 //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                 timer1.Interval = 1000;
@@ -148,6 +154,7 @@ namespace WindowsFormsAppPersonalProject
                 Phone = dt.Rows[0]["CustomerPhone"].ToString();
                 CustomerEmail = dt.Rows[0]["CustomerEmail"].ToString();
                 CustomerImage = dt.Rows[0]["CustomerImage"].ToString();
+                IsResting = dt.Rows[0]["IsResting"].ToString();
                 return true;
             }
             catch (Exception)

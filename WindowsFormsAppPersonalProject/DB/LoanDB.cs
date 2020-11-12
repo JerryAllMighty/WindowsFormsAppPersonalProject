@@ -59,6 +59,46 @@ namespace WindowsFormsAppPersonalProject
             conn.Open();
         }
 
+        public DataTable CountDays()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select date(LoanStarted), count(day(LoanStarted)) from loan 
+                                            group by day(LoanStarted);";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                { return dt; }
+                else { return null; }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public DataTable MonthlyAvgLoan()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select  month(LoanStarted), truncate( avg(AmountOfLoan), 0) AVGloan
+                                                from loan group by month(LoanStarted) order by month(LoanStarted) asc";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                { return dt; }
+                else { return null; }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public DataTable GetEveryData(string customernum)
         {
             try {

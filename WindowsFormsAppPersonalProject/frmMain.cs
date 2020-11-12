@@ -22,6 +22,7 @@ namespace WindowsFormsAppPersonalProject
        string Phone;
        string CustomerEmail;
        string CustomerImage;
+        string IsResting;
 
 
         private bool bActivateFlag = false;
@@ -42,15 +43,24 @@ namespace WindowsFormsAppPersonalProject
             Phone = cusinfo.Phone;
             CustomerEmail = cusinfo.CustomerEmail;
             CustomerImage = cusinfo.CustomerImage;
-
+            IsResting = cusinfo.IsResting;
         }
 
-        public Customer customerInfo
+        public Customer customerInfo        //다른 폼에 고객관련 정보를 넘겨주기 위한 프로퍼티
         {
             get
             {
                 return new Customer(CustomerNum, CustomerName, CustomerAddress,
                                             CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
+            }
+        }
+
+        public Customer customerInfo2       //휴면계좌 위해서 고객관리 폼에만 넘겨주는 프로퍼티, 휴면계좌 여부가 추가되었다
+        {
+            get
+            {
+                return new Customer(CustomerNum, CustomerName, CustomerAddress,
+                                            CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage, IsResting);
             }
         }
 
@@ -111,21 +121,25 @@ namespace WindowsFormsAppPersonalProject
         #endregion
 
         #region 관리자용메뉴
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)       //고객관리
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)       //고객관리      //기존의 다른 폼들과 달리 휴면계좌 여부도 넘겨준다
         {
-            frmCustomerManagement m1 = new frmCustomerManagement(customerInfo);
+            frmCustomerManagement m1 = new frmCustomerManagement(customerInfo2);
             m1.Show();
             m1.Activate();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)       //계좌관리
         {
-
+            frmAccountmanagement frm = new frmAccountmanagement();
+            frm.Show();
+            frm.Activate();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)       //대출 현황
         {
-
+            frmLoanManagement frm = new frmLoanManagement();
+            frm.Show();
+            frm.Activate();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)       //로그아웃
