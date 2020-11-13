@@ -22,9 +22,14 @@ namespace WindowsFormsAppPersonalProject
         string CustomerEmail;
         string CustomerImage;
 
+        string ReceiverNum;     //고객 입장에서는 받는 사람은 관리자뿐.
+        string ReceiverName;
+        string ReceiverInfO;
+
+
         public static List<string> HasReadOrNot = new List<string>();
 
-
+        ListOfCustomers list;
         DataTable dt;
         
         public frmJerryTalk()
@@ -57,11 +62,40 @@ namespace WindowsFormsAppPersonalProject
 
         public List<string> hasreadornot { get { return HasReadOrNot; }}
 
+        public Message msgInfo {
+            get
+            {
+                return new Message(CustomerNum, ReceiverNum, CustomerName, ReceiverName, textBox1.Text, "" );
+            }
+        }
+
+
+        public string receiverinfo
+        {
+            get { return (ReceiverInfO); }
+            set { ReceiverInfO = value; }
+
+        }
+
         private void frmMessageBox_Load(object sender, EventArgs e)
         {
             MessageDB db = new MessageDB();
             dt =  db.GetMessage2(CustomerNum);
             db.Dispose();
+            //고객입장에서는 메세지 박스가 처음에 비어있따면 관리자에게 전송할 수 있어야 한다
+            //관리자 입장에서는 주고받은 사람 이외에도, 검색해서 쓸수 있어야한다
+            if (listBox1.Items.Count == 0)
+            {
+                if (IsAdmin == "1")
+                {
+                
+                }
+                else
+                {
+                    ReceiverNum = "5";
+                    ReceiverName = "The King";
+                }
+            }
 
             if (dt != null)
             {
@@ -100,22 +134,80 @@ namespace WindowsFormsAppPersonalProject
             
             //더블클릭을 한 사람의 고유번호를 이용해서 검색
             MessageDB db = new MessageDB();
-            string selected = listBox1.SelectedItem.ToString();
-            HasReadOrNot.Insert(0, "Y" + selected);       
-            DataTable dt3 = db.GetMessage3(selected.Substring(0, selected.IndexOf('.')), CustomerNum);
-
-            for(int i = 0; i < dt3.Rows.Count; i++)
+            if (listBox1.SelectedItem != null && listBox1.SelectedItem.ToString().Length > 0)
             {
-                Label lbl = new Label();
-                lbl.Text = $"{dt3.Rows[i][0].ToString()} \n{dt3.Rows[i][2].ToString()} \n{dt3.Rows[i][3].ToString()} ";
-                lbl.Location = new Point(22,12 + (100*i));
-                lbl.Size = new Size(300, 100);
+                string selected = listBox1.SelectedItem.ToString();
+                ReceiverNum = selected.Substring(0, selected.IndexOf('.'));
+                ReceiverName = selected.Substring(selected.IndexOf('.') + 1);
+                HasReadOrNot.Insert(0, "Y" + selected);
+                DataTable dt3 = db.GetMessage3(selected.Substring(0, selected.IndexOf('.')), CustomerNum);
+                if (dt3 != null)
+                {
+                    for (int i = 0; i < dt3.Rows.Count; i++)
+                    {
+                        Label lbl = new Label();
+                        lbl.Text = $"{dt3.Rows[i][0].ToString()} \n{dt3.Rows[i][2].ToString()} \n{dt3.Rows[i][3].ToString()} ";
+                        lbl.Location = new Point(22, 12 + (100 * i));
+                        lbl.Size = new Size(300, 100);
 
-                splitContainer2.Panel1.Controls.Add(lbl);
-                //lblSenderName.Text = dt3.Rows[i][0].ToString();
-                //lblSentDate.Text = dt3.Rows[i][3].ToString();
-                //lblSentMsg.Text = dt3.Rows[i][2].ToString();
+                        splitContainer2.Panel1.Controls.Add(lbl);
+                        //lblSenderName.Text = dt3.Rows[i][0].ToString();
+                        //lblSentDate.Text = dt3.Rows[i][3].ToString();
+                        //lblSentMsg.Text = dt3.Rows[i][2].ToString();
+                    }
+
+                }
             }
+            
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)      //전송 버튼 
+        {
+            //전송하면 보낸 메세지가 전달이되야함
+            //만약 검색해서 가져온거면 그 검색 결과대로 전송이 이뤄져야해
+            if (listBox1.SelectedItem.ToString().Length > 0)
+            {
+                MessageDB db = new MessageDB();
+                if (db.SendMsg(msgInfo))
+                {
+                    MessageBox.Show("메세지가 성공적으로 전달이 되었습니다.");
+                }
+                else
+                {
+                    MessageBox.Show("메세지 전송에 실패하였습니다.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("꼭 보낼 사람을 선택해주세요.");
+            }
+
+
+        }
+
+        private void btnSEarch_Click(object sender, EventArgs e)        //검색 버튼
+        {
+           
+            if (IsAdmin == "N")
+            {
+                MessageBox.Show("검색은 관리자에게만 유효한 권한입니다.");
+            }
+            else
+            {
+                list = new ListOfCustomers(customerInfo, this);
+                list.ShowDialog();
+                if (ReceiverInfO != null)
+                {
+                    listBox1.Items.Add(ReceiverInfO);
+
+                }
+            }
+        }
+
+        private void frmJerryTalk_Enter(object sender, EventArgs e)
+        {
+
             
         }
     }

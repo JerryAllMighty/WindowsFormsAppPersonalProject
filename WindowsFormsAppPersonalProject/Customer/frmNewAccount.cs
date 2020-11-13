@@ -75,7 +75,22 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnNewAccount_Click(object sender, EventArgs e)        //계좌 생성 버튼 클릭
         {
-
+            //출금 계좌와 신규 계좌 비밀번호들이 4자리가 아닐 때
+            if (txtOutPwd.TextLength != 4 || txtCheckNewPwd.Text.Length != 4)
+            {
+                MessageBox.Show("계좌의 비밀번호들은 4자리여야만 합니다.");
+                return;
+            }
+            if (cbxKindOfAccount.SelectedItem.ToString().Length < 1)        //계좌 종류 반드시 선택하게하기
+            {
+                MessageBox.Show("계좌의 종류는 반드시 선택해주셔야합니다.");
+                return;
+            }
+            if (txtNewPwd.Text.Length < 1 || txtCheckNewPwd.Text.Length < 1)        //신규 계좌 정보 꼭 입력하게 하기
+            {
+                MessageBox.Show("신규 계좌 정보는 반드시 입력해주셔야합니다.");
+                return;
+            }
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
             {
                 //일반 계좌에 연결
@@ -236,6 +251,15 @@ namespace WindowsFormsAppPersonalProject
                 txtNewPwd.Text = "";
             }
             
+        }
+
+        private void txtOutPwd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtOutPwd.Text.Length > 4)
+            {
+                MessageBox.Show("비밀번호는 반드시 4자리입니다.");
+                txtOutPwd.Text = "";
+            }
         }
     }
 }

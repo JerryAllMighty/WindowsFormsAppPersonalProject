@@ -118,7 +118,7 @@
             this.lblCheckNewPwd.Name = "lblCheckNewPwd";
             this.lblCheckNewPwd.Size = new System.Drawing.Size(100, 23);
             this.lblCheckNewPwd.TabIndex = 7;
-            this.lblCheckNewPwd.Text = "비밀번호 확인";
+            this.lblCheckNewPwd.Text = "*비밀번호 확인";
             // 
             // txtCheckNewPwd
             // 
@@ -136,7 +136,7 @@
             this.lblNewPwd.Name = "lblNewPwd";
             this.lblNewPwd.Size = new System.Drawing.Size(100, 23);
             this.lblNewPwd.TabIndex = 5;
-            this.lblNewPwd.Text = "비밀번호";
+            this.lblNewPwd.Text = "*비밀번호";
             // 
             // txtNewPwd
             // 
@@ -183,7 +183,7 @@
             // btnNewAccount
             // 
             this.btnNewAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNewAccount.Location = new System.Drawing.Point(795, 262);
+            this.btnNewAccount.Location = new System.Drawing.Point(794, 268);
             this.btnNewAccount.Name = "btnNewAccount";
             this.btnNewAccount.Size = new System.Drawing.Size(125, 64);
             this.btnNewAccount.TabIndex = 8;
@@ -257,6 +257,7 @@
             this.txtOutPwd.Size = new System.Drawing.Size(223, 21);
             this.txtOutPwd.TabIndex = 4;
             this.txtOutPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOutPwd.TextChanged += new System.EventHandler(this.txtOutPwd_TextChanged);
             // 
             // lbltxtKindOfAccount
             // 
@@ -265,7 +266,7 @@
             this.lbltxtKindOfAccount.Name = "lbltxtKindOfAccount";
             this.lbltxtKindOfAccount.Size = new System.Drawing.Size(100, 23);
             this.lbltxtKindOfAccount.TabIndex = 1;
-            this.lbltxtKindOfAccount.Text = "계좌종류";
+            this.lbltxtKindOfAccount.Text = "*계좌종류";
             this.lbltxtKindOfAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // errorProvider1

@@ -105,7 +105,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnLogin_Click(object sender, EventArgs e)     //로그인 버튼 클릭
         {
-            this.UseWaitCursor = true;
+           // this.UseWaitCursor = true;
             if (string.IsNullOrEmpty(txtID.Text.Trim().Replace(" ", "")) || txtPwd.Text.Trim().Replace(" ", "").Length == 0)
             {
                 MessageBox.Show("ID나 비밀번호는 입력해주십시오.");

@@ -19,6 +19,10 @@ namespace WindowsFormsAppPersonalProject
         public string SenderNum;
         public string ReceiverNum;
 
+        public string ReceiverInFo;
+
+        
+
         public Message(string sendernum, string receivernum,string sender, string receiver, string msgtext , string timesent)
         {
             SenderNum = sendernum;

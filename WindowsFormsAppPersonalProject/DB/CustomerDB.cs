@@ -188,6 +188,30 @@ namespace WindowsFormsAppPersonalProject
             }
         }       //선택한 데이터의 정보만 조회
 
+        public DataTable GetEveryData2(string customernum)   //인자 없이 데이터 조회 
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select CustomerNum, CustomerName, CustomerAddress,
+                                        CustomerID, IsAdmin, CustomerPw, CustomerPhone,
+                                        CustomerEmail, CustomerImage, IsResting from customers where CustomerNum = @customernum";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return null;
+            }
+        }
+
 
         public DataTable GetEveryData()   //인자 없이 데이터 조회 
         {
@@ -366,8 +390,10 @@ namespace WindowsFormsAppPersonalProject
                                         CustomerID = @id, 
                                         CustomerPw = @pw, 
                                         CustomerPhone = @phone,
-                                        CustomerEmail = @customeremail
-                                        where CustomerNum = @customernum" ;
+                                        CustomerEmail = @customeremail,
+                                        CustomerImage = @customerimage,
+                                        IsResting = 0
+                                        where CustomerNum = @customernum";
                 MySqlCommand updateCmd = new MySqlCommand(sql, conn);
                 updateCmd.Transaction = trans;
 
@@ -391,6 +417,10 @@ namespace WindowsFormsAppPersonalProject
 
                 updateCmd.Parameters.Add("@customeremail", MySqlDbType.VarChar);
                 updateCmd.Parameters["@customeremail"].Value = cus.CustomerEmail;
+
+
+                updateCmd.Parameters.Add("@customerimage", MySqlDbType.VarChar);
+                updateCmd.Parameters["@customerimage"].Value = cus.CustomerImage;
 
                 updateCmd.ExecuteNonQuery();
                 trans.Commit();

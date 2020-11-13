@@ -33,10 +33,10 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.lblAlert = new System.Windows.Forms.Label();
             this.txtInputAcc = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.lblOutAcc = new System.Windows.Forms.Label();
             this.cbxOutAcc = new System.Windows.Forms.ComboBox();
             this.txtOutPwd = new System.Windows.Forms.TextBox();
@@ -120,18 +120,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "이체";
             // 
-            // btnSelect
-            // 
-            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSelect.Location = new System.Drawing.Point(410, 8);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(130, 55);
-            this.btnSelect.TabIndex = 18;
-            this.btnSelect.Text = "이체 내역 조회";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
             // lblAlert
             // 
             this.lblAlert.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -169,6 +157,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "출금 계좌 정보";
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSelect.Location = new System.Drawing.Point(410, 8);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(130, 55);
+            this.btnSelect.TabIndex = 18;
+            this.btnSelect.Text = "이체 내역 조회";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // lblOutAcc
             // 
             this.lblOutAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -188,6 +188,7 @@
             this.cbxOutAcc.Size = new System.Drawing.Size(156, 20);
             this.cbxOutAcc.TabIndex = 4;
             this.cbxOutAcc.SelectedValueChanged += new System.EventHandler(this.cbxOutAcc_SelectedValueChanged);
+            this.cbxOutAcc.Enter += new System.EventHandler(this.cbxOutAcc_Enter);
             // 
             // txtOutPwd
             // 

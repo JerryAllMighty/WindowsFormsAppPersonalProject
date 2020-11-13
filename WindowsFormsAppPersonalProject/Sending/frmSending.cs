@@ -108,16 +108,6 @@ namespace WindowsFormsAppPersonalProject
                     }
                 }
             }
-            else 
-            {
-                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
-                    frm.Show();
-                    frm.Activate();
-                }
-            }
-            
         }
 
         private void cbxOutAcc_SelectedValueChanged(object sender, EventArgs e)     //출금계좌가 선택이 될 때 현재 금액에 금액 바인딩해주기
@@ -205,5 +195,19 @@ namespace WindowsFormsAppPersonalProject
             }
 
         }       //이체내역 조회
+
+        private void cbxOutAcc_Enter(object sender, EventArgs e)        //출금 계좌에 입력이 들어왔을 때, 일반 계좌가 없을 시
+        {
+            if (dt == null)
+            {
+                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
+                    //this.Hide();
+                    frm.Show();
+                    frm.Activate();
+                }
+            }
+        }
     }
 }

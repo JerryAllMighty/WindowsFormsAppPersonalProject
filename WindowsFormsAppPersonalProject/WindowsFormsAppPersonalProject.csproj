@@ -101,6 +101,12 @@
     <Compile Include="frmLoanManagement.Designer.cs">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListOfCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfCustomers.Designer.cs">
+      <DependentUpon>ListOfCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loan\frmApplyingForLoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanManagement.resx">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfCustomers.resx">
+      <DependentUpon>ListOfCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loan\frmApplyingForLoan.resx">
       <DependentUpon>frmApplyingForLoan.cs</DependentUpon>

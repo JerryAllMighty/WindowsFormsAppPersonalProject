@@ -34,6 +34,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.btnSEarch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -47,11 +48,12 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.MultiColumn = true;
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(263, 319);
+            this.listBox1.Size = new System.Drawing.Size(263, 256);
             this.listBox1.TabIndex = 0;
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
@@ -62,10 +64,12 @@
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSEarch);
             this.splitContainer1.Panel1.Controls.Add(this.listBox1);
             // 
             // splitContainer1.Panel2
@@ -73,7 +77,7 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.DoubleClick += new System.EventHandler(this.splitContainer1_Panel2_DoubleClick);
-            this.splitContainer1.Size = new System.Drawing.Size(982, 450);
+            this.splitContainer1.Size = new System.Drawing.Size(859, 360);
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
@@ -85,6 +89,7 @@
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -96,8 +101,9 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.textBox1);
             this.splitContainer2.Panel2.Controls.Add(this.btnSend);
-            this.splitContainer2.Size = new System.Drawing.Size(711, 448);
-            this.splitContainer2.SplitterDistance = 314;
+            this.splitContainer2.Size = new System.Drawing.Size(588, 358);
+            this.splitContainer2.SplitterDistance = 225;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 1;
             this.splitContainer2.TabStop = false;
             // 
@@ -105,34 +111,50 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.textBox1.Location = new System.Drawing.Point(69, 1);
+            this.textBox1.Location = new System.Drawing.Point(43, 14);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(426, 116);
+            this.textBox1.Size = new System.Drawing.Size(373, 94);
             this.textBox1.TabIndex = 0;
             // 
             // btnSend
             // 
             this.btnSend.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSend.Location = new System.Drawing.Point(568, 0);
+            this.btnSend.Location = new System.Drawing.Point(462, 0);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(139, 126);
+            this.btnSend.Size = new System.Drawing.Size(122, 126);
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "전송";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnSEarch
+            // 
+            this.btnSEarch.Location = new System.Drawing.Point(40, 286);
+            this.btnSEarch.Name = "btnSEarch";
+            this.btnSEarch.Size = new System.Drawing.Size(172, 40);
+            this.btnSEarch.TabIndex = 1;
+            this.btnSEarch.Text = "고객 검색";
+            this.btnSEarch.UseVisualStyleBackColor = true;
+            this.btnSEarch.Click += new System.EventHandler(this.btnSEarch_Click);
             // 
             // frmJerryTalk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 450);
+            this.ClientSize = new System.Drawing.Size(859, 360);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmJerryTalk";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "제리톡";
+            
             this.Load += new System.EventHandler(this.frmMessageBox_Load);
+            this.Enter += new System.EventHandler(this.frmJerryTalk_Enter);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -151,5 +173,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button btnSEarch;
     }
 }

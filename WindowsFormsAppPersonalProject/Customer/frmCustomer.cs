@@ -75,10 +75,11 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage");
+            CommonUtil.AddGridTextColumn(dgvMember, "휴면계좌여부", "IsResting", 150);
 
             //트리뷰 바인딩할 때 데이터 소스 주고 나서 트리뷰1.익스팬드하즈아
             CustomerDB db = new CustomerDB();
-             DataTable dt = db.GetEveryData(CustomerInfo.CustomerID, CustomerInfo.CustomerPw);
+             DataTable dt = db.GetEveryData2(CustomerNum);
             for (int i = 0; i < dt.Columns.Count; i++)
             {
                 TreeNode node = new TreeNode();
@@ -111,9 +112,9 @@ namespace WindowsFormsAppPersonalProject
         {
             CustomerDB db = new CustomerDB();
            
-            if (db.GetEveryData(CustomerInfo.CustomerID, CustomerInfo.CustomerPw) != null)
+            if (db.GetEveryData2(CustomerNum) != null)
             {
-                dgvMember.DataSource = db.GetEveryData(CustomerInfo.CustomerID, CustomerInfo.CustomerPw);
+                dgvMember.DataSource = db.GetEveryData2(CustomerNum);
             }
             else
             {
