@@ -90,7 +90,7 @@ namespace WindowsFormsAppPersonalProject
         #region 회원용메뉴
         private void 계좌ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountView a1 = new AccountView(customerInfo);
+            frmAccountView a1 = new frmAccountView(customerInfo);
             a1.MdiParent = this;
             a1.Show();
             a1.Activate();

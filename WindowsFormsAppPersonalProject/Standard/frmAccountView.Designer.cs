@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class AccountView
+    partial class frmAccountView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccountView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -182,6 +182,7 @@
             this.MinimizeBox = false;
             this.Name = "AccountView";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AccountView";
             this.Load += new System.EventHandler(this.AccountView_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

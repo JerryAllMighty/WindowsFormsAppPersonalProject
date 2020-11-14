@@ -155,5 +155,13 @@ namespace WindowsFormsAppPersonalProject
                 txtEmail.Text = "";
             }
         }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
     }
 }

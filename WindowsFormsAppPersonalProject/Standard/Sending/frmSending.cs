@@ -209,5 +209,29 @@ namespace WindowsFormsAppPersonalProject
                 }
             }
         }
+
+        private void txtInputAcc_KeyPress(object sender, KeyPressEventArgs e)       //입금 계좌 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //출금 계좌 비밀번호 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtAmountOfSending_KeyPress(object sender, KeyPressEventArgs e)        //이체 금액도 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
     }
 }

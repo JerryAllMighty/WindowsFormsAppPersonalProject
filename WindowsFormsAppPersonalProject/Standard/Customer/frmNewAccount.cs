@@ -76,10 +76,21 @@ namespace WindowsFormsAppPersonalProject
         private void btnNewAccount_Click(object sender, EventArgs e)        //계좌 생성 버튼 클릭
         {
             //출금 계좌와 신규 계좌 비밀번호들이 4자리가 아닐 때
-            if (txtOutPwd.TextLength != 4 || txtCheckNewPwd.Text.Length != 4)
+            if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
             {
-                MessageBox.Show("계좌의 비밀번호들은 4자리여야만 합니다.");
-                return;
+                if (txtNewPwd.Text.Length != 4)
+                {
+                    MessageBox.Show("계좌의 비밀번호들은 4자리여야만 합니다.");
+                    return;
+                }
+            }
+            else
+            {
+                if (txtOutPwd.TextLength != 4 || txtNewPwd.Text.Length != 4)
+                {
+                    MessageBox.Show("계좌의 비밀번호들은 4자리여야만 합니다.");
+                    return;
+                }
             }
             if (cbxKindOfAccount.SelectedItem.ToString().Length < 1)        //계좌 종류 반드시 선택하게하기
             {
@@ -105,8 +116,37 @@ namespace WindowsFormsAppPersonalProject
             }
             else if (cbxKindOfAccount.SelectedItem.ToString() == "예금 계좌")
             {
-                if (!CheckOutAccount())      //출금 계좌와 비번이 맞는지 확인하는 함수 호출
+
+                //가입기간, 출금계좌, 비번, 예치금 입력여부 체크
+                if (cbxduration.Text.Length < 1 || txtOutAccount.Text.Length < 1 || txtOutPwd.Text.Length < 1 || txtAmountOfDeposit.Text.Length < 1)
+                {
+                    MessageBox.Show(@"예금 계좌의 경우 가입 기간, 출금계좌, 
+                                     출금계좌의 비밀번호,예치금은 필수 입력입니다.");
                     return;
+                }
+
+                //출금 계좌와 비번이 맞는지 확인하는 함수 호출
+                if (!CheckOutAccount())     
+                {
+                    return;
+                }
+               
+                //현재 일반 계좌에서 해당 에치금을 보낼 수 있는지 부터 체크
+                NormalAccountDB n = new NormalAccountDB();
+                DataTable dt = n.GetCurrentMoney(txtOutAccount.Text);
+                string currentMoney = dt.Rows[0][0].ToString(); //현재 일반계좌 잔액
+                if (Convert.ToInt32(currentMoney) < Convert.ToInt32(txtAmountOfDeposit.Text))    //예치금이 잔액보다 크면 걸러내기
+                {
+                    MessageBox.Show("출금 계좌의 잔액보다 많은 금액은 예금할 수 없습니다.");
+                    return;
+                }
+                if (!n.UpdateSender(txtAmountOfDeposit.Text, txtOutAccount.Text))
+                {
+                    MessageBox.Show("실행 도중 오류가 발생하였습니다.");
+                }
+               
+
+                //내가 내 계좌내에 보낸 것도 이체 내역에 저장할까?? 고민중
                 //예금 계좌에 연결
                 DepositAccountDB db = new DepositAccountDB();
                 if (!db.Insert(depositInfo))
@@ -118,6 +158,15 @@ namespace WindowsFormsAppPersonalProject
             }
             else if (cbxKindOfAccount.SelectedItem.ToString() == "적금 계좌")
             {
+                //가입기간, 매회 납입금액, 출금 계좌, 비번 체크
+                if (cbxduration.Text.Length < 1 || txtpayPerMonth.Text.Length < 1 ||
+                    txtOutAccount.Text.Length < 1 || txtOutPwd.Text.Length < 1)
+                {
+                    MessageBox.Show(@"적금 계좌의 경우 가입 기간, 매회 납입 금액, 출금계좌, 
+                                     출금계좌의 비밀번호는 필수 입력입니다.");
+                    return;
+                }
+                
                 if (!CheckOutAccount())      //출금 계좌와 비번이 맞는지 확인하는 함수 호출
                     return;
                 //적금 계좌에 연결
@@ -259,6 +308,54 @@ namespace WindowsFormsAppPersonalProject
             {
                 MessageBox.Show("비밀번호는 반드시 4자리입니다.");
                 txtOutPwd.Text = "";
+            }
+        }
+
+        private void txtpayPerMonth_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtNewPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtCheckNewPwd_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtAmountOfDeposit_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtOutAccount_KeyPress(object sender, KeyPressEventArgs e)     //여기 폼만 예외로 출금 계좌도 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
             }
         }
     }

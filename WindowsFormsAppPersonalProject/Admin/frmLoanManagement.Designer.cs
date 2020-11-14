@@ -43,21 +43,23 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(12, 71);
+            this.chart1.Location = new System.Drawing.Point(14, 89);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(776, 367);
+            this.chart1.Size = new System.Drawing.Size(887, 459);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // btnDay
             // 
-            this.btnDay.Location = new System.Drawing.Point(12, 12);
+            this.btnDay.Location = new System.Drawing.Point(14, 15);
+            this.btnDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDay.Name = "btnDay";
-            this.btnDay.Size = new System.Drawing.Size(148, 42);
+            this.btnDay.Size = new System.Drawing.Size(189, 52);
             this.btnDay.TabIndex = 1;
             this.btnDay.Text = "이번 달 많이 빌린 일자";
             this.btnDay.UseVisualStyleBackColor = true;
@@ -65,9 +67,10 @@
             // 
             // btnAvg
             // 
-            this.btnAvg.Location = new System.Drawing.Point(183, 12);
+            this.btnAvg.Location = new System.Drawing.Point(218, 15);
+            this.btnAvg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAvg.Name = "btnAvg";
-            this.btnAvg.Size = new System.Drawing.Size(148, 42);
+            this.btnAvg.Size = new System.Drawing.Size(169, 52);
             this.btnAvg.TabIndex = 2;
             this.btnAvg.Text = "평균 대출액";
             this.btnAvg.UseVisualStyleBackColor = true;
@@ -75,12 +78,13 @@
             // 
             // frmLoanManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 562);
             this.Controls.Add(this.btnAvg);
             this.Controls.Add(this.btnDay);
             this.Controls.Add(this.chart1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmLoanManagement";
             this.Text = "frmLoanManagement";
             this.Load += new System.EventHandler(this.frmLoanManagement_Load);

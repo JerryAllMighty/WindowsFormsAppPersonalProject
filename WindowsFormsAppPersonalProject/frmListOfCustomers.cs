@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class ListOfCustomers : Form
+    public partial class frmListOfCustomers : Form
     {
         string CustomerNum;
         string CustomerName;
@@ -28,7 +28,7 @@ namespace WindowsFormsAppPersonalProject
         string ReceiverName;
         string ReceiverInfO;
 
-        public ListOfCustomers(Customer cusinfo, frmJerryTalk temp)
+        public frmListOfCustomers(Customer cusinfo, frmJerryTalk temp)
         {
             InitializeComponent();
             CustomerNum = cusinfo.CustomerNum;

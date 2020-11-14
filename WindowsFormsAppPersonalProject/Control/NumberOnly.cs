@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class UserControlOutAcc : UserControl
+    public partial class NumberOnly : UserControl
     {
-        public int MyProperty { get; set; }
-
-        public UserControlOutAcc()
+        public NumberOnly()
         {
             InitializeComponent();
-        }
-
-        private void UserControlOutAcc_Load(object sender, EventArgs e)
-        {
-
-           // comboBox1.Text
         }
     }
 }

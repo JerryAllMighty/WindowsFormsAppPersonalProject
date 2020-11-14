@@ -171,6 +171,12 @@ namespace WindowsFormsAppPersonalProject
                 MessageBox.Show("*표시는 필수 입력항목입니다. 반드시 입력해주세요.");
                 return;
             }
+            //계좌 비밀번호가 4자리가 아닐 시 걸러내기
+            if (txtOutPwd.Text.Length != 4)
+            {
+                MessageBox.Show("계좌 비밀번호는 반드시 4자리여야합니다.");
+            }
+
             //출금계좌와 비밀번호가 일치하는지 확인하기
             NormalAccountDB db = new NormalAccountDB();       
             if (db.GetEveryData(cbxOutAccount.SelectedItem.ToString(), txtOutPwd.Text) == null)
@@ -265,5 +271,48 @@ namespace WindowsFormsAppPersonalProject
         {
            RegularPayBack = txtRegularWhen.Text;
         }
+
+
+        #region 유효성체크
+        private void txtAmountOfLoan_KeyPress(object sender, KeyPressEventArgs e) //대출 신청 금액에 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtWhenExpire_KeyPress(object sender, KeyPressEventArgs e) //만기상환금액에 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtPeriod_KeyPress(object sender, KeyPressEventArgs e)     //대출기간 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //출금계좌 비밀번호 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtRegularWhen_KeyPress(object sender, KeyPressEventArgs e)        //정기 상환 날짜도 숫자만 입력받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+        #endregion
     }
 }

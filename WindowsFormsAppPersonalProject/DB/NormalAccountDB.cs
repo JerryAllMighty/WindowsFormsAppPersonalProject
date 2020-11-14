@@ -69,6 +69,32 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
+        public DataTable GetCurrentMoney(string naccountnum)       // 일반 계좌의 현재 잔액을 확인하는 함수
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select CurrentMoney
+                                        from normalaccount                              
+                                        where NAccountNum = @naccountnum";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@naccountnum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@naccountnum"].Value = Convert.ToInt32(naccountnum);
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public DataTable GetNormalAccountData(string naccountnum)       // 계좌 이체시 입금 계좌 정보가 존재하는지 확인하는 함수
         {
@@ -238,6 +264,8 @@ namespace WindowsFormsAppPersonalProject
                 return false;
             }
         }
+
+
 
         public void Dispose()
         {

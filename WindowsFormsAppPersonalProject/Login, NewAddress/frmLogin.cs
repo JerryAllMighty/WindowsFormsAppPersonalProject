@@ -47,6 +47,7 @@ namespace WindowsFormsAppPersonalProject
         private void Login_Load(object sender, EventArgs e)
         {
             progressBar1.Visible = false;
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -173,6 +174,12 @@ namespace WindowsFormsAppPersonalProject
             
         }
 
-       
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (txtPwd.PasswordChar == '*')
+            { txtPwd.PasswordChar = default; }
+            else
+            { txtPwd.PasswordChar = '*'; }
+        }
     }
 }

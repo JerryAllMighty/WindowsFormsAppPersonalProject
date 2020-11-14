@@ -29,7 +29,7 @@ namespace WindowsFormsAppPersonalProject
 
         public static List<string> HasReadOrNot = new List<string>();
 
-        ListOfCustomers list;
+        frmListOfCustomers list;
         DataTable dt;
         
         public frmJerryTalk()
@@ -195,7 +195,7 @@ namespace WindowsFormsAppPersonalProject
             }
             else
             {
-                list = new ListOfCustomers(customerInfo, this);
+                list = new frmListOfCustomers(customerInfo, this);
                 list.ShowDialog();
                 if (ReceiverInfO != null)
                 {

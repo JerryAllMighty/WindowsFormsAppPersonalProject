@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppPersonalProject
 {
-    public partial class AccountView : Form
+    public partial class frmAccountView : Form
     {
         string CustomerNum;
         string CustomerName;
@@ -22,12 +22,12 @@ namespace WindowsFormsAppPersonalProject
         string CustomerEmail;
         string CustomerImage;
 
-        public AccountView()
+        public frmAccountView()
         {
             InitializeComponent();
         }
 
-        public AccountView(Customer customerInfo)
+        public frmAccountView(Customer customerInfo)
         {
             InitializeComponent();
             CustomerNum = customerInfo.CustomerNum;

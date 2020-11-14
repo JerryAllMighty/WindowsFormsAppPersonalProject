@@ -36,6 +36,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnSearchPw = new System.Windows.Forms.Button();
+            this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             this.SuspendLayout();
             // 
             // lblName
@@ -44,12 +45,12 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(128, 39);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "이름";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblName.Text = "*이름";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.Info;
+            this.txtName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtName.Location = new System.Drawing.Point(200, 142);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
@@ -58,7 +59,7 @@
             // 
             // txtID
             // 
-            this.txtID.BackColor = System.Drawing.SystemColors.Info;
+            this.txtID.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtID.Location = new System.Drawing.Point(200, 41);
             this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
@@ -71,12 +72,12 @@
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(128, 39);
             this.lblID.TabIndex = 2;
-            this.lblID.Text = "아이디";
-            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblID.Text = "*아이디";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtEmail.Location = new System.Drawing.Point(200, 243);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
@@ -89,8 +90,8 @@
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(128, 39);
             this.lblEmail.TabIndex = 4;
-            this.lblEmail.Text = "이메일";
-            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEmail.Text = "*이메일";
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSearchPw
             // 
@@ -102,11 +103,20 @@
             this.btnSearchPw.UseVisualStyleBackColor = true;
             this.btnSearchPw.Click += new System.EventHandler(this.btnSearchPw_Click);
             // 
+            // checkControl11
+            // 
+            this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkControl11.Location = new System.Drawing.Point(12, 339);
+            this.checkControl11.Name = "checkControl11";
+            this.checkControl11.Size = new System.Drawing.Size(216, 20);
+            this.checkControl11.TabIndex = 5;
+            // 
             // frmSeacrchPw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 371);
+            this.Controls.Add(this.checkControl11);
             this.Controls.Add(this.btnSearchPw);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
@@ -132,5 +142,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnSearchPw;
+        private CheckControl1 checkControl11;
     }
 }

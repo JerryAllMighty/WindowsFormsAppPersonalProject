@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppPersonalProject
 {
-    partial class ListOfCustomers
+    partial class frmListOfCustomers
     {
         /// <summary>
         /// Required designer variable.

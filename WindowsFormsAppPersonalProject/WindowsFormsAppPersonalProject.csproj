@@ -55,38 +55,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountView.cs">
+    <Compile Include="Control\NumberOnly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\NumberOnly.Designer.cs">
+      <DependentUpon>NumberOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\frmAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountView.Designer.cs">
-      <DependentUpon>AccountView.cs</DependentUpon>
+    <Compile Include="Standard\frmAccountView.Designer.cs">
+      <DependentUpon>frmAccountView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerManagement\frmCustomerManagement.cs">
+    <Compile Include="Control\CheckControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\CheckControl1.Designer.cs">
+      <DependentUpon>CheckControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CustomerManagement\frmCustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerManagement\frmCustomerManagement.Designer.cs">
+    <Compile Include="Admin\CustomerManagement\frmCustomerManagement.Designer.cs">
       <DependentUpon>frmCustomerManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\frmUpdate.cs">
+    <Compile Include="Standard\Customer\frmUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\frmUpdate.Designer.cs">
+    <Compile Include="Standard\Customer\frmUpdate.Designer.cs">
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\DepositAccountDB.cs" />
     <Compile Include="DB\LoanDB.cs" />
     <Compile Include="DB\NormalAccountDB.cs" />
     <Compile Include="DB\SavingDB.cs" />
-    <Compile Include="CustomerManagement\frmSendingMessage.cs">
+    <Compile Include="Admin\CustomerManagement\frmSendingMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerManagement\frmSendingMessage.Designer.cs">
+    <Compile Include="Admin\CustomerManagement\frmSendingMessage.Designer.cs">
       <DependentUpon>frmSendingMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAccountmanagement.cs">
+    <Compile Include="Admin\frmAccountmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccountmanagement.Designer.cs">
+    <Compile Include="Admin\frmAccountmanagement.Designer.cs">
       <DependentUpon>frmAccountmanagement.cs</DependentUpon>
     </Compile>
     <Compile Include="frmJerryTalk.cs">
@@ -95,40 +107,40 @@
     <Compile Include="frmJerryTalk.Designer.cs">
       <DependentUpon>frmJerryTalk.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoanManagement.cs">
+    <Compile Include="Admin\frmLoanManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLoanManagement.Designer.cs">
+    <Compile Include="Admin\frmLoanManagement.Designer.cs">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListOfCustomers.cs">
+    <Compile Include="frmListOfCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListOfCustomers.Designer.cs">
-      <DependentUpon>ListOfCustomers.cs</DependentUpon>
+    <Compile Include="frmListOfCustomers.Designer.cs">
+      <DependentUpon>frmListOfCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan\frmApplyingForLoan.cs">
+    <Compile Include="Standard\Loan\frmApplyingForLoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan\frmApplyingForLoan.Designer.cs">
+    <Compile Include="Standard\Loan\frmApplyingForLoan.Designer.cs">
       <DependentUpon>frmApplyingForLoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan\frmApplyingForLoan2.cs">
+    <Compile Include="Standard\Loan\frmApplyingForLoan2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan\frmApplyingForLoan2.Designer.cs">
+    <Compile Include="Standard\Loan\frmApplyingForLoan2.Designer.cs">
       <DependentUpon>frmApplyingForLoan2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan\frmLoanPayBack2.cs">
+    <Compile Include="Standard\Loan\frmLoanPayBack2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan\frmLoanPayBack2.Designer.cs">
+    <Compile Include="Standard\Loan\frmLoanPayBack2.Designer.cs">
       <DependentUpon>frmLoanPayBack2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan\frmLoanPayBack.cs">
+    <Compile Include="Standard\Loan\frmLoanPayBack.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan\frmLoanPayBack.Designer.cs">
+    <Compile Include="Standard\Loan\frmLoanPayBack.Designer.cs">
       <DependentUpon>frmLoanPayBack.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\MessageDB.cs" />
@@ -139,23 +151,17 @@
       <DependentUpon>frmSeacrchPw.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\SendingDB.cs" />
-    <Compile Include="Sending\frmSending2.cs">
+    <Compile Include="Standard\Sending\frmSending2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sending\frmSending2.Designer.cs">
+    <Compile Include="Standard\Sending\frmSending2.Designer.cs">
       <DependentUpon>frmSending2.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlOutAcc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlOutAcc.Designer.cs">
-      <DependentUpon>UserControlOutAcc.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\CommonUtil.cs" />
-    <Compile Include="Customer\frmCustomer.cs">
+    <Compile Include="Standard\Customer\frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\frmCustomer.Designer.cs">
+    <Compile Include="Standard\Customer\frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\CustomerDB.cs" />
@@ -171,24 +177,24 @@
     <Compile Include="Login, NewAddress\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan\frmLoan.cs">
+    <Compile Include="Standard\Loan\frmLoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loan\frmLoan.Designer.cs">
+    <Compile Include="Standard\Loan\frmLoan.Designer.cs">
       <DependentUpon>frmLoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\frmNewAccount.cs">
+    <Compile Include="Standard\Customer\frmNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\frmNewAccount.Designer.cs">
+    <Compile Include="Standard\Customer\frmNewAccount.Designer.cs">
       <DependentUpon>frmNewAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sending\frmSending.cs">
+    <Compile Include="Standard\Sending\frmSending.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sending\frmSending.Designer.cs">
+    <Compile Include="Standard\Sending\frmSending.Designer.cs">
       <DependentUpon>frmSending.cs</DependentUpon>
     </Compile>
     <Compile Include="Login, NewAddress\frmWhenCreate.cs">
@@ -197,55 +203,61 @@
     <Compile Include="Login, NewAddress\frmWhenCreate.Designer.cs">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountView.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
+    <EmbeddedResource Include="Control\NumberOnly.resx">
+      <DependentUpon>NumberOnly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerManagement\frmCustomerManagement.resx">
+    <EmbeddedResource Include="Standard\frmAccountView.resx">
+      <DependentUpon>frmAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\CheckControl1.resx">
+      <DependentUpon>CheckControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\CustomerManagement\frmCustomerManagement.resx">
       <DependentUpon>frmCustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\frmCustomer.resx">
+    <EmbeddedResource Include="Standard\Customer\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerManagement\frmSendingMessage.resx">
+    <EmbeddedResource Include="Admin\CustomerManagement\frmSendingMessage.resx">
       <DependentUpon>frmSendingMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAccountmanagement.resx">
+    <EmbeddedResource Include="Admin\frmAccountmanagement.resx">
       <DependentUpon>frmAccountmanagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmJerryTalk.resx">
       <DependentUpon>frmJerryTalk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLoanManagement.resx">
+    <EmbeddedResource Include="Admin\frmLoanManagement.resx">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListOfCustomers.resx">
-      <DependentUpon>ListOfCustomers.cs</DependentUpon>
+    <EmbeddedResource Include="frmListOfCustomers.resx">
+      <DependentUpon>frmListOfCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan\frmApplyingForLoan.resx">
+    <EmbeddedResource Include="Standard\Loan\frmApplyingForLoan.resx">
       <DependentUpon>frmApplyingForLoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan\frmApplyingForLoan2.resx">
+    <EmbeddedResource Include="Standard\Loan\frmApplyingForLoan2.resx">
       <DependentUpon>frmApplyingForLoan2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan\frmLoanPayBack2.resx">
+    <EmbeddedResource Include="Standard\Loan\frmLoanPayBack2.resx">
       <DependentUpon>frmLoanPayBack2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan\frmLoanPayBack.resx">
+    <EmbeddedResource Include="Standard\Loan\frmLoanPayBack.resx">
       <DependentUpon>frmLoanPayBack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\frmUpdate.resx">
+    <EmbeddedResource Include="Standard\Customer\frmUpdate.resx">
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login, NewAddress\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loan\frmLoan.resx">
+    <EmbeddedResource Include="Standard\Loan\frmLoan.resx">
       <DependentUpon>frmLoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\frmNewAccount.resx">
+    <EmbeddedResource Include="Standard\Customer\frmNewAccount.resx">
       <DependentUpon>frmNewAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -260,17 +272,14 @@
     <EmbeddedResource Include="Login, NewAddress\frmSeacrchPw.resx">
       <DependentUpon>frmSeacrchPw.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sending\frmSending.resx">
+    <EmbeddedResource Include="Standard\Sending\frmSending.resx">
       <DependentUpon>frmSending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login, NewAddress\frmWhenCreate.resx">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sending\frmSending2.resx">
+    <EmbeddedResource Include="Standard\Sending\frmSending2.resx">
       <DependentUpon>frmSending2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlOutAcc.resx">
-      <DependentUpon>UserControlOutAcc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -285,5 +294,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

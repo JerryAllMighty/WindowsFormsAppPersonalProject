@@ -137,32 +137,32 @@ namespace WindowsFormsAppPersonalProject
 
         private void btn100_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000000).ToString();
         }
 
         private void btn50_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 500000).ToString();
         }
 
         private void btn10_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000000).ToString();
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 10000).ToString();
         }
 
         private void btn1000_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000).ToString();
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-
+            txtPayBack.Text = (Convert.ToInt32(0).ToString());
         }
 
         private void cbxOutAccount_Enter(object sender, EventArgs e)
@@ -182,6 +182,22 @@ namespace WindowsFormsAppPersonalProject
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtOutAccPwd_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력 받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        private void txtPayBack_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력 받게 체크
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
         }
     }
 }
