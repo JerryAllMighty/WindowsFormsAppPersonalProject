@@ -77,6 +77,138 @@ namespace WindowsFormsAppPersonalProject
                 menuStrip3.Visible = true;
 
 
+            //적금이나 예금 만기 한 달 전일 떄 안내 메세지가 팝업 되게 하기
+            //이 때 선택이 예 이면 각 계좌에서 일반 계좌로 돈을 쏘게 하고, 아니요이면 연장 시키기
+
+
+            //예금 만기 한달 전일 때
+            DepositAccountDB dp = new DepositAccountDB();
+             DataTable dt = dp.GetExpireData(CustomerNum);
+            
+
+            bool wannaExtend = false;
+            if (dt != null)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    //만기 한달 전인 예금을 현재 날짜와 비교하여 알려주기
+                    if (dt.Rows[i][1].ToString().Replace(" ", "") == 
+                        DateTime.Now.AddMonths(+1).ToString("yyyyMM").Replace(" ", ""))
+                    {
+                        if (MessageBox.Show("만기 예정인 예금이 있습니다. 연장하시겠습니까? \n 연장하지 않을 시 일반계좌로 금액이 반환됩니다.",
+                            "만기 안내", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            //연장하려하는 예금 폼 띄우기
+                            wannaExtend = true;
+                            frmDepositExtension frm = new frmDepositExtension(dt, customerInfo);
+                            frm.Show();
+                            frm.Activate();
+                        }
+                        else    //연장을 원하지 않을 때 
+                        {
+                            //날짜와 응답을 비교해서 일반계좌로 돈을 보내기
+                            wannaExtend = false;
+                            MessageBox.Show("만기 날짜가 되면 귀하의 일반 계좌로 만기 예금이 입금됩니다.");
+                        }
+                    }
+
+                    //만기날짜가 되었을 때, 예금을 응답 여부에 따라서 일반계좌로 송금해주기
+                    if (dt.Rows[i][2].ToString().Replace(" ", "") ==
+                        DateTime.Now.ToString("yyyyMMdd").Replace(" ", ""))
+                    {
+                        if (wannaExtend == false)//응답이 예금을 연장하지 않을 때
+                        {
+                            //디비 열어서 예금에서 일반으로 송금
+                            MessageBox.Show("예금이 만기가 되어 귀하의 일반 계좌로 만기 예금이 입금됩니다.");
+                            NormalAccountDB n1 = new NormalAccountDB();
+                            if (!n1.UpdateReceiver(dt.Rows[i][10].ToString(), dt.Rows[i][7].ToString()))
+                            {
+                                MessageBox.Show("일반 계좌로 만기 예금을 송금하는데 실패하였습니다.");
+                            }
+
+                            //돈을 송금하고 해당 예금은 삭제합니다.
+                            DepositAccountDB db = new DepositAccountDB();
+                            if (!db.Delete(CustomerNum, dt.Rows[i][0].ToString()))
+                            {
+                                MessageBox.Show("만기 예금을 삭제하는데 실패하였습니다.");
+                            }
+                        }
+                        else //응답이 예금을 연장할 때
+                        { 
+                        //그냥 넘어감~ 연장했으니 알림 없이 진행
+                        }
+                    }
+
+                }
+                
+            }
+
+
+            //만료 한달 전 안내
+            SavingDB db2 = new SavingDB();
+            DataTable dt2 = db2.GetExpireData(CustomerNum);
+            
+
+            bool wannaExtendS = false;
+            if (dt2 != null)
+            {
+                for (int i = 0; i < dt2.Rows.Count; i++)
+                {
+                    //만기 한달 전인 적금을 현재 날짜와 비교하여 알려주기
+                    if (dt2.Rows[i][1].ToString().Replace(" ", "") ==
+                        DateTime.Now.AddMonths(+1).ToString("yyyyMM").Replace(" ", ""))
+                    {
+                        if (MessageBox.Show("만기 예정인 적금이 있습니다. 연장하시겠습니까? \n 연장하지 않을 시 일반계좌로 금액이 반환됩니다.",
+                            "만기 안내", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            //연장하려하는 적금 폼 띄우기
+                            wannaExtendS = true;
+                            frmSavingExtension frm = new frmSavingExtension(dt2, customerInfo);
+                            frm.Show();
+                            frm.Activate();
+                        }
+                        else    //연장을 원하지 않을 때 
+                        {
+                            //날짜와 응답을 비교해서 일반계좌로 돈을 보내기
+                            wannaExtendS = false;
+                            MessageBox.Show("만기 날짜가 되면 귀하의 일반 계좌로 만기 적금이 입금됩니다.");
+                        }
+                    }
+
+                    //만기날짜가 되었을 때, 적금을 응답 여부에 따라서 일반계좌로 송금해주기
+                    if (dt2.Rows[i][2].ToString().Replace(" ", "") ==
+                        DateTime.Now.ToString("yyyyMMdd").Replace(" ", ""))
+                    {
+                        if (wannaExtendS == false)//응답이 예금을 연장하지 않을 때
+                        {
+                            //디비 열어서 예금에서 일반으로 송금
+                            MessageBox.Show("적금이 만기가 되어 귀하의 일반 계좌로 만기 적금이 입금됩니다.");
+                            NormalAccountDB n1 = new NormalAccountDB();
+                            if (!n1.UpdateReceiver(dt2.Rows[i][9].ToString(), dt2.Rows[i][6].ToString()))
+                            {
+                                MessageBox.Show("일반 계좌로 만기 적금을 송금하는데 실패하였습니다.");
+                            }
+
+                            //돈을 송금하고 해당 예금은 삭제합니다.
+                            SavingDB db = new SavingDB();
+                            if (!db.Delete(CustomerNum, dt2.Rows[i][0].ToString()))
+                            {
+                                MessageBox.Show("만기 적금을 삭제하는데 실패하였습니다.");
+                            }
+                        }
+                        else //응답이 예금을 연장할 때
+                        {
+                            //그냥 넘어감~ 연장했으니 알림 없이 진행
+                        }
+                    }
+
+                }
+
+            }
+
+            //적금 기입날 이어서 송금할 것인지 묻는 문자 보내기
+            //만약 하루 내에 송금하지 않을 시 적금은 해지되어 일반 계좌로 보내지게 코딩
+
         }
 
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)

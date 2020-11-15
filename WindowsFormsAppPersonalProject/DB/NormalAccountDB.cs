@@ -128,7 +128,7 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd
+                string sql = @"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd
                                         from normalaccount                              
                                         where NAccountNum = @accountid and Pwd = @accountpw";
 
@@ -159,11 +159,13 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd, CurrentMoney
+                string sql = @"select NAccountNum, DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd, CurrentMoney
                                         from normalaccount                              
-                                        where CustomerNum = '{customernum}'";
+                                        where CustomerNum = @customernum";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
                 da.Fill(dt);
 
                 return dt;

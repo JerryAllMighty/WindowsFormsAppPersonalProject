@@ -94,6 +94,7 @@ namespace WindowsFormsAppPersonalProject
             CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌 비밀번호", "OutAccountPwd");
             CommonUtil.AddGridTextColumn(dgvMember2, "비밀번호", "NewPwd");
             CommonUtil.AddGridTextColumn(dgvMember2, "현재 잔액", "CurrentMoney");
+            CommonUtil.AddGridTextColumn(dgvMember2, "가입 기간", "Duration");
 
             try
             {

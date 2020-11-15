@@ -34,6 +34,20 @@ namespace WindowsFormsAppPersonalProject
             NewPwd = newpwd;
         }
 
+        public Savings(string customernum, string customername, string kindofacc, string saccountnum, string paypermonth,
+            string outaccount, string outaccountpwd, string newpwd, string duration)
+        {
+            CustomerNum = customernum;
+            CustomerName = customername;
+            KindOfAcc = kindofacc;
+            SAccountNum = saccountnum;
+            PayPerMonth = paypermonth;
+            OutAccount = outaccount;
+            OutAccountPwd = outaccountpwd;
+            NewPwd = newpwd;
+            Duration = duration;
+        }
+
 
     }
 
@@ -52,8 +66,14 @@ namespace WindowsFormsAppPersonalProject
             try 
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select *  from savings  where CustomerNum = '{customernum}';";
+                string sql = @"select SAccountNum, DateCreated, CustomerNum,
+                                        CustomerName, KindOfAcc, Duration, PayPerMonth,
+                                            OutAccount, OutAccountPwd, NewPwd, CurrentMoney 
+                                from savings  where CustomerNum = @customernum";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
                 da.Fill(dt);
 
                 return dt;
@@ -63,6 +83,33 @@ namespace WindowsFormsAppPersonalProject
                 return null;
             }
         }
+
+        public DataTable GetExpireData(string customernum)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select SAccountNum,
+                        date_format(date_add(DateCreated, interval Duration month), '%Y %c') as expiremonth,
+						date_format(date_add(DateCreated, interval Duration month), '%Y %c %d') as expiredate,
+						CustomerNum, CustomerName, KindofAcc,
+                        OutAccount, OutAccountPwd, NewPwd, CurrentMoney, Duration
+                            from savings
+						    where CustomerNum = @customernum";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public bool Insert(Savings savinginfo)
         {
             MySqlTransaction trans = conn.BeginTransaction();
@@ -109,6 +156,91 @@ namespace WindowsFormsAppPersonalProject
             }
 
         }
+
+        public bool Update(Savings savinginfo)        //적금을 연장할 때 부르는 함수
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update savings
+                                  set 
+                                        OutAccount = @outaccount,
+                                        OutAccountPwd = @outpwd,
+                                        NewPwd = @newpd,
+                                        Duration = Duration + @duration
+                                 where SAccountNum = @saccoutnum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Transaction = trans;
+
+
+                cmd.Parameters.Add("@outaccount", MySqlDbType.VarChar);
+                cmd.Parameters["@outaccount"].Value = savinginfo.OutAccount;
+
+                cmd.Parameters.Add("@outpwd", MySqlDbType.VarChar);
+                cmd.Parameters["@outpwd"].Value = savinginfo.OutAccountPwd;
+
+                cmd.Parameters.Add("@newpd", MySqlDbType.VarChar);
+                cmd.Parameters["@newpd"].Value = savinginfo.NewPwd;
+
+                cmd.Parameters.Add("@duration", MySqlDbType.VarChar);
+                cmd.Parameters["@duration"].Value = savinginfo.Duration;
+
+                cmd.Parameters.Add("@saccoutnum", MySqlDbType.Int32);
+                cmd.Parameters["@saccoutnum"].Value = savinginfo.SAccountNum;
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    trans.Commit();
+                    return true;
+                }
+                else
+                {
+                    trans.Rollback();
+                    return false;
+                }
+
+
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+                return false;
+            }
+
+        }
+
+
+        public bool Delete(string customernum, string saccountnum)
+        {
+            try
+            {
+                string sql = @"delete from savings where CustomerNum = @customernum and SAccountNum = @saccountnum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+
+                cmd.Parameters.Add("@customernum", MySqlDbType.Int32);
+                cmd.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                cmd.Parameters.Add("@saccountnum", MySqlDbType.Int32);
+                cmd.Parameters["@saccountnum"].Value = Convert.ToInt32(saccountnum);
+
+
+
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
 
         public void Dispose()
         {

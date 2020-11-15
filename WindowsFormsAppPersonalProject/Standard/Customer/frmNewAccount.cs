@@ -54,7 +54,8 @@ namespace WindowsFormsAppPersonalProject
             get
             {
                 return new Savings(CustomerNum, CustomerName, cbxKindOfAccount.SelectedItem.ToString(),
-                                    cbxduration.SelectedItem.ToString(), txtpayPerMonth.Text, txtOutAccount.Text,
+                                     cbxduration.SelectedItem.ToString().Substring(0, cbxduration.SelectedItem.ToString().IndexOf('개')),
+                                     txtpayPerMonth.Text, txtOutAccount.Text,
                                     txtOutPwd.Text, txtNewPwd.Text);
             }
         }
@@ -64,7 +65,8 @@ namespace WindowsFormsAppPersonalProject
             get
             {
                 return new DepositAccount(CustomerNum,CustomerName, cbxKindOfAccount.SelectedItem.ToString(),
-                               txtAmountOfDeposit.Text, txtOutAccount.Text, txtOutPwd.Text, txtNewPwd.Text);
+                               txtAmountOfDeposit.Text, txtOutAccount.Text, txtOutPwd.Text, txtNewPwd.Text,
+                               cbxduration.SelectedItem.ToString().Substring(0, cbxduration.SelectedItem.ToString().IndexOf('개')));
             }
         }
 
@@ -214,8 +216,10 @@ namespace WindowsFormsAppPersonalProject
 
             //텍스트박스들 초기화
             txtpayPerMonth.Enabled = cbxduration.Enabled = txtOutAccount.Enabled = txtOutPwd.Enabled =
-                cbxduration.Enabled = txtNewPwd.Enabled = txtCheckNewPwd.Enabled = txtAmountOfDeposit.Enabled = true;       
+                cbxduration.Enabled = txtNewPwd.Enabled = txtCheckNewPwd.Enabled = txtAmountOfDeposit.Enabled = true;
 
+            //안내 문구 끄기
+            lblsavingNotice1.Visible = false;
 
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")        //다른 계좌 컨트롤들 못 쓰게 해주기
             {
@@ -237,6 +241,8 @@ namespace WindowsFormsAppPersonalProject
             }
             else if (cbxKindOfAccount.SelectedItem.ToString() == "적금 계좌")       //다른 계좌 컨트롤들 못 쓰게 해주기
             {
+                
+                lblsavingNotice1.Visible = true;        //안내 문구 켜기
                 lblAmountOfDeposit.Enabled = false;
                 txtAmountOfDeposit.Enabled = false;
             }

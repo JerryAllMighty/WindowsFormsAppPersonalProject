@@ -121,7 +121,7 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select
+                string sql = @"select
                                     (select sum(if(NAccountNum > 0, 1, 0)) from normalaccount ) as TotalNAccount,
                                     (select sum(if(SAccountNum > 0, 1, 0)) from  savings ) as TotalSAccount,
                                     (select sum(if(DAccountNum > 0, 1, 0))from depositaccount ) as TotalDAccount
@@ -142,12 +142,14 @@ namespace WindowsFormsAppPersonalProject
             try 
             {
                 DataTable dt = new DataTable();
-                string sql = $@"select CustomerNum, CustomerName, CustomerAddress, 
-                                    (select count(*) from normalaccount where CustomerNum = '{customernum}') as NAccountSoFar,
-                                    (select count(*) from  savings where CustomerNum = '{customernum}') as SAccountSoFar,
-                                    (select count(*) from depositaccount where CustomerNum = '{customernum}') as DAccountSoFar
-                                    from customers where CustomerNum = '{customernum}'";
+                string sql = @"select CustomerNum, CustomerName, CustomerAddress, 
+                                    (select count(*) from normalaccount where CustomerNum = @customernum) as NAccountSoFar,
+                                    (select count(*) from  savings where CustomerNum = @customernum) as SAccountSoFar,
+                                    (select count(*) from depositaccount where CustomerNum = @customernum) as DAccountSoFar
+                                    from customers where CustomerNum = @customernum";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
                 
                 da.Fill(dt);
                 return dt;
@@ -238,7 +240,7 @@ namespace WindowsFormsAppPersonalProject
         {
             try {
                 DataTable dt = new DataTable();
-                string sql = $@"select CustomerNum, CustomerName, CustomerAddress,
+                string sql = @"select CustomerNum, CustomerName, CustomerAddress,
                                     CustomerID, IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage, IsResting
                                         from customers 
                                         where CustomerID = @uid and CustomerPw = @pwd";
@@ -267,7 +269,7 @@ namespace WindowsFormsAppPersonalProject
             MySqlTransaction trans = conn.BeginTransaction();
             try 
             {
-                string sql = $@"insert into customers(CustomerName, CustomerAddress, CustomerID, 
+                string sql = @"insert into customers(CustomerName, CustomerAddress, CustomerID, 
                                                         IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage)        
                                 values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin,
                                                         @CustomerPw, @CustomerPhone, @customeremail, @customerimage)";
@@ -440,7 +442,7 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 string sql = @"update customers
-                                            set IsResting = 1
+                                            set IsResting = 'Y'
                                             where customernum = @customernum";
                 MySqlCommand delcmd = new MySqlCommand(sql, conn);
                 delcmd.Parameters.Add("@customernum", MySqlDbType.Int32);
@@ -462,7 +464,7 @@ namespace WindowsFormsAppPersonalProject
             try
             {
                 string sql = @"update customers
-                                            set IsResting = 0
+                                            set IsResting = 'N'
                                             where customernum = @customernum";
                 MySqlCommand delcmd = new MySqlCommand(sql, conn);
 

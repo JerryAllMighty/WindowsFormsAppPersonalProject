@@ -61,6 +61,24 @@
     <Compile Include="Control\NumberOnly.Designer.cs">
       <DependentUpon>NumberOnly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\SavingNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SavingNotice.Designer.cs">
+      <DependentUpon>SavingNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\frmSavingExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Standard\frmSavingExtension.Designer.cs">
+      <DependentUpon>frmSavingExtension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\frmDepositExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Standard\frmDepositExtension.Designer.cs">
+      <DependentUpon>frmDepositExtension.cs</DependentUpon>
+    </Compile>
     <Compile Include="Standard\frmAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +223,15 @@
     </Compile>
     <EmbeddedResource Include="Control\NumberOnly.resx">
       <DependentUpon>NumberOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SavingNotice.resx">
+      <DependentUpon>SavingNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Standard\frmSavingExtension.resx">
+      <DependentUpon>frmSavingExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Standard\frmDepositExtension.resx">
+      <DependentUpon>frmDepositExtension.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\frmAccountView.resx">
       <DependentUpon>frmAccountView.cs</DependentUpon>

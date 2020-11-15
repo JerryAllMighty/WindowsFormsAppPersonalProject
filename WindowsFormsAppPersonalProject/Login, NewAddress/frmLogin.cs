@@ -120,11 +120,12 @@ namespace WindowsFormsAppPersonalProject
 
             if (FromDtToMember(dt))       //계정이 DB에 존재할 때 로그인 성공    
             {
-                if (IsResting == "1")       //휴면계좌일시 로그인 차단
+                if (IsResting == "Y")       //휴면계좌일시 로그인 차단
                 {
                     MessageBox.Show("해당 계정은 휴면계좌입니다. 고객팀에 문의해주세요.");
                     return;
                 }
+               
                 this.UseWaitCursor = false; ;
                 //timer1.Enabled = true;            //디자인 끝내고 나서 다시 주석 풀어주자 
                 timer1.Interval = 1000;

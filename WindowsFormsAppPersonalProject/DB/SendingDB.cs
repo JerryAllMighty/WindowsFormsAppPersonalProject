@@ -63,7 +63,7 @@ namespace WindowsFormsAppPersonalProject
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
 
                 da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
-                da.SelectCommand.Parameters["@customernum"].Value = customernum;
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
 
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
