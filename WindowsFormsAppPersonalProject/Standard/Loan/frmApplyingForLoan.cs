@@ -276,42 +276,27 @@ namespace WindowsFormsAppPersonalProject
         #region 유효성체크
         private void txtAmountOfLoan_KeyPress(object sender, KeyPressEventArgs e) //대출 신청 금액에 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
 
         private void txtWhenExpire_KeyPress(object sender, KeyPressEventArgs e) //만기상환금액에 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
 
         private void txtPeriod_KeyPress(object sender, KeyPressEventArgs e)     //대출기간 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
 
         private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //출금계좌 비밀번호 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
 
         private void txtRegularWhen_KeyPress(object sender, KeyPressEventArgs e)        //정기 상환 날짜도 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
         #endregion
     }

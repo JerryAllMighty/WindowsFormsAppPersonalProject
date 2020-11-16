@@ -21,6 +21,8 @@ namespace WindowsFormsAppPersonalProject
         string Phone;
         string CustomerEmail;
         string CustomerImage;
+        
+
 
         public frmNewAccount()
         {
@@ -78,6 +80,17 @@ namespace WindowsFormsAppPersonalProject
         private void btnNewAccount_Click(object sender, EventArgs e)        //계좌 생성 버튼 클릭
         {
             //출금 계좌와 신규 계좌 비밀번호들이 4자리가 아닐 때
+           
+            if (cbxKindOfAccount.SelectedItem.ToString().Length < 1)        //계좌 종류 반드시 선택하게하기
+            {
+                MessageBox.Show("계좌의 종류는 반드시 선택해주셔야합니다.");
+                return;
+            }
+            if (txtNewPwd.Text.Length < 1 || txtCheckNewPwd.Text.Length < 1)        //신규 계좌 정보 꼭 입력하게 하기
+            {
+                MessageBox.Show("신규 계좌 정보는 반드시 입력해주셔야합니다.");
+                return;
+            }
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
             {
                 if (txtNewPwd.Text.Length != 4)
@@ -94,16 +107,7 @@ namespace WindowsFormsAppPersonalProject
                     return;
                 }
             }
-            if (cbxKindOfAccount.SelectedItem.ToString().Length < 1)        //계좌 종류 반드시 선택하게하기
-            {
-                MessageBox.Show("계좌의 종류는 반드시 선택해주셔야합니다.");
-                return;
-            }
-            if (txtNewPwd.Text.Length < 1 || txtCheckNewPwd.Text.Length < 1)        //신규 계좌 정보 꼭 입력하게 하기
-            {
-                MessageBox.Show("신규 계좌 정보는 반드시 입력해주셔야합니다.");
-                return;
-            }
+
             if (cbxKindOfAccount.SelectedItem.ToString() == "일반 계좌")
             {
                 //일반 계좌에 연결
@@ -200,6 +204,7 @@ namespace WindowsFormsAppPersonalProject
             }
             else
             {
+                errorProvider1.SetError(txtCheckNewPwd, "");
                 errorProvider1.Clear();
             }
         }
@@ -208,7 +213,7 @@ namespace WindowsFormsAppPersonalProject
         {
             //값이 바뀔 때마다 기존에 입력되어있던 값들, 계좌 종류에 따라 사용 불가했던 컨트롤들이 모두 초기화되게 하기
             txtpayPerMonth.Text = cbxduration.Text = txtOutAccount.Text = txtOutPwd.Text =
-                cbxduration.Text = txtNewPwd.Text = txtCheckNewPwd.Text = txtAmountOfDeposit.Text = string.Empty;
+                cbxduration.Text = txtCheckNewPwd.Text= txtNewPwd.Text  = txtAmountOfDeposit.Text = string.Empty;
 
             //라벨들 초기화
             lbltxtKindOfAccount.Enabled = lblduration.Enabled = lblpayPerMonth.Enabled = lblOutAccount.Enabled =
@@ -258,16 +263,17 @@ namespace WindowsFormsAppPersonalProject
         {
             NormalAccountDB db = new NormalAccountDB();
             DataTable dt =  db.GetEveryData(CustomerNum);
+            db.Dispose();
             try
             {
-                if(dt != null)
+                if (dt != null)     //하나라도 일반 계좌가 있을 떄 비교하는 것 
                 {
                     StringBuilder sb = new StringBuilder();
                     if (txtOutAccount.Text.Trim().Equals(dt.Rows[0]["NAccountNum"].ToString()))        //일반계정의 계좌번호가 입력한 것과 같을 때
                     {
-                       // txtOutAccount.BackColor = Color.Green;
+                        // txtOutAccount.BackColor = Color.Green;
                     }
-                    else 
+                    else
                     {
                         sb.Append("귀하의 일반 계좌에 존재하지 않는 계좌번호입니다. \n");
                         MessageBox.Show(sb.ToString());
@@ -275,7 +281,7 @@ namespace WindowsFormsAppPersonalProject
                     }
                     if (txtOutPwd.Text.Trim().Equals(dt.Rows[0]["Pwd"].ToString()))            //일반계정의 계좌 비밀번호가 입력한 것과 같을 때
                     {
-                     //   txtOutPwd.BackColor = Color.Green;
+                        //   txtOutPwd.BackColor = Color.Green;
                     }
                     else
                     {
@@ -284,11 +290,15 @@ namespace WindowsFormsAppPersonalProject
                         return false;
                     }
 
-                    
-                    db.Dispose();
                     return true;
                 }
-                return false;
+                //계좌가 하나도 없을 때는??
+                else
+                {
+                    MessageBox.Show("귀하의 계좌에 일반 계좌가 없습니다. 일반 계좌를 우선 개설해주세요.");
+                    return false;
+                }
+                
             }
             catch (Exception)
             {
@@ -317,52 +327,53 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
+       
+
         private void txtpayPerMonth_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
 
         private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+            
         }
 
         private void txtNewPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
 
         private void txtCheckNewPwd_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+         
         }
 
         private void txtAmountOfDeposit_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
 
         private void txtOutAccount_KeyPress(object sender, KeyPressEventArgs e)     //여기 폼만 예외로 출금 계좌도 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+          
+        }
+
+        private void txtpayPerMonth_TextChanged(object sender, EventArgs e)
+        {
+            //txtpayPerMonth.Text = CommonUtil.addComma(txtpayPerMonth.Text.Trim().Replace(",", ""));
+            
+        }
+
+        private void txtpayPerMonth_Leave(object sender, EventArgs e)
+        {
+            txtpayPerMonth.Text = decimal.Parse(txtpayPerMonth.Text).ToString("#,##0");
         }
     }
 }

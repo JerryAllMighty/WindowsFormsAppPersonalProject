@@ -55,29 +55,31 @@
             // 
             this.dgvMemver.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvMemver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMemver.Location = new System.Drawing.Point(12, 12);
+            this.dgvMemver.Location = new System.Drawing.Point(10, 10);
+            this.dgvMemver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMemver.Name = "dgvMemver";
             this.dgvMemver.RowHeadersWidth = 51;
             this.dgvMemver.RowTemplate.Height = 27;
-            this.dgvMemver.Size = new System.Drawing.Size(1054, 276);
+            this.dgvMemver.Size = new System.Drawing.Size(922, 221);
             this.dgvMemver.TabIndex = 0;
             this.dgvMemver.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMemver_CellDoubleClick);
             // 
             // checkControl11
             // 
             this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkControl11.Location = new System.Drawing.Point(505, 503);
+            this.checkControl11.Location = new System.Drawing.Point(442, 402);
+            this.checkControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkControl11.Name = "checkControl11";
-            this.checkControl11.Size = new System.Drawing.Size(216, 20);
+            this.checkControl11.Size = new System.Drawing.Size(189, 16);
             this.checkControl11.TabIndex = 31;
             this.checkControl11.TabStop = false;
             // 
             // lblCurrentMoney
             // 
             this.lblCurrentMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCurrentMoney.Location = new System.Drawing.Point(23, 379);
+            this.lblCurrentMoney.Location = new System.Drawing.Point(20, 303);
             this.lblCurrentMoney.Name = "lblCurrentMoney";
-            this.lblCurrentMoney.Size = new System.Drawing.Size(114, 29);
+            this.lblCurrentMoney.Size = new System.Drawing.Size(100, 23);
             this.lblCurrentMoney.TabIndex = 30;
             this.lblCurrentMoney.Text = "현재 예치 금액";
             this.lblCurrentMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -85,11 +87,10 @@
             // txtCurrentMoney
             // 
             this.txtCurrentMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCurrentMoney.Location = new System.Drawing.Point(188, 376);
-            this.txtCurrentMoney.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCurrentMoney.Location = new System.Drawing.Point(164, 301);
             this.txtCurrentMoney.Name = "txtCurrentMoney";
             this.txtCurrentMoney.ReadOnly = true;
-            this.txtCurrentMoney.Size = new System.Drawing.Size(254, 25);
+            this.txtCurrentMoney.Size = new System.Drawing.Size(223, 21);
             this.txtCurrentMoney.TabIndex = 27;
             // 
             // gbxNewAccount
@@ -99,11 +100,11 @@
             this.gbxNewAccount.Controls.Add(this.txtCheckNewPwd);
             this.gbxNewAccount.Controls.Add(this.lblNewPwd);
             this.gbxNewAccount.Controls.Add(this.txtNewPwd);
-            this.gbxNewAccount.Location = new System.Drawing.Point(503, 318);
+            this.gbxNewAccount.Location = new System.Drawing.Point(440, 254);
             this.gbxNewAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbxNewAccount.Name = "gbxNewAccount";
             this.gbxNewAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbxNewAccount.Size = new System.Drawing.Size(538, 123);
+            this.gbxNewAccount.Size = new System.Drawing.Size(471, 98);
             this.gbxNewAccount.TabIndex = 25;
             this.gbxNewAccount.TabStop = false;
             this.gbxNewAccount.Text = "예금 계좌 비밀번호 변경";
@@ -111,39 +112,39 @@
             // lblCheckNewPwd
             // 
             this.lblCheckNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCheckNewPwd.Location = new System.Drawing.Point(3, 72);
+            this.lblCheckNewPwd.Location = new System.Drawing.Point(3, 58);
             this.lblCheckNewPwd.Name = "lblCheckNewPwd";
-            this.lblCheckNewPwd.Size = new System.Drawing.Size(114, 29);
+            this.lblCheckNewPwd.Size = new System.Drawing.Size(100, 23);
             this.lblCheckNewPwd.TabIndex = 7;
             this.lblCheckNewPwd.Text = "비밀번호 확인";
             // 
             // txtCheckNewPwd
             // 
             this.txtCheckNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCheckNewPwd.Location = new System.Drawing.Point(168, 69);
-            this.txtCheckNewPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCheckNewPwd.Location = new System.Drawing.Point(147, 55);
             this.txtCheckNewPwd.Name = "txtCheckNewPwd";
-            this.txtCheckNewPwd.Size = new System.Drawing.Size(254, 25);
+            this.txtCheckNewPwd.Size = new System.Drawing.Size(223, 21);
             this.txtCheckNewPwd.TabIndex = 6;
             this.txtCheckNewPwd.TextChanged += new System.EventHandler(this.txtCheckNewPwd_TextChanged);
+            this.txtCheckNewPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheckNewPwd_KeyPress);
             // 
             // lblNewPwd
             // 
             this.lblNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNewPwd.Location = new System.Drawing.Point(3, 39);
+            this.lblNewPwd.Location = new System.Drawing.Point(3, 31);
             this.lblNewPwd.Name = "lblNewPwd";
-            this.lblNewPwd.Size = new System.Drawing.Size(114, 29);
+            this.lblNewPwd.Size = new System.Drawing.Size(100, 23);
             this.lblNewPwd.TabIndex = 5;
             this.lblNewPwd.Text = "비밀번호";
             // 
             // txtNewPwd
             // 
             this.txtNewPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNewPwd.Location = new System.Drawing.Point(168, 36);
-            this.txtNewPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNewPwd.Location = new System.Drawing.Point(147, 29);
             this.txtNewPwd.Name = "txtNewPwd";
-            this.txtNewPwd.Size = new System.Drawing.Size(254, 25);
+            this.txtNewPwd.Size = new System.Drawing.Size(223, 21);
             this.txtNewPwd.TabIndex = 5;
+            this.txtNewPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewPwd_KeyPress);
             // 
             // cbxduration
             // 
@@ -156,19 +157,18 @@
             "6개월",
             "12개월",
             "24개월"});
-            this.cbxduration.Location = new System.Drawing.Point(188, 318);
+            this.cbxduration.Location = new System.Drawing.Point(164, 254);
             this.cbxduration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxduration.Name = "cbxduration";
-            this.cbxduration.Size = new System.Drawing.Size(254, 23);
+            this.cbxduration.Size = new System.Drawing.Size(223, 20);
             this.cbxduration.TabIndex = 19;
             // 
             // btndepositExtension
             // 
             this.btndepositExtension.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btndepositExtension.Location = new System.Drawing.Point(898, 451);
-            this.btndepositExtension.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btndepositExtension.Location = new System.Drawing.Point(786, 361);
             this.btndepositExtension.Name = "btndepositExtension";
-            this.btndepositExtension.Size = new System.Drawing.Size(143, 80);
+            this.btndepositExtension.Size = new System.Drawing.Size(125, 64);
             this.btndepositExtension.TabIndex = 28;
             this.btndepositExtension.Text = "계좌 연장";
             this.btndepositExtension.UseVisualStyleBackColor = true;
@@ -177,9 +177,9 @@
             // lblduration
             // 
             this.lblduration.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblduration.Location = new System.Drawing.Point(23, 318);
+            this.lblduration.Location = new System.Drawing.Point(20, 254);
             this.lblduration.Name = "lblduration";
-            this.lblduration.Size = new System.Drawing.Size(114, 29);
+            this.lblduration.Size = new System.Drawing.Size(100, 23);
             this.lblduration.TabIndex = 18;
             this.lblduration.Text = "*가입기간 연장";
             this.lblduration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,9 +187,9 @@
             // lblOutAccount
             // 
             this.lblOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOutAccount.Location = new System.Drawing.Point(23, 440);
+            this.lblOutAccount.Location = new System.Drawing.Point(20, 352);
             this.lblOutAccount.Name = "lblOutAccount";
-            this.lblOutAccount.Size = new System.Drawing.Size(114, 29);
+            this.lblOutAccount.Size = new System.Drawing.Size(100, 23);
             this.lblOutAccount.TabIndex = 26;
             this.lblOutAccount.Text = "출금계좌 변경";
             this.lblOutAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -197,19 +197,19 @@
             // txtOutAccount
             // 
             this.txtOutAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOutAccount.Location = new System.Drawing.Point(188, 436);
-            this.txtOutAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutAccount.Location = new System.Drawing.Point(164, 349);
             this.txtOutAccount.Name = "txtOutAccount";
-            this.txtOutAccount.Size = new System.Drawing.Size(254, 25);
+            this.txtOutAccount.Size = new System.Drawing.Size(223, 21);
             this.txtOutAccount.TabIndex = 22;
             this.txtOutAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOutAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutAccount_KeyPress);
             // 
             // lblOutPwd
             // 
             this.lblOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOutPwd.Location = new System.Drawing.Point(23, 501);
+            this.lblOutPwd.Location = new System.Drawing.Point(20, 401);
             this.lblOutPwd.Name = "lblOutPwd";
-            this.lblOutPwd.Size = new System.Drawing.Size(159, 29);
+            this.lblOutPwd.Size = new System.Drawing.Size(139, 23);
             this.lblOutPwd.TabIndex = 23;
             this.lblOutPwd.Text = "출금 계좌 비밀번호";
             this.lblOutPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,12 +217,12 @@
             // txtOutPwd
             // 
             this.txtOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOutPwd.Location = new System.Drawing.Point(188, 496);
-            this.txtOutPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutPwd.Location = new System.Drawing.Point(164, 397);
             this.txtOutPwd.Name = "txtOutPwd";
-            this.txtOutPwd.Size = new System.Drawing.Size(254, 25);
+            this.txtOutPwd.Size = new System.Drawing.Size(223, 21);
             this.txtOutPwd.TabIndex = 24;
             this.txtOutPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOutPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutPwd_KeyPress);
             // 
             // errorProvider1
             // 
@@ -230,9 +230,9 @@
             // 
             // frmDepositExtension
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 553);
+            this.ClientSize = new System.Drawing.Size(943, 442);
             this.Controls.Add(this.checkControl11);
             this.Controls.Add(this.lblCurrentMoney);
             this.Controls.Add(this.txtCurrentMoney);
@@ -245,6 +245,7 @@
             this.Controls.Add(this.lblOutPwd);
             this.Controls.Add(this.txtOutPwd);
             this.Controls.Add(this.dgvMemver);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDepositExtension";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "예금 연장";

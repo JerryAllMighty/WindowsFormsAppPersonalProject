@@ -57,7 +57,7 @@ namespace WindowsFormsAppPersonalProject
                 txtAddress.Text.Trim().Replace(" ", "").Length < 1 || txtPwd.Text.Trim().Replace(" ", "").Length < 1 ||
                 txtID.Text.Trim().Replace(" ", "").Length < 1 || txtCheckingPwd.Text.Trim().Replace(" ", "").Length < 1 ) //필수 입력인 항목들 입력 안 할 시 꼭 하게 만들기
             {
-                MessageBox.Show("노란색 배경의 입력 항목들은 필수 입력입니다. 꼭 작성해주세요.");
+                MessageBox.Show("*표시가 있는 입력 항목들은 필수 입력입니다. 꼭 작성해주세요.");
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //콤보박스에 이메일 주소들 넣어주기
+            //영문자나 숫자 이외의 입력 사항들 걸러주기
             if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != '\b')
             {
                 MessageBox.Show("영문자나 숫자만 입력해주세요.");
@@ -158,10 +158,9 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
         }
+
+        
     }
 }

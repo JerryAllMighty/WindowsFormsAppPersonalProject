@@ -64,5 +64,27 @@ namespace WindowsFormsAppPersonalProject
             dgv.Columns.Add(col);
 
         }
+
+
+        public static void NumberCheck(char a)
+        {
+            if (!char.IsDigit(a) && !a.Equals('\b') && !a.Equals(13))
+            {
+                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
+            }
+        }
+
+        //public static string addComma(string b)
+        //{
+        //    StringBuilder sb = new StringBuilder();
+            
+        //    for(int )
+        //    if (b.Length % 3 == 0)
+        //    {
+        //        sb.Append(',');
+        //    }
+
+        //    return sb.ToString();
+        //}
     }
 }

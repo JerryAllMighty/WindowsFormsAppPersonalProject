@@ -168,7 +168,14 @@ namespace WindowsFormsAppPersonalProject
                 da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
                 da.Fill(dt);
 
-                return dt;
+                if (dt.Rows.Count > 0)
+                {
+                    return dt;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {

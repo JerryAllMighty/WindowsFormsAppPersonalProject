@@ -28,7 +28,7 @@ namespace WindowsFormsAppPersonalProject
 
         string InputAcc;        //입금계좌로 입력을 했거나 혹은 최신 목록에서 선택을 했거나
         string ReceiverName;
-        DataTable dt;
+        DataTable dt, dt2;      //이체정보,출금계좌정보
 
         public frmSending()
         {
@@ -76,31 +76,55 @@ namespace WindowsFormsAppPersonalProject
             lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
 
             NormalAccountDB db = new NormalAccountDB();
-            dt =  db.WhenYouSend(CustomerNum);
-            db.Dispose();
+            dt2 = db.GetEveryData(CustomerNum);
             bool bFlag, cFlag;
-            if (dt != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
+
+
+            if (dt2 != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dt2.Rows.Count; i++)
                 {
                     bFlag = true;
-                    cFlag = true;
                     for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
                     {
-                        if (dt.Rows[i]["NAccountNum"].ToString() == dt.Rows[j]["NAccountNum"].ToString())
+                        if (dt2.Rows[i]["NAccountNum"].ToString() == dt2.Rows[j]["NAccountNum"].ToString())
                         {
                             bFlag = false;
 
                         }
+                       
+                    }
+                    if (bFlag)
+                    {
+                        cbxOutAcc.Items.Add(dt2.Rows[i]["NAccountNum"].ToString());
+
+                    }
+                }
+            }
+            else  //일반 계좌가 없을 시
+            {
+                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
+                    frm.Show();
+                    frm.Activate();
+                }
+            }
+            SendingDB db2 = new SendingDB();
+            dt = db2.GetEveryData(CustomerNum);
+            
+            
+            if (dt != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cFlag = true;
+                    for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
+                    {
                         if (dt.Rows[i]["RecentlySentTo"].ToString() == dt.Rows[j]["RecentlySentTo"].ToString())
                         {
                             cFlag = false;
                         }
-                    }
-                    if (bFlag)
-                    {
-                        cbxOutAcc.Items.Add(dt.Rows[i]["NAccountNum"].ToString());
-
                     }
                     if (cFlag)
                     {
@@ -108,6 +132,9 @@ namespace WindowsFormsAppPersonalProject
                     }
                 }
             }
+            
+
+            db.Dispose();
         }
 
         private void cbxOutAcc_SelectedValueChanged(object sender, EventArgs e)     //출금계좌가 선택이 될 때 현재 금액에 금액 바인딩해주기
@@ -115,7 +142,7 @@ namespace WindowsFormsAppPersonalProject
             //고른 일반계좌 번호의 금액
             if (cbxOutAcc.SelectedItem.ToString().Length > 0)
             {
-                txtCurrentLeftOver.Text = dt.Rows[cbxOutAcc.SelectedIndex]["CurrentMoney"].ToString();
+                txtCurrentLeftOver.Text = dt2.Rows[cbxOutAcc.SelectedIndex]["CurrentMoney"].ToString();
                 lblAlert.Text = "";
             }
             else
@@ -196,42 +223,27 @@ namespace WindowsFormsAppPersonalProject
 
         }       //이체내역 조회
 
-        private void cbxOutAcc_Enter(object sender, EventArgs e)        //출금 계좌에 입력이 들어왔을 때, 일반 계좌가 없을 시
+        private void cbxOutAcc_Enter(object sender, EventArgs e)        
         {
-            if (dt == null)
-            {
-                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
-                    //this.Hide();
-                    frm.Show();
-                    frm.Activate();
-                }
-            }
         }
+
 
         private void txtInputAcc_KeyPress(object sender, KeyPressEventArgs e)       //입금 계좌 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
 
         private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //출금 계좌 비밀번호 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
 
         private void txtAmountOfSending_KeyPress(object sender, KeyPressEventArgs e)        //이체 금액도 숫자만 입력받게 체크
         {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
+            CommonUtil.NumberCheck(e.KeyChar);
+           
         }
     }
 }
