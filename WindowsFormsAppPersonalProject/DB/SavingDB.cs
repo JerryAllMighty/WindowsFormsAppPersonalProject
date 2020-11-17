@@ -22,16 +22,12 @@ namespace WindowsFormsAppPersonalProject
         public string OutAccountPwd;
         public string NewPwd;
 
-        public Savings(string customernum, string customername, string kindofacc, string duration, string paypermonth, string outaccount, string outaccountpwd, string newpwd)
+        public Savings(string customernum, string customername, string kindofacc, string duration,
+            string paypermonth, string outaccount, string outaccountpwd, string newpwd) 
+            :this( customernum,  customername,  kindofacc,  duration,
+             paypermonth,  outaccount,  outaccountpwd,  newpwd, "")     //저축 기간 안 넘겨줘도 빈 값으로 받아준다
         {
-            CustomerNum = customernum;
-            CustomerName = customername;
-            KindOfAcc = kindofacc;
-            Duration = duration;
-            PayPerMonth = paypermonth;
-            OutAccount = outaccount;
-            OutAccountPwd = outaccountpwd;
-            NewPwd = newpwd;
+
         }
 
         public Savings(string customernum, string customername, string kindofacc, string saccountnum, string paypermonth,

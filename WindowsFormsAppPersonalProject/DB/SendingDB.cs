@@ -20,15 +20,11 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerNum;
         public string CustomerName;
         public string ReceiversName;
+
         public SendingClass(string naccountnum, string amountofsending, string sendingdate, string recentlysentto, string customernum, string customername)
+            :this( naccountnum,  amountofsending,  sendingdate,  recentlysentto,  customernum,  customername, "")
         {
-            //SSerialNum = sserialnum;
-            NAccountNum = naccountnum;
-            AmountOfSending = amountofsending;
-            SendingDate = sendingdate;
-            RecentlySentTo = recentlysentto;
-            CustomerNum = customernum;
-            CustomerName = customername;
+            
         }
         public SendingClass(string naccountnum, string amountofsending, string sendingdate, string recentlysentto, string customernum, string customername, string receiversname)
         {

@@ -331,38 +331,52 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtpayPerMonth_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
            
         }
 
         private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
-            
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtNewPwd_KeyPress(object sender, KeyPressEventArgs e)     //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
-           
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtCheckNewPwd_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
-         
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtAmountOfDeposit_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
-           
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtOutAccount_KeyPress(object sender, KeyPressEventArgs e)     //여기 폼만 예외로 출금 계좌도 숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
-          
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
 
         private void txtpayPerMonth_TextChanged(object sender, EventArgs e)

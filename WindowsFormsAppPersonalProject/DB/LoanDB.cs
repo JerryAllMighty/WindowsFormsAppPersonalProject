@@ -59,13 +59,12 @@ namespace WindowsFormsAppPersonalProject
             conn.Open();
         }
 
-        public DataTable CountDays()
+        public DataTable DelayRate()
         {
             try
             {
                 DataTable dt = new DataTable();
-                string sql = @"select date(LoanStarted), count(day(LoanStarted)) from loan 
-                                            group by day(LoanStarted);";
+                string sql = @"select count(LoanNum)/(select count(LoanNum) from loan) from loan where date(LoanExpire) < date(now()) and LoanLeftOver > 0";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 da.Fill(dt);
 
@@ -79,7 +78,7 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        public DataTable MonthlyAvgLoan()
+        public DataTable MonthlyAvgLoan()       //대출 평균액
         {
             try
             {
@@ -98,6 +97,36 @@ namespace WindowsFormsAppPersonalProject
                 return null;
             }
         }
+
+
+        public DataTable LoanPerPeriod(string dtptime1, string dtptime2)        //기간별 대출 건수
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select date(LoanStarted), count(date(LoanStarted))
+                                    from loan
+                                    where date(LoanStarted) between @dtptime1 and @dtptime2
+                                    group by date(LoanStarted);";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@dtptime1", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@dtptime1"].Value = dtptime1;
+
+                da.SelectCommand.Parameters.Add("@dtptime2", MySqlDbType.VarChar);
+                da.SelectCommand.Parameters["@dtptime2"].Value = dtptime2;
+
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                { return dt; }
+                else { return null; }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
 
         public DataTable GetEveryData(string customernum)
         {

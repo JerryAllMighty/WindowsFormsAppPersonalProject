@@ -102,22 +102,34 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtOutAccount_KeyPress(object sender, KeyPressEventArgs e)     //출금 계좌 변경시 숫자만 입력받게 하기
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtOutPwd_KeyPress(object sender, KeyPressEventArgs e)     //출금 계좌 비밀번호 변경시 숫자만 입력받게 하기
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtNewPwd_KeyPress(object sender, KeyPressEventArgs e)     //예금 계좌 비밀번호 변경시 숫자만 입력받게 하기
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtCheckNewPwd_KeyPress(object sender, KeyPressEventArgs e)        //예금 계좌 비밀번호 변경 확인시 숫자만 입력받게 하기
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

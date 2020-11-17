@@ -20,13 +20,19 @@ namespace WindowsFormsAppPersonalProject
         public string CustomerName;
         public string KindOfAcc;
         public string Pwd;
+        public string CurrentMoney;
 
-        public NormalAccount(string customernum, string customername, string kindofacc, string pwd)
+        public NormalAccount(string customernum, string customername, string kindofacc, string pwd) : this ( customernum,  customername,  kindofacc, pwd, "0")
+        {
+
+        }
+        public NormalAccount(string customernum, string customername, string kindofacc, string pwd, string currentmoney)
         {
             CustomerNum = customernum;
             CustomerName = customername;
             KindOfAcc = kindofacc;
             Pwd = pwd;
+            CurrentMoney = currentmoney;
         }
     }
 
@@ -190,8 +196,8 @@ namespace WindowsFormsAppPersonalProject
             try
             {
 
-                string sql = @"insert into normalaccount(DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd)
-                                        value(now(), @customernum, @customername, @kindofacc, @pwd)";
+                string sql = @"insert into normalaccount(DateCreated, CustomerNum, CustomerName, KindOfAcc, Pwd, CurrentMoney)
+                                        value(now(), @customernum, @customername, @kindofacc, @pwd, @currentmoney)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
 
@@ -206,6 +212,9 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.Parameters.Add("@pwd", MySqlDbType.VarChar);
                 cmd.Parameters["@pwd"].Value = accountinfo.Pwd;
+
+                cmd.Parameters.Add("@currentmoney", MySqlDbType.Int32);
+                cmd.Parameters["@currentmoney"].Value = accountinfo.CurrentMoney;
 
                 cmd.ExecuteNonQuery();
 

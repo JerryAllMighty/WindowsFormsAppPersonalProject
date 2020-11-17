@@ -186,12 +186,18 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtOutAccPwd_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력 받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtPayBack_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력 받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

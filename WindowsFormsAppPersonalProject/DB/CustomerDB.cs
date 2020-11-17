@@ -28,16 +28,11 @@ namespace WindowsFormsAppPersonalProject
         public Customer(string customernum, string customername, string customeraddress, 
                             string customerid,string isadmin, string customerpw, string phone,
                             string customeremail, string customerimage)
+                            : this(customernum, customername,  customeraddress,
+                             customerid,  isadmin,  customerpw,  phone,
+                             customeremail,  customerimage, "N")        //휴면 계좌 여부를 넘겨주지 않아도 알아서 기본값 "N"을 주어서 생성해준다~
         {
-            CustomerNum = customernum;
-            CustomerName = customername;                      
-            CustomerAddress = customeraddress;
-            CustomerID = customerid;
-            IsAdmin = isadmin;
-            CustomerPw = customerpw;
-            Phone = phone;
-            CustomerEmail = customeremail;
-            CustomerImage = customerimage;
+           
         }
 
         //관리자가 고객을 관리하기 위해서 휴면 계정 여부도 정보가 필요하고, 이 때 쓰기 위한 생성자를 따로 만들었다. 기존 생성자에 휴면 계정 여부만 추가되었다.

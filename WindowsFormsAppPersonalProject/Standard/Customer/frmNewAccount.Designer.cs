@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAccount));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblsavingNotice1 = new WindowsFormsAppPersonalProject.SavingNotice();
+            this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             this.lblAmountOfDeposit = new System.Windows.Forms.Label();
             this.txtAmountOfDeposit = new System.Windows.Forms.TextBox();
             this.gbxNewAccount = new System.Windows.Forms.GroupBox();
@@ -50,9 +52,6 @@
             this.txtOutPwd = new System.Windows.Forms.TextBox();
             this.lbltxtKindOfAccount = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.lblsavingNotice1 = new WindowsFormsAppPersonalProject.SavingNotice();
-            this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             this.panel1.SuspendLayout();
             this.gbxNewAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -60,7 +59,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.maskedTextBox1);
             this.panel1.Controls.Add(this.lblsavingNotice1);
             this.panel1.Controls.Add(this.checkControl11);
             this.panel1.Controls.Add(this.lblAmountOfDeposit);
@@ -82,6 +80,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(931, 427);
             this.panel1.TabIndex = 1;
+            // 
+            // lblsavingNotice1
+            // 
+            this.lblsavingNotice1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblsavingNotice1.Location = new System.Drawing.Point(450, 268);
+            this.lblsavingNotice1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblsavingNotice1.Name = "lblsavingNotice1";
+            this.lblsavingNotice1.Size = new System.Drawing.Size(195, 18);
+            this.lblsavingNotice1.TabIndex = 17;
+            this.lblsavingNotice1.Visible = false;
+            // 
+            // checkControl11
+            // 
+            this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkControl11.Location = new System.Drawing.Point(450, 310);
+            this.checkControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkControl11.Name = "checkControl11";
+            this.checkControl11.Size = new System.Drawing.Size(189, 16);
+            this.checkControl11.TabIndex = 16;
+            this.checkControl11.TabStop = false;
             // 
             // lblAmountOfDeposit
             // 
@@ -287,34 +305,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(172, 360);
-            this.maskedTextBox1.Mask = "99,999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(223, 21);
-            this.maskedTextBox1.TabIndex = 18;
-            // 
-            // lblsavingNotice1
-            // 
-            this.lblsavingNotice1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblsavingNotice1.Location = new System.Drawing.Point(450, 268);
-            this.lblsavingNotice1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lblsavingNotice1.Name = "lblsavingNotice1";
-            this.lblsavingNotice1.Size = new System.Drawing.Size(195, 18);
-            this.lblsavingNotice1.TabIndex = 17;
-            this.lblsavingNotice1.Visible = false;
-            // 
-            // checkControl11
-            // 
-            this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkControl11.Location = new System.Drawing.Point(450, 310);
-            this.checkControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkControl11.Name = "checkControl11";
-            this.checkControl11.Size = new System.Drawing.Size(189, 16);
-            this.checkControl11.TabIndex = 16;
-            this.checkControl11.TabStop = false;
-            // 
             // frmNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -360,6 +350,5 @@
         private System.Windows.Forms.TextBox txtAmountOfDeposit;
         private CheckControl1 checkControl11;
         private SavingNotice lblsavingNotice1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

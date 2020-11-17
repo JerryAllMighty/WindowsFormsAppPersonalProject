@@ -137,6 +137,7 @@ namespace WindowsFormsAppPersonalProject
             if (db.IdIterated(txtID.Text))
             {
                 MessageBox.Show("이미 존재하는 아이디입니다. 다시 입력해주세요.");
+                txtID.Text = "";
                 return;
             }
             else
@@ -152,13 +153,14 @@ namespace WindowsFormsAppPersonalProject
             if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != '\b')
             {
                 MessageBox.Show("영문자나 숫자만 입력해주세요.");
-                txtEmail.Text = "";
+                e.Handled = true;
             }
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력받게 체크
         {
-            CommonUtil.NumberCheck(e.KeyChar);
+            if (!CommonUtil.NumberCheck(e.KeyChar))
+                e.Handled = true;
         }
 
         
