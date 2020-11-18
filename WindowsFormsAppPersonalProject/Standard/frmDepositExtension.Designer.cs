@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDepositExtension));
             this.dgvMemver = new System.Windows.Forms.DataGridView();
-            this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             this.lblCurrentMoney = new System.Windows.Forms.Label();
             this.txtCurrentMoney = new System.Windows.Forms.TextBox();
             this.gbxNewAccount = new System.Windows.Forms.GroupBox();
@@ -46,6 +46,7 @@
             this.lblOutPwd = new System.Windows.Forms.Label();
             this.txtOutPwd = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemver)).BeginInit();
             this.gbxNewAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -63,16 +64,6 @@
             this.dgvMemver.Size = new System.Drawing.Size(922, 221);
             this.dgvMemver.TabIndex = 0;
             this.dgvMemver.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMemver_CellDoubleClick);
-            // 
-            // checkControl11
-            // 
-            this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkControl11.Location = new System.Drawing.Point(442, 402);
-            this.checkControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkControl11.Name = "checkControl11";
-            this.checkControl11.Size = new System.Drawing.Size(189, 16);
-            this.checkControl11.TabIndex = 31;
-            this.checkControl11.TabStop = false;
             // 
             // lblCurrentMoney
             // 
@@ -228,10 +219,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // checkControl11
+            // 
+            this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkControl11.Location = new System.Drawing.Point(442, 402);
+            this.checkControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkControl11.Name = "checkControl11";
+            this.checkControl11.Size = new System.Drawing.Size(189, 16);
+            this.checkControl11.TabIndex = 31;
+            this.checkControl11.TabStop = false;
+            // 
             // frmDepositExtension
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(943, 442);
             this.Controls.Add(this.checkControl11);
             this.Controls.Add(this.lblCurrentMoney);
@@ -245,8 +247,10 @@
             this.Controls.Add(this.lblOutPwd);
             this.Controls.Add(this.txtOutPwd);
             this.Controls.Add(this.dgvMemver);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDepositExtension";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "예금 연장";
             this.Load += new System.EventHandler(this.frmDepositExtension_Load);

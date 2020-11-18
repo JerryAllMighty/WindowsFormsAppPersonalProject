@@ -24,7 +24,8 @@ namespace WindowsFormsAppPersonalProject
 
         private void frmLoanManagement_Load(object sender, EventArgs e)
         {
-            
+            dtp.CustomFormat = " ";
+            dtp2.CustomFormat = " ";
         }
 
         private void btnDay_Click(object sender, EventArgs e)       //연체율
@@ -54,16 +55,24 @@ namespace WindowsFormsAppPersonalProject
             DataTable dt = db.MonthlyAvgLoan();
             chart1.Series.Clear();
             chart1.Series.Add(new Series("Series2"));
-            for(int i =0; i < dt.Rows.Count; i++)
-            { 
-                chart1.Series["Series2"].Points.AddXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
-                chart1.Series["Series2"].ToolTip = dt.Rows[i][1].ToString();
-            }
 
+            //DataPoint point = new DataPoint();
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    point.SetValueXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
+            //    point.ToolTip = string.Format("{0}, {1}", dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
+            //    chart1.Series["Series2"].Points.Add(point);
+            //}
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                chart1.Series["Series2"].Points.AddXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
+                chart1.Series["Series2"].ToolTip = $"#VALY";
+            }
+            //chart1.Series["Series2"].Points.DataBind(dt.DefaultView, "month(LoanStarted)", "AVGloan", "ToolTip=AVGloan ");
             chart1.Series["Series2"].ChartType = SeriesChartType.Line;
             chart1.Series["Series2"].BorderWidth = 5;
 
-            //chart1.Series["월별 평균 대출액"].Points.DataBind(dt.DefaultView, "month(LoanStarted)", "AVGloan", "ToolTip=AVGloan ");
+            
             chart1.Series["Series2"].LegendText = "월별 평균 대출액";
 
         }
@@ -87,7 +96,7 @@ namespace WindowsFormsAppPersonalProject
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 chart1.Series["Series3"].Points.AddXY(dt.Rows[i][0].ToString().Substring(0, 10), dt.Rows[i][1]);
-                chart1.Series["Series3"].ToolTip = dt.Rows[i][1].ToString();
+                chart1.Series["Series3"].ToolTip = $"#VALY";
             }
 
             chart1.Series["Series3"].ChartType = SeriesChartType.Line;
@@ -99,6 +108,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            dtp.CustomFormat = "yyyy-MM-dd";
             dtpTime1 = dtp.Value.ToString("yyyyMMdd");
             selectdtp1 = true;
         }
@@ -134,6 +144,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void dtp2_ValueChanged(object sender, EventArgs e)
         {
+            dtp2.CustomFormat = "yyyy-MM-dd";
             dtpTime2 = dtp2.Value.ToString("yyyyMMdd");
             selectdtp2 = true;
         }

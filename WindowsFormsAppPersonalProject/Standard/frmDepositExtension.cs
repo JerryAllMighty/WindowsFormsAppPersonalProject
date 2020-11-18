@@ -47,6 +47,20 @@ namespace WindowsFormsAppPersonalProject
 
         private void frmDepositExtension_Load(object sender, EventArgs e)
         {
+            CommonUtil.SetinitGridView(dgvMemver);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "예금 계좌 번호", "DAccountNum", 120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "만기 월", "expiremonth", 80);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "만기 날짜", "expiredate", 120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "고객번호", "CustomerNum", 80);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "고객명", "CustomerName", 120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "계좌 종류", "KindofAcc",120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "예치금", "AmountOfDeposit", 100);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "출금 계좌 번호", "OutAccount",150);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "출금 계좌 비밀번호", "OutAccountPwd",150);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "예금 계좌 비밀번호", "NewPwd",150);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "현재금액", "CurrentMoney",120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "예치 기간(월)", "Duration",130);
+
             dgvMemver.DataSource = dt;
         }
 

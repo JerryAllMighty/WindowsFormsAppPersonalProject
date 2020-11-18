@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSavingExtension));
             this.lblCurrentMoney = new System.Windows.Forms.Label();
             this.txtCurrentMoney = new System.Windows.Forms.TextBox();
             this.gbxNewAccount = new System.Windows.Forms.GroupBox();
@@ -246,6 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(934, 438);
             this.Controls.Add(this.lblpayPerMonth);
             this.Controls.Add(this.txtpayPerMonth);
@@ -261,8 +263,11 @@
             this.Controls.Add(this.lblOutPwd);
             this.Controls.Add(this.txtOutPwd);
             this.Controls.Add(this.dgvMemver);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmSavingExtension";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SavingExtension";
             this.Load += new System.EventHandler(this.frmSavingExtension_Load);
             this.gbxNewAccount.ResumeLayout(false);

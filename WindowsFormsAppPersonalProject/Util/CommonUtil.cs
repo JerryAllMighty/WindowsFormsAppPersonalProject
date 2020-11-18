@@ -43,11 +43,11 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        public void AddGridTextColumn2(             //컬럼에 텍스트 적어주고 사라지게하고 싶을 때
+        public static void AddGridTextColumn2(             //사이즈 기본값이 조금 더 큰 컬럼, 나머지는 위의 함수와 동일
             DataGridView dgv,
             string headerText,
             string datapropertytype,
-            int colWidth = 100,
+            int colWidth = 200,
             bool visibility = true,
             DataGridViewContentAlignment textAlign = DataGridViewContentAlignment.MiddleLeft    
 

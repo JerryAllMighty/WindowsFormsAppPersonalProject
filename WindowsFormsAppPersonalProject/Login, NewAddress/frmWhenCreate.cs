@@ -12,6 +12,7 @@ using System.Configuration;
 using WindowsFormsAppPersonalProject;
 using System.IO;
 
+
 namespace WindowsFormsAppPersonalProject
 {
     public partial class frmWhenCreate : Form
@@ -27,6 +28,8 @@ namespace WindowsFormsAppPersonalProject
         string CustomerImage;
 
         bool IDChecked = false;
+        
+
         public frmWhenCreate()
         {
             InitializeComponent();
@@ -36,17 +39,31 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return new Customer(CustomerNum, txtName.Text, txtAddress.Text, txtID.Text,
+                return new Customer(CustomerNum, txtName.Text, CustomerAddress + "/" +txtAddrDetail.Text, txtID.Text,
                                         IsAdmin, txtPwd.Text, txtPhone.Text, txtEmail.Text + cbxEmail.Text, CustomerImage);
             }
         }
 
+
+        public string FindAddr { get { return CustomerAddress; }
+            set {
+                CustomerAddress = value;
+                 txtZipNo.Text = CustomerAddress.Substring(0, CustomerAddress.IndexOf('/'));
+                txtAddress.Text = CustomerAddress.Substring(CustomerAddress.IndexOf('/')+1);
+            } 
+        }
         private void WhenCreate_Load(object sender, EventArgs e)
         {
         }
 
         private void btnInsert_Click(object sender, EventArgs e)        //등록
         {
+            if (txtAddrDetail.Text.Trim().Replace(" ","").Length < 1)
+            {
+                MessageBox.Show("상세 주소를 반드시 작성해주세요.");
+                return;
+            }
+
             if (!IDChecked)
             {
                 MessageBox.Show("ID 중복 체크를 반드시 실시하여 주세요.");
@@ -128,7 +145,9 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnAddSearch_Click(object sender, EventArgs e)     //주소찾기
         {
-
+            frmFindAddr frm = new frmFindAddr(this);
+            frm.Show();
+            frm.Activate();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)     //ID 중복체크
@@ -163,6 +182,16 @@ namespace WindowsFormsAppPersonalProject
                 e.Handled = true;
         }
 
-        
+        private void txtAddress_KeyPress(object sender, KeyPressEventArgs e)        //입력하지 못하게 하기
+        {
+            MessageBox.Show("반드시 주소 검색을 해주세요.");
+            e.Handled = true;
+        }
+
+        private void txtZipNo_KeyPress(object sender, KeyPressEventArgs e)      //입력하지 못하게 하기
+        {
+            MessageBox.Show("반드시 주소 검색을 해주세요.");
+            e.Handled = true;
+        }
     }
 }

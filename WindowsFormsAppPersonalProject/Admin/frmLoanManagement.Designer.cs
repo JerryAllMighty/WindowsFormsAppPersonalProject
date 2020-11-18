@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnDelayRate = new System.Windows.Forms.Button();
             this.btnAvg = new System.Windows.Forms.Button();
@@ -37,15 +37,17 @@
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.dtp2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(12, 146);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(776, 292);
@@ -74,7 +76,7 @@
             // 
             // btnLoanPerPeriod
             // 
-            this.btnLoanPerPeriod.Location = new System.Drawing.Point(12, 60);
+            this.btnLoanPerPeriod.Location = new System.Drawing.Point(11, 2);
             this.btnLoanPerPeriod.Name = "btnLoanPerPeriod";
             this.btnLoanPerPeriod.Size = new System.Drawing.Size(165, 42);
             this.btnLoanPerPeriod.TabIndex = 3;
@@ -84,7 +86,9 @@
             // 
             // dtp
             // 
-            this.dtp.Location = new System.Drawing.Point(353, 81);
+            this.dtp.CustomFormat = "";
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp.Location = new System.Drawing.Point(11, 78);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(165, 21);
             this.dtp.TabIndex = 4;
@@ -92,7 +96,9 @@
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(574, 81);
+            this.dtp2.CustomFormat = "";
+            this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp2.Location = new System.Drawing.Point(232, 78);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(200, 21);
             this.dtp2.TabIndex = 5;
@@ -101,21 +107,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(537, 89);
+            this.label1.Location = new System.Drawing.Point(195, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 12);
             this.label1.TabIndex = 6;
             this.label1.Text = "~";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnLoanPerPeriod);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dtp);
+            this.panel1.Controls.Add(this.dtp2);
+            this.panel1.Location = new System.Drawing.Point(345, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(443, 128);
+            this.panel1.TabIndex = 7;
             // 
             // frmLoanManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtp2);
-            this.Controls.Add(this.dtp);
-            this.Controls.Add(this.btnLoanPerPeriod);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAvg);
             this.Controls.Add(this.btnDelayRate);
             this.Controls.Add(this.chart1);
@@ -123,8 +138,9 @@
             this.Text = "frmLoanManagement";
             this.Load += new System.EventHandler(this.frmLoanManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -137,5 +153,6 @@
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
