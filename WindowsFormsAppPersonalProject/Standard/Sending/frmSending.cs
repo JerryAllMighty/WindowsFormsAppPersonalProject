@@ -14,21 +14,22 @@ namespace WindowsFormsAppPersonalProject
 {
     public partial class frmSending : Form
     {
-        StringBuilder sb = new StringBuilder();
-
-       string CustomerNum;
-       string CustomerName;
-       string CustomerAddress;
-       string CustomerID;
-       string IsAdmin;
-       string CustomerPw;
-       string Phone;
-       string CustomerEmail;
-       string CustomerImage;
+        string CustomerNum;
+        string CustomerName;
+        string CustomerAddress;
+        string CustomerID;
+        string IsAdmin;
+        string CustomerPw;
+        string Phone;
+        string CustomerEmail;
+        string CustomerImage;
 
         string InputAcc;        //입금계좌로 입력을 했거나 혹은 최신 목록에서 선택을 했거나
         string ReceiverName;
-        DataTable dt, dt2;      //이체정보,출금계좌정보
+        DataTable dt2;
+        bool bFlag;
+
+        string MyAccountSending;
 
         public frmSending()
         {
@@ -58,7 +59,8 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        public SendingClass SendingInfo {
+        public SendingClass SendingInfo
+        {
             get
             {
                 return new SendingClass(cbxOutAcc.SelectedItem.ToString(), txtAmountOfSending.Text, "", InputAcc, CustomerNum, CustomerName, ReceiverName);
@@ -71,33 +73,25 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        private void frmSending_Load(object sender, EventArgs e)
+        private void IterationRemoval(DataTable aa, string columnName, ComboBox cbx)        //중복을 제거하고 데이터를 가져와서 콤보박스에 뿌려주는 함수
         {
-            lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
-
-            NormalAccountDB db = new NormalAccountDB();
-            dt2 = db.GetEveryData(CustomerNum);
-            bool bFlag, cFlag;
-
-
-            if (dt2 != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
+            if (aa != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
             {
-                for (int i = 0; i < dt2.Rows.Count; i++)
+                for (int i = 0; i < aa.Rows.Count; i++)
                 {
                     bFlag = true;
                     for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
                     {
-                        if (dt2.Rows[i]["NAccountNum"].ToString() == dt2.Rows[j]["NAccountNum"].ToString())
+                        if (aa.Rows[i][columnName].ToString() == aa.Rows[j][columnName].ToString())
                         {
                             bFlag = false;
 
                         }
-                       
+
                     }
                     if (bFlag)
                     {
-                        cbxOutAcc.Items.Add(dt2.Rows[i]["NAccountNum"].ToString());
-
+                        cbx.Items.Add(aa.Rows[i][columnName].ToString());
                     }
                 }
             }
@@ -110,31 +104,22 @@ namespace WindowsFormsAppPersonalProject
                     frm.Activate();
                 }
             }
-            SendingDB db2 = new SendingDB();
-            dt = db2.GetEveryData(CustomerNum);
-            
-            
-            if (dt != null)             //쿼리 값이 참일때만 컨트롤들에 값을 더해주게 유효성 체크
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    cFlag = true;
-                    for (int j = 0; j < i; j++)         //반복문을 돌면서 중복되는 값들은 더해주지 않기
-                    {
-                        if (dt.Rows[i]["RecentlySentTo"].ToString() == dt.Rows[j]["RecentlySentTo"].ToString())
-                        {
-                            cFlag = false;
-                        }
-                    }
-                    if (cFlag)
-                    {
-                        cbxRecently.Items.Insert(0, dt.Rows[i]["RecentlySentTo"].ToString());
-                    }
-                }
-            }
-            
+        }
 
+        private void frmSending_Load(object sender, EventArgs e)
+        {
+            lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
+
+            NormalAccountDB db = new NormalAccountDB();
+            dt2 = db.WhenYouLoadfrmSending(CustomerNum);        //출금계좌, 예금 계좌, 적금 계좌에 바인딩시키기 위함
             db.Dispose();
+
+            IterationRemoval(dt2, "NAccountNum", cbxOutAcc);        //출금 계좌에 바인딩
+            IterationRemoval(dt2, "RecentlySentTo", cbxRecently);       //최근 목록에 바인딩
+            IterationRemoval(dt2, "DAccountNum", cbxDepositAcc);        //예금 계좌에 바인딩
+            IterationRemoval(dt2, "SAccountNum", cbxSavingAcc);     //적금 계좌에 바인딩
+
+            
         }
 
         private void cbxOutAcc_SelectedValueChanged(object sender, EventArgs e)     //출금계좌가 선택이 될 때 현재 금액에 금액 바인딩해주기
@@ -147,49 +132,75 @@ namespace WindowsFormsAppPersonalProject
             }
             else
                 lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
-            
+
         }
 
         private void comboBox3_Enter(object sender, EventArgs e)
         {
-           
+
         }
+
+
 
         private void btnSend_Click(object sender, EventArgs e)      //계좌이체 버튼 클릭
         {
-            if (txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1 || txtAmountOfSending.TextLength < 1)
+            if (txtAmountOfSending.TextLength < 1 || InputAcc.Length < 1 || cbxOutAcc.SelectedItem.ToString().Length < 1 || txtOutPwd.TextLength < 1)
             {
                 MessageBox.Show("필수 입력 항목들은 꼭 입력해주셔야합니다.");
                 return;
             }
-            if (MessageBox.Show("입력하신 정보가 맞습니까?", "최종 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                //db들어가서 입금계좌 정보에 해당하는 고객정보가져오라
-                NormalAccountDB db = new NormalAccountDB();
-                DataTable dt2 = db.GetNormalAccountData(InputAcc.Trim().Replace(" ", ""));
-                
-                if ( dt2 == null)
-                {
-                    MessageBox.Show("해당 입금 계좌가 존재하지 않습니다.\n입금 계좌 정보를 다시 한 번 확인해주세요.");
-                    return;
-                }
-                else 
-                {
-                    ReceiverName = dt2.Rows[0]["CustomerName"].ToString();      //결과가 뭐라도 나왔으니 수신인 이름에 값을 준다
 
-                    if (db.GetEveryData(cbxOutAcc.SelectedItem.ToString(), txtOutPwd.Text) == null)     //출금 계좌 유효성 체크
-                    {
-                        MessageBox.Show("출금 계좌의 정보를 다시 한 번 확인해주세요.");
-                        return;
-                    }
-                    if (MessageBox.Show($@"받으시는 분의 성함이 맞습니까?  
+
+
+            //내 계좌로 보내는 경우
+            //이 때도 출금계좌 유효성 체크하자
+            if (txtInputAcc.TextLength < 1)     //내 계좌 항목을 선택시 입금계좌 입력 항목을 비게 코딩했음
+            {
+                ReceiverName = $"{CustomerName}";
+                if (MessageBox.Show($@"받으시는 분의 성함이 맞습니까?  
                                                          입금주명 : {ReceiverName}
                                                          입금 계좌 : {InputAcc}",
-                         "이체 정보 확인", (MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                    "이체 정보 확인", (MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                {
+                    frmSending2 frm = new frmSending2(SendingInfo, MyAccountSending);
+                    frm.Show();
+                    frm.Activate();
+                }
+            }
+            else
+            {
+                    //내 계좌가 아닌 다른 사람의 일반 계좌로 보내는 경우
+            
+            
+                if (MessageBox.Show("입력하신 정보가 맞습니까?", "최종 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //일반 계좌 db들어가서 입금계좌 정보에 해당하는 고객정보가져오라
+                    NormalAccountDB db = new NormalAccountDB();
+                    DataTable dt2 = db.GetNormalAccountData(InputAcc.Trim().Replace(" ", ""));
+
+                    if (dt2 == null)
                     {
-                        frmSending2 frm = new frmSending2(SendingInfo);
-                        frm.Show();
-                        frm.Activate();
+                        MessageBox.Show("해당 입금 계좌가 존재하지 않습니다.\n입금 계좌 정보를 다시 한 번 확인해주세요.");
+                        return;
+                    }
+                    else
+                    {
+                        ReceiverName = dt2.Rows[0]["CustomerName"].ToString();      //결과가 뭐라도 나왔으니 수신인 이름에 값을 준다
+
+                        if (db.GetEveryData(cbxOutAcc.SelectedItem.ToString(), txtOutPwd.Text) == null)     //출금 계좌 유효성 체크
+                        {
+                            MessageBox.Show("출금 계좌의 정보를 다시 한 번 확인해주세요.");
+                            return;
+                        }
+                        if (MessageBox.Show($@"받으시는 분의 성함이 맞습니까?  
+                                                         입금주명 : {ReceiverName}
+                                                         입금 계좌 : {InputAcc}",
+                             "이체 정보 확인", (MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                        {
+                            frmSending2 frm = new frmSending2(SendingInfo);
+                            frm.Show();
+                            frm.Activate();
+                        }
                     }
                 }
             }
@@ -198,17 +209,27 @@ namespace WindowsFormsAppPersonalProject
         private void cbxRecently_SelectedValueChanged(object sender, EventArgs e)   //최근 목록의 값이 변하면 입급계좌 항목은 동일하게 만들어주기
         {
             InputAcc = cbxRecently.SelectedItem.ToString();
-            txtInputAcc.Text = cbxRecently.SelectedItem.ToString(); 
+            txtInputAcc.Text = cbxRecently.SelectedItem.ToString();
         }
 
         private void txtInputAcc_TextChanged(object sender, EventArgs e)        //입급계좌 항목의 값이 입력된다면 콤보박스는 비워주기
         {
             InputAcc = txtInputAcc.Text;
-            cbxRecently.Text = "";
+            cbxRecently.Text = cbxDepositAcc.Text = cbxSavingAcc.Text = "";
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            CommonUtil.SetinitGridView(dgvMember);
+            CommonUtil.AddGridTextColumn(dgvMember, "이체 번호", "SSerialNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "출금 계좌", "NAccountNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "이체 금액", "AmountOfSending", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "이체 날짜", "date(SendingDate)", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "최근 보낸 계좌", "RecentlySentTo", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 번호", "CustomerNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 이름", "CustomerName", 100);
+
+
             SendingDB dbS = new SendingDB();
             if (dbS.GetEveryData(CustomerNum) == null)
             {
@@ -217,13 +238,13 @@ namespace WindowsFormsAppPersonalProject
 
             }
             else
-            { 
-                dgvMember.DataSource = dt;
+            {
+                dgvMember.DataSource = dbS.GetEveryData(CustomerNum);
             }
 
         }       //이체내역 조회
 
-        private void cbxOutAcc_Enter(object sender, EventArgs e)        
+        private void cbxOutAcc_Enter(object sender, EventArgs e)
         {
         }
 
@@ -253,6 +274,20 @@ namespace WindowsFormsAppPersonalProject
                 e.Handled = true;
             }
 
+        }
+
+        private void cbxDepositAcc_SelectedValueChanged(object sender, EventArgs e)     //내 예금 계좌를 선택할 시 다른 컨트롤들 초기화 시켜주기
+        {
+            MyAccountSending = "D";
+            InputAcc = cbxDepositAcc.SelectedItem.ToString();
+            cbxRecently.Text = txtInputAcc.Text = cbxSavingAcc.Text = "";
+        }
+
+        private void cbxSavingAcc_SelectedValueChanged(object sender, EventArgs e)      //내 적금 계좌를 선택할 시 다른 컨트롤들 초기화 시켜주기
+        {
+            MyAccountSending = "S";
+            InputAcc = cbxSavingAcc.SelectedItem.ToString();
+            cbxRecently.Text = txtInputAcc.Text = cbxDepositAcc.Text = "";
         }
     }
 }

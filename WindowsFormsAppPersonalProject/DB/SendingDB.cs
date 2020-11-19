@@ -53,7 +53,7 @@ namespace WindowsFormsAppPersonalProject
             try 
             {
                 DataTable dt = new DataTable();
-                string sql = @"select SSerialNum, NAccountNum, AmountOfSending, SendingDate, RecentlySentTo, CustomerNum, CustomerName 
+                string sql = @"select SSerialNum, NAccountNum, AmountOfSending, date(SendingDate), RecentlySentTo, CustomerNum, CustomerName 
                                                 from sending
                                                 where CustomerNum = @customernum";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

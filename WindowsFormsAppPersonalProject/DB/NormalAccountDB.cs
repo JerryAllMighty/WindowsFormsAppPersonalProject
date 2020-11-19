@@ -48,14 +48,21 @@ namespace WindowsFormsAppPersonalProject
         }
 
 
-        public DataTable WhenYouSend(string customernum)
+        public DataTable WhenYouLoadfrmSending(string customernum)      //이체폼을 로딩할 때, 컨트롤들에 초기값 주기 위한 함수
         {
             try
             {
                 DataTable dt = new DataTable();
-                string sql = @"SELECT N.NAccountNum, N.CurrentMoney, S.RecentlySentTo FROM normalaccount N 
-                                        join sending S on N.CustomerNum = S.CustomerNum
-                                        where N.NAccountNum = S.NAccountNum and N.CustomerNum = @customernum";
+                string sql = @"select N.NAccountNum, date(N.DateCreated), N.CustomerNum, N.CustomerName,
+                                        N.KindOfAcc, N.Pwd, N.CurrentMoney, S.SAccountNum, D.DAccountNum, Sen.RecentlySentTo
+                                        from normalaccount N join depositaccount D
+                                        on N.CustomerNum = D.CustomerNum    
+                                        join savings S
+                                        on N.CustomerNum = S.CustomerNum
+                                        join sending Sen
+                                        on N.CustomerNum = Sen.CustomerNum
+                                        where N.CustomerNum = 6
+                                        group by S.SAccountNum,D.DAccountNum";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
 

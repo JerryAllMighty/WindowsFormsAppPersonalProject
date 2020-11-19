@@ -20,6 +20,9 @@ namespace WindowsFormsAppPersonalProject.Sending
         string CustomerNum;
         string CustomerName;
         string ReceiversName;
+
+        string MyAccountSending;
+
         public frmSending2()
         {
             InitializeComponent();
@@ -31,7 +34,11 @@ namespace WindowsFormsAppPersonalProject.Sending
                 return new SendingClass(NAccountNum, AmountOfSending, SendingDate, RecentlySentTo, CustomerNum, CustomerName);
             }
         }
-        public frmSending2(SendingClass sendingInfo)
+        public frmSending2(SendingClass sendingInfo) : this (sendingInfo, "")
+        {
+            
+        }
+        public frmSending2(SendingClass sendingInfo, string myaccountsending)
         {
             InitializeComponent();
             SSerialNum = sendingInfo.SSerialNum;
@@ -42,20 +49,58 @@ namespace WindowsFormsAppPersonalProject.Sending
             CustomerNum = sendingInfo.CustomerNum;
             CustomerName = sendingInfo.CustomerName;
             ReceiversName = sendingInfo.ReceiversName;
+            MyAccountSending = myaccountsending;
         }
+
         private void btnSend_Click(object sender, EventArgs e)      //이체버튼 클릭
         {
             SendingDB db = new SendingDB();
             NormalAccountDB db2 = new NormalAccountDB();
-            if (db.Insert(SendingInfo) && db2.UpdateReceiver(AmountOfSending, RecentlySentTo) && db2.UpdateSender(AmountOfSending, NAccountNum))
+            if (MyAccountSending == "D")        //예금 계좌에 이체할 때
             {
-                MessageBox.Show("이체가 성공적으로 완료되었습니다.");
-                this.Close();
+                DepositAccountDB d = new DepositAccountDB();
+                //      이체내역 테이블에 정보 저장했고, 받는 사람 테이블 금액 올려줬고,               보낸 사람 테이블 금액 차감해줬으면
+                if (db.Insert(SendingInfo) && d.UpdateCurrentMoney(RecentlySentTo, AmountOfSending) && db2.UpdateSender(AmountOfSending, NAccountNum))
+                {
+                    MessageBox.Show("이체가 성공적으로 완료되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("이체가 실패하였습니다. 다시 시도해주세요.");
+                    return;
+                }
+            }
+            else if (MyAccountSending == "S")       //적금 계좌에 이체할 때
+            {
+                SavingDB s = new SavingDB();
+                //      이체내역 테이블에 정보 저장했고, 받는 사람 테이블 금액 올려줬고,               보낸 사람 테이블 금액 차감해줬으면
+                if (db.Insert(SendingInfo) && s.UpdateCurrentMoney(RecentlySentTo, AmountOfSending) && db2.UpdateSender(AmountOfSending, NAccountNum))
+                {
+                    MessageBox.Show("이체가 성공적으로 완료되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("이체가 실패하였습니다. 다시 시도해주세요.");
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("이체가 실패하였습니다. 다시 시도해주세요.");
-                return;
+
+                //      이체내역 테이블에 정보 저장했고, 받는 사람 테이블 금액 올려줬고,               보낸 사람 테이블 금액 차감해줬으면
+                if (db.Insert(SendingInfo) && db2.UpdateReceiver(AmountOfSending, RecentlySentTo) && db2.UpdateSender(AmountOfSending, NAccountNum))
+                {
+                    MessageBox.Show("이체가 성공적으로 완료되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("이체가 실패하였습니다. 다시 시도해주세요.");
+                    return;
+                }
+                
             }
             db.Dispose();
         }

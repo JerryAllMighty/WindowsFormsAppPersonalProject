@@ -84,14 +84,14 @@ namespace WindowsFormsAppPersonalProject
         {
             dgvMember2.Columns.Clear();
 
-            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "DAccountNum", 80);
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "DAccountNum", 120);
             CommonUtil.AddGridTextColumn(dgvMember2, "생성 날짜", "DateCreated", 120);
             CommonUtil.AddGridTextColumn(dgvMember2, "고객 번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember2, "고객 이름", "CustomerName");
             CommonUtil.AddGridTextColumn(dgvMember2, "계좌 종류", "KindOfAcc");
             CommonUtil.AddGridTextColumn(dgvMember2, "예금액", "AmountOfDeposit");
             CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌", "OutAccount");
-            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌 비밀번호", "OutAccountPwd");
+            CommonUtil.AddGridTextColumn(dgvMember2, "출금 계좌 비밀번호", "OutAccountPwd", 150);
             CommonUtil.AddGridTextColumn(dgvMember2, "비밀번호", "NewPwd");
             CommonUtil.AddGridTextColumn(dgvMember2, "현재 잔액", "CurrentMoney");
             CommonUtil.AddGridTextColumn(dgvMember2, "가입 기간", "Duration");
@@ -117,7 +117,7 @@ namespace WindowsFormsAppPersonalProject
         {
             dgvMember2.Columns.Clear();
 
-            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "SAccountNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember2, "계좌 번호", "SAccountNum", 120);
             CommonUtil.AddGridTextColumn(dgvMember2, "생성 날짜", "DateCreated", 120);
             CommonUtil.AddGridTextColumn(dgvMember2, "고객 번호", "CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember2, "고객 이름", "CustomerName");
@@ -149,7 +149,7 @@ private void btnNormal_Click(object sender, EventArgs e)        //일반 계좌 
         {
             dgvMember2.Columns.Clear();
 
-            CommonUtil.AddGridTextColumn(dgvMember2,"계좌 번호", "NAccountNum", 80 );
+            CommonUtil.AddGridTextColumn(dgvMember2,"계좌 번호", "NAccountNum", 120 );
             CommonUtil.AddGridTextColumn(dgvMember2,"생성 날짜", "DateCreated", 120);
             CommonUtil.AddGridTextColumn(dgvMember2,"고객 번호","CustomerNum");
             CommonUtil.AddGridTextColumn(dgvMember2,"고객 이름", "CustomerName");

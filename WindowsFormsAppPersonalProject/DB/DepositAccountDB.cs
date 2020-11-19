@@ -213,7 +213,45 @@ namespace WindowsFormsAppPersonalProject
             }
 
         }
+        public bool UpdateCurrentMoney(string daccountnum, string amountofsending)        //예금에 추가 입금을 할 때 쓰는 함수
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update depositaccount
+                                  set 
+                                  CurrentMoney = CurrentMoney + @amountofsending      
+                                 where DAccountNum = @daccountnum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Transaction = trans;
 
+
+                cmd.Parameters.Add("@amountofsending", MySqlDbType.Int32);
+                cmd.Parameters["@amountofsending"].Value = Convert.ToInt32(amountofsending);
+                
+                cmd.Parameters.Add("@daccountnum", MySqlDbType.Int32);
+                cmd.Parameters["@daccountnum"].Value = Convert.ToInt32(daccountnum);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    trans.Commit();
+                    return true;
+                }
+                else
+                {
+                    trans.Rollback();
+                    return false;
+                }
+
+
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+                return false;
+            }
+
+        }
 
         public bool Delete(string customernum, string daccountnum)
         {

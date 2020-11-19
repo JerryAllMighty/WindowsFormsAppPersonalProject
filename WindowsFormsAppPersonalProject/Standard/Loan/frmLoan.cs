@@ -94,7 +94,7 @@ namespace WindowsFormsAppPersonalProject
             {
                 dgvMember.DataSource = dt;
             }
-            else { MessageBox.Show("대출 상황을 조회해오는데 실패했습니다."); }
+            else { MessageBox.Show("대출 내역이 존재하지 않습니다."); }
         }
 
         private void btnInfo_Click(object sender, EventArgs e)      //대출정보 조회
