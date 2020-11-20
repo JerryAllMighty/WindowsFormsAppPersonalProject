@@ -50,31 +50,29 @@ namespace WindowsFormsAppPersonalProject
 
         private void btnAvg_Click(object sender, EventArgs e)       //평균 대출액
         {
-           // dtpCheck();
             LoanDB db = new LoanDB();
             DataTable dt = db.MonthlyAvgLoan();
             chart1.Series.Clear();
             chart1.Series.Add(new Series("Series2"));
 
-            //DataPoint point = new DataPoint();
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{
-            //    point.SetValueXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
-            //    point.ToolTip = string.Format("{0}, {1}", dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
-            //    chart1.Series["Series2"].Points.Add(point);
-            //}
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt != null)
             {
-                chart1.Series["Series2"].Points.AddXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
-                chart1.Series["Series2"].ToolTip = $"#VALY";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    chart1.Series["Series2"].Points.AddXY(dt.Rows[i][0].ToString(), dt.Rows[i][1].ToString());
+                    chart1.Series["Series2"].ToolTip = $"#VALY";
+                }
+                //chart1.Series["Series2"].Points.DataBind(dt.DefaultView, "month(LoanStarted)", "AVGloan", "ToolTip=AVGloan ");
+                chart1.Series["Series2"].ChartType = SeriesChartType.Line;
+                chart1.Series["Series2"].BorderWidth = 5;
+
+
+                chart1.Series["Series2"].LegendText = "월별 평균 대출액";
             }
-            //chart1.Series["Series2"].Points.DataBind(dt.DefaultView, "month(LoanStarted)", "AVGloan", "ToolTip=AVGloan ");
-            chart1.Series["Series2"].ChartType = SeriesChartType.Line;
-            chart1.Series["Series2"].BorderWidth = 5;
-
-            
-            chart1.Series["Series2"].LegendText = "월별 평균 대출액";
-
+            else
+            {
+                MessageBox.Show("자료를 가져오지 못했습니다.");
+            }
         }
 
         private void btnMonthlyLoan_Click(object sender, EventArgs e)       //기간별 대출 건수

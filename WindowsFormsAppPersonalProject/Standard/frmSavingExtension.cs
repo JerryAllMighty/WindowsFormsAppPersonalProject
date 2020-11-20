@@ -46,18 +46,18 @@ namespace WindowsFormsAppPersonalProject
         {
             //이거 고쳐주기
             CommonUtil.SetinitGridView(dgvMemver);
-            CommonUtil.AddGridTextColumn2(dgvMemver, "예금 계좌 번호", "DAccountNum", 120);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "적금 계좌 번호", "SAccountNum", 120);
             CommonUtil.AddGridTextColumn2(dgvMemver, "만기 월", "expiremonth", 80);
             CommonUtil.AddGridTextColumn2(dgvMemver, "만기 날짜", "expiredate", 120);
             CommonUtil.AddGridTextColumn2(dgvMemver, "고객번호", "CustomerNum", 80);
             CommonUtil.AddGridTextColumn2(dgvMemver, "고객명", "CustomerName", 120);
             CommonUtil.AddGridTextColumn2(dgvMemver, "계좌 종류", "KindofAcc", 120);
-            CommonUtil.AddGridTextColumn2(dgvMemver, "예치금", "AmountOfDeposit", 100);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "매회 납입 금액", "PayPerMonth", 120);
             CommonUtil.AddGridTextColumn2(dgvMemver, "출금 계좌 번호", "OutAccount", 150);
             CommonUtil.AddGridTextColumn2(dgvMemver, "출금 계좌 비밀번호", "OutAccountPwd", 150);
-            CommonUtil.AddGridTextColumn2(dgvMemver, "예금 계좌 비밀번호", "NewPwd", 150);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "적금 계좌 비밀번호", "NewPwd", 150);
             CommonUtil.AddGridTextColumn2(dgvMemver, "현재금액", "CurrentMoney", 120);
-            CommonUtil.AddGridTextColumn2(dgvMemver, "예치 기간(월)", "Duration", 130);
+            CommonUtil.AddGridTextColumn2(dgvMemver, "적금 기간(월)", "Duration", 130);
             dgvMemver.DataSource = dt2;
         }
 
@@ -91,10 +91,11 @@ namespace WindowsFormsAppPersonalProject
             dgvMemver.CurrentRow.Selected = true;
             SAccountNum = dgvMemver.CurrentRow.Cells[0].Value.ToString();
             txtCurrentMoney.Text = dgvMemver.CurrentRow.Cells[9].Value.ToString();
-            txtOutAccount.Text = dgvMemver.CurrentRow.Cells[6].Value.ToString();
-            txtOutPwd.Text = dgvMemver.CurrentRow.Cells[7].Value.ToString();
-            txtNewPwd.Text = dgvMemver.CurrentRow.Cells[8].Value.ToString();
-            txtCheckNewPwd.Text = dgvMemver.CurrentRow.Cells[8].Value.ToString();
+            txtOutAccount.Text = dgvMemver.CurrentRow.Cells[7].Value.ToString();
+            txtOutPwd.Text = dgvMemver.CurrentRow.Cells[8].Value.ToString();
+            txtNewPwd.Text = dgvMemver.CurrentRow.Cells[9].Value.ToString();
+            txtCheckNewPwd.Text = dgvMemver.CurrentRow.Cells[9].Value.ToString();
+            txtpayPerMonth.Text = dgvMemver.CurrentRow.Cells[6].Value.ToString();
         }
 
         private void txtOutAccount_KeyPress(object sender, KeyPressEventArgs e)     //출금 계좌 변경시 숫자만 입력받게 하기

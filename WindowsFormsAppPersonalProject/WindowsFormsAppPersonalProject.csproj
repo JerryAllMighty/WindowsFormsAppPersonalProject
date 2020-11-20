@@ -67,10 +67,16 @@
     <Compile Include="Control\SavingNotice.Designer.cs">
       <DependentUpon>SavingNotice.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFindAddr.cs">
+    <Compile Include="frmLoanInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFindAddr.Designer.cs">
+    <Compile Include="frmLoanInfo.Designer.cs">
+      <DependentUpon>frmLoanInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewAddress\frmFindAddr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAddress\frmFindAddr.Designer.cs">
       <DependentUpon>frmFindAddr.cs</DependentUpon>
     </Compile>
     <Compile Include="Standard\frmSavingExtension.cs">
@@ -125,10 +131,10 @@
     <Compile Include="Admin\frmAccountmanagement.Designer.cs">
       <DependentUpon>frmAccountmanagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmJerryTalk.cs">
+    <Compile Include="JerryTalk\frmJerryTalk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmJerryTalk.Designer.cs">
+    <Compile Include="JerryTalk\frmJerryTalk.Designer.cs">
       <DependentUpon>frmJerryTalk.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\frmLoanManagement.cs">
@@ -137,10 +143,10 @@
     <Compile Include="Admin\frmLoanManagement.Designer.cs">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListOfCustomers.cs">
+    <Compile Include="JerryTalk\frmListOfCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListOfCustomers.Designer.cs">
+    <Compile Include="JerryTalk\frmListOfCustomers.Designer.cs">
       <DependentUpon>frmListOfCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="Standard\Loan\frmApplyingForLoan.cs">
@@ -168,10 +174,10 @@
       <DependentUpon>frmLoanPayBack.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\MessageDB.cs" />
-    <Compile Include="Login, NewAddress\frmSeacrchPw.cs">
+    <Compile Include="Login\frmSeacrchPw.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login, NewAddress\frmSeacrchPw.Designer.cs">
+    <Compile Include="Login\frmSeacrchPw.Designer.cs">
       <DependentUpon>frmSeacrchPw.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\SendingDB.cs" />
@@ -195,10 +201,10 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login, NewAddress\frmLogin.cs">
+    <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login, NewAddress\frmLogin.Designer.cs">
+    <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Standard\Loan\frmLoan.cs">
@@ -221,10 +227,10 @@
     <Compile Include="Standard\Sending\frmSending.Designer.cs">
       <DependentUpon>frmSending.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login, NewAddress\frmWhenCreate.cs">
+    <Compile Include="NewAddress\frmWhenCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login, NewAddress\frmWhenCreate.Designer.cs">
+    <Compile Include="NewAddress\frmWhenCreate.Designer.cs">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Control\NumberOnly.resx">
@@ -233,7 +239,10 @@
     <EmbeddedResource Include="Control\SavingNotice.resx">
       <DependentUpon>SavingNotice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFindAddr.resx">
+    <EmbeddedResource Include="frmLoanInfo.resx">
+      <DependentUpon>frmLoanInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAddress\frmFindAddr.resx">
       <DependentUpon>frmFindAddr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\frmSavingExtension.resx">
@@ -260,13 +269,13 @@
     <EmbeddedResource Include="Admin\frmAccountmanagement.resx">
       <DependentUpon>frmAccountmanagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmJerryTalk.resx">
+    <EmbeddedResource Include="JerryTalk\frmJerryTalk.resx">
       <DependentUpon>frmJerryTalk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\frmLoanManagement.resx">
       <DependentUpon>frmLoanManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListOfCustomers.resx">
+    <EmbeddedResource Include="JerryTalk\frmListOfCustomers.resx">
       <DependentUpon>frmListOfCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\Loan\frmApplyingForLoan.resx">
@@ -287,7 +296,7 @@
     <EmbeddedResource Include="Standard\Customer\frmUpdate.resx">
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login, NewAddress\frmLogin.resx">
+    <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\Loan\frmLoan.resx">
@@ -305,13 +314,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login, NewAddress\frmSeacrchPw.resx">
+    <EmbeddedResource Include="Login\frmSeacrchPw.resx">
       <DependentUpon>frmSeacrchPw.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\Sending\frmSending.resx">
       <DependentUpon>frmSending.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login, NewAddress\frmWhenCreate.resx">
+    <EmbeddedResource Include="NewAddress\frmWhenCreate.resx">
       <DependentUpon>frmWhenCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard\Sending\frmSending2.resx">

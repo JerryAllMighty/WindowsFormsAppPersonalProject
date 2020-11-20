@@ -28,7 +28,7 @@ namespace WindowsFormsAppPersonalProject
         string ReceiverName;
         DataTable dt2;
         bool bFlag;
-
+        NormalAccountDB db;
         string MyAccountSending;
 
         public frmSending()
@@ -95,7 +95,18 @@ namespace WindowsFormsAppPersonalProject
                     }
                 }
             }
-            else  //일반 계좌가 없을 시
+            
+        }
+
+        private void frmSending_Load(object sender, EventArgs e)
+        {
+            lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
+
+            db = new NormalAccountDB();
+            DataTable dt = db.GetEveryData(CustomerNum);
+            dt2 = db.WhenYouLoadfrmSending(CustomerNum);        //출금계좌, 예금 계좌, 적금 계좌 콤보박스에 바인딩시키기 위함
+            db.Dispose();
+            if (dt == null)  //일반 계좌가 없을 시
             {
                 if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -104,20 +115,19 @@ namespace WindowsFormsAppPersonalProject
                     frm.Activate();
                 }
             }
-        }
 
-        private void frmSending_Load(object sender, EventArgs e)
-        {
-            lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
-
-            NormalAccountDB db = new NormalAccountDB();
-            dt2 = db.WhenYouLoadfrmSending(CustomerNum);        //출금계좌, 예금 계좌, 적금 계좌에 바인딩시키기 위함
-            db.Dispose();
-
-            IterationRemoval(dt2, "NAccountNum", cbxOutAcc);        //출금 계좌에 바인딩
-            IterationRemoval(dt2, "RecentlySentTo", cbxRecently);       //최근 목록에 바인딩
-            IterationRemoval(dt2, "DAccountNum", cbxDepositAcc);        //예금 계좌에 바인딩
-            IterationRemoval(dt2, "SAccountNum", cbxSavingAcc);     //적금 계좌에 바인딩
+            if (dt2 != null)
+            {
+                IterationRemoval(dt2, "NAccountNum", cbxOutAcc);        //출금 계좌에 바인딩
+                IterationRemoval(dt2, "RecentlySentTo", cbxRecently);       //최근 목록에 바인딩
+                IterationRemoval(dt2, "DAccountNum", cbxDepositAcc);        //예금 계좌에 바인딩
+                IterationRemoval(dt2, "SAccountNum", cbxSavingAcc);     //적금 계좌에 바인딩
+            }
+            else
+            {
+                MessageBox.Show("이체 정보를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.");
+                return;
+            }
 
             
         }
@@ -150,11 +160,31 @@ namespace WindowsFormsAppPersonalProject
                 return;
             }
 
+            //계좌에 남아있는 잔액보다 큰 돈은 보낼 수 없게 체크
+             DataTable dt3 = db.GetCurrentMoney(cbxOutAcc.Text);
 
-
-            //내 계좌로 보내는 경우
+            if (dt3 != null)
+            {       //출금 계좌 잔액에서 이체 금액을 뺀 값이 0보다 작을 경우
+                if ((Convert.ToInt32(dt3.Rows[0][0].ToString()) - Convert.ToInt32(txtAmountOfSending.Text)) < 0)
+                {
+                    MessageBox.Show("계좌 잔액보다 큰 금액은 보낼 수 없습니다.");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("출금 계좌의 잔액에 관한 자료를 가져오지 못했습니다.");
+                return;
+            }
+            //내 계좌(일반 > 일반)으로 보내는 경우
+            if (cbxOutAcc.Text == InputAcc)
+            {
+                MessageBox.Show("같은 계좌로 보낼 수는 없습니다.");
+                return;
+            }
+            //내 계좌(예금, 적금)로 보내는 경우
             //이 때도 출금계좌 유효성 체크하자
-            if (txtInputAcc.TextLength < 1)     //내 계좌 항목을 선택시 입금계좌 입력 항목을 비게 코딩했음
+            if (MyAccountSending.Length > 0)     //내 계좌 항목(예금, 적금)을 선택시 입금계좌 입력 항목을 비게 코딩했음
             {
                 ReceiverName = $"{CustomerName}";
                 if (MessageBox.Show($@"받으시는 분의 성함이 맞습니까?  
@@ -208,14 +238,19 @@ namespace WindowsFormsAppPersonalProject
 
         private void cbxRecently_SelectedValueChanged(object sender, EventArgs e)   //최근 목록의 값이 변하면 입급계좌 항목은 동일하게 만들어주기
         {
-            InputAcc = cbxRecently.SelectedItem.ToString();
-            txtInputAcc.Text = cbxRecently.SelectedItem.ToString();
+            if (cbxRecently.Text.Length > 0)
+            {
+                txtInputAcc.Text = cbxRecently.SelectedItem.ToString();
+            }
         }
 
         private void txtInputAcc_TextChanged(object sender, EventArgs e)        //입급계좌 항목의 값이 입력된다면 콤보박스는 비워주기
         {
             InputAcc = txtInputAcc.Text;
-            cbxRecently.Text = cbxDepositAcc.Text = cbxSavingAcc.Text = "";
+            if (cbxSavingAcc.Text.Length < 1 && cbxDepositAcc.Text.Length < 1)
+            {
+                cbxRecently.Text = cbxDepositAcc.Text = cbxSavingAcc.Text = "";
+            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -276,18 +311,24 @@ namespace WindowsFormsAppPersonalProject
 
         }
 
-        private void cbxDepositAcc_SelectedValueChanged(object sender, EventArgs e)     //내 예금 계좌를 선택할 시 다른 컨트롤들 초기화 시켜주기
+        private void cbxSavingAcc_SelectedValueChanged(object sender, EventArgs e)
         {
-            MyAccountSending = "D";
-            InputAcc = cbxDepositAcc.SelectedItem.ToString();
-            cbxRecently.Text = txtInputAcc.Text = cbxSavingAcc.Text = "";
+            if (cbxSavingAcc.Text.Length > 0)
+            {
+                MyAccountSending = "S";
+                txtInputAcc.Text = cbxSavingAcc.Text;
+                cbxRecently.Text = cbxDepositAcc.Text = "";
+            }
         }
 
-        private void cbxSavingAcc_SelectedValueChanged(object sender, EventArgs e)      //내 적금 계좌를 선택할 시 다른 컨트롤들 초기화 시켜주기
+        private void cbxDepositAcc_SelectedValueChanged(object sender, EventArgs e)
         {
-            MyAccountSending = "S";
-            InputAcc = cbxSavingAcc.SelectedItem.ToString();
-            cbxRecently.Text = txtInputAcc.Text = cbxDepositAcc.Text = "";
+            if (cbxDepositAcc.Text.Length > 0)
+            {
+                MyAccountSending = "D";
+                txtInputAcc.Text = cbxDepositAcc.Text;
+                cbxRecently.Text = cbxSavingAcc.Text = "";
+            }
         }
     }
 }

@@ -100,6 +100,10 @@ namespace WindowsFormsAppPersonalProject
         private void btnInfo_Click(object sender, EventArgs e)      //대출정보 조회
         {
             //어떻게 할까 고민중
+            frmLoanInfo loaninfo = new frmLoanInfo();
+            loaninfo.Show();
+            loaninfo.Activate();
+            
         }
     }
 }

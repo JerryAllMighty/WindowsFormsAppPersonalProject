@@ -79,7 +79,7 @@ namespace WindowsFormsAppPersonalProject
                 return null;
             }
         }
-
+         
         public DataTable GetExpireData(string customernum)
         {
             try
@@ -88,7 +88,7 @@ namespace WindowsFormsAppPersonalProject
                 string sql = @"select SAccountNum,
                         date_format(date_add(DateCreated, interval Duration month), '%Y %c') as expiremonth,
 						date_format(date_add(DateCreated, interval Duration month), '%Y %c %d') as expiredate,
-						CustomerNum, CustomerName, KindofAcc,
+						CustomerNum, CustomerName, KindofAcc, PayPerMonth,
                         OutAccount, OutAccountPwd, NewPwd, CurrentMoney, Duration
                             from savings
 						    where CustomerNum = @customernum";

@@ -387,7 +387,11 @@ namespace WindowsFormsAppPersonalProject
 
         private void txtpayPerMonth_Leave(object sender, EventArgs e)
         {
-            txtpayPerMonth.Text = decimal.Parse(txtpayPerMonth.Text).ToString("#,##0");
+            if(txtpayPerMonth.Text.Length > 0)
+            {
+                txtpayPerMonth.Text = decimal.Parse(txtpayPerMonth.Text).ToString("#,###");
+            }
+               
         }
     }
 }

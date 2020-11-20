@@ -28,6 +28,9 @@ namespace WindowsFormsAppPersonalProject
         private bool bActivateFlag = false;
         bool wannaExtend = true;
         bool wannaExtendS = true;
+        DataTable dt;
+        DataTable dt2;
+
         public frmMain()
         {
             InitializeComponent();
@@ -189,7 +192,7 @@ namespace WindowsFormsAppPersonalProject
 
             //예금 만기 한달 전일 때
             DepositAccountDB dp = new DepositAccountDB();
-            DataTable dt = dp.GetExpireData(CustomerNum);
+            dt = dp.GetExpireData(CustomerNum);
 
 
             
@@ -198,7 +201,7 @@ namespace WindowsFormsAppPersonalProject
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     //만기 한달 전인 예금을 현재 날짜와 비교하여 알려주기
-                    if (dt.Rows[i][1].ToString().Replace(" ", "") ==
+                    if ( (dt.Rows[i][1].ToString().Replace(" ", "")) ==
                         DateTime.Now.AddMonths(+1).ToString("yyyyMM").Replace(" ", ""))
                     {
                         if (wannaExtend)
@@ -256,7 +259,7 @@ namespace WindowsFormsAppPersonalProject
 
             //만료 한달 전 안내
             SavingDB db2 = new SavingDB();
-            DataTable dt2 = db2.GetExpireData(CustomerNum);
+            dt2 = db2.GetExpireData(CustomerNum);
 
 
             
@@ -325,6 +328,21 @@ namespace WindowsFormsAppPersonalProject
             //만약 하루 내에 송금하지 않을 시 적금은 해지되어 일반 계좌로 보내지게 코딩
 
 
+        }
+
+        private void 예금ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDepositExtension frm = new frmDepositExtension(dt, customerInfo);
+            frm.Show();
+            frm.Activate();
+        }
+
+        private void 적금ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSavingExtension frm2 = new frmSavingExtension(dt2, customerInfo);
+            //frm.MdiParent = this;
+            frm2.Show();
+            frm2.Activate();
         }
     }
 }

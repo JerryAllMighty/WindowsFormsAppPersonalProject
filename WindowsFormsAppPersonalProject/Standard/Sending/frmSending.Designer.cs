@@ -70,6 +70,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -81,16 +82,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(801, 540);
-            this.splitContainer1.SplitterDistance = 138;
+            this.splitContainer1.Size = new System.Drawing.Size(956, 724);
+            this.splitContainer1.SplitterDistance = 185;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 138);
+            this.splitter1.Size = new System.Drawing.Size(3, 185);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -99,10 +102,11 @@
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMember.Location = new System.Drawing.Point(0, 0);
+            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(801, 138);
+            this.dgvMember.Size = new System.Drawing.Size(956, 185);
             this.dgvMember.TabIndex = 1;
             this.dgvMember.TabStop = false;
             // 
@@ -121,8 +125,10 @@
             this.groupBox1.Controls.Add(this.lblAmountOfSending);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(801, 398);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(956, 534);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "이체";
@@ -134,68 +140,73 @@
             this.groupBox3.Controls.Add(this.cbxDepositAcc);
             this.groupBox3.Controls.Add(this.lblMyDeposit);
             this.groupBox3.Controls.Add(this.cbxSavingAcc);
-            this.groupBox3.Location = new System.Drawing.Point(297, 76);
+            this.groupBox3.Location = new System.Drawing.Point(361, 166);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(275, 150);
-            this.groupBox3.TabIndex = 22;
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(314, 188);
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "내 계좌로 입금";
             // 
             // lblDeposit
             // 
             this.lblDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDeposit.Location = new System.Drawing.Point(14, 57);
+            this.lblDeposit.Location = new System.Drawing.Point(0, 71);
             this.lblDeposit.Name = "lblDeposit";
-            this.lblDeposit.Size = new System.Drawing.Size(74, 31);
+            this.lblDeposit.Size = new System.Drawing.Size(101, 39);
             this.lblDeposit.TabIndex = 20;
             this.lblDeposit.Text = "내 예금 계좌";
-            this.lblDeposit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDeposit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cbxDepositAcc
             // 
             this.cbxDepositAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxDepositAcc.FormattingEnabled = true;
-            this.cbxDepositAcc.Location = new System.Drawing.Point(113, 57);
+            this.cbxDepositAcc.Location = new System.Drawing.Point(129, 87);
+            this.cbxDepositAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxDepositAcc.Name = "cbxDepositAcc";
-            this.cbxDepositAcc.Size = new System.Drawing.Size(156, 20);
-            this.cbxDepositAcc.TabIndex = 21;
+            this.cbxDepositAcc.Size = new System.Drawing.Size(178, 23);
+            this.cbxDepositAcc.TabIndex = 2;
             this.cbxDepositAcc.SelectedValueChanged += new System.EventHandler(this.cbxDepositAcc_SelectedValueChanged);
             // 
             // lblMyDeposit
             // 
             this.lblMyDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMyDeposit.Location = new System.Drawing.Point(14, 98);
+            this.lblMyDeposit.Location = new System.Drawing.Point(3, 122);
             this.lblMyDeposit.Name = "lblMyDeposit";
-            this.lblMyDeposit.Size = new System.Drawing.Size(74, 31);
+            this.lblMyDeposit.Size = new System.Drawing.Size(98, 39);
             this.lblMyDeposit.TabIndex = 18;
             this.lblMyDeposit.Text = "내 적금 계좌";
-            this.lblMyDeposit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMyDeposit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cbxSavingAcc
             // 
             this.cbxSavingAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxSavingAcc.FormattingEnabled = true;
-            this.cbxSavingAcc.Location = new System.Drawing.Point(113, 98);
+            this.cbxSavingAcc.Location = new System.Drawing.Point(129, 137);
+            this.cbxSavingAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxSavingAcc.Name = "cbxSavingAcc";
-            this.cbxSavingAcc.Size = new System.Drawing.Size(156, 20);
-            this.cbxSavingAcc.TabIndex = 19;
+            this.cbxSavingAcc.Size = new System.Drawing.Size(178, 23);
+            this.cbxSavingAcc.TabIndex = 3;
             this.cbxSavingAcc.SelectedValueChanged += new System.EventHandler(this.cbxSavingAcc_SelectedValueChanged);
             // 
             // lblAlert
             // 
             this.lblAlert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAlert.Location = new System.Drawing.Point(300, 241);
+            this.lblAlert.Location = new System.Drawing.Point(381, 99);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(257, 23);
+            this.lblAlert.Size = new System.Drawing.Size(294, 29);
             this.lblAlert.TabIndex = 17;
             this.lblAlert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtInputAcc
             // 
             this.txtInputAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInputAcc.Location = new System.Drawing.Point(109, 168);
+            this.txtInputAcc.Location = new System.Drawing.Point(171, 205);
+            this.txtInputAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInputAcc.Name = "txtInputAcc";
-            this.txtInputAcc.Size = new System.Drawing.Size(156, 21);
+            this.txtInputAcc.Size = new System.Drawing.Size(178, 25);
             this.txtInputAcc.TabIndex = 2;
             this.txtInputAcc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtInputAcc.TextChanged += new System.EventHandler(this.txtInputAcc_TextChanged);
@@ -210,22 +221,22 @@
             this.groupBox2.Controls.Add(this.txtOutPwd);
             this.groupBox2.Controls.Add(this.lblOutPwd);
             this.groupBox2.Controls.Add(this.btnSend);
-            this.groupBox2.Location = new System.Drawing.Point(6, 266);
+            this.groupBox2.Location = new System.Drawing.Point(28, 350);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(566, 127);
-            this.groupBox2.TabIndex = 15;
+            this.groupBox2.Size = new System.Drawing.Size(647, 159);
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "출금 계좌 정보";
             // 
             // btnSelect
             // 
             this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSelect.Location = new System.Drawing.Point(421, 8);
+            this.btnSelect.Location = new System.Drawing.Point(481, 10);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(130, 55);
+            this.btnSelect.Size = new System.Drawing.Size(149, 69);
             this.btnSelect.TabIndex = 18;
             this.btnSelect.Text = "이체 내역 조회";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -234,20 +245,21 @@
             // lblOutAcc
             // 
             this.lblOutAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOutAcc.Location = new System.Drawing.Point(4, 32);
+            this.lblOutAcc.Location = new System.Drawing.Point(5, 40);
             this.lblOutAcc.Name = "lblOutAcc";
-            this.lblOutAcc.Size = new System.Drawing.Size(69, 31);
+            this.lblOutAcc.Size = new System.Drawing.Size(79, 39);
             this.lblOutAcc.TabIndex = 13;
             this.lblOutAcc.Text = "*출금 계좌";
-            this.lblOutAcc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOutAcc.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cbxOutAcc
             // 
             this.cbxOutAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxOutAcc.FormattingEnabled = true;
-            this.cbxOutAcc.Location = new System.Drawing.Point(103, 46);
+            this.cbxOutAcc.Location = new System.Drawing.Point(118, 58);
+            this.cbxOutAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxOutAcc.Name = "cbxOutAcc";
-            this.cbxOutAcc.Size = new System.Drawing.Size(156, 20);
+            this.cbxOutAcc.Size = new System.Drawing.Size(178, 23);
             this.cbxOutAcc.TabIndex = 4;
             this.cbxOutAcc.SelectedValueChanged += new System.EventHandler(this.cbxOutAcc_SelectedValueChanged);
             this.cbxOutAcc.Enter += new System.EventHandler(this.cbxOutAcc_Enter);
@@ -255,29 +267,30 @@
             // txtOutPwd
             // 
             this.txtOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOutPwd.Location = new System.Drawing.Point(103, 90);
+            this.txtOutPwd.Location = new System.Drawing.Point(118, 112);
+            this.txtOutPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutPwd.Name = "txtOutPwd";
-            this.txtOutPwd.Size = new System.Drawing.Size(156, 21);
+            this.txtOutPwd.Size = new System.Drawing.Size(178, 25);
             this.txtOutPwd.TabIndex = 5;
             this.txtOutPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutPwd_KeyPress);
             // 
             // lblOutPwd
             // 
             this.lblOutPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOutPwd.Location = new System.Drawing.Point(4, 76);
+            this.lblOutPwd.Location = new System.Drawing.Point(5, 95);
             this.lblOutPwd.Name = "lblOutPwd";
-            this.lblOutPwd.Size = new System.Drawing.Size(69, 34);
+            this.lblOutPwd.Size = new System.Drawing.Size(79, 42);
             this.lblOutPwd.TabIndex = 12;
             this.lblOutPwd.Text = "*출금 계좌 비밀 번호";
-            this.lblOutPwd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblOutPwd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btnSend
             // 
             this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSend.Location = new System.Drawing.Point(421, 67);
+            this.btnSend.Location = new System.Drawing.Point(481, 84);
             this.btnSend.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(130, 55);
+            this.btnSend.Size = new System.Drawing.Size(149, 69);
             this.btnSend.TabIndex = 6;
             this.btnSend.Text = "계좌 이체";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -286,39 +299,42 @@
             // txtCurrentLeftOver
             // 
             this.txtCurrentLeftOver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCurrentLeftOver.Location = new System.Drawing.Point(109, 76);
+            this.txtCurrentLeftOver.Location = new System.Drawing.Point(171, 99);
+            this.txtCurrentLeftOver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCurrentLeftOver.Name = "txtCurrentLeftOver";
             this.txtCurrentLeftOver.ReadOnly = true;
-            this.txtCurrentLeftOver.Size = new System.Drawing.Size(156, 21);
+            this.txtCurrentLeftOver.Size = new System.Drawing.Size(178, 25);
             this.txtCurrentLeftOver.TabIndex = 0;
             this.txtCurrentLeftOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblCurrentOver
             // 
             this.lblCurrentOver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCurrentOver.Location = new System.Drawing.Point(10, 76);
+            this.lblCurrentOver.Location = new System.Drawing.Point(58, 85);
             this.lblCurrentOver.Name = "lblCurrentOver";
-            this.lblCurrentOver.Size = new System.Drawing.Size(65, 31);
+            this.lblCurrentOver.Size = new System.Drawing.Size(74, 39);
             this.lblCurrentOver.TabIndex = 11;
             this.lblCurrentOver.Text = "현재 잔액";
-            this.lblCurrentOver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCurrentOver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cbxRecently
             // 
             this.cbxRecently.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxRecently.FormattingEnabled = true;
-            this.cbxRecently.Location = new System.Drawing.Point(109, 214);
+            this.cbxRecently.Location = new System.Drawing.Point(172, 263);
+            this.cbxRecently.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxRecently.Name = "cbxRecently";
-            this.cbxRecently.Size = new System.Drawing.Size(156, 20);
+            this.cbxRecently.Size = new System.Drawing.Size(178, 23);
             this.cbxRecently.TabIndex = 3;
             this.cbxRecently.SelectedValueChanged += new System.EventHandler(this.cbxRecently_SelectedValueChanged);
             // 
             // txtAmountOfSending
             // 
             this.txtAmountOfSending.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAmountOfSending.Location = new System.Drawing.Point(109, 122);
+            this.txtAmountOfSending.Location = new System.Drawing.Point(171, 152);
+            this.txtAmountOfSending.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmountOfSending.Name = "txtAmountOfSending";
-            this.txtAmountOfSending.Size = new System.Drawing.Size(156, 21);
+            this.txtAmountOfSending.Size = new System.Drawing.Size(178, 25);
             this.txtAmountOfSending.TabIndex = 1;
             this.txtAmountOfSending.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAmountOfSending.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmountOfSending_KeyPress);
@@ -326,33 +342,33 @@
             // lblInputAcc
             // 
             this.lblInputAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblInputAcc.Location = new System.Drawing.Point(-3, 168);
+            this.lblInputAcc.Location = new System.Drawing.Point(43, 191);
             this.lblInputAcc.Name = "lblInputAcc";
-            this.lblInputAcc.Size = new System.Drawing.Size(78, 31);
+            this.lblInputAcc.Size = new System.Drawing.Size(89, 39);
             this.lblInputAcc.TabIndex = 2;
             this.lblInputAcc.Text = "*입금 계좌";
-            this.lblInputAcc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblInputAcc.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblInputAcc.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblRecently
             // 
             this.lblRecently.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRecently.Location = new System.Drawing.Point(10, 214);
+            this.lblRecently.Location = new System.Drawing.Point(58, 247);
             this.lblRecently.Name = "lblRecently";
-            this.lblRecently.Size = new System.Drawing.Size(65, 31);
+            this.lblRecently.Size = new System.Drawing.Size(74, 39);
             this.lblRecently.TabIndex = 1;
             this.lblRecently.Text = "최근 목록";
-            this.lblRecently.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblRecently.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblAmountOfSending
             // 
             this.lblAmountOfSending.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAmountOfSending.Location = new System.Drawing.Point(-3, 122);
+            this.lblAmountOfSending.Location = new System.Drawing.Point(43, 138);
             this.lblAmountOfSending.Name = "lblAmountOfSending";
-            this.lblAmountOfSending.Size = new System.Drawing.Size(78, 31);
+            this.lblAmountOfSending.Size = new System.Drawing.Size(89, 39);
             this.lblAmountOfSending.TabIndex = 0;
             this.lblAmountOfSending.Text = "*이체 금액";
-            this.lblAmountOfSending.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAmountOfSending.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // errorProvider1
             // 
@@ -360,11 +376,12 @@
             // 
             // frmSending
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 540);
+            this.ClientSize = new System.Drawing.Size(956, 724);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeBox = false;
             this.Name = "frmSending";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

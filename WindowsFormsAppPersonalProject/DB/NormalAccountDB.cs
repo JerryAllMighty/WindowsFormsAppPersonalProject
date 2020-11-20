@@ -55,14 +55,15 @@ namespace WindowsFormsAppPersonalProject
                 DataTable dt = new DataTable();
                 string sql = @"select N.NAccountNum, date(N.DateCreated), N.CustomerNum, N.CustomerName,
                                         N.KindOfAcc, N.Pwd, N.CurrentMoney, S.SAccountNum, D.DAccountNum, Sen.RecentlySentTo
-                                        from normalaccount N join depositaccount D
+                                        from normalaccount N
+                                        left outer join depositaccount D
                                         on N.CustomerNum = D.CustomerNum    
-                                        join savings S
+                                        left outer join savings S
                                         on N.CustomerNum = S.CustomerNum
-                                        join sending Sen
+                                        left outer join sending Sen
                                         on N.CustomerNum = Sen.CustomerNum
-                                        where N.CustomerNum = 6
-                                        group by S.SAccountNum,D.DAccountNum";
+                                        where N.CustomerNum = @customernum
+                                        group by S.SAccountNum,D.DAccountNum;";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
 

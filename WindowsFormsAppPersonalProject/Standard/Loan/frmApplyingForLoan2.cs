@@ -123,6 +123,7 @@ namespace WindowsFormsAppPersonalProject
                 if (result)
                 {
                     MessageBox.Show("최종 대출 신청이 완료되었습니다.");
+                    this.Close();
                 }
                 else 
                 {
