@@ -86,6 +86,7 @@
             // 
             // txtMsg
             // 
+            this.txtMsg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMsg.Location = new System.Drawing.Point(112, 182);
             this.txtMsg.Multiline = true;
             this.txtMsg.Name = "txtMsg";
@@ -122,13 +123,14 @@
             // 
             // frmSendingMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSendingMessage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "메세지 전송";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmSendingMessage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

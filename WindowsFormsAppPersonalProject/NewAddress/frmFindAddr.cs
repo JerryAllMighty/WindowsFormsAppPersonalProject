@@ -25,7 +25,10 @@ namespace WindowsFormsAppPersonalProject
 
         private void frmFindAddr_Load(object sender, EventArgs e)
         {
-           
+            CommonUtil.SetinitGridView(dgvMember);
+            CommonUtil.AddGridTextColumn(dgvMember, "우편 번호", "zipNo");
+            CommonUtil.AddGridTextColumn(dgvMember, "지번 주소", "jibunAddr",500);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,15 +52,28 @@ namespace WindowsFormsAppPersonalProject
         private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvMember.CurrentRow.Selected = true;
-            txtZipno.Text = ds.Tables[1].Rows[e.RowIndex][5].ToString();
-            txtJibun.Text = ds.Tables[1].Rows[e.RowIndex][3].ToString();
+            txtZipno.Text = ds.Tables[1].Rows[e.RowIndex][5].ToString();        //zipNo
+            txtJibun.Text = ds.Tables[1].Rows[e.RowIndex][3].ToString();        //jibunAddr
             CustomerAddress = txtZipno.Text + "/" +txtJibun.Text;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (txtZipno.TextLength < 1 || txtJibun.Text.Length < 1)
+            {
+                MessageBox.Show("반드시 주소 검색을 하여 해당 주소를 더블클릭하셔야합니다.");
+                return;
+            }
             mother.FindAddr = CustomerAddress;
             this.Close();
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                btnAddr.PerformClick();
+            }
         }
     }
 }

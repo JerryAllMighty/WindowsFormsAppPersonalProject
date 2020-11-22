@@ -66,16 +66,17 @@ namespace WindowsFormsAppPersonalProject
             main = (frmMain)this.MdiParent;
 
             CommonUtil.SetinitGridView(dgvMember);
-            CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum", 80);
             CommonUtil.AddGridTextColumn(dgvMember, "고객명", "CustomerName");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress", 150);
-            CommonUtil.AddGridTextColumn(dgvMember, "고객ID", "CustomerID");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객ID", "CustomerID",80);
             CommonUtil.AddGridTextColumn(dgvMember, "관리자여부", "IsAdmin");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw");
+            CommonUtil.AddGridTextColumn(dgvMember, "휴면계좌여부", "IsResting",120);
+          //  CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw");
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
             CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail", 180);
-            CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage", 200        );
-            CommonUtil.AddGridTextColumn(dgvMember, "휴면계좌여부", "IsResting", 150);
+           // CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage", 200);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객주소", "CustomerAddress", 480);
+            
 
             //트리뷰 바인딩할 때 데이터 소스 주고 나서 트리뷰1.익스팬드하즈아
             CustomerDB db = new CustomerDB();

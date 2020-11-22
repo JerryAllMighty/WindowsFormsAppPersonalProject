@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccountmanagement));
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
@@ -36,43 +37,55 @@
             // 
             // dgvMember
             // 
+            this.dgvMember.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMember.Location = new System.Drawing.Point(12, 131);
+            this.dgvMember.Location = new System.Drawing.Point(14, 164);
+            this.dgvMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvMember.Name = "dgvMember";
+            this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 23;
-            this.dgvMember.Size = new System.Drawing.Size(776, 307);
+            this.dgvMember.Size = new System.Drawing.Size(887, 384);
             this.dgvMember.TabIndex = 0;
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(12, 12);
+            this.btnImport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnImport.Location = new System.Drawing.Point(14, 15);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(123, 38);
+            this.btnImport.Size = new System.Drawing.Size(141, 48);
             this.btnImport.TabIndex = 1;
-            this.btnImport.Text = "자료 받아오기";
+            this.btnImport.Text = "계좌관리";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(175, 12);
+            this.btnExport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnExport.Location = new System.Drawing.Point(200, 15);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(123, 38);
+            this.btnExport.Size = new System.Drawing.Size(141, 48);
             this.btnExport.TabIndex = 2;
-            this.btnExport.Text = "자료 내보내기";
+            this.btnExport.Text = "계좌관리";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // frmAccountmanagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(914, 562);
+            this.ControlBox = false;
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.dgvMember);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmAccountmanagement";
-            this.Text = "frmAccountmanagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "계좌관리";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAccountmanagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).EndInit();
             this.ResumeLayout(false);

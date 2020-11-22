@@ -29,7 +29,7 @@ namespace WindowsFormsAppPersonalProject
         DataTable dt2;
         bool bFlag;
         NormalAccountDB db;
-        string MyAccountSending;
+        string MyAccountSending = "";
 
         public frmSending()
         {
@@ -103,18 +103,9 @@ namespace WindowsFormsAppPersonalProject
             lblAlert.Text = "출금 계좌를 먼저 선택해주셔야합니다.";
 
             db = new NormalAccountDB();
-            DataTable dt = db.GetEveryData(CustomerNum);
+            
             dt2 = db.WhenYouLoadfrmSending(CustomerNum);        //출금계좌, 예금 계좌, 적금 계좌 콤보박스에 바인딩시키기 위함
             db.Dispose();
-            if (dt == null)  //일반 계좌가 없을 시
-            {
-                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    frmNewAccount frm = new frmNewAccount(CustomerInfo);
-                    frm.Show();
-                    frm.Activate();
-                }
-            }
 
             if (dt2 != null)
             {
@@ -256,13 +247,17 @@ namespace WindowsFormsAppPersonalProject
         private void btnSelect_Click(object sender, EventArgs e)
         {
             CommonUtil.SetinitGridView(dgvMember);
-            CommonUtil.AddGridTextColumn(dgvMember, "이체 번호", "SSerialNum", 100);
-            CommonUtil.AddGridTextColumn(dgvMember, "출금 계좌", "NAccountNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "이체 번호", "SSerialNum", 80);
+            CommonUtil.AddGridTextColumn(dgvMember, "출금 계좌", "NAccountNum", 80);
+            CommonUtil.AddGridTextColumn(dgvMember, "출금 고객명", "CustomerNum", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "출금 고객 이름", "CustomerName", 120);
             CommonUtil.AddGridTextColumn(dgvMember, "이체 금액", "AmountOfSending", 100);
-            CommonUtil.AddGridTextColumn(dgvMember, "이체 날짜", "date(SendingDate)", 100);
-            CommonUtil.AddGridTextColumn(dgvMember, "최근 보낸 계좌", "RecentlySentTo", 120);
-            CommonUtil.AddGridTextColumn(dgvMember, "고객 번호", "CustomerNum", 100);
-            CommonUtil.AddGridTextColumn(dgvMember, "고객 이름", "CustomerName", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "이체 날짜", "date(S.SendingDate)", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "입금 계좌", "RecentlySentTo", 100);
+            CommonUtil.AddGridTextColumn(dgvMember, "입금주명", "ReceiverName", 100);
+
+
+
 
 
             SendingDB dbS = new SendingDB();

@@ -49,7 +49,7 @@
             this.lblOutAccPwd = new System.Windows.Forms.Label();
             this.lblOutAccount = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -57,10 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -98,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkControl11);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnNext);
@@ -129,7 +128,7 @@
             this.checkControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkControl11.Location = new System.Drawing.Point(731, 32);
             this.checkControl11.Name = "checkControl11";
-            this.checkControl11.Size = new System.Drawing.Size(216, 20);
+            this.checkControl11.Size = new System.Drawing.Size(225, 20);
             this.checkControl11.TabIndex = 12;
             // 
             // btnCancel
@@ -270,7 +269,6 @@
             this.cbxOutAccount.Name = "cbxOutAccount";
             this.cbxOutAccount.Size = new System.Drawing.Size(354, 23);
             this.cbxOutAccount.TabIndex = 0;
-            this.cbxOutAccount.Enter += new System.EventHandler(this.cbxOutAccount_Enter);
             // 
             // lblPayBack
             // 
@@ -310,10 +308,6 @@
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.trackBar1);
-            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
@@ -322,15 +316,14 @@
             this.splitContainer2.TabIndex = 1;
             this.splitContainer2.TabStop = false;
             // 
-            // trackBar1
+            // label1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(11, 12);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(197, 56);
-            this.trackBar1.TabIndex = 14;
-            this.trackBar1.TabStop = false;
-            this.trackBar1.TickFrequency = 3;
+            this.label1.Location = new System.Drawing.Point(731, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 45);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "*반드시 위에서 상환을 원하시는 대출을 눌러주세요";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmLoanPayBack
             // 
@@ -351,12 +344,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,8 +371,8 @@
         private System.Windows.Forms.Button btn500;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button btnCancel;
         private CheckControl1 checkControl11;
+        private System.Windows.Forms.Label label1;
     }
 }

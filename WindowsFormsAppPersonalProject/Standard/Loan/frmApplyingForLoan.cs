@@ -124,6 +124,13 @@ namespace WindowsFormsAppPersonalProject
 
         private void frmApplyingForLoan_Load(object sender, EventArgs e)
         {
+            //대출 담보를 선택하지 않을 시 대출 이율이 달라진다
+            if (cbxDepositNum.Text.Trim().Replace(" ", "").Length < 1)
+            {
+                InterestRate = "1.2";
+                errorProvider1.SetError(cbxDepositNum, "담보가 없을 시 대출 이율이 소폭 상승됩니다.\n 반드시 상담원과 대출 이율을 확인해주세요.");
+            }
+
             //담보 제공 예금 계좌번호 콤보 박스 컨트롤 설정해주기
             CustomerDB db = new CustomerDB();
             dt = db.WhenYouApplyForLoan(int.Parse(CustomerNum));
@@ -249,12 +256,9 @@ namespace WindowsFormsAppPersonalProject
         private void cbxDepositNum_SelectedValueChanged(object sender, EventArgs e)     //예금담보 선택에 따라서 이자율이 변한다
         {
             //예금 담보를 선택했는지 안 했는지에 따라서 이자율을 차등해서 주기
-            if (cbxDepositNum.SelectedItem.ToString().Trim().Replace(" ", "").Length < 1)
-            {
-                InterestRate = "1.2";
-                errorProvider1.SetError(cbxDepositNum, "담보가 없을 시 대출 이율이 소폭 상승됩니다.\n 반드시 상담원과 대출 이율을 확인해주세요.");
-            }
-            else 
+            //아무것도 선택 안 할 시 기본적으로 20%이게 load 이벤트에 코딩했음
+            //어떤 것이라도 담보가 있을 시에 10%이게 설정
+            if(cbxDepositNum.SelectedItem.ToString().Trim().Replace(" ", "").Length > 0) 
             {
                 InterestRate = "1.1";
                 DAccountNum =cbxDepositNum.SelectedItem.ToString();

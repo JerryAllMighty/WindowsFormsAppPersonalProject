@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoanInfo));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
@@ -47,8 +48,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.webBrowser1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLoanInfo";
-            this.Text = "frmLoanInfo";
+            this.Text = "대출 정보";
             this.Load += new System.EventHandler(this.frmLoanInfo_Load);
             this.ResumeLayout(false);
 

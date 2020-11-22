@@ -35,9 +35,9 @@
             this.메세지보내기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.관리자로임명ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.일반회원으로변경ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvMember = new System.Windows.Forms.DataGridView();
             this.휴면계좌로전환ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.휴면계좌해제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvMember = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.SuspendLayout();
@@ -53,35 +53,49 @@
             this.휴면계좌로전환ToolStripMenuItem,
             this.휴면계좌해제ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 148);
             // 
             // 수정ToolStripMenuItem
             // 
             this.수정ToolStripMenuItem.Name = "수정ToolStripMenuItem";
-            this.수정ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.수정ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.수정ToolStripMenuItem.Text = "수정";
             this.수정ToolStripMenuItem.Click += new System.EventHandler(this.수정ToolStripMenuItem_Click);
             // 
             // 메세지보내기ToolStripMenuItem
             // 
             this.메세지보내기ToolStripMenuItem.Name = "메세지보내기ToolStripMenuItem";
-            this.메세지보내기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.메세지보내기ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.메세지보내기ToolStripMenuItem.Text = "메세지보내기";
             this.메세지보내기ToolStripMenuItem.Click += new System.EventHandler(this.메세지보내기ToolStripMenuItem_Click);
             // 
             // 관리자로임명ToolStripMenuItem
             // 
             this.관리자로임명ToolStripMenuItem.Name = "관리자로임명ToolStripMenuItem";
-            this.관리자로임명ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.관리자로임명ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.관리자로임명ToolStripMenuItem.Text = "관리자로 임명";
             this.관리자로임명ToolStripMenuItem.Click += new System.EventHandler(this.관리자로임명ToolStripMenuItem_Click);
             // 
             // 일반회원으로변경ToolStripMenuItem
             // 
             this.일반회원으로변경ToolStripMenuItem.Name = "일반회원으로변경ToolStripMenuItem";
-            this.일반회원으로변경ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.일반회원으로변경ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.일반회원으로변경ToolStripMenuItem.Text = "일반 회원으로 변경";
             this.일반회원으로변경ToolStripMenuItem.Click += new System.EventHandler(this.일반회원으로변경ToolStripMenuItem_Click);
+            // 
+            // 휴면계좌로전환ToolStripMenuItem
+            // 
+            this.휴면계좌로전환ToolStripMenuItem.Name = "휴면계좌로전환ToolStripMenuItem";
+            this.휴면계좌로전환ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.휴면계좌로전환ToolStripMenuItem.Text = "휴면계좌로 전환";
+            this.휴면계좌로전환ToolStripMenuItem.Click += new System.EventHandler(this.휴면계좌로전환ToolStripMenuItem_Click);
+            // 
+            // 휴면계좌해제ToolStripMenuItem
+            // 
+            this.휴면계좌해제ToolStripMenuItem.Name = "휴면계좌해제ToolStripMenuItem";
+            this.휴면계좌해제ToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.휴면계좌해제ToolStripMenuItem.Text = "휴면계좌 해제";
+            this.휴면계좌해제ToolStripMenuItem.Click += new System.EventHandler(this.휴면계좌해제ToolStripMenuItem_Click);
             // 
             // dgvMember
             // 
@@ -92,36 +106,24 @@
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 27;
-            this.dgvMember.Size = new System.Drawing.Size(700, 360);
+            this.dgvMember.Size = new System.Drawing.Size(800, 450);
             this.dgvMember.TabIndex = 3;
             this.dgvMember.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellContentClick);
             this.dgvMember.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMember_CellMouseDown);
             this.dgvMember.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMember_DataBindingComplete);
             // 
-            // 휴면계좌로전환ToolStripMenuItem
-            // 
-            this.휴면계좌로전환ToolStripMenuItem.Name = "휴면계좌로전환ToolStripMenuItem";
-            this.휴면계좌로전환ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.휴면계좌로전환ToolStripMenuItem.Text = "휴면계좌로 전환";
-            this.휴면계좌로전환ToolStripMenuItem.Click += new System.EventHandler(this.휴면계좌로전환ToolStripMenuItem_Click);
-            // 
-            // 휴면계좌해제ToolStripMenuItem
-            // 
-            this.휴면계좌해제ToolStripMenuItem.Name = "휴면계좌해제ToolStripMenuItem";
-            this.휴면계좌해제ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.휴면계좌해제ToolStripMenuItem.Text = "휴면계좌 해제";
-            this.휴면계좌해제ToolStripMenuItem.Click += new System.EventHandler(this.휴면계좌해제ToolStripMenuItem_Click);
-            // 
             // frmCustomerManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 360);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvMember);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCustomerManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "고객관리";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCustomerManagement_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).EndInit();

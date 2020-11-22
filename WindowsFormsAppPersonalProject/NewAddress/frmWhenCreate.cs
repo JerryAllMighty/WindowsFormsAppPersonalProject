@@ -193,5 +193,12 @@ namespace WindowsFormsAppPersonalProject
             MessageBox.Show("반드시 주소 검색을 해주세요.");
             e.Handled = true;
         }
+
+        private void cbxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show("값을 직접 입력하실 수 없습니다. 지정된 값 중에서 선택해주세요.");
+            e.Handled = true;
+            return;
+        }
     }
 }

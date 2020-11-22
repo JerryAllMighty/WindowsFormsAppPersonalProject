@@ -36,15 +36,15 @@ namespace WindowsFormsAppPersonalProject
         {
             get
             {
-                return new Savings(CustomerNum, CustomerName, "적금 계좌",SAccountNum, txtpayPerMonth.Text,
-                              txtOutAccount.Text, txtOutPwd.Text, txtNewPwd.Text,
-                               cbxduration.SelectedItem.ToString().Substring(0, cbxduration.SelectedItem.ToString().IndexOf('개')));
+                return new Savings(CustomerNum, CustomerName, "적금 계좌",
+                    cbxduration.SelectedItem.ToString().Substring(0, cbxduration.SelectedItem.ToString().IndexOf('개')),
+                    txtpayPerMonth.Text, txtOutAccount.Text, txtOutPwd.Text, txtNewPwd.Text, SAccountNum);
             }
         }
 
         private void frmSavingExtension_Load(object sender, EventArgs e)
         {
-            //이거 고쳐주기
+            
             CommonUtil.SetinitGridView(dgvMemver);
             CommonUtil.AddGridTextColumn2(dgvMemver, "적금 계좌 번호", "SAccountNum", 120);
             CommonUtil.AddGridTextColumn2(dgvMemver, "만기 월", "expiremonth", 80);

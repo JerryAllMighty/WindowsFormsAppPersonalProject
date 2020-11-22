@@ -132,43 +132,44 @@ namespace WindowsFormsAppPersonalProject
 
         private void btn500_Click(object sender, EventArgs e)
         {
-             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 5000000).ToString();
+            CheckTextBox();
+            txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 5000000).ToString();
         }
 
         private void btn100_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000000).ToString();
         }
 
         private void btn50_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 500000).ToString();
         }
 
         private void btn10_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000000).ToString();
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 10000).ToString();
         }
 
         private void btn1000_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(txtPayBack.Text) + 1000).ToString();
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            CheckTextBox();
             txtPayBack.Text = (Convert.ToInt32(0).ToString());
-        }
-
-        private void cbxOutAccount_Enter(object sender, EventArgs e)
-        {
-            //셀에서 클릭해야지만 여기에 값이 뜨게 하기
-            
         }
 
         private void dgvMember_CellClick(object sender, DataGridViewCellEventArgs e)        //셀을 클릭해서 출금계좌컨트롤에 주기
@@ -184,8 +185,16 @@ namespace WindowsFormsAppPersonalProject
             this.Close();
         }
 
-        private void txtOutAccPwd_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력 받게 체크
+        private void CheckTextBox()
         {
+            if (txtPayBack.Text.Trim().Replace(" ", "").Length < 1)
+            {
+                txtPayBack.Text = "0";
+            }
+        }
+
+        private void txtOutAccPwd_KeyPress(object sender, KeyPressEventArgs e)      //숫자만 입력 받게 체크
+        {   
             if (!CommonUtil.NumberCheck(e.KeyChar))
             {
                 e.Handled = true;

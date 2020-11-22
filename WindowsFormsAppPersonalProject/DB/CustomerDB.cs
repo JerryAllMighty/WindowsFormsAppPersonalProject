@@ -265,9 +265,11 @@ namespace WindowsFormsAppPersonalProject
             try 
             {
                 string sql = @"insert into customers(CustomerName, CustomerAddress, CustomerID, 
-                                                        IsAdmin, CustomerPw, CustomerPhone, CustomerEmail, CustomerImage)        
+                                                        IsAdmin, CustomerPw, CustomerPhone, 
+                                                        CustomerEmail, CustomerImage, IsResting)        
                                 values(@CustomerName, @CustomerAddress, @CustomerID, @IsAdmin,
-                                                        @CustomerPw, @CustomerPhone, @customeremail, @customerimage)";
+                                                        @CustomerPw, @CustomerPhone, @customeremail,
+                                                        @customerimage, @isresting)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
@@ -296,6 +298,9 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.Parameters.Add("@customerimage", MySqlDbType.VarChar);
                 cmd.Parameters["@customerimage"].Value = cus.CustomerImage;
+
+                cmd.Parameters.Add("@isresting", MySqlDbType.VarChar);
+                cmd.Parameters["@isresting"].Value = cus.IsResting;
 
                 cmd.ExecuteNonQuery();
                 trans.Commit();
@@ -380,7 +385,7 @@ namespace WindowsFormsAppPersonalProject
         {
             MySqlTransaction trans = conn.BeginTransaction();
             try
-            {   //isadmin은 설정할 수 없게, 고객 일련번호는 자동생성이니 제외
+            {   //관리자여부와 휴면여부는 수정할 수 없게 코딩. 고객 일련번호는 자동생성이니 제외
                 string sql = @"update customers            
                                         set CustomerName = @name, 
                                         CustomerAddress = @address, 
@@ -389,7 +394,7 @@ namespace WindowsFormsAppPersonalProject
                                         CustomerPhone = @phone,
                                         CustomerEmail = @customeremail,
                                         CustomerImage = @customerimage,
-                                        IsResting = 0
+                                        IsResting = 'N'                     
                                         where CustomerNum = @customernum";
                 MySqlCommand updateCmd = new MySqlCommand(sql, conn);
                 updateCmd.Transaction = trans;

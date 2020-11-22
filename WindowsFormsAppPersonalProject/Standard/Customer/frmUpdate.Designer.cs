@@ -36,6 +36,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numberOnly1 = new WindowsFormsAppPersonalProject.NumberOnly();
             this.cbxEmail = new System.Windows.Forms.ComboBox();
             this.checkControl11 = new WindowsFormsAppPersonalProject.CheckControl1();
             this.btnAddPic = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.numberOnly1 = new WindowsFormsAppPersonalProject.NumberOnly();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,10 +77,9 @@
             this.txtCheckingPwd.Name = "txtCheckingPwd";
             this.txtCheckingPwd.PasswordChar = '*';
             this.txtCheckingPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtCheckingPwd.TabIndex = 6;
+            this.txtCheckingPwd.TabIndex = 8;
             this.txtCheckingPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckingPwd.TextChanged += new System.EventHandler(this.txtCheckingPwd_TextChanged_1);
-            this.txtCheckingPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheckingPwd_KeyPress);
             // 
             // btnUpdate
             // 
@@ -130,7 +129,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(986, 548);
             this.panel1.TabIndex = 1;
-            this.panel1.TabStop = true;
+            // 
+            // numberOnly1
+            // 
+            this.numberOnly1.Location = new System.Drawing.Point(415, 206);
+            this.numberOnly1.Name = "numberOnly1";
+            this.numberOnly1.Size = new System.Drawing.Size(270, 22);
+            this.numberOnly1.TabIndex = 23;
             // 
             // cbxEmail
             // 
@@ -155,7 +160,7 @@
             this.cbxEmail.Location = new System.Drawing.Point(720, 244);
             this.cbxEmail.Name = "cbxEmail";
             this.cbxEmail.Size = new System.Drawing.Size(254, 23);
-            this.cbxEmail.TabIndex = 21;
+            this.cbxEmail.TabIndex = 4;
             this.cbxEmail.SelectedValueChanged += new System.EventHandler(this.cbxEmail_SelectedValueChanged);
             // 
             // checkControl11
@@ -215,7 +220,7 @@
             this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(166, 34);
-            this.btnCheck.TabIndex = 8;
+            this.btnCheck.TabIndex = 6;
             this.btnCheck.Text = "ID 중복확인";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
@@ -226,7 +231,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(254, 25);
-            this.txtID.TabIndex = 4;
+            this.txtID.TabIndex = 5;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
@@ -282,9 +287,8 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(254, 25);
-            this.txtPwd.TabIndex = 5;
+            this.txtPwd.TabIndex = 7;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPwd_KeyPress);
             this.txtPwd.Leave += new System.EventHandler(this.txtPwd_Leave);
             // 
             // lblName
@@ -305,13 +309,6 @@
             this.txtName.TabIndex = 0;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
-            // 
-            // numberOnly1
-            // 
-            this.numberOnly1.Location = new System.Drawing.Point(415, 206);
-            this.numberOnly1.Name = "numberOnly1";
-            this.numberOnly1.Size = new System.Drawing.Size(270, 22);
-            this.numberOnly1.TabIndex = 23;
             // 
             // frmUpdate
             // 

@@ -239,21 +239,5 @@ namespace WindowsFormsAppPersonalProject
                 MessageBox.Show("숫자만 입력해주시기 바랍니다.");
             }
         }
-
-        private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력 받게 체크
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
-        }
-
-        private void txtCheckingPwd_KeyPress(object sender, KeyPressEventArgs e)        //숫자만 입력 받게 체크
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                MessageBox.Show("숫자만 입력해주시기 바랍니다.");
-            }
-        }
     }
 }

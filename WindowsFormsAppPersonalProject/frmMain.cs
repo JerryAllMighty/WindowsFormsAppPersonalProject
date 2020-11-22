@@ -70,7 +70,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void Form1_Load(object sender, EventArgs e)     //관리자인지 회원인지에 따라서 다른 메뉴 바가 보이게 코딩
         {
-            this.Text = "JerryBanking";
+            this.Text = "Welecome To JerryBanking";
             
 
             if (IsAdmin == "N")
@@ -108,6 +108,19 @@ namespace WindowsFormsAppPersonalProject
         }
         private void 이체ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NormalAccountDB db = new NormalAccountDB();
+            DataTable dt = db.GetEveryData(CustomerNum);
+            if (dt == null)  //일반 계좌가 없을 시
+            {
+                if (MessageBox.Show("출금 계좌가 존재하지 않습니다. 새로 개설하시겠습니까?", "출금 계좌 정보 없음", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    frmNewAccount frm = new frmNewAccount(customerInfo);
+                    frm.ShowDialog();
+                    return;
+                }
+                else
+                    return;
+            }
             frmSending s1 = new frmSending(customerInfo);
             s1.MdiParent = this;
             s1.Show();
@@ -127,6 +140,7 @@ namespace WindowsFormsAppPersonalProject
         private void toolStripMenuItem1_Click(object sender, EventArgs e)       //고객관리      //기존의 다른 폼들과 달리 휴면계좌 여부도 넘겨준다
         {
             frmCustomerManagement m1 = new frmCustomerManagement(customerInfo2);
+            m1.MdiParent = this;
             m1.Show();
             m1.Activate();
         }
@@ -134,6 +148,7 @@ namespace WindowsFormsAppPersonalProject
         private void toolStripMenuItem2_Click(object sender, EventArgs e)       //계좌관리
         {
             frmAccountmanagement frm = new frmAccountmanagement();
+            frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -141,6 +156,7 @@ namespace WindowsFormsAppPersonalProject
         private void toolStripMenuItem3_Click(object sender, EventArgs e)       //대출 현황
         {
             frmLoanManagement frm = new frmLoanManagement();
+            frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -157,6 +173,7 @@ namespace WindowsFormsAppPersonalProject
         private void 메세지박스ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmJerryTalk frm = new frmJerryTalk(customerInfo);
+            frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -164,6 +181,7 @@ namespace WindowsFormsAppPersonalProject
         private void 메세지박스ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmJerryTalk frm = new frmJerryTalk(customerInfo);
+            frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -212,6 +230,7 @@ namespace WindowsFormsAppPersonalProject
                                 //연장하려하는 예금 폼 띄우기
                                 wannaExtend = true;
                                 frmDepositExtension frm = new frmDepositExtension(dt, customerInfo);
+                                frm.MdiParent = this;
                                 frm.Show();
                                 frm.Activate();
                             }
@@ -279,7 +298,7 @@ namespace WindowsFormsAppPersonalProject
                                 //연장하려하는 적금 폼 띄우기
                                 wannaExtendS = true;
                                 frmSavingExtension frm2 = new frmSavingExtension(dt2, customerInfo);
-                                //frm.MdiParent = this;
+                                frm2.MdiParent = this;
                                 frm2.Show();
                                 frm2.Activate();
                             }
@@ -333,6 +352,7 @@ namespace WindowsFormsAppPersonalProject
         private void 예금ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDepositExtension frm = new frmDepositExtension(dt, customerInfo);
+            frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -340,7 +360,7 @@ namespace WindowsFormsAppPersonalProject
         private void 적금ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSavingExtension frm2 = new frmSavingExtension(dt2, customerInfo);
-            //frm.MdiParent = this;
+            frm2.MdiParent = this;
             frm2.Show();
             frm2.Activate();
         }

@@ -105,8 +105,12 @@ namespace WindowsFormsAppPersonalProject
             if (db.Update(txtLoanWillBeLeftOver.Text, LoanNum))
             {
                 MessageBox.Show("성공적으로 대출이 상환되었습니다.");
+                this.Close();
             }
-            else { MessageBox.Show("과정에 오류가 있습니다. 다시 시도해주세요."); }
+            else {
+                MessageBox.Show("과정에 오류가 있습니다. 다시 시도해주세요.");
+                return;
+            }
             db.Dispose();
         }
 

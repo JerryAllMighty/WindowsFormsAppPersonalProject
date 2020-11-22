@@ -21,6 +21,7 @@ namespace WindowsFormsAppPersonalProject
 
         private void frmAccountmanagement_Load(object sender, EventArgs e)
         {
+            this.Dock = DockStyle.Fill;
             CommonUtil.SetinitGridView(dgvMember);
             CommonUtil.AddGridTextColumn(dgvMember, "일반 계좌 총 개수", "TotalNAccount", 150);
             CommonUtil.AddGridTextColumn(dgvMember, "적금 계좌 총 개수", "TotalSAccount", 150);

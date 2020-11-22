@@ -41,10 +41,8 @@
             this.lblOutAcc = new System.Windows.Forms.Label();
             this.lblAmountOfPayBack = new System.Windows.Forms.Label();
             this.lblLoanNum = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,7 +52,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(718, 438);
+            this.panel1.Size = new System.Drawing.Size(821, 548);
             this.panel1.TabIndex = 16;
             // 
             // groupBox1
@@ -69,14 +67,13 @@
             this.groupBox1.Controls.Add(this.lblOutAcc);
             this.groupBox1.Controls.Add(this.lblAmountOfPayBack);
             this.groupBox1.Controls.Add(this.lblLoanNum);
-            this.groupBox1.Controls.Add(this.trackBar1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(718, 438);
+            this.groupBox1.Size = new System.Drawing.Size(821, 548);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "상환 정보 최종 확인";
@@ -85,10 +82,10 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(539, 344);
+            this.btnCancel.Location = new System.Drawing.Point(616, 430);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(122, 46);
+            this.btnCancel.Size = new System.Drawing.Size(139, 58);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -97,10 +94,10 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOK.Location = new System.Drawing.Point(347, 344);
+            this.btnOK.Location = new System.Drawing.Point(397, 430);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(142, 46);
+            this.btnOK.Size = new System.Drawing.Size(162, 58);
             this.btnOK.TabIndex = 5;
             this.btnOK.Text = "최종 대출 상환";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -109,40 +106,44 @@
             // txtLoanWillBeLeftOver
             // 
             this.txtLoanWillBeLeftOver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtLoanWillBeLeftOver.Location = new System.Drawing.Point(526, 220);
+            this.txtLoanWillBeLeftOver.Location = new System.Drawing.Point(601, 275);
             this.txtLoanWillBeLeftOver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLoanWillBeLeftOver.Name = "txtLoanWillBeLeftOver";
-            this.txtLoanWillBeLeftOver.Size = new System.Drawing.Size(135, 26);
+            this.txtLoanWillBeLeftOver.ReadOnly = true;
+            this.txtLoanWillBeLeftOver.Size = new System.Drawing.Size(154, 30);
             this.txtLoanWillBeLeftOver.TabIndex = 3;
             this.txtLoanWillBeLeftOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtOutAcc
             // 
             this.txtOutAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOutAcc.Location = new System.Drawing.Point(137, 220);
+            this.txtOutAcc.Location = new System.Drawing.Point(157, 275);
             this.txtOutAcc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutAcc.Name = "txtOutAcc";
-            this.txtOutAcc.Size = new System.Drawing.Size(134, 26);
+            this.txtOutAcc.ReadOnly = true;
+            this.txtOutAcc.Size = new System.Drawing.Size(153, 30);
             this.txtOutAcc.TabIndex = 2;
             this.txtOutAcc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtAmountOfPayBack
             // 
             this.txtAmountOfPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAmountOfPayBack.Location = new System.Drawing.Point(526, 98);
+            this.txtAmountOfPayBack.Location = new System.Drawing.Point(601, 122);
             this.txtAmountOfPayBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmountOfPayBack.Name = "txtAmountOfPayBack";
-            this.txtAmountOfPayBack.Size = new System.Drawing.Size(135, 26);
+            this.txtAmountOfPayBack.ReadOnly = true;
+            this.txtAmountOfPayBack.Size = new System.Drawing.Size(154, 30);
             this.txtAmountOfPayBack.TabIndex = 1;
             this.txtAmountOfPayBack.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtLoanNum
             // 
             this.txtLoanNum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtLoanNum.Location = new System.Drawing.Point(137, 98);
+            this.txtLoanNum.Location = new System.Drawing.Point(157, 122);
             this.txtLoanNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLoanNum.Name = "txtLoanNum";
-            this.txtLoanNum.Size = new System.Drawing.Size(134, 26);
+            this.txtLoanNum.ReadOnly = true;
+            this.txtLoanNum.Size = new System.Drawing.Size(153, 30);
             this.txtLoanNum.TabIndex = 0;
             this.txtLoanNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -150,9 +151,9 @@
             // 
             this.lblLoanLeftOver.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLoanLeftOver.AutoSize = true;
-            this.lblLoanLeftOver.Location = new System.Drawing.Point(344, 220);
+            this.lblLoanLeftOver.Location = new System.Drawing.Point(393, 275);
             this.lblLoanLeftOver.Name = "lblLoanLeftOver";
-            this.lblLoanLeftOver.Size = new System.Drawing.Size(145, 16);
+            this.lblLoanLeftOver.Size = new System.Drawing.Size(180, 20);
             this.lblLoanLeftOver.TabIndex = 31;
             this.lblLoanLeftOver.Text = "상환 후 남을 금액";
             this.lblLoanLeftOver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,9 +162,9 @@
             // 
             this.lblOutAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOutAcc.AutoSize = true;
-            this.lblOutAcc.Location = new System.Drawing.Point(10, 220);
+            this.lblOutAcc.Location = new System.Drawing.Point(11, 275);
             this.lblOutAcc.Name = "lblOutAcc";
-            this.lblOutAcc.Size = new System.Drawing.Size(110, 16);
+            this.lblOutAcc.Size = new System.Drawing.Size(135, 20);
             this.lblOutAcc.TabIndex = 30;
             this.lblOutAcc.Text = "출금계좌번호";
             this.lblOutAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,9 +173,9 @@
             // 
             this.lblAmountOfPayBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAmountOfPayBack.AutoSize = true;
-            this.lblAmountOfPayBack.Location = new System.Drawing.Point(344, 98);
+            this.lblAmountOfPayBack.Location = new System.Drawing.Point(393, 122);
             this.lblAmountOfPayBack.Name = "lblAmountOfPayBack";
-            this.lblAmountOfPayBack.Size = new System.Drawing.Size(76, 16);
+            this.lblAmountOfPayBack.Size = new System.Drawing.Size(93, 20);
             this.lblAmountOfPayBack.TabIndex = 29;
             this.lblAmountOfPayBack.Text = "상환금액";
             this.lblAmountOfPayBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,28 +184,18 @@
             // 
             this.lblLoanNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLoanNum.AutoSize = true;
-            this.lblLoanNum.Location = new System.Drawing.Point(10, 98);
+            this.lblLoanNum.Location = new System.Drawing.Point(11, 122);
             this.lblLoanNum.Name = "lblLoanNum";
-            this.lblLoanNum.Size = new System.Drawing.Size(76, 16);
+            this.lblLoanNum.Size = new System.Drawing.Size(93, 20);
             this.lblLoanNum.TabIndex = 28;
             this.lblLoanNum.Text = "대출번호";
             this.lblLoanNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(5, 19);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(172, 45);
-            this.trackBar1.TabIndex = 27;
-            this.trackBar1.TabStop = false;
-            this.trackBar1.TickFrequency = 3;
-            // 
             // frmLoanPayBack2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 438);
+            this.ClientSize = new System.Drawing.Size(821, 548);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -214,7 +205,6 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,7 +221,6 @@
         private System.Windows.Forms.Label lblOutAcc;
         private System.Windows.Forms.Label lblAmountOfPayBack;
         private System.Windows.Forms.Label lblLoanNum;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button btnCancel;
     }
 }

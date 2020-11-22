@@ -41,6 +41,7 @@
             // 
             // lblName
             // 
+            this.lblName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblName.Location = new System.Drawing.Point(34, 142);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(128, 39);
@@ -50,6 +51,7 @@
             // 
             // txtName
             // 
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtName.Location = new System.Drawing.Point(200, 142);
             this.txtName.Multiline = true;
@@ -59,6 +61,7 @@
             // 
             // txtID
             // 
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtID.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtID.Location = new System.Drawing.Point(200, 41);
             this.txtID.Multiline = true;
@@ -68,6 +71,7 @@
             // 
             // lblID
             // 
+            this.lblID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblID.Location = new System.Drawing.Point(34, 41);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(128, 39);
@@ -77,6 +81,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtEmail.Location = new System.Drawing.Point(200, 243);
             this.txtEmail.Multiline = true;
@@ -86,6 +91,7 @@
             // 
             // lblEmail
             // 
+            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.Location = new System.Drawing.Point(34, 243);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(128, 39);
@@ -95,6 +101,7 @@
             // 
             // btnSearchPw
             // 
+            this.btnSearchPw.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSearchPw.Location = new System.Drawing.Point(286, 319);
             this.btnSearchPw.Name = "btnSearchPw";
             this.btnSearchPw.Size = new System.Drawing.Size(167, 40);

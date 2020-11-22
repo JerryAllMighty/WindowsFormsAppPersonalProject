@@ -36,15 +36,15 @@
             this.이체ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.로그아웃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.메세지박스ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.계좌연장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.예금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.적금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.메세지박스ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.계좌연장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.예금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.적금ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +112,29 @@
             this.메세지박스ToolStripMenuItem.Text = "메세지박스";
             this.메세지박스ToolStripMenuItem.Click += new System.EventHandler(this.메세지박스ToolStripMenuItem_Click);
             // 
+            // 계좌연장ToolStripMenuItem
+            // 
+            this.계좌연장ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.예금ToolStripMenuItem,
+            this.적금ToolStripMenuItem});
+            this.계좌연장ToolStripMenuItem.Name = "계좌연장ToolStripMenuItem";
+            this.계좌연장ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.계좌연장ToolStripMenuItem.Text = "계좌 연장";
+            // 
+            // 예금ToolStripMenuItem
+            // 
+            this.예금ToolStripMenuItem.Name = "예금ToolStripMenuItem";
+            this.예금ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.예금ToolStripMenuItem.Text = "예금";
+            this.예금ToolStripMenuItem.Click += new System.EventHandler(this.예금ToolStripMenuItem_Click);
+            // 
+            // 적금ToolStripMenuItem
+            // 
+            this.적금ToolStripMenuItem.Name = "적금ToolStripMenuItem";
+            this.적금ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.적금ToolStripMenuItem.Text = "적금";
+            this.적금ToolStripMenuItem.Click += new System.EventHandler(this.적금ToolStripMenuItem_Click);
+            // 
             // menuStrip3
             // 
             this.menuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -166,37 +189,13 @@
             this.메세지박스ToolStripMenuItem1.Text = "메세지박스";
             this.메세지박스ToolStripMenuItem1.Click += new System.EventHandler(this.메세지박스ToolStripMenuItem1_Click);
             // 
-            // 계좌연장ToolStripMenuItem
-            // 
-            this.계좌연장ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.예금ToolStripMenuItem,
-            this.적금ToolStripMenuItem});
-            this.계좌연장ToolStripMenuItem.Name = "계좌연장ToolStripMenuItem";
-            this.계좌연장ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
-            this.계좌연장ToolStripMenuItem.Text = "계좌 연장";
-            // 
-            // 예금ToolStripMenuItem
-            // 
-            this.예금ToolStripMenuItem.Name = "예금ToolStripMenuItem";
-            this.예금ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.예금ToolStripMenuItem.Text = "예금";
-            this.예금ToolStripMenuItem.Click += new System.EventHandler(this.예금ToolStripMenuItem_Click);
-            // 
-            // 적금ToolStripMenuItem
-            // 
-            this.적금ToolStripMenuItem.Name = "적금ToolStripMenuItem";
-            this.적금ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.적금ToolStripMenuItem.Text = "적금";
-            this.적금ToolStripMenuItem.Click += new System.EventHandler(this.적금ToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(914, 562);
+            this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

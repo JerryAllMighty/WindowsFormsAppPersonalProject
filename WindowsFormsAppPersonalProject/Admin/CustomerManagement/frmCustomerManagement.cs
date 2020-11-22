@@ -91,7 +91,7 @@ namespace WindowsFormsAppPersonalProject.CustomerManagement
             CommonUtil.AddGridTextColumn(dgvMember, "관리자여부", "IsAdmin");
             CommonUtil.AddGridTextColumn(dgvMember, "고객비밀번호", "CustomerPw", 120);
             CommonUtil.AddGridTextColumn(dgvMember, "연락처", "CustomerPhone");
-            CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail", 120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객이메일", "CustomerEmail", 180);
             CommonUtil.AddGridTextColumn(dgvMember, "고객이미지경로", "CustomerImage", 120);
             CommonUtil.AddGridTextColumn(dgvMember, "휴면계좌여부", "IsResting", 150);
 

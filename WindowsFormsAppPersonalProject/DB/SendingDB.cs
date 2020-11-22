@@ -53,9 +53,12 @@ namespace WindowsFormsAppPersonalProject
             try 
             {
                 DataTable dt = new DataTable();
-                string sql = @"select SSerialNum, NAccountNum, AmountOfSending, date(SendingDate), RecentlySentTo, CustomerNum, CustomerName 
-                                                from sending
-                                                where CustomerNum = @customernum";
+                string sql = @"select S.SSerialNum, S.NAccountNum, S.AmountOfSending, date(S.SendingDate), 
+                                                S.RecentlySentTo, S.CustomerNum, S.CustomerName ,N.CustomerName as ReceiverName
+                                                from sending S
+                                                join normalaccount N
+                                                on S.RecentlySentTo = N.NAccountNum
+                                                where S.CustomerNum = @customernum ";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
 
                 da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);

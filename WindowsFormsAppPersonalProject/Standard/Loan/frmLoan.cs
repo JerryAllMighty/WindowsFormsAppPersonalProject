@@ -54,15 +54,15 @@ namespace WindowsFormsAppPersonalProject
         {
             CommonUtil.SetinitGridView(dgvMember);
             CommonUtil.AddGridTextColumn(dgvMember, "대출번호", "LoanNum");
-            CommonUtil.AddGridTextColumn(dgvMember, "담보제공예금계좌번호", "DAccountNum", 150);
+            CommonUtil.AddGridTextColumn(dgvMember, "담보제공\n예금계좌번호", "DAccountNum", 150);
             CommonUtil.AddGridTextColumn(dgvMember, "대출금액", "AmountOfLoan");
             CommonUtil.AddGridTextColumn(dgvMember, "만기일시상환금액", "ReturnWhenExpired", 150);
-            CommonUtil.AddGridTextColumn(dgvMember, "대출금상환방법", "PayBackMethod");
+            CommonUtil.AddGridTextColumn(dgvMember, "대출금\n상환방법", "PayBackMethod");
             CommonUtil.AddGridTextColumn(dgvMember, "대출목적", "Purpose");
             CommonUtil.AddGridTextColumn(dgvMember, "대출기간", "LoanExpire");
             CommonUtil.AddGridTextColumn(dgvMember, "출금계좌", "NAccountNum");
-            CommonUtil.AddGridTextColumn(dgvMember, "출금계좌비밀번호", "Pwd");
-            CommonUtil.AddGridTextColumn(dgvMember, "대출시작일시", "LoanStarted");
+            CommonUtil.AddGridTextColumn(dgvMember, "출금계좌\n비밀번호", "Pwd");
+            CommonUtil.AddGridTextColumn(dgvMember, "대출\n시작일시", "LoanStarted");
             CommonUtil.AddGridTextColumn(dgvMember, "대출금리", "InterestRate");
             CommonUtil.AddGridTextColumn(dgvMember, "정규상환일", "RegularPayBackDate");
             CommonUtil.AddGridTextColumn(dgvMember, "고객번호", "CustomerNum");

@@ -24,14 +24,21 @@ namespace WindowsFormsAppPersonalProject
 
         public Savings(string customernum, string customername, string kindofacc, string duration,
             string paypermonth, string outaccount, string outaccountpwd, string newpwd) 
-            :this( customernum,  customername,  kindofacc,  duration,
-             paypermonth,  outaccount,  outaccountpwd,  newpwd, "")     //저축 기간 안 넘겨줘도 빈 값으로 받아준다
+            //this()로 바로 아래의 생성자 쓰는게  이번만큼은 더 비효율적이라 일부러 2개 다 코딩
         {
-
+            CustomerNum = customernum;
+            CustomerName = customername;
+            KindOfAcc = kindofacc;
+            Duration = duration;
+            PayPerMonth = paypermonth;
+            OutAccount = outaccount;
+            OutAccountPwd = outaccountpwd;
+            NewPwd = newpwd;
+            
         }
 
-        public Savings(string customernum, string customername, string kindofacc, string saccountnum, string paypermonth,
-            string outaccount, string outaccountpwd, string newpwd, string duration)
+        public Savings(string customernum, string customername, string kindofacc, string duration,string paypermonth,
+            string outaccount, string outaccountpwd, string newpwd, string saccountnum )
         {
             CustomerNum = customernum;
             CustomerName = customername;
