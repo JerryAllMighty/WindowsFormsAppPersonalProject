@@ -27,7 +27,7 @@ namespace WindowsFormsAppPersonalProject
         string ReceiverInfO;
 
 
-        public static List<string> HasReadOrNot = new List<string>();
+        public static bool HasReadOrNot = false;
 
         frmListOfCustomers list;
         DataTable dt;
@@ -59,8 +59,6 @@ namespace WindowsFormsAppPersonalProject
                                             CustomerID, IsAdmin, CustomerPw, Phone, CustomerEmail, CustomerImage);
             }
         }
-
-        public List<string> hasreadornot { get { return HasReadOrNot; }}
 
         public Message msgInfo {
             get
@@ -139,7 +137,8 @@ namespace WindowsFormsAppPersonalProject
                 string selected = listBox1.SelectedItem.ToString();
                 ReceiverNum = selected.Substring(0, selected.IndexOf('.'));
                 ReceiverName = selected.Substring(selected.IndexOf('.') + 1);
-                HasReadOrNot.Insert(0, "Y" + selected);
+                //  HasReadOrNot.Insert(0, "Y" + selected);
+                db.UpdateHasRead(CustomerNum);       //여기서 읽은 것으로 업데이트해준다
                 DataTable dt3 = db.GetMessage3(selected.Substring(0, selected.IndexOf('.')), CustomerNum);
                 if (dt3 != null)
                 {
@@ -165,7 +164,7 @@ namespace WindowsFormsAppPersonalProject
         {
             //전송하면 보낸 메세지가 전달이되야함
             //만약 검색해서 가져온거면 그 검색 결과대로 전송이 이뤄져야해
-            if (listBox1.SelectedItem.ToString().Length > 0)
+            if (listBox1.Text.Length > 0)
             {
                 MessageDB db = new MessageDB();
                 if (db.SendMsg(msgInfo))

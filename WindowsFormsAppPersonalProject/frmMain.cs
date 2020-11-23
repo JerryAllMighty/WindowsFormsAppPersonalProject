@@ -80,6 +80,35 @@ namespace WindowsFormsAppPersonalProject
             else if (IsAdmin == "Y")
                 menuStrip3.Visible = true;
 
+            if (!bActivateFlag)
+            {
+                //새로온 메세지가 있다면 팝업 띄우기
+                MessageDB m1 = new MessageDB();
+                DataTable dta = m1.HasReadOrNot(CustomerNum);
+
+                if (dta != null)
+                {
+                    for (int i = 0; i < dta.Rows.Count; i++)
+                    {
+                        if (dta.Rows[i][0].ToString() == "N")
+                        {
+                            if (MessageBox.Show("새로 온 메세지가 있습니다. 확인하시겠습니까?") == DialogResult.OK)
+                            {
+                                frmJerryTalk frm = new frmJerryTalk(customerInfo);
+                                //frm.MdiParent = this;
+                                frm.TopMost = true;
+                                frm.Show();
+                                frm.Activate();
+                            }
+                        }
+                    }
+
+                }
+
+                bActivateFlag = true;
+            }
+
+
         }
 
         private void 고객ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,7 +202,7 @@ namespace WindowsFormsAppPersonalProject
         private void 메세지박스ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmJerryTalk frm = new frmJerryTalk(customerInfo);
-            frm.MdiParent = this;
+           // frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
@@ -181,29 +210,14 @@ namespace WindowsFormsAppPersonalProject
         private void 메세지박스ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmJerryTalk frm = new frmJerryTalk(customerInfo);
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
             frm.Activate();
         }
 
         private void frmMain_Activated(object sender, EventArgs e)      //메세지 띄우기, 적금이나 예금 만기 한 달 전일 떄 안내 메세지가 팝업 되게 하기
         {
-            if (!bActivateFlag)
-            {
-                //새로온 메세지가 있다면 팝업 띄우기
-                List<string> list = new List<string>();
-                foreach (string str in frmJerryTalk.HasReadOrNot)
-                {
-                    list.Add(str.Substring(0, 1));
-                }
-                if (!list.Contains("Y") && list.Count > 0)
-                {
-                    MessageBox.Show("새로 온 메세지가 있습니다. 확인하시겠습니까?");
-                }
-
-                bActivateFlag = true;
-            }
-
+           
             //적금이나 예금 만기 한 달 전일 떄 안내 메세지가 팝업 되게 하기
             //이 때 선택이 예 이면 각 계좌에서 일반 계좌로 돈을 쏘게 하고, 아니요이면 연장 시키기
 

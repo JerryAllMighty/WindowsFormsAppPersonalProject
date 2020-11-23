@@ -20,10 +20,15 @@ namespace WindowsFormsAppPersonalProject
         public string ReceiverNum;
 
         public string ReceiverInFo;
+        public string HasReadOrNot;
 
-        
+        public Message(string sendernum, string receivernum, string sender, string receiver, string msgtext, string timesent)
+            :this( sendernum,  receivernum,  sender,  receiver,  msgtext,  timesent,  "N")
+        {
+           
+        }
 
-        public Message(string sendernum, string receivernum,string sender, string receiver, string msgtext , string timesent)
+        public Message(string sendernum, string receivernum,string sender, string receiver, string msgtext , string timesent, string hasreadornot)
         {
             SenderNum = sendernum;
              ReceiverNum= receivernum;
@@ -31,6 +36,7 @@ namespace WindowsFormsAppPersonalProject
             ReceiverName = receiver;
             MsgText = msgtext;
             TimeSent = timesent;
+            HasReadOrNot = hasreadornot;
         }
     }
 
@@ -50,8 +56,8 @@ namespace WindowsFormsAppPersonalProject
             MySqlTransaction trans = conn.BeginTransaction();
             try
             {
-                string sql = @"insert into message (SenderName, ReceiverName, MsgText, TimeSent, SenderNum, ReceiverNum)
-                                values(@sendername, @receivername, @msgText, now(), @sendernum, @receivernum)";
+                string sql = @"insert into message (SenderName, ReceiverName, MsgText, TimeSent, SenderNum, ReceiverNum, HasReadOrNot)
+                                values(@sendername, @receivername, @msgText, now(), @sendernum, @receivernum, @hasreadornot)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
 
@@ -69,6 +75,9 @@ namespace WindowsFormsAppPersonalProject
 
                 cmd.Parameters.Add("@receivernum", MySqlDbType.Int32);
                 cmd.Parameters["@receivernum"].Value = Convert.ToInt32(msgInfo.ReceiverNum);
+
+                cmd.Parameters.Add("@hasreadornot", MySqlDbType.VarChar);
+                cmd.Parameters["@hasreadornot"].Value = msgInfo.HasReadOrNot;
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
@@ -88,7 +97,64 @@ namespace WindowsFormsAppPersonalProject
             }
         }
 
-        
+        public bool UpdateHasRead(string customernum)        //메세지를 주고 받는 조건을 PK인 고유 식별번호로 진행
+        {
+            MySqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"update message
+                                        set HasReadOrNot = 'Y'
+                                            where ReceiverNum = @customernum";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Transaction = trans;
+
+                cmd.Parameters.Add("@customernum", MySqlDbType.VarChar);
+                cmd.Parameters["@customernum"].Value = customernum;
+
+                
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    trans.Commit();
+                    return true;
+                }
+                else
+                {
+                    trans.Rollback();
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+                return false;
+            }
+        }
+
+        public DataTable HasReadOrNot(string customernum)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select HasReadOrNot
+                                    from message where ReceiverNum = @customernum";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.Add("@customernum", MySqlDbType.Int32);
+                da.SelectCommand.Parameters["@customernum"].Value = Convert.ToInt32(customernum);
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt;
+                }
+                else { return null; }
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public DataTable GetMessage(string customernum)
         {

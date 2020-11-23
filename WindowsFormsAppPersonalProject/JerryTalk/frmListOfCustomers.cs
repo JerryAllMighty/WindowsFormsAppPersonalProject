@@ -72,7 +72,21 @@ namespace WindowsFormsAppPersonalProject
         }
 
         private void ListOfCustomers_Load(object sender, EventArgs e)
-        {
+        {   //필요없는 정보는 주석~
+            CommonUtil.SetinitGridView(dgvMember);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 번호", "CustomerNum",100);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 이름", "CustomerName",120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 ID", "CustomerID",80);
+            CommonUtil.AddGridTextColumn(dgvMember, "관리자 여부", "IsAdmin",120);
+            //CommonUtil.AddGridTextColumn(dgvMember, "고객 비밀번호", "CustomerPw");
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 연락처", "CustomerPhone",120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 이메일", "CustomerEmail",120);
+            //CommonUtil.AddGridTextColumn(dgvMember, "고객 이미지 경로", "CustomerImage");
+            CommonUtil.AddGridTextColumn(dgvMember, "휴면 여부", "IsResting",120);
+            CommonUtil.AddGridTextColumn(dgvMember, "고객 주소", "CustomerAddress",480);
+
+
+
             CustomerDB db = new CustomerDB();
             dt = db.GetEveryData();
 
